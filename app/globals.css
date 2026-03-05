@@ -536,3 +536,107 @@ p, li, span, label, input, textarea, select, button {
   .show-mobile { display: none !important; }
   .hide-mobile { display: flex !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE LAYOUT SYSTEM
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Section padding */
+.sec-hero   { padding: 140px 32px 80px; }
+.sec-std    { padding: 80px 32px 100px; }
+.sec-md     { padding: 80px 32px; }
+.sec-sm     { padding: 64px 32px; }
+.sec-cta    { padding: 100px 32px; }
+
+/* Layout grids */
+.grid-hero       { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.grid-2col       { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.grid-2col-rev   { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.grid-contact    { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: start; }
+.grid-3col       { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-toolbox    { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.grid-2col-sm    { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid-services-img { display: grid; grid-template-columns: 100px 1fr; gap: 48px; align-items: center; }
+.grid-tool-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.grid-research   { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+
+/* Container */
+.container       { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+.container-md    { max-width: 1040px; margin: 0 auto; }
+.container-sm    { max-width: 860px; margin: 0 auto; }
+.container-xs    { max-width: 780px; margin: 0 auto; text-align: center; }
+
+/* Mobile-only reverse order */
+.mobile-first    {}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE BREAKPOINT  ≤ 768px
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Section padding */
+  .sec-hero  { padding: 110px 20px 60px !important; }
+  .sec-std   { padding: 52px 20px 64px !important; }
+  .sec-md    { padding: 48px 20px !important; }
+  .sec-sm    { padding: 40px 20px !important; }
+  .sec-cta   { padding: 64px 20px !important; }
+
+  /* All grids → single column */
+  .grid-hero,
+  .grid-2col,
+  .grid-2col-rev,
+  .grid-contact,
+  .grid-3col,
+  .grid-services-img { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  /* Toolbox → 2 cols on mobile */
+  .grid-toolbox { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+
+  /* Small 2-col grids stay as 2 col (they're small cards) */
+  .grid-2col-sm { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+
+  /* Tool inner panels → stack */
+  .grid-tool-inner { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .grid-research   { grid-template-columns: 1fr !important; }
+
+  /* Container horizontal padding */
+  .container    { padding: 0 20px !important; }
+  .container-md { padding: 0 20px !important; }
+  .container-sm { padding: 0 20px !important; }
+  .container-xs { padding: 0 20px !important; }
+
+  /* Mobile first = reverse order so text comes before image */
+  .mobile-first { order: -1 !important; }
+
+  /* Reduce inner card padding */
+  .card { padding: 20px !important; }
+
+  /* Hero min-height */
+  .hero-full { min-height: auto !important; padding-top: 100px !important; padding-bottom: 60px !important; }
+
+  /* CTA buttons full width on mobile */
+  .btn-primary, .btn-terra, .btn-rose, .btn-outline {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Wooden toolbox body */
+  .toolbox-body { padding: 16px 14px 20px !important; }
+
+  /* Tool item labels – smaller */
+  .tool-label { font-size: 10px !important; }
+
+  /* Services image hide on mobile */
+  .services-img-col { display: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TABLET  769px – 1024px
+   ═══════════════════════════════════════════════════════════════════ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-3col { grid-template-columns: 1fr 1fr !important; }
+  .grid-toolbox { grid-template-columns: repeat(3, 1fr) !important; }
+  .grid-hero { gap: 40px !important; }
+  .grid-2col { gap: 40px !important; }
+  .container { padding: 0 24px !important; }
+}

@@ -32,11 +32,11 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ───────────────────────────────────────────────────────── */}
-      <section style={{ minHeight:"100vh", display:"flex", alignItems:"center", position:"relative", overflow:"hidden", background:"linear-gradient(148deg, #F9F7F2 0%, #F0EBE1 55%, #EEF0EB 100%)", paddingTop:"100px" }}>
+      <section className="hero-full" style={{ minHeight:"100vh", display:"flex", alignItems:"center", position:"relative", overflow:"hidden", background:"linear-gradient(148deg, #F9F7F2 0%, #F0EBE1 55%, #EEF0EB 100%)", paddingTop:"100px" }}>
         <div style={{ position:"absolute", top:"8%", left:"3%", width:"480px", height:"480px", borderRadius:"50%", background:"radial-gradient(circle, rgba(168,176,158,0.18) 0%, transparent 68%)", pointerEvents:"none" }} />
         <div style={{ position:"absolute", bottom:"8%", right:"-4%", width:"360px", height:"360px", borderRadius:"50%", background:"radial-gradient(circle, rgba(193,127,95,0.13) 0%, transparent 68%)", pointerEvents:"none" }} />
 
-        <div style={{ maxWidth:"1160px", margin:"0 auto", padding:"0 32px", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"64px", alignItems:"center", width:"100%", position:"relative", zIndex:1 }}>
+        <div className="container grid-hero" style={{ width:"100%", position:"relative", zIndex:1 }}>
 
           {/* ── Text column ── */}
           <div>
@@ -112,7 +112,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <div style={{ display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"10px", position:"relative", zIndex:1 }}>
+              <div className="grid-toolbox" style={{ position:"relative", zIndex:1 }}>
                 {TOOLS.map(({ num, icon, title }) => (
                   <Link key={num} href={`/model#tool-${num}`} style={{ textDecoration:"none" }}>
                     <div style={{
@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* ── STATS ──────────────────────────────────────────────────────── */}
-      <section style={{ background:"var(--sage)", padding:"44px 32px" }}>
+      <section className="sec-sm" style={{ background:"var(--sage)" }}>
         <div style={{ maxWidth:"960px", margin:"0 auto", display:"flex", justifyContent:"space-around", flexWrap:"wrap", gap:"28px", textAlign:"center" }}>
           {[
             { num:"20",   label:"שנות ניסיון" },
@@ -186,8 +186,8 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ──────────────────────────────────────────────────────── */}
-      <section style={{ padding:"100px 32px", background:"var(--paper)" }}>
-        <div style={{ maxWidth:"1160px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"72px", alignItems:"center" }}>
+      <section className="sec-std" style={{ background:"var(--paper)" }}>
+        <div className="container grid-2col-rev">
           <div>
             <span className="tag-terra" style={{ marginBottom:"16px", display:"inline-block" }}>הגישה שלי</span>
             <h2 style={{ fontSize:"clamp(28px,4vw,44px)", color:"var(--charcoal)", marginBottom:"24px", lineHeight:1.2 }}>
@@ -226,7 +226,7 @@ export default function Home() {
             </div>
 
             {/* Credentials */}
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"12px" }}>
+            <div className="grid-2col-sm">
               {[
                 { icon:"🎓", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
                 { icon:"📍", text:"Cedar Park, TX & ישראל (זום)", href:null },
@@ -251,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* ── WHO IS IT FOR ──────────────────────────────────────────────── */}
-      <section style={{ padding:"64px 32px", background:"var(--linen)" }}>
+      <section className="sec-sm" style={{ background:"var(--linen)" }}>
         <div style={{ maxWidth:"820px", margin:"0 auto", textAlign:"center" }}>
           <button onClick={() => setToolboxOpen(!toolboxOpen)} style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--paper)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-card)", padding:"22px 36px", cursor:"pointer", boxShadow:"var(--shadow-card)", transition:"all 220ms ease", width:"100%" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
@@ -292,14 +292,14 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ──────────────────────────────────────────────────── */}
-      <section style={{ padding:"100px 32px", background:"var(--paper)" }}>
-        <div style={{ maxWidth:"1160px", margin:"0 auto" }}>
+      <section className="sec-std" style={{ background:"var(--paper)" }}>
+        <div className="container">
           <div style={{ textAlign:"center", marginBottom:"56px" }}>
             <h2 style={{ fontSize:"clamp(28px,4vw,44px)", color:"var(--charcoal)", marginBottom:"16px" }}>כיצד נעבוד יחד?</h2>
             <div className="divider-accent-center" />
           </div>
 
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"20px" }}>
+          <div className="grid-3col">
             {[
               {
                 emoji:"🏠", title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
@@ -337,7 +337,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
-      <section style={{ padding:"100px 32px", textAlign:"center", position:"relative", overflow:"hidden", background:"linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)" }}>
+      <section className="sec-cta" style={{ textAlign:"center", position:"relative", overflow:"hidden", background:"linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)" }}>
         <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"320px", height:"320px", borderRadius:"50%", background:"rgba(193,127,95,0.10)", pointerEvents:"none" }} />
         <div style={{ position:"relative", zIndex:1, maxWidth:"640px", margin:"0 auto" }}>
           <span className="tag-sage" style={{ marginBottom:"24px", display:"inline-block" }}>מוכנים להתחיל?</span>

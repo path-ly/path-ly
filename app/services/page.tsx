@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function ServicesPage() {
   return (
     <>
-      <section style={{ padding:"140px 32px 72px", background:"linear-gradient(150deg, #F5EAE4 0%, #F9F7F2 60%)", textAlign:"center" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #F5EAE4 0%, #F9F7F2 60%)", textAlign:"center" }}>
         <span className="tag-terra" style={{ marginBottom:"20px", display:"inline-block" }}>מה אני מציעה</span>
         <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,5vw,64px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 16px", letterSpacing:"-0.02em" }}>
           שירותים
@@ -13,11 +13,11 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      <section style={{ padding:"80px 32px 100px", background:"var(--paper)" }}>
+      <section className="sec-std" style={{ background:"var(--paper)" }}>
         <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
 
           {/* 1. Cedar Park Clinic */}
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"64px", alignItems:"center", marginBottom:"80px" }}>
+          <div className="grid-2col" style={{ marginBottom:"80px" }}>
             <div style={{ height:"320px", borderRadius:"var(--radius-card-lg)", background:"linear-gradient(135deg, var(--sage-faint) 0%, var(--sage-light) 100%)", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", fontSize:"64px", boxShadow:"var(--shadow-float)", border:"1px solid rgba(125,132,113,0.15)", gap:"14px" }}>
               🏠
               <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", color:"var(--sage-dark)", fontWeight:600 }}>Cedar Park, Austin TX</span>
@@ -44,7 +44,7 @@ export default function ServicesPage() {
           </div>
 
           {/* 2. Zoom - Israel & World */}
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"64px", alignItems:"center", marginBottom:"80px" }}>
+          <div className="grid-2col" style={{ marginBottom:"80px" }}>
             <div>
               <span className="tag-terra" style={{ marginBottom:"18px", display:"inline-block" }}>ישראל ועולם · פגישות זום</span>
               <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(28px,3.5vw,40px)", color:"var(--charcoal)", marginBottom:"16px" }}>הדרכת הורים בזום</h2>
@@ -68,7 +68,7 @@ export default function ServicesPage() {
 
           {/* 3. Organizations */}
           <div style={{ background:"linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)", borderRadius:"var(--radius-card-lg)", padding:"64px", boxShadow:"var(--shadow-float)" }}>
-            <div style={{ display:"grid", gridTemplateColumns:"100px 1fr", gap:"48px", alignItems:"center" }}>
+            <div className="grid-services-img">
               <div style={{ textAlign:"center", fontSize:"64px" }}>🏫</div>
               <div>
                 <span className="tag-parchment" style={{ marginBottom:"18px", display:"inline-block", background:"rgba(249,247,242,0.12)", color:"#E8E0D0" }}>ארגונים ומוסדות</span>
@@ -94,7 +94,7 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ padding:"80px 32px", background:"var(--linen)" }}>
+      <section className="sec-md" style={{ background:"var(--linen)" }}>
         <div style={{ maxWidth:"780px", margin:"0 auto" }}>
           <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,40px)", textAlign:"center", color:"var(--charcoal)", marginBottom:"48px", fontStyle:"italic", fontWeight:300 }}>
             שאלות נפוצות

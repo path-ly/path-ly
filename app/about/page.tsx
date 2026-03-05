@@ -32,14 +32,13 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{
-        padding: "120px 32px 80px",
+      <section className="sec-hero" style={{
         background: "linear-gradient(150deg, #F5EAE4 0%, #F9F7F2 60%)",
       }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
+        <div className="grid-hero" style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-          {/* Photo */}
-          <div style={{ position: "relative" }}>
+          {/* Photo — moves below text on mobile */}
+          <div className="mobile-first" style={{ position: "relative" }}>
             <div style={{
               borderRadius: "var(--radius-card-lg)",
               overflow: "hidden",
@@ -95,7 +94,7 @@ export default function AboutPage() {
             </div>
 
             {/* Quick stats */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "32px" }}>
+            <div className="grid-2col-sm" style={{ marginBottom: "32px" }}>
               {[
                 { num: "20+", label: "שנות ניסיון" },
                 { num: "4–14", label: "גיל הילדים", ltr: true },
@@ -124,7 +123,7 @@ export default function AboutPage() {
       </section>
 
       {/* Detail sections */}
-      <section style={{ padding: "80px 32px 100px", background: "var(--paper)" }}>
+      <section className="sec-std" style={{ background: "var(--paper)" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {SECTIONS.map(({ id, label, emoji, content }) => (
@@ -168,7 +167,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "72px 32px", background: "var(--sage)", textAlign: "center" }}>
+      <section className="sec-md" style={{ background: "var(--sage)", textAlign: "center" }}>
         <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(24px,3.5vw,38px)", color: "#FFFFFF", marginBottom: "16px", fontStyle: "italic", fontWeight: 300 }}>
           רוצים להכיר אישית?
         </h2>

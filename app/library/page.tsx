@@ -483,7 +483,7 @@ export default function LibraryPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ padding:"140px 32px 80px", background:"linear-gradient(150deg, #EEF0EB 0%, #F9F7F2 60%)", textAlign:"center", position:"relative", overflow:"hidden" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #EEF0EB 0%, #F9F7F2 60%)", textAlign:"center", position:"relative", overflow:"hidden" }}>
         <div style={{ position:"absolute", top:"-60px", right:"-60px", width:"300px", height:"300px", borderRadius:"50%", background:"radial-gradient(circle, rgba(125,132,113,0.12) 0%, transparent 70%)", pointerEvents:"none" }} />
         <div style={{ position:"absolute", bottom:"-40px", left:"-40px", width:"220px", height:"220px", borderRadius:"50%", background:"radial-gradient(circle, rgba(193,127,95,0.10) 0%, transparent 70%)", pointerEvents:"none" }} />
 
@@ -511,7 +511,7 @@ export default function LibraryPage() {
 
       {/* Sticky Filter Bar */}
       <div style={{ position:"sticky", top:"64px", zIndex:50, background:"rgba(249,247,242,0.95)", backdropFilter:"blur(14px)", borderBottom:"1px solid var(--border)", boxShadow:"0 2px 12px rgba(45,45,45,0.06)" }}>
-        <div style={{ maxWidth:"1160px", margin:"0 auto", padding:"0 32px" }}>
+        <div style={{ maxWidth:"1160px", margin:"0 auto", padding:"0 20px" }}>
           <div style={{ display:"flex", gap:"0", borderBottom:"1px solid var(--border)", overflowX:"auto" }}>
             {FILTER_OPTIONS.map(opt => (
               <button key={opt.value}
@@ -589,7 +589,7 @@ export default function LibraryPage() {
       </div>
 
       {/* Grid */}
-      <section style={{ padding:"52px 32px 100px", background:"var(--paper)", minHeight:"60vh" }}>
+      <section className="sec-std" style={{ background:"var(--paper)", minHeight:"60vh" }}>
         <div style={{ maxWidth:"1160px", margin:"0 auto" }}>
           <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginBottom:"28px" }}>
             מציג <strong style={{ color:"var(--charcoal)" }}>{filtered.length}</strong> פריטים
@@ -612,7 +612,7 @@ export default function LibraryPage() {
       </section>
 
       {/* Newsletter */}
-      <section style={{ padding:"72px 32px", background:"var(--sage)", textAlign:"center" }}>
+      <section className="sec-md" style={{ background:"var(--sage)", textAlign:"center" }}>
         <div style={{ maxWidth:"500px", margin:"0 auto" }}>
           <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(24px,3.5vw,38px)", color:"#FFFFFF", marginBottom:"14px", fontStyle:"italic", fontWeight:300 }}>קבלו תכנים ישירות למייל</h2>
           <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", color:"rgba(249,247,242,0.82)", marginBottom:"28px", lineHeight:1.82 }}>מדי חודש — שיר, מאמר, ורעיון אחד שיכול לשנות משהו.</p>

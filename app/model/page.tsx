@@ -154,7 +154,7 @@ export default function ModelPage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ padding:"140px 32px 80px", background:"linear-gradient(150deg, #EEF0EB 0%, #F9F7F2 60%)", textAlign:"center" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #EEF0EB 0%, #F9F7F2 60%)", textAlign:"center" }}>
         <span className="tag-sage" style={{ marginBottom:"20px", display:"inline-block" }}>הגישה המקורית</span>
         <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,5.5vw,68px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 12px", letterSpacing:"-0.02em", maxWidth:"720px", marginLeft:"auto", marginRight:"auto" }}>
           ארגז הכלים ההורי
@@ -167,7 +167,7 @@ export default function ModelPage() {
       </section>
 
       {/* 10 Tools */}
-      <section style={{ padding:"64px 32px 100px", background:"var(--paper)" }}>
+      <section className="sec-std" style={{ background:"var(--paper)" }}>
         <div style={{ maxWidth:"960px", margin:"0 auto" }}>
           <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", textAlign:"center", marginBottom:"40px" }}>
             לחצו על כל כלי לפירוט מלא, מחקר תומך וקישורים רלוונטיים
@@ -207,7 +207,7 @@ export default function ModelPage() {
                     {desc}
                   </p>
 
-                  <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"16px", marginBottom:"16px" }}>
+                  <div className="grid-tool-inner">
 
                     {/* Practical tips */}
                     <div style={{ background:"rgba(255,255,255,0.85)", borderRadius:"12px", padding:"20px 22px", border:"1px solid var(--border)" }}>
@@ -246,7 +246,7 @@ export default function ModelPage() {
                   </div>
 
                   {/* Research + Video */}
-                  <div style={{ display:"grid", gridTemplateColumns:"1fr auto", gap:"12px", alignItems:"center" }}>
+                  <div className="grid-research">
                     <div style={{ background:"rgba(255,255,255,0.7)", borderRadius:"10px", padding:"14px 18px", border:"1px solid var(--border)" }}>
                       <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", margin:0, lineHeight:1.7 }}>
                         📚 <strong>ביסוס מחקרי:</strong> {research}
@@ -269,7 +269,7 @@ export default function ModelPage() {
       </section>
 
       {/* How we train together */}
-      <section style={{ padding:"80px 32px", background:"var(--linen)" }}>
+      <section className="sec-md" style={{ background:"var(--linen)" }}>
         <div style={{ maxWidth:"780px", margin:"0 auto" }}>
           <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,38px)", color:"var(--charcoal)", marginBottom:"28px", fontStyle:"italic", fontWeight:300, textAlign:"center" }}>
             איך נתאמן יחד על הכלים הללו?
@@ -302,7 +302,7 @@ export default function ModelPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding:"80px 32px", background:"var(--sage)", textAlign:"center" }}>
+      <section className="sec-md" style={{ background:"var(--sage)", textAlign:"center" }}>
         <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,40px)", color:"#FFFFFF", marginBottom:"16px", fontStyle:"italic", fontWeight:300 }}>
           רוצים להתחיל?
         </h2>

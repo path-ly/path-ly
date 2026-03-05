@@ -22,7 +22,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section style={{ padding:"140px 32px 72px", background:"linear-gradient(150deg, #F5EAE4 0%, #F9F7F2 60%)", textAlign:"center" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #F5EAE4 0%, #F9F7F2 60%)", textAlign:"center" }}>
         <span className="tag-terra" style={{ marginBottom:"20px", display:"inline-block" }}>בואו נדבר</span>
         <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,5vw,64px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 16px", letterSpacing:"-0.02em" }}>
           צרו קשר
@@ -32,8 +32,8 @@ export default function ContactPage() {
         </p>
       </section>
 
-      <section style={{ padding:"80px 32px 100px", background:"var(--paper)" }}>
-        <div style={{ maxWidth:"1040px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1.6fr", gap:"64px", alignItems:"start" }}>
+      <section className="sec-std" style={{ background:"var(--paper)" }}>
+        <div className="container-md grid-contact" style={{ margin:"0 auto" }}>
 
           {/* Info */}
           <div>
