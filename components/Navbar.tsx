@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const navLinks = [
   { href: "/",         label: "בית" },
-  { href: "/model",    label: "המודל" },
+  { href: "/model",    label: "ארגז הכלים" },
   { href: "/services", label: "שירותים" },
   { href: "/library",  label: "הספרייה" },
   { href: "/contact",  label: "צרו קשר" },
@@ -37,7 +37,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-          <Image src="/logo.png" alt="מאיה פלטי | PATH-LY" width={40} height={40} style={{ borderRadius: "8px", objectFit: "contain" }} />
+          <Image src="/logo.png" alt="מאיה פלטי | PATH-LY" width={52} height={52} style={{ borderRadius: "10px", objectFit: "contain" }} />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "1px" }}>
             <span style={{ fontFamily: "var(--font-serif)", fontSize: "19px", fontWeight: 600, color: "var(--charcoal)", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
               מאיה פלטי

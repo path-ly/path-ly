@@ -16,6 +16,8 @@ interface LibraryItem {
   accentColor: "sage" | "terra";
   featured?: boolean;
   isMine?: boolean;
+  fullContent?: string;
+  link?: string;
 }
 
 const ITEMS: LibraryItem[] = [
@@ -26,6 +28,29 @@ const ITEMS: LibraryItem[] = [
     tag:"הורות אמיתית", emoji:"🌅",
     excerpt:"ממחר בבוקר אני אהיה אמא טובה, אעטוף אותם כל היום בביטוי גאווה ואהבה... שיר על המחזוריות, ההבטחות, והחמלה שאנחנו כל כך זקוקות לה.",
     accentColor:"terra", featured:true, isMine:true,
+    fullContent:`ממחר בבוקר אני אהיה אמא טובה,
+אעטוף אותם כל היום בביטוי גאווה ואהבה.
+אתפעל, אכיל ואנצור
+ואשב לצידם כשיפלו לעוד בור.
+
+אעיר אותם בחיבוק, ליטוף ונשיקה,
+וכשהם יתמהמהו אתבונן בם בשתיקה.
+לצד הכריך אשלח פתק מעודד עם מדבקה,
+שיזכיר להם שבתום הקרבות, אני שם מחכה.
+
+לאורך כל היום אהיה סבלנית ומבינה,
+אאסוף אותם מהמסגרת מלאה בכוונה.
+וכשיצעקו וירעישו בעת הנהיגה,
+זה יראה לי טבעי ויעלים כל דאגה.
+
+לא אצעק,
+לא אבקר,
+לא אהדוף או אנזוף,
+לא אשווה, לא אשלוט
+ולא "אתן בראש".
+
+ושוב אזכיר לעצמי שאנחנו לומדים כל יום יחדיו,
+שהכי חשוב זה חמלה ולהיות רכה איתי עכשיו.`,
   },
   {
     id:2, type:"poem", category:"inspirational",
@@ -33,6 +58,25 @@ const ITEMS: LibraryItem[] = [
     tag:"פגיעות", emoji:"🕯️",
     excerpt:"יום אחד היא התביישה. והגדולה אמרה: אמא אל תהיה עם עצמך קשה... שיר על האם שנעלמת מעצמה, ועל הילדים שמחכים שתחזור.",
     accentColor:"sage", isMine:true,
+    fullContent:`יום אחד היא התביישה.
+והגדולה אמרה: אמא אל תהיה עם עצמך קשה.
+והקטנה אמרה: אמא אני צריכה חיבוק בבקשה.
+ואביהן אמר: היום אמא היא רק אישה.
+
+יום אחר היא צרחה.
+והגדולה חשבה: אחר כך היא תבקש סליחה.
+והקטנה חשבה: אני אתחבא כאן בשמיכה.
+ואביהן אמר: כל הנשים אותו דבר.
+
+יום אחד היא הסתתרה.
+והגדולה אמרה: אתמול היא נתנה לי סטירה.
+והקטנה אמרה: מתי אמא חוזרת חזרה?
+ואביהן אמר: אמא צריכה לעשות בחירה.
+
+יום אחרי היא נעלמה.
+והגדולה חשבה: כאב לי ובכיתי, אבל זה יותר נורא.
+והקטנה חשבה: אני עדיין לא מבינה מה קרה.
+ואביהן חשב: אני לגמרי לבד עכשיו.`,
   },
   {
     id:3, type:"poem", category:"inspirational",
@@ -40,56 +84,52 @@ const ITEMS: LibraryItem[] = [
     tag:"ילדות ואמהות", emoji:"🌿",
     excerpt:"פעם, לא כל כך מזמן, כשהייתי קטנה, את היית אלוהים ואני המאמינה... שיר על הבת שנהיית אמא, ועל מה שנשאר בדרך.",
     accentColor:"terra", isMine:true,
+    fullContent:`העיקר הכוונה?
+
+פעם, לא כל כך מזמן, כשהייתי קטנה,
+את היית אלוהים ואני "המאמינה".
+כל כך חיכיתי לכל שן שתיפול כבר
+ושמרתי עליה מכל משמר עד להגיעה אל מתחת לכר.
+
+וכשאחת מהן בטעות לי אבדה,
+כתבנו יחד מכתב לפיה, שתתחשב ותהיה נחמדה.
+כל שישי לצידך בהדלקת הנרות,
+לבשתי לבן, עצמתי עיניים ושיננתי ברכות.
+
+עכשיו את לא כאן ואני אמורה...
+להיות בטוחה, אבל מרגישה חסרה.
+כי בעודי מטמינה מתנה,
+מתחת לכר של ילדתי הקטנה.
+
+משתוקקת אני לאותו בטחון,
+שזהו אכן הדבר הנכון ושאולי את עוד תחזרי,
+ותאמרי לי שוב ש:"הכל אפשרי".`,
   },
   {
     id:4, type:"poem", category:"inspirational",
     title:"הגורו של ארוחות הערב", creator:"מאיה פלטי",
     tag:"הומור ואמת", emoji:"🍽️",
-    excerpt:"בפנטזיה היא הגורו של ארוחות הערב המשפחתיות, מזריקה לכל ביס ותבשיל ים של משמעויות... ארוחת ערב כמטפורה לכל הפער בין הפנטזיה להורית למציאות.",
+    excerpt:"בפנטזיה היא הגורו של ארוחות הערב המשפחתיות, מזריקה לכל ביס ותבשיל ים של משמעויות... ארוחת ערב כמטפורה לכל הפער בין הפנטזיה ההורית למציאות.",
     accentColor:"sage", isMine:true,
-  },
-  // ── Inspirational – songs ─────────────────────────────────────────────────
-  {
-    id:5, type:"song", category:"inspirational",
-    title:"מה אני רוצה", creator:"שלומי שבן",
-    tag:"הורות", emoji:"🌙",
-    excerpt:"שיר שמדבר על הרצון להיות נוכח — לא רק פיזית, אלא נוכח בלב.",
-    accentColor:"sage", featured:true,
-  },
-  {
-    id:6, type:"song", category:"inspirational",
-    title:"ילד טוב", creator:"מאיר אריאל",
-    tag:"ילדות", emoji:"⭐",
-    excerpt:"מאיר אריאל מתאר את הפגיעות של ילדות בכמה מילים פשוטות ועוצמתיות.",
-    accentColor:"terra",
-  },
-  {
-    id:7, type:"song", category:"inspirational",
-    title:"Brave", creator:"Sara Bareilles",
-    tag:"אומץ", emoji:"🔥",
-    excerpt:"אנחנו מלמדים ילדים לדבר — אבל האם מלמדים אותם לומר מה שבאמת בלב?",
-    accentColor:"sage",
-  },
-  {
-    id:8, type:"song", category:"inspirational",
-    title:"הבן שלי", creator:"מוש בן ארי",
-    tag:"אהבה", emoji:"💚",
-    excerpt:"שיר על ההבטחה הבלתי נאמרת שכל הורה נושא — להיות שם תמיד.",
-    accentColor:"terra", featured:true,
-  },
-  {
-    id:9, type:"song", category:"inspirational",
-    title:"The Greatest Love of All", creator:"Whitney Houston",
-    tag:"ערך עצמי", emoji:"🌺",
-    excerpt:"אם ילד ילמד לאהוב את עצמו — לא יצטרך לחפש אהבה במקומות הלא נכונים.",
-    accentColor:"sage",
-  },
-  {
-    id:10, type:"song", category:"inspirational",
-    title:"ילדים ממולחים", creator:"אריק איינשטיין",
-    tag:"ילדות", emoji:"✨",
-    excerpt:"ילדות היא לא שלב לעבור — היא עולם שלם שצריך לכבד ולשמר.",
-    accentColor:"terra",
+    fullContent:`בפנטזיה היא הגורו של ארוחות הערב המשפחתיות
+מזריקה לכל ביס ותבשיל ים של משמעויות
+דורשת מכולם לשבת "יפה, כמו שצריך"
+מתבלת בחוקים וערמות של טקסים.
+
+אבל היא לא מסתפקת בירקות וחביתה
+למרות שבילדותה, זה כל מה שרצתה.
+חושקת במשפחה "אמריקאית" מהסרטים,
+כולם יושבים מחוייכים והיחסים משורטטים.
+
+וככה כל יום מחמש וחצי מתחילה קלחת
+איכשהו בסוף היא תמיד צורחת:
+"נו, כנסו כבר למקלחת"
+
+ובנתיים מבשלת ארוחת 5 מנות,
+כי לכל אחד מגבלות ורצונות.
+
+וכשהיא סוף סוף נושמת, היא יכולה לשים לב,
+שהקטן כבר מצליח לבד את הכיסא לקרב.`,
   },
   // ── Inspirational – poems ─────────────────────────────────────────────────
   {
@@ -98,6 +138,7 @@ const ITEMS: LibraryItem[] = [
     tag:"שחרור", emoji:"🍃",
     excerpt:"ילדיך אינם ילדיך. הם בני החיים ובנותיו של עצמם. הם מגיעים דרכך אך לא ממך.",
     accentColor:"sage",
+    link:"https://www.poetryfoundation.org/poems/46549/on-children",
   },
   {
     id:12, type:"poem", category:"inspirational",
@@ -105,6 +146,7 @@ const ITEMS: LibraryItem[] = [
     tag:"בחירה", emoji:"🌲",
     excerpt:"Two roads diverged in a yellow wood — and every parent stands at this crossroads daily.",
     accentColor:"terra",
+    link:"https://www.poetryfoundation.org/poems/44272/the-road-not-taken",
   },
   // ── Professional – Maya's own tools ──────────────────────────────────────
   {
@@ -113,13 +155,15 @@ const ITEMS: LibraryItem[] = [
     tag:"כלי מרכזי", emoji:"💛",
     excerpt:"90-95% מהאוכלוסיה מנהלים דיבור פנימי יומיומי. הקול שאנחנו מדברים בו אל עצמנו — הוא הקול שהילדים שלנו יפנימו. לכן חמלה עצמית היא לא פינוק — היא תשתית.",
     accentColor:"terra", featured:true, isMine:true,
+    link:"/model#tool-01",
   },
   {
     id:14, type:"article", category:"professional",
     title:"רפלקטיביות הורית — כלי 2", creator:"מאיה פלטי",
-    tag:"כלי מרכזי", emoji:"🪞",
+    tag:"כלי מרכזי", emoji:"👁️",
     excerpt:"אנחנו מגיבים על אוטומט — כפתור נלחץ והתגובה מתרחשת. הרפלקטיביות היא ארבע שאלות פשוטות: מה אני חושב? מה אני מרגיש? מה האחר חושב? מה הוא מרגיש?",
     accentColor:"sage", isMine:true,
+    link:"/model#tool-02",
   },
   {
     id:15, type:"article", category:"professional",
@@ -127,6 +171,7 @@ const ITEMS: LibraryItem[] = [
     tag:"יישום מידי", emoji:"🎲",
     excerpt:"משחקיות היא לא פעילות מיוחדת — היא תנוחת נפש. כניסה דרך החלון כשדלת ההתנגדות נסגרת. לנטרל מאבקי כוח, להפחית התנגדות, ולהפוך אינטראקציות יומיומיות לחיבור.",
     accentColor:"terra", isMine:true,
+    link:"/model#tool-03",
   },
   {
     id:16, type:"article", category:"professional",
@@ -134,6 +179,7 @@ const ITEMS: LibraryItem[] = [
     tag:"מניעה ותיקון", emoji:"🤝",
     excerpt:"רוב העבודה נעשית בין האירועים, לא בתוכם. מניעה, עצירת הסלמה ותיקון — שלושת השלבים שהורים מדווחים שמשנים הכל. המטרה היא לא לנצח — אלא ללכת יחד.",
     accentColor:"sage", featured:true, isMine:true,
+    link:"/model#tool-07",
   },
   {
     id:17, type:"article", category:"professional",
@@ -141,6 +187,7 @@ const ITEMS: LibraryItem[] = [
     tag:"קשר ואמון", emoji:"⏳",
     excerpt:"5–20 דקות ביום, קבועות, בטוחות, ולא מוטלות בספק. הילד בוחר. ההורה נוכח. זהו הבסיס לסמכות שמבוססת על כבוד שהורווח — לא על כוח.",
     accentColor:"terra", isMine:true,
+    link:"/model#tool-09",
   },
   // ── Professional – books & research ──────────────────────────────────────
   {
@@ -149,6 +196,7 @@ const ITEMS: LibraryItem[] = [
     tag:"חינוך מוחי", emoji:"🧠",
     excerpt:"המדע מאחורי ויסות רגשי אצל ילדים — וכיצד הורות יכולה לעצב את מבנה המוח.",
     accentColor:"sage",
+    link:"https://www.amazon.com/No-Drama-Discipline-Whole-Brain-Nurturing/dp/0553384007",
   },
   {
     id:19, type:"book", category:"professional",
@@ -156,6 +204,7 @@ const ITEMS: LibraryItem[] = [
     tag:"נוירולוגיה", emoji:"🔬",
     excerpt:"12 אסטרטגיות לטיפוח מוח ילדכם — מבוססות מחקר, ניתנות ליישום.",
     accentColor:"terra",
+    link:"https://www.amazon.com/Whole-Brain-Child-Revolutionary-Strategies-Developing/dp/0553386697",
   },
   {
     id:20, type:"book", category:"professional",
@@ -163,6 +212,7 @@ const ITEMS: LibraryItem[] = [
     tag:"תקשורת", emoji:"💬",
     excerpt:"ספר קלאסי שמלמד שינוי שפה — ושינוי שפה משנה את כל הדינמיקה.",
     accentColor:"sage",
+    link:"https://www.amazon.com/How-Talk-Kids-Will-Listen/dp/1451663889",
   },
   {
     id:21, type:"research", category:"professional",
@@ -170,6 +220,7 @@ const ITEMS: LibraryItem[] = [
     tag:"טראומה", emoji:"📊",
     excerpt:"מחקר ה-ACE על חוויות ילדות שליליות — הבסיס המדעי לחשיבות הורות בריאה.",
     accentColor:"terra",
+    link:"https://www.cdc.gov/aces/about/index.html",
   },
   {
     id:22, type:"article", category:"professional",
@@ -177,6 +228,7 @@ const ITEMS: LibraryItem[] = [
     tag:"התקשרות", emoji:"🎥",
     excerpt:"ניסוי הפנים הדוממות — הדגמה של 3 דקות שמסבירה הכל על הצורך של ילד בקשר.",
     accentColor:"sage",
+    link:"https://www.youtube.com/watch?v=apzXGEbZht0",
   },
 ];
 
@@ -305,16 +357,16 @@ function AIChatBubble() {
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
 function LibraryCard({ item }: { item: LibraryItem }) {
+  const [expanded, setExpanded] = useState(false);
   const isSage = item.accentColor === "sage";
+
   return (
     <div style={{
       background:"#FFFFFF", borderRadius:"var(--radius-card)", border:"1px solid var(--border)",
       boxShadow:"var(--shadow-card)", overflow:"hidden", display:"flex", flexDirection:"column",
       transition:"transform 320ms cubic-bezier(0.4,0,0.2,1), box-shadow 320ms ease",
       position:"relative",
-    }}
-    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="translateY(-5px)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; }}
-    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card)"; }}>
+    }}>
 
       {item.featured && (
         <div style={{ position:"absolute", top:"14px", right:"-1px", background:"var(--terra)", color:"white", fontSize:"10px", fontWeight:700, fontFamily:"var(--font-hebrew)", letterSpacing:"0.06em", padding:"4px 12px 4px 14px", borderRadius:"3px 0 0 3px" }}>
@@ -348,6 +400,44 @@ function LibraryCard({ item }: { item: LibraryItem }) {
         <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"19px", fontWeight:600, color:"var(--charcoal)", lineHeight:1.25, margin:0 }}>{item.title}</h3>
         <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color: isSage ? "var(--sage-dark)" : "var(--terra-dark)", fontWeight:600, margin:0 }}>— {item.creator}</p>
         <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", lineHeight:1.75, margin:0, flex:1 }}>{item.excerpt}</p>
+
+        {/* Expanded content */}
+        {expanded && item.fullContent && (
+          <div style={{ background:"var(--linen)", borderRadius:"10px", padding:"18px", border:"1px solid var(--border)", marginTop:"6px" }}>
+            <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:2, margin:0, whiteSpace:"pre-line", direction:"rtl" }}>
+              {item.fullContent}
+            </p>
+          </div>
+        )}
+
+        {/* Action button */}
+        <div style={{ marginTop:"8px", display:"flex", flexDirection:"column", gap:"8px" }}>
+          {item.fullContent && (
+            <button onClick={() => setExpanded(!expanded)} style={{
+              background: isSage ? "var(--sage-faint)" : "var(--terra-faint)",
+              border: `1px solid ${isSage ? "rgba(125,132,113,0.3)" : "rgba(193,127,95,0.3)"}`,
+              borderRadius:"var(--radius-pill)", padding:"8px 16px",
+              fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600,
+              color: isSage ? "var(--sage-dark)" : "var(--terra-dark)",
+              cursor:"pointer", width:"100%", transition:"all 180ms ease",
+            }}>
+              {expanded ? "▲ סגור" : "▼ לקריאה מלאה"}
+            </button>
+          )}
+          {item.link && (
+            <a href={item.link} target={item.link.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer" style={{
+              display:"block", textAlign:"center",
+              background: isSage ? "var(--sage-faint)" : "var(--terra-faint)",
+              border: `1px solid ${isSage ? "rgba(125,132,113,0.3)" : "rgba(193,127,95,0.3)"}`,
+              borderRadius:"var(--radius-pill)", padding:"8px 16px",
+              fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600,
+              color: isSage ? "var(--sage-dark)" : "var(--terra-dark)",
+              textDecoration:"none", transition:"all 180ms ease",
+            }}>
+              ← {item.link.startsWith("/") ? "לעמוד הכלי" : "פתח קישור"}
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -362,8 +452,7 @@ const FILTER_OPTIONS: {value:Category; label:string; emoji:string}[] = [
 
 const TYPE_FILTERS: {value:ContentType|"all"; label:string}[] = [
   { value:"all",      label:"כל הסוגים" },
-  { value:"poem",     label:"שירה" },
-  { value:"song",     label:"שירים" },
+  { value:"poem",     label:"שירה ופרוזה" },
   { value:"article",  label:"מאמרים וכלים" },
   { value:"book",     label:"ספרים" },
   { value:"research", label:"מחקרים" },
@@ -403,7 +492,7 @@ export default function LibraryPage() {
           הספרייה
         </h1>
         <p style={{ fontSize:"17px", color:"var(--charcoal-soft)", maxWidth:"600px", margin:"0 auto 40px", lineHeight:1.82, fontFamily:"var(--font-hebrew)" }}>
-          שירים, שירה, מאמרים וכלים מקצועיים — כי הורות נוגעת בנשמה, ולפעמים מילה אחת שווה שנה של טיפול.
+          שירים ומאמרים שלי והשראה מאחרים — לפעמים אפשר ללמוד באמצעות ידע, ולפעמים צריך להרגיש את זה.
         </p>
 
         <div style={{ display:"flex", justifyContent:"center", gap:"12px", flexWrap:"wrap" }}>
