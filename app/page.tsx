@@ -26,28 +26,7 @@ function ToolIconEl({ icon, size = 20 }: { icon: string; size?: number }) {
   return <span style={{ fontSize: size }}>{icon}</span>;
 }
 
-const ABOUT_SECTIONS = [
-  {
-    id:"background", label:"רקע מקצועי וניסיון מעשי",
-    content:"פסיכולוגית חינוכית מומחית עם 20 שנות ניסיון בעבודה עם ילדים והוריהם. עבדתי עם מאות משפחות בישראל (לפני ואחרי ה-7.10 וגם מאזור העוטף) ובארה\"ב. מלמדת בקורס הארצי לפסיכולוגים חינוכיים ומנחה קבוצות מקצועיות."
-  },
-  {
-    id:"specialties", label:"תחומי התמחות",
-    content:"ויסות רגשי והתפרצויות זעם · מאבקי כוח יומיומיים · חרדות ילדים · קשיים בביטחון עצמי · ADHD ולקויות למידה · שיפור האקלים המשפחתי · חרדות בעקבות המצב הביטחוני."
-  },
-  {
-    id:"other", label:"עיסוקים נוספים",
-    content:"מרצה בפני אנשי מקצוע, מנחת סדנאות להורים, כותבת שירה ופרוזה על הורות, ומפתחת תכנים דיגיטליים לעולם ההורות."
-  },
-  {
-    id:"personal", label:"בנימה אישית ✨",
-    content:"אמא לשתי בנות (10 ו-13), וכאמא — כמו כולכם — אני לומדת כל יום מחדש. גרתי בישראל גם לאחר ה-7.10 ואני מכירה מקרוב את המציאות המורכבת של חיים בשגרת חירום."
-  },
-];
-
 export default function Home() {
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [activeAbout, setActiveAbout] = useState<string|null>(null);
   const [toolboxOpen, setToolboxOpen] = useState(false);
 
   return (
@@ -65,35 +44,17 @@ export default function Home() {
 
             {/* Name + photo + עוד עליי */}
             <div style={{ display:"flex", alignItems:"center", gap:"14px", marginBottom:"22px", position:"relative" }}>
-              <div style={{ width:"56px", height:"56px", borderRadius:"50%", overflow:"hidden", border:"2px solid var(--terra-light)", flexShrink:0, boxShadow:"var(--shadow-card)" }}>
-                <Image src="/maya-photo.png" alt="מאיה פלטי" width={56} height={56} style={{ objectFit:"cover", objectPosition:"center top", width:"100%", height:"100%" }} />
+              <div style={{ width:"72px", height:"72px", borderRadius:"50%", overflow:"hidden", border:"2.5px solid var(--terra-light)", flexShrink:0, boxShadow:"0 4px 16px rgba(193,127,95,0.25)" }}>
+                <Image src="/maya-photo.png" alt="מאיה פלטי" width={72} height={72} style={{ objectFit:"cover", objectPosition:"center top", width:"100%", height:"100%" }} />
               </div>
               <div>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", fontWeight:700, color:"var(--charcoal)", margin:0 }}>מאיה פלטי</p>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", color:"var(--charcoal-muted)", margin:0 }}>פסיכולוגית חינוכית מומחית</p>
               </div>
-              <button onClick={() => setAboutOpen(!aboutOpen)} style={{ background:"var(--linen)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", padding:"7px 16px", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, color:"var(--sage-dark)", cursor:"pointer", transition:"all 200ms ease", marginRight:"8px" }}>
-                עוד עליי {aboutOpen ? "▲" : "▼"}
-              </button>
+              <Link href="/about" style={{ background:"var(--linen)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", padding:"7px 16px", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, color:"var(--sage-dark)", cursor:"pointer", transition:"all 200ms ease", marginRight:"8px", textDecoration:"none", display:"inline-flex", alignItems:"center", gap:"6px" }}>
+                עוד עליי ←
+              </Link>
             </div>
-
-            {/* About dropdown */}
-            {aboutOpen && (
-              <div style={{ background:"#FFFFFF", border:"1px solid var(--border)", borderRadius:"var(--radius-card)", padding:"20px", marginBottom:"20px", boxShadow:"var(--shadow-card)" }}>
-                <div style={{ display:"flex", gap:"8px", flexWrap:"wrap", marginBottom:"14px" }}>
-                  {ABOUT_SECTIONS.map(s => (
-                    <button key={s.id} onClick={() => setActiveAbout(activeAbout === s.id ? null : s.id)} style={{ background: activeAbout===s.id ? "var(--sage)" : "var(--sage-faint)", color: activeAbout===s.id ? "white" : "var(--sage-dark)", border:"1px solid var(--sage)", borderRadius:"var(--radius-pill)", padding:"6px 14px", fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:600, cursor:"pointer" }}>
-                      {s.label}
-                    </button>
-                  ))}
-                </div>
-                {activeAbout && (
-                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, margin:0, background:"var(--linen)", borderRadius:"10px", padding:"14px 16px" }}>
-                    {ABOUT_SECTIONS.find(s => s.id === activeAbout)?.content}
-                  </p>
-                )}
-              </div>
-            )}
 
             <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,4.5vw,64px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", marginBottom:"12px", letterSpacing:"-0.02em", lineHeight:1.1 }}>
               להיות ההורה שבחרתי
@@ -117,29 +78,93 @@ export default function Home() {
             </p>
           </div>
 
-          {/* ── Tools grid (replaces portrait circle) ── */}
+          {/* ── Wooden toolbox ── */}
           <div>
-            <div style={{ background:"rgba(255,255,255,0.7)", borderRadius:"var(--radius-card-lg)", padding:"28px", border:"1px solid var(--border)", boxShadow:"var(--shadow-float)", backdropFilter:"blur(8px)" }}>
-              <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginBottom:"18px" }}>
-                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"17px", fontWeight:600, color:"var(--charcoal)", margin:0 }}>ארגז הכלים ההורי</h3>
-                <span className="tag-terra" style={{ fontSize:"11px" }}>10 כלים</span>
+            {/* Box lid */}
+            <div style={{
+              background:"linear-gradient(180deg, #C8A882 0%, #B8976E 100%)",
+              borderRadius:"16px 16px 0 0",
+              padding:"10px 24px 8px",
+              display:"flex", alignItems:"center", justifyContent:"space-between",
+              boxShadow:"0 -2px 8px rgba(0,0,0,0.08)",
+              border:"1px solid #A07850", borderBottom:"none",
+            }}>
+              <span style={{ fontFamily:"var(--font-serif)", fontSize:"15px", fontWeight:600, color:"#FFF8EE", letterSpacing:"0.02em" }}>ארגז הכלים ההורי</span>
+              <div style={{ display:"flex", alignItems:"center", gap:"6px" }}>
+                <div style={{ width:"8px", height:"8px", borderRadius:"50%", background:"rgba(255,255,255,0.25)", border:"1px solid rgba(255,255,255,0.4)" }} />
+                <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"11px", color:"rgba(255,248,238,0.75)", fontWeight:500 }}>10 כלים</span>
               </div>
-              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"8px" }}>
-                {TOOLS.map(({ num, icon, title, accent }) => (
+            </div>
+
+            {/* Box hinge strip */}
+            <div style={{ height:"6px", background:"linear-gradient(180deg, #9A7245 0%, #B8976E 100%)", borderLeft:"1px solid #A07850", borderRight:"1px solid #A07850" }} />
+
+            {/* Box body */}
+            <div style={{
+              background:"linear-gradient(160deg, #F5EDD8 0%, #EDE0C4 100%)",
+              borderRadius:"0 0 16px 16px",
+              padding:"20px 20px 24px",
+              border:"1px solid #C8A882", borderTop:"none",
+              boxShadow:"0 8px 32px rgba(120,80,30,0.18), inset 0 2px 12px rgba(180,140,80,0.12)",
+              position:"relative",
+            }}>
+              {/* Wood grain lines */}
+              <div style={{ position:"absolute", inset:0, borderRadius:"0 0 16px 16px", overflow:"hidden", pointerEvents:"none", opacity:0.06 }}>
+                {[15,35,55,75,90].map(pct => (
+                  <div key={pct} style={{ position:"absolute", top:0, bottom:0, left:`${pct}%`, width:"1px", background:"#7A5020" }} />
+                ))}
+              </div>
+
+              <div style={{ display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"10px", position:"relative", zIndex:1 }}>
+                {TOOLS.map(({ num, icon, title }) => (
                   <Link key={num} href={`/model#tool-${num}`} style={{ textDecoration:"none" }}>
-                    <div style={{ background: accent ? "var(--terra-faint)" : "var(--sage-faint)", borderRadius:"12px", padding:"10px 12px", display:"flex", alignItems:"center", gap:"8px", border: accent ? "1px solid rgba(193,127,95,0.15)" : "1px solid rgba(125,132,113,0.15)", transition:"all 180ms ease", cursor:"pointer" }}
-                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="scale(1.02)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card)"; }}
-                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="scale(1)"; (e.currentTarget as HTMLElement).style.boxShadow="none"; }}>
-                      <span style={{ display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
-                        <ToolIconEl icon={icon} size={20} />
-                      </span>
-                      <div>
-                        <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"11px", color:"var(--charcoal-muted)", display:"block" }}>כלי {num}</span>
-                        <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"12.5px", fontWeight:600, color:"var(--charcoal)" }}>{title}</span>
+                    <div style={{
+                      background:"linear-gradient(160deg, #FDFAF3 0%, #F5EDD8 100%)",
+                      borderRadius:"12px",
+                      padding:"14px 8px 10px",
+                      display:"flex", flexDirection:"column", alignItems:"center", gap:"8px",
+                      border:"1px solid rgba(180,140,80,0.3)",
+                      boxShadow:"0 2px 8px rgba(120,80,30,0.1), inset 0 1px 3px rgba(255,255,255,0.8)",
+                      transition:"all 200ms ease",
+                      cursor:"pointer",
+                    }}
+                      onMouseEnter={e => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.transform="translateY(-4px)";
+                        el.style.boxShadow="0 8px 20px rgba(120,80,30,0.2), inset 0 1px 3px rgba(255,255,255,0.8)";
+                        el.style.background="linear-gradient(160deg, #FFFFFF 0%, #FDF5E4 100%)";
+                      }}
+                      onMouseLeave={e => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.transform="translateY(0)";
+                        el.style.boxShadow="0 2px 8px rgba(120,80,30,0.1), inset 0 1px 3px rgba(255,255,255,0.8)";
+                        el.style.background="linear-gradient(160deg, #FDFAF3 0%, #F5EDD8 100%)";
+                      }}>
+                      {/* Icon in circle */}
+                      <div style={{
+                        width:"42px", height:"42px", borderRadius:"50%",
+                        background:"linear-gradient(135deg, #F0E6CC 0%, #E8D8B0 100%)",
+                        border:"1.5px solid rgba(180,140,80,0.35)",
+                        display:"flex", alignItems:"center", justifyContent:"center",
+                        boxShadow:"inset 0 1px 3px rgba(255,255,255,0.7), 0 1px 4px rgba(120,80,30,0.15)",
+                        flexShrink:0,
+                      }}>
+                        <ToolIconEl icon={icon} size={22} />
                       </div>
+                      {/* Label */}
+                      <span style={{
+                        fontFamily:"var(--font-hebrew)", fontSize:"11px", fontWeight:600,
+                        color:"#5C3D1A", textAlign:"center", lineHeight:1.3,
+                        display:"block",
+                      }}>{title}</span>
                     </div>
                   </Link>
                 ))}
+              </div>
+
+              {/* Box bottom latch */}
+              <div style={{ display:"flex", justifyContent:"center", marginTop:"16px" }}>
+                <div style={{ width:"32px", height:"10px", background:"linear-gradient(180deg, #C8A882 0%, #A07850 100%)", borderRadius:"0 0 8px 8px", border:"1px solid #8A6030", borderTop:"none", boxShadow:"0 2px 4px rgba(0,0,0,0.15)" }} />
               </div>
             </div>
           </div>
@@ -184,21 +209,27 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Pullquote card */}
+          {/* Photo + pullquote */}
           <div>
-            <div style={{ background:"var(--linen)", borderRadius:"var(--radius-card-lg)", padding:"48px 44px", boxShadow:"var(--shadow-card)", border:"1px solid var(--border)", position:"relative" }}>
-              <div style={{ position:"absolute", top:"24px", right:"32px", fontSize:"60px", opacity:0.08, fontFamily:"var(--font-serif)", lineHeight:1, color:"var(--terra)" }}>״</div>
-              <p style={{ fontFamily:"var(--font-serif)", fontStyle:"italic", fontWeight:300, fontSize:"clamp(18px,2vw,24px)", color:"var(--charcoal)", lineHeight:1.7, marginBottom:"24px" }}>
-                אל לנו אף פעם לערער על היותנו ההורים הכי טובים שאנחנו מצליחים להיות, ואל לנו לעולם להפסיק לשאוף להיות טובים יותר.
-              </p>
-              <div style={{ display:"flex", alignItems:"center", gap:"12px" }}>
-                <Image src="/logo.png" alt="Path-ly" width={32} height={32} style={{ borderRadius:"8px", objectFit:"contain" }} />
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--terra)", fontWeight:600, margin:0 }}>מאיה פלטי · ״המסגרת״</p>
+            {/* Large portrait */}
+            <div style={{ position:"relative", marginBottom:"20px" }}>
+              <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-float)", border:"1px solid var(--border)", aspectRatio:"4/5", maxHeight:"440px" }}>
+                <Image
+                  src="/maya-photo.png"
+                  alt="מאיה פלטי — פסיכולוגית חינוכית מומחית"
+                  width={480} height={560}
+                  style={{ objectFit:"cover", objectPosition:"center top", width:"100%", height:"100%" }}
+                />
+              </div>
+              {/* Name badge overlay */}
+              <div style={{ position:"absolute", bottom:"20px", right:"20px", background:"rgba(249,247,242,0.92)", backdropFilter:"blur(8px)", borderRadius:"14px", padding:"12px 18px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)" }}>
+                <p style={{ fontFamily:"var(--font-serif)", fontSize:"16px", fontWeight:600, color:"var(--charcoal)", margin:0, lineHeight:1.2 }}>מאיה פלטי</p>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", color:"var(--terra)", margin:"3px 0 0", fontWeight:500 }}>פסיכולוגית חינוכית מומחית</p>
               </div>
             </div>
 
             {/* Credentials */}
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"12px", marginTop:"16px" }}>
+            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"12px" }}>
               {[
                 { icon:"🎓", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
                 { icon:"📍", text:"Cedar Park, TX & ישראל (זום)", href:null },
@@ -206,10 +237,10 @@ export default function Home() {
                 { icon:"📚", text:"מבוסס מחקר עדכני", href:"/model#research" },
               ].map(({ icon, text, href }) => (
                 href ? (
-                  <Link key={text} href={href} style={{ textDecoration:"none", background:"var(--paper)", borderRadius:"12px", padding:"14px 16px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center", boxShadow:"var(--shadow-card)" }}>
+                  <a key={text} href={href} style={{ textDecoration:"none", background:"var(--paper)", borderRadius:"12px", padding:"14px 16px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center", boxShadow:"var(--shadow-card)" }}>
                     <span style={{ fontSize:"18px" }}>{icon}</span>
                     <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--sage-dark)", fontWeight:600, textDecoration:"underline dotted" }}>{text}</span>
-                  </Link>
+                  </a>
                 ) : (
                   <div key={text} style={{ background:"var(--paper)", borderRadius:"12px", padding:"14px 16px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center", boxShadow:"var(--shadow-card)" }}>
                     <span style={{ fontSize:"18px" }}>{icon}</span>

@@ -6,6 +6,7 @@ import Image from "next/image";
 
 const navLinks = [
   { href: "/",         label: "בית" },
+  { href: "/about",    label: "עליי" },
   { href: "/model",    label: "ארגז הכלים" },
   { href: "/services", label: "שירותים" },
   { href: "/library",  label: "הספרייה" },
@@ -68,7 +69,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link href="/contact" className="btn-terra" style={{ marginRight: "10px", padding: "9px 20px", fontSize: "13.5px" }}>
+          <Link href="/contact" className="btn-rose" style={{ marginRight: "10px", padding: "9px 20px", fontSize: "13.5px" }}>
             ייעוץ ראשוני חינם
           </Link>
         </nav>
@@ -91,7 +92,7 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-terra" onClick={() => setMenuOpen(false)} style={{ marginTop: "20px", display: "inline-flex" }}>
+          <Link href="/contact" className="btn-rose" onClick={() => setMenuOpen(false)} style={{ marginTop: "20px", display: "inline-flex" }}>
             ייעוץ ראשוני חינם
           </Link>
         </div>

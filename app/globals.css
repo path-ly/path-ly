@@ -289,6 +289,30 @@ p, li, span, label, input, textarea, select, button {
 }
 .btn-terra:active { transform: translateY(0); box-shadow: none; }
 
+.btn-rose {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rose);
+  color: #fff;
+  padding: 11px 26px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-hebrew);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  border: 2px solid var(--rose);
+  cursor: pointer;
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+.btn-rose:hover {
+  background: var(--rose-dark);
+  border-color: var(--rose-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(196,104,122,0.35);
+}
+.btn-rose:active { transform: translateY(0); box-shadow: none; }
+
 /* Ghost / Outline */
 .btn-outline {
   display: inline-flex;

@@ -19,7 +19,7 @@ export default function Footer() {
             </div>
             <div style={{ width: "36px", height: "2px", background: "var(--terra)", borderRadius: "2px", marginBottom: "16px" }} />
             <p style={{ fontSize: "14px", lineHeight: 1.85, opacity: 0.72, fontFamily: "var(--font-hebrew)" }}>
-              פסיכולוגית חינוכית מומחית עם כמעט 20 שנות ניסיון.<br />
+              פסיכולוגית חינוכית מומחית עם 20 שנות ניסיון.<br />
               מפתחת מודל ארגז הכלים ההורי.<br />
               מלווה הורים וילדים בישראל ובעולם.
             </p>
