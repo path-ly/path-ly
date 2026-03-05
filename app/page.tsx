@@ -42,11 +42,8 @@ export default function Home() {
           <div>
             <span className="tag-sage" style={{ marginBottom:"28px", display:"inline-block" }}>🌿 &nbsp;20 שנות ניסיון בעבודה עם ילדים והוריהם</span>
 
-            {/* Name + photo + עוד עליי */}
+            {/* Name + עוד עליי */}
             <div style={{ display:"flex", alignItems:"center", gap:"14px", marginBottom:"22px", position:"relative" }}>
-              <div style={{ width:"72px", height:"72px", borderRadius:"50%", overflow:"hidden", border:"2.5px solid var(--terra-light)", flexShrink:0, boxShadow:"0 4px 16px rgba(193,127,95,0.25)" }}>
-                <Image src="/maya-photo.png" alt="מאיה פלטי" width={72} height={72} style={{ objectFit:"cover", objectPosition:"center top", width:"100%", height:"100%" }} />
-              </div>
               <div>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", fontWeight:700, color:"var(--charcoal)", margin:0 }}>מאיה פלטי</p>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", color:"var(--charcoal-muted)", margin:0 }}>פסיכולוגית חינוכית מומחית</p>
