@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-              <Image src="/logo.png" alt="Path-ly logo" width={44} height={44} style={{ borderRadius: "10px", objectFit: "contain" }} />
+              <Image src="/logo-transparent.png" alt="Path-ly logo" width={44} height={44} style={{ objectFit: "contain" }} />
               <div>
                 <p style={{ fontFamily: "var(--font-serif)", fontSize: "22px", fontWeight: 600, color: "#F9F7F2", margin: 0, lineHeight: 1.1 }}>מאיה פלטי</p>
                 <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--terra-light)", margin: "3px 0 0", letterSpacing: "0.07em" }}>PATH·LY</p>

@@ -63,7 +63,7 @@ export default function AboutPage() {
               borderRadius: "16px", padding: "14px 20px",
               border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
             }}>
-              <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", fontWeight: 600, color: "var(--charcoal)", margin: 0 }}>מאיה פלטי</p>
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", fontWeight: 600, color: "var(--charcoal)", margin: 0 }}>מאיה פלטי · Maya Palty</p>
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--terra)", margin: "3px 0 0", fontWeight: 500 }}>פסיכולוגית חינוכית מומחית · PATH·LY</p>
             </div>
           </div>
@@ -74,10 +74,13 @@ export default function AboutPage() {
             <h1 style={{
               fontFamily: "var(--font-serif)", fontSize: "clamp(32px,4vw,52px)",
               fontWeight: 300, fontStyle: "italic", color: "var(--charcoal)",
-              margin: "0 0 24px", lineHeight: 1.2,
+              margin: "0 0 6px", lineHeight: 1.2,
             }}>
               מאיה פלטי
             </h1>
+            <p style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(18px,2vw,24px)", fontWeight: 300, color: "var(--terra)", margin: "0 0 24px", letterSpacing: "0.01em" }}>
+              Maya Palty
+            </p>
             <div className="divider-accent" style={{ marginBottom: "28px" }} />
 
             {/* Placeholder intro — to be filled */}
@@ -95,16 +98,16 @@ export default function AboutPage() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "32px" }}>
               {[
                 { num: "20+", label: "שנות ניסיון" },
-                { num: "4–14", label: "גיל הילדים" },
+                { num: "4–14", label: "גיל הילדים", ltr: true },
                 { num: "2", label: "יבשות · ישראל & ארה״ב" },
                 { num: "10", label: "כלים בארגז" },
-              ].map(({ num, label }) => (
+              ].map(({ num, label, ltr }) => (
                 <div key={label} style={{
                   background: "white", borderRadius: "14px", padding: "18px",
                   border: "1px solid var(--border)", textAlign: "center",
                   boxShadow: "var(--shadow-card)",
                 }}>
-                  <div style={{ fontFamily: "var(--font-serif)", fontSize: "28px", fontWeight: 600, color: "var(--terra)", lineHeight: 1 }}>{num}</div>
+                  <div style={{ fontFamily: "var(--font-serif)", fontSize: "28px", fontWeight: 600, color: "var(--terra)", lineHeight: 1, direction: ltr ? "ltr" : undefined }}>{num}</div>
                   <div style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--charcoal-muted)", marginTop: "4px" }}>{label}</div>
                 </div>
               ))}

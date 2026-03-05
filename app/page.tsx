@@ -70,7 +70,7 @@ export default function Home() {
             </p>
 
             <div style={{ display:"flex", gap:"14px", flexWrap:"wrap", marginBottom:"32px" }}>
-              <a href="https://calendly.com/maya-palty" target="_blank" rel="noopener noreferrer" className="btn-terra">ייעוץ ראשוני חינם (15 דק׳)</a>
+              <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra">ייעוץ ראשוני חינם (15 דק׳)</a>
               <Link href="/model" className="btn-outline">ארגז הכלים ההורי</Link>
             </div>
             <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)" }}>
@@ -308,13 +308,13 @@ export default function Home() {
                 emoji:"🏠", title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
                 desc:"קליניקה פיזית לייעוץ אישי והדרכות הורים. לא טיפול ואבחון.",
                 bg:"var(--sage-faint)", accent:"rgba(125,132,113,0.2)",
-                href:"https://calendly.com/maya-palty", btnText:"לקביעת פגישה →",
+                href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
               },
               {
                 emoji:"🌐", title:"ישראל ועולם", sub:"פגישות זום",
                 desc:"בזום, בעברית, מכל מקום בעולם. לקהילה הישראלית בארה״ב ולהורים בישראל.",
                 bg:"var(--terra-faint)", accent:"rgba(193,127,95,0.2)",
-                href:"https://calendly.com/maya-palty", btnText:"לקביעת פגישה →",
+                href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
               },
               {
                 emoji:"🏫", title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
@@ -350,7 +350,7 @@ export default function Home() {
           <p style={{ fontSize:"17px", color:"rgba(249,247,242,0.72)", marginBottom:"40px", lineHeight:1.82, fontFamily:"var(--font-hebrew)" }}>
             פשוט שיחה. כדי לראות אם יש כימיה ואם אני יכולה לעזור.
           </p>
-          <a href="https://calendly.com/maya-palty" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"#F9F7F2", color:"var(--terra-dark)", padding:"15px 40px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"16px", textDecoration:"none", boxShadow:"0 8px 32px rgba(0,0,0,0.25)", transition:"all 250ms ease" }}
+          <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"#F9F7F2", color:"var(--terra-dark)", padding:"15px 40px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"16px", textDecoration:"none", boxShadow:"0 8px 32px rgba(0,0,0,0.25)", transition:"all 250ms ease" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--terra-faint)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="#F9F7F2"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
             📅 לקביעת שיחה ראשונה

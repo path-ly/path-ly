@@ -33,13 +33,13 @@ export default function ServicesPage() {
                 ⚠️ לא טיפול ואבחון — הדרכת הורים בלבד.
               </p>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginBottom:"32px" }}>
-                {["ייעוץ הורי אישי","הדרכת הורים","פגישות פרונטליות","בגיל 4–14"].map(item => (
+                {["ייעוץ הורי אישי","הדרכת הורים","פגישות פרונטליות","מתאים לגילאי 4–14"].map(item => (
                   <div key={item} style={{ background:"var(--sage-faint)", borderRadius:"10px", padding:"10px 16px", fontSize:"14px", color:"var(--sage-dark)", display:"flex", alignItems:"center", gap:"8px", fontFamily:"var(--font-hebrew)", border:"1px solid rgba(125,132,113,0.15)" }}>
                     <span style={{ fontWeight:700 }}>✓</span>{item}
                   </div>
                 ))}
               </div>
-              <a href="https://calendly.com/maya-palty" target="_blank" rel="noopener noreferrer" className="btn-primary">📅 לקביעת פגישה</a>
+              <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-primary">📅 לקביעת פגישה</a>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export default function ServicesPage() {
                 שעות המפגשים נוחות במיוחד להורים עובדים בישראל הזקוקים לליווי בשעות הערב. גרתי בישראל גם לאחר ה-7.10 ומכירה מקרוב את המציאות המורכבת.
               </p>
               <div style={{ display:"flex", gap:"14px", flexWrap:"wrap" }}>
-                <a href="https://calendly.com/maya-palty" target="_blank" rel="noopener noreferrer" className="btn-terra">📅 קביעת פגישה</a>
+                <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra">📅 קביעת פגישה</a>
                 <Link href="/model" className="btn-outline">קרא על המודל</Link>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function ServicesPage() {
                   ))}
                 </div>
                 <Link href="/contact" style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"var(--terra)", color:"white", padding:"13px 28px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", textDecoration:"none" }}>
-                  📋 לטופס פניה ארגונית
+                  השאר פרטים ונבנה ביחד את ההכשרה המתאימה לצוות שלך
                 </Link>
               </div>
             </div>

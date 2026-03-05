@@ -37,8 +37,8 @@ export default function Navbar() {
       <div style={{ maxWidth: "1160px", margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-          <Image src="/logo.png" alt="מאיה פלטי | PATH-LY" width={52} height={52} style={{ borderRadius: "10px", objectFit: "contain" }} />
+        <Link href="/about" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+          <Image src="/logo-transparent.png" alt="מאיה פלטי | PATH-LY" width={52} height={52} style={{ objectFit: "contain" }} />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "1px" }}>
             <span style={{ fontFamily: "var(--font-serif)", fontSize: "19px", fontWeight: 600, color: "var(--charcoal)", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
               מאיה פלטי

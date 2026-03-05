@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 
 function ToolIconEl({ icon, size = 28 }: { icon: string; size?: number }) {
@@ -138,6 +138,18 @@ const TOOLS = [
 
 export default function ModelPage() {
   const [openTool, setOpenTool] = useState<string|null>(null);
+
+  useEffect(() => {
+    const hash = window.location.hash; // e.g. #tool-03
+    if (hash.startsWith("#tool-")) {
+      const num = hash.replace("#tool-", "");
+      setOpenTool(num);
+      // scroll to it after a short delay
+      setTimeout(() => {
+        document.getElementById(`tool-${num}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 150);
+    }
+  }, []);
 
   return (
     <>
