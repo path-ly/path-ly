@@ -14,15 +14,44 @@ function WhatsAppIcon() {
 export default function ContactPage() {
   const [form, setForm] = useState({ name:"", email:"", phone:"", service:"", message:"" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true); };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("https://formspree.io/f/mnjgjjav", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+          _subject: `פנייה חדשה מ-${form.name} · PATH-LY`,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("שגיאה בשליחה. נסו שוב או פנו בוואטסאפ.");
+      }
+    } catch {
+      setError("שגיאה בשליחה. נסו שוב או פנו בוואטסאפ.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
-      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #F5EAE4 0%, #F9F7F2 60%)", textAlign:"center" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #F8ECEE 0%, #F9F7F2 60%)", textAlign:"center" }}>
         <span className="tag-terra" style={{ marginBottom:"20px", display:"inline-block" }}>בואו נדבר</span>
         <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,5vw,64px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 16px", letterSpacing:"-0.02em" }}>
           צרו קשר
@@ -39,7 +68,7 @@ export default function ContactPage() {
           <div>
             {/* Portrait */}
             <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", marginBottom:"28px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", aspectRatio:"4/3", maxHeight:"260px" }}>
-              <Image src="/maya-photo.png" alt="מאיה פלטי" width={400} height={300}
+              <Image src="/maya-photo.webp" alt="מאיה פלטי" width={400} height={300}
                 style={{ objectFit:"cover", objectPosition:"center 20%", width:"100%", height:"100%" }} />
             </div>
 
@@ -48,7 +77,7 @@ export default function ContactPage() {
 
             {/* Address */}
             <div style={{ display:"flex", gap:"14px", marginBottom:"26px", alignItems:"flex-start" }}>
-              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(193,127,95,0.15)" }}>
+              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(196,114,122,0.15)" }}>
                 📍
               </div>
               <div>
@@ -60,7 +89,7 @@ export default function ContactPage() {
 
             {/* Phone */}
             <div style={{ display:"flex", gap:"14px", marginBottom:"26px", alignItems:"flex-start" }}>
-              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(193,127,95,0.15)" }}>
+              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(196,114,122,0.15)" }}>
                 📞
               </div>
               <div>
@@ -89,7 +118,7 @@ export default function ContactPage() {
 
             {/* Email */}
             <div style={{ display:"flex", gap:"14px", marginBottom:"26px", alignItems:"flex-start" }}>
-              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(193,127,95,0.15)" }}>
+              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(196,114,122,0.15)" }}>
                 📧
               </div>
               <div>
@@ -103,7 +132,7 @@ export default function ContactPage() {
 
             {/* Calendly */}
             <div style={{ display:"flex", gap:"14px", marginBottom:"26px", alignItems:"flex-start" }}>
-              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--sage-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(125,132,113,0.15)" }}>
+              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--sage-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(42,122,110,0.15)" }}>
                 📅
               </div>
               <div>
@@ -132,7 +161,7 @@ export default function ContactPage() {
               <div style={{
                 background:"linear-gradient(135deg, var(--sage-faint), var(--sage-light))",
                 borderRadius:"var(--radius-card-lg)", padding:"72px 48px", textAlign:"center",
-                border:"1px solid rgba(125,132,113,0.2)", boxShadow:"var(--shadow-float)",
+                border:"1px solid rgba(42,122,110,0.2)", boxShadow:"var(--shadow-float)",
               }}>
                 <div style={{ fontSize:"60px", marginBottom:"24px" }}>🌿</div>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"32px", color:"var(--charcoal)", marginBottom:"16px", fontStyle:"italic", fontWeight:300 }}>
@@ -151,17 +180,17 @@ export default function ContactPage() {
                   טופס פנייה לייעוץ
                 </h2>
 
-                <label className="form-label">שם מלא *</label>
-                <input className="form-input" type="text" name="name" required value={form.name} onChange={handleChange} placeholder="שם ושם משפחה" />
+                <label htmlFor="contact-name" className="form-label">שם מלא *</label>
+                <input id="contact-name" className="form-input" type="text" name="name" required value={form.name} onChange={handleChange} placeholder="שם ושם משפחה" />
 
-                <label className="form-label">כתובת אימייל *</label>
-                <input className="form-input" type="email" name="email" required value={form.email} onChange={handleChange} placeholder="email@example.com" />
+                <label htmlFor="contact-email" className="form-label">כתובת אימייל *</label>
+                <input id="contact-email" className="form-input" type="email" name="email" required value={form.email} onChange={handleChange} placeholder="email@example.com" />
 
-                <label className="form-label">טלפון</label>
-                <input className="form-input" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="050-0000000" />
+                <label htmlFor="contact-phone" className="form-label">טלפון</label>
+                <input id="contact-phone" className="form-input" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="050-0000000" />
 
-                <label className="form-label">סוג הפנייה</label>
-                <select className="form-input" name="service" value={form.service} onChange={handleChange} style={{ cursor:"pointer" }}>
+                <label htmlFor="contact-service" className="form-label">סוג הפנייה</label>
+                <select id="contact-service" className="form-input" name="service" value={form.service} onChange={handleChange} style={{ cursor:"pointer" }}>
                   <option value="">בחרו סוג שירות</option>
                   <option value="parenting">הדרכת הורים</option>
                   <option value="zoom">פגישת זום (ישראל / עולם)</option>
@@ -170,8 +199,8 @@ export default function ContactPage() {
                   <option value="other">אחר</option>
                 </select>
 
-                <label className="form-label">ספרו לי קצת</label>
-                <textarea className="form-input" name="message" value={form.message} onChange={handleChange} rows={5}
+                <label htmlFor="contact-message" className="form-label">ספרו לי קצת</label>
+                <textarea id="contact-message" className="form-input" name="message" value={form.message} onChange={handleChange} rows={5}
                   placeholder="כמה משפטים על המצב, גיל הילד, ומה מחפשים..."
                   style={{ resize:"vertical" }} />
 
@@ -179,9 +208,15 @@ export default function ContactPage() {
                   המידע נשמר בסודיות מוחלטת ומשמש לצורך מענה בלבד.
                 </p>
 
-                <button type="submit" className="btn-terra" style={{ width:"100%", justifyContent:"center" }}>
-                  שלחו פנייה
+                <button type="submit" disabled={submitting} className="btn-terra" style={{ width:"100%", justifyContent:"center", opacity: submitting ? 0.7 : 1, cursor: submitting ? "wait" : "pointer" }}>
+                  {submitting ? "שולח..." : "שלחו פנייה"}
                 </button>
+
+                {error && (
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"#c0392b", marginTop:"12px", textAlign:"center" }}>
+                    {error}
+                  </p>
+                )}
               </form>
             )}
           </div>

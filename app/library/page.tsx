@@ -307,7 +307,7 @@ function AIChatBubble() {
                   background: msg.role === "user" ? "var(--sage-faint)" : "var(--terra-faint)",
                   borderRadius: msg.role === "user" ? "18px 18px 4px 18px" : "18px 18px 18px 4px",
                   padding:"10px 14px",
-                  border: msg.role === "user" ? "1px solid rgba(125,132,113,0.15)" : "1px solid rgba(193,127,95,0.15)",
+                  border: msg.role === "user" ? "1px solid rgba(42,122,110,0.15)" : "1px solid rgba(196,114,122,0.15)",
                 }}>
                   <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13.5px", color:"var(--charcoal-soft)", lineHeight:1.72, margin:0 }}>{msg.text}</p>
                 </div>
@@ -315,7 +315,7 @@ function AIChatBubble() {
             ))}
             {loading && (
               <div style={{ display:"flex", justifyContent:"flex-end" }}>
-                <div style={{ background:"var(--terra-faint)", borderRadius:"18px 18px 18px 4px", padding:"12px 16px", border:"1px solid rgba(193,127,95,0.15)", display:"flex", gap:"5px", alignItems:"center" }}>
+                <div style={{ background:"var(--terra-faint)", borderRadius:"18px 18px 18px 4px", padding:"12px 16px", border:"1px solid rgba(196,114,122,0.15)", display:"flex", gap:"5px", alignItems:"center" }}>
                   {[0,1,2].map(i => (
                     <div key={i} style={{ width:"6px", height:"6px", borderRadius:"50%", background:"var(--terra)", animation:"float 1.2s ease-in-out infinite", animationDelay:`${i*0.2}s` }} />
                   ))}
@@ -382,7 +382,7 @@ function LibraryCard({ item }: { item: LibraryItem }) {
       <div style={{
         height:"88px",
         background: isSage
-          ? "linear-gradient(135deg, var(--sage-faint) 0%, rgba(168,176,158,0.25) 100%)"
+          ? "linear-gradient(135deg, var(--sage-faint) 0%, rgba(42,122,110,0.25) 100%)"
           : "linear-gradient(135deg, var(--terra-faint) 0%, rgba(212,160,136,0.25) 100%)",
         display:"flex", alignItems:"center", justifyContent:"center",
         fontSize:"36px", borderBottom:"1px solid var(--border)",
@@ -415,7 +415,7 @@ function LibraryCard({ item }: { item: LibraryItem }) {
           {item.fullContent && (
             <button onClick={() => setExpanded(!expanded)} style={{
               background: isSage ? "var(--sage-faint)" : "var(--terra-faint)",
-              border: `1px solid ${isSage ? "rgba(125,132,113,0.3)" : "rgba(193,127,95,0.3)"}`,
+              border: `1px solid ${isSage ? "rgba(42,122,110,0.3)" : "rgba(196,114,122,0.3)"}`,
               borderRadius:"var(--radius-pill)", padding:"8px 16px",
               fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600,
               color: isSage ? "var(--sage-dark)" : "var(--terra-dark)",
@@ -428,7 +428,7 @@ function LibraryCard({ item }: { item: LibraryItem }) {
             <a href={item.link} target={item.link.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer" style={{
               display:"block", textAlign:"center",
               background: isSage ? "var(--sage-faint)" : "var(--terra-faint)",
-              border: `1px solid ${isSage ? "rgba(125,132,113,0.3)" : "rgba(193,127,95,0.3)"}`,
+              border: `1px solid ${isSage ? "rgba(42,122,110,0.3)" : "rgba(196,114,122,0.3)"}`,
               borderRadius:"var(--radius-pill)", padding:"8px 16px",
               fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600,
               color: isSage ? "var(--sage-dark)" : "var(--terra-dark)",
@@ -483,9 +483,9 @@ export default function LibraryPage() {
   return (
     <>
       {/* Hero */}
-      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #EEF0EB 0%, #F9F7F2 60%)", textAlign:"center", position:"relative", overflow:"hidden" }}>
-        <div style={{ position:"absolute", top:"-60px", right:"-60px", width:"300px", height:"300px", borderRadius:"50%", background:"radial-gradient(circle, rgba(125,132,113,0.12) 0%, transparent 70%)", pointerEvents:"none" }} />
-        <div style={{ position:"absolute", bottom:"-40px", left:"-40px", width:"220px", height:"220px", borderRadius:"50%", background:"radial-gradient(circle, rgba(193,127,95,0.10) 0%, transparent 70%)", pointerEvents:"none" }} />
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #E8F2F0 0%, #F9F7F2 60%)", textAlign:"center", position:"relative", overflow:"hidden" }}>
+        <div style={{ position:"absolute", top:"-60px", right:"-60px", width:"300px", height:"300px", borderRadius:"50%", background:"radial-gradient(circle, rgba(42,122,110,0.12) 0%, transparent 70%)", pointerEvents:"none" }} />
+        <div style={{ position:"absolute", bottom:"-40px", left:"-40px", width:"220px", height:"220px", borderRadius:"50%", background:"radial-gradient(circle, rgba(196,114,122,0.10) 0%, transparent 70%)", pointerEvents:"none" }} />
 
         <span className="tag-sage" style={{ marginBottom:"20px", display:"inline-block" }}>עולם של תוכן</span>
         <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(40px,5.5vw,68px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 16px", letterSpacing:"-0.02em" }}>
@@ -577,7 +577,7 @@ export default function LibraryPage() {
               <button onClick={() => { setCategory("all"); setTypeFilter("all"); setSearch(""); setMineOnly(false); }} style={{
                 padding:"5px 14px", borderRadius:"var(--radius-pill)",
                 background:"var(--terra-faint)", color:"var(--terra-dark)",
-                border:"1.5px solid rgba(193,127,95,0.25)",
+                border:"1.5px solid rgba(196,114,122,0.25)",
                 fontFamily:"var(--font-hebrew)", fontSize:"12.5px", fontWeight:600,
                 cursor:"pointer", whiteSpace:"nowrap", marginRight:"auto",
               }}>
@@ -617,7 +617,8 @@ export default function LibraryPage() {
           <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(24px,3.5vw,38px)", color:"#FFFFFF", marginBottom:"14px", fontStyle:"italic", fontWeight:300 }}>קבלו תכנים ישירות למייל</h2>
           <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", color:"rgba(249,247,242,0.82)", marginBottom:"28px", lineHeight:1.82 }}>מדי חודש — שיר, מאמר, ורעיון אחד שיכול לשנות משהו.</p>
           <div style={{ display:"flex", gap:"10px", justifyContent:"center" }}>
-            <input type="email" placeholder="כתובת האימייל שלכם" style={{ flex:1, padding:"13px 18px", borderRadius:"var(--radius-pill)", border:"none", fontSize:"15px", fontFamily:"var(--font-hebrew)", textAlign:"right", outline:"none", maxWidth:"260px", background:"#FFFFFF", color:"var(--charcoal)" }} />
+            <label htmlFor="newsletter-email" className="sr-only" style={{ position:"absolute", width:"1px", height:"1px", overflow:"hidden", clip:"rect(0,0,0,0)" }}>כתובת אימייל</label>
+            <input id="newsletter-email" type="email" aria-label="כתובת אימייל" placeholder="כתובת האימייל שלכם" style={{ flex:1, padding:"13px 18px", borderRadius:"var(--radius-pill)", border:"none", fontSize:"15px", fontFamily:"var(--font-hebrew)", textAlign:"right", outline:"none", maxWidth:"260px", background:"#FFFFFF", color:"var(--charcoal)" }} />
             <button style={{ background:"var(--terra)", color:"white", border:"none", padding:"13px 22px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", cursor:"pointer", whiteSpace:"nowrap" }}>הרשמה</button>
           </div>
         </div>

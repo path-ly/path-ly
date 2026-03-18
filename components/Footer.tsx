@@ -11,10 +11,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-              <Image src="/logo-transparent.png" alt="Path-ly logo" width={44} height={44} style={{ objectFit: "contain" }} />
+              <Image src="/logo-transparent.webp" alt="Path-ly logo" width={44} height={44} style={{ objectFit: "contain" }} />
               <div>
                 <p style={{ fontFamily: "var(--font-serif)", fontSize: "22px", fontWeight: 600, color: "#F9F7F2", margin: 0, lineHeight: 1.1 }}>מאיה פלטי</p>
-                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--terra-light)", margin: "3px 0 0", letterSpacing: "0.07em" }}>PATH·LY</p>
+                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--terra-light)", margin: "3px 0 0", letterSpacing: "0.07em" }}>PATH·LY</p>
               </div>
             </div>
             <div style={{ width: "36px", height: "2px", background: "var(--terra)", borderRadius: "2px", marginBottom: "16px" }} />
@@ -27,9 +27,10 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", fontWeight: 700, color: "var(--terra-light)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "18px" }}>ניווט</h4>
+            <h4 style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", fontWeight: 700, color: "var(--terra-light)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "18px" }}>ניווט</h4>
             {[
               { href: "/",         label: "דף הבית" },
+              { href: "/about",    label: "עליי" },
               { href: "/model",    label: "ארגז הכלים ההורי" },
               { href: "/services", label: "שירותים" },
               { href: "/library",  label: "הספרייה" },
@@ -45,7 +46,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", fontWeight: 700, color: "var(--terra-light)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "18px" }}>יצירת קשר</h4>
+            <h4 style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", fontWeight: 700, color: "var(--terra-light)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "18px" }}>יצירת קשר</h4>
             {[
               { flag: "🇺🇸", country: "אוסטין, טקסס", detail: "פגישות פרונטליות" },
               { flag: "🌐", country: "ישראל ועולם – זום", detail: "פגישות וידאו בכל מקום" },

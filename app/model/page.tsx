@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
+import { TOOLS } from "@/lib/tools-data";
 
 function ToolIconEl({ icon, size = 28 }: { icon: string; size?: number }) {
   if (icon === "eye")   return <EyeInEyeIcon size={size} />;
@@ -13,7 +14,7 @@ function ToolIconEl({ icon, size = 28 }: { icon: string; size?: number }) {
   return <span style={{ fontSize: size }}>{icon}</span>;
 }
 
-const TOOLS = [
+const _TOOLS_REPLACED = [
   {
     num:"01", icon:"🫶", title:"חמלה הורית ועצמית",
     accent:false,
@@ -154,7 +155,7 @@ export default function ModelPage() {
   return (
     <>
       {/* Hero */}
-      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #EEF0EB 0%, #F9F7F2 60%)", textAlign:"center" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #E8F2F0 0%, #F9F7F2 60%)", textAlign:"center" }}>
         <span className="tag-sage" style={{ marginBottom:"20px", display:"inline-block" }}>הגישה המקורית</span>
         <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,5.5vw,68px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 12px", letterSpacing:"-0.02em", maxWidth:"720px", marginLeft:"auto", marginRight:"auto" }}>
           ארגז הכלים ההורי
@@ -173,23 +174,31 @@ export default function ModelPage() {
             לחצו על כל כלי לפירוט מלא, מחקר תומך וקישורים רלוונטיים
           </p>
 
-          {TOOLS.map(({ num, icon, title, accent, short, desc, tips, example, challenge, video, videoLabel, research }) => (
+          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, video, videoLabel, research }) => (
             <div key={num} id={`tool-${num}`} style={{ marginBottom:"12px" }}>
               <button
                 onClick={() => setOpenTool(openTool === num ? null : num)}
+                aria-expanded={openTool === num}
+                aria-controls={`tool-content-${num}`}
                 style={{
                   width:"100%", textAlign:"right", background: openTool===num ? (accent ? "var(--terra-faint)" : "var(--sage-faint)") : "#FFFFFF",
-                  border:`1.5px solid ${openTool===num ? (accent ? "rgba(193,127,95,0.3)" : "rgba(125,132,113,0.3)") : "var(--border)"}`,
+                  border:`1.5px solid ${openTool===num ? (accent ? "rgba(196,114,122,0.3)" : "rgba(42,122,110,0.3)") : "var(--border)"}`,
                   borderRadius: openTool===num ? "var(--radius-card) var(--radius-card) 0 0" : "var(--radius-card)",
                   padding:"20px 24px", cursor:"pointer", boxShadow:"var(--shadow-card)",
                   display:"flex", alignItems:"center", gap:"16px", transition:"all 200ms ease",
                 }}>
-                <span style={{ display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, width:"34px" }}>
-                  <ToolIconEl icon={icon} size={28} />
-                </span>
+                <div style={{ width:"52px", height:"52px", borderRadius:"12px", overflow:"hidden", flexShrink:0, border:"1px solid var(--border)" }}>
+                  <img src={`/tool-${num}-${
+                    {
+                      "01":"compassion","02":"reflectivity","03":"playfulness","04":"modeling",
+                      "05":"developmental","06":"prophecy","07":"cooperation","08":"resilience",
+                      "09":"magic-time","10":"strengths"
+                    }[num]
+                  }.webp`} alt={title} style={{ width:"100%", height:"100%", objectFit:"cover" }} />
+                </div>
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"4px" }}>
-                    <span className={accent ? "tag-terra" : "tag-sage"} style={{ fontSize:"10px" }}>כלי {num}</span>
+                    <span className={accent ? "tag-terra" : "tag-sage"} style={{ fontSize:"13px" }}>כלי {num}</span>
                     <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"20px", fontWeight:600, color:"var(--charcoal)", margin:0 }}>{title}</h3>
                   </div>
                   <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", margin:0 }}>{short}</p>
@@ -200,7 +209,7 @@ export default function ModelPage() {
               </button>
 
               {openTool===num && (
-                <div style={{ background: accent ? "var(--terra-faint)" : "var(--sage-faint)", border:`1.5px solid ${accent ? "rgba(193,127,95,0.3)" : "rgba(125,132,113,0.3)"}`, borderTop:"none", borderRadius:"0 0 var(--radius-card) var(--radius-card)", padding:"28px 32px" }}>
+                <div id={`tool-content-${num}`} role="region" aria-labelledby={`tool-${num}`} style={{ background: accent ? "var(--terra-faint)" : "var(--sage-faint)", border:`1.5px solid ${accent ? "rgba(196,114,122,0.3)" : "rgba(42,122,110,0.3)"}`, borderTop:"none", borderRadius:"0 0 var(--radius-card) var(--radius-card)", padding:"28px 32px" }}>
 
                   {/* Description */}
                   <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.9, marginBottom:"24px" }}>
@@ -234,7 +243,7 @@ export default function ModelPage() {
                           {example}
                         </p>
                       </div>
-                      <div style={{ background:"rgba(255,255,255,0.75)", borderRadius:"12px", padding:"16px 20px", border:`1px solid ${accent ? "rgba(193,127,95,0.2)" : "rgba(125,132,113,0.2)"}` }}>
+                      <div style={{ background:"rgba(255,255,255,0.75)", borderRadius:"12px", padding:"16px 20px", border:`1px solid ${accent ? "rgba(196,114,122,0.2)" : "rgba(42,122,110,0.2)"}` }}>
                         <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color:"var(--charcoal-muted)", margin:"0 0 6px" }}>
                           ⚠️ אתגר נפוץ
                         </h4>
@@ -260,6 +269,14 @@ export default function ModelPage() {
                         ▶ {videoLabel}
                       </a>
                     )}
+                  </div>
+
+                  {/* Link to full tool page */}
+                  <div style={{ marginTop:"20px", textAlign:"center" }}>
+                    <Link href={`/model/${slug}`}
+                      style={{ display:"inline-flex", alignItems:"center", gap:"6px", color: accent ? "var(--terra-dark)" : "var(--sage-dark)", fontWeight:700, textDecoration:"none", fontSize:"14px", fontFamily:"var(--font-hebrew)", borderBottom:`2px solid ${accent ? "var(--terra)" : "var(--sage)"}`, paddingBottom:"2px" }}>
+                      לעמוד המלא של כלי זה ←
+                    </Link>
                   </div>
                 </div>
               )}
@@ -298,6 +315,32 @@ export default function ModelPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Research basis */}
+      <section id="research" className="sec-md" style={{ background:"var(--linen)" }}>
+        <div style={{ maxWidth:"780px", margin:"0 auto" }}>
+          <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,38px)", color:"var(--charcoal)", marginBottom:"16px", fontWeight:400, textAlign:"center" }}>
+            הבסיס המחקרי
+          </h2>
+          <div className="divider-accent-center" style={{ marginBottom:"32px" }} />
+
+          <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 40px", boxShadow:"var(--shadow-card)", border:"1px solid var(--border)", marginBottom:"28px" }}>
+            <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.9, margin:"0 0 20px" }}>
+              ארגז הכלים ההורי מבוסס על שילוב של גישות מחקריות מוכחות מתחום הפסיכולוגיה החיובית, תיאוריית ההתקשרות, מדעי המוח ההתפתחותיים, והגישה ההתנהגותית-קוגניטיבית. כל כלי נשען על ממצאים עדכניים ומיושם בהתאמה אישית לכל משפחה.
+            </p>
+            <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", color:"var(--charcoal-soft)", lineHeight:1.9, margin:0 }}>
+              בין החוקרים והתיאוריות המרכזיים שמנחים את הגישה: Kristin Neff (חמלה עצמית), Peter Fonagy (מנטליזציה ורפלקטיביות), Albert Bandura (למידה חברתית), Piaget & Vygotsky (התפתחות קוגניטיבית), Rosenthal (אפקט פיגמליון), Ross Greene (שיתוף פעולה פרואקטיבי), Ann Masten (חוסן), ו-Martin Seligman (פסיכולוגיה חיובית וחוזקות).
+            </p>
+          </div>
+
+          <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", textAlign:"center", lineHeight:1.7 }}>
+            📚 ביסוס מחקרי מפורט מופיע בכל כלי בנפרד —{" "}
+            <a href="#tool-01" style={{ color:"var(--sage)", fontWeight:600, textDecoration:"none", borderBottom:"1px solid var(--sage)" }}>
+              גללו למעלה לכלים
+            </a>
+          </p>
         </div>
       </section>
 

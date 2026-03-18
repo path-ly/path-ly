@@ -1,43 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const SECTIONS = [
-  {
-    id: "background",
-    label: "רקע מקצועי וניסיון מעשי",
-    emoji: "🎓",
-    content: null, // TODO: להוסיף תוכן
-  },
-  {
-    id: "specialties",
-    label: "תחומי התמחות",
-    emoji: "🔍",
-    content: null, // TODO: להוסיף תוכן
-  },
-  {
-    id: "other",
-    label: "עיסוקים נוספים",
-    emoji: "✍️",
-    content: null, // TODO: להוסיף תוכן
-  },
-  {
-    id: "personal",
-    label: "בנימה אישית",
-    emoji: "🌿",
-    content: null, // TODO: להוסיף תוכן
-  },
-];
-
 export default function AboutPage() {
   return (
     <>
       {/* Hero */}
       <section className="sec-hero" style={{
-        background: "linear-gradient(150deg, #F5EAE4 0%, #F9F7F2 60%)",
+        background: "linear-gradient(150deg, #F8ECEE 0%, #F9F7F2 60%)",
       }}>
         <div className="grid-hero" style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-          {/* Photo — moves below text on mobile */}
+          {/* Photo */}
           <div className="mobile-first" style={{ position: "relative" }}>
             <div style={{
               borderRadius: "var(--radius-card-lg)",
@@ -48,14 +21,13 @@ export default function AboutPage() {
               maxHeight: "560px",
             }}>
               <Image
-                src="/maya-photo.png"
-                alt="מאיה פלטי"
+                src="/maya-photo.webp"
+                alt="מאיה פלטי — פסיכולוגית חינוכית מומחית"
                 width={480} height={640}
                 style={{ objectFit: "cover", objectPosition: "center top", width: "100%", height: "100%" }}
                 priority
               />
             </div>
-            {/* Floating badge */}
             <div style={{
               position: "absolute", bottom: "24px", right: "24px",
               background: "rgba(249,247,242,0.95)", backdropFilter: "blur(10px)",
@@ -63,7 +35,7 @@ export default function AboutPage() {
               border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
             }}>
               <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", fontWeight: 600, color: "var(--charcoal)", margin: 0 }}>מאיה פלטי · Maya Palty</p>
-              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--terra)", margin: "3px 0 0", fontWeight: 500 }}>פסיכולוגית חינוכית מומחית · PATH·LY</p>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--terra)", margin: "3px 0 0", fontWeight: 500 }}>פסיכולוגית חינוכית מומחית-מדריכה · PATH·LY</p>
             </div>
           </div>
 
@@ -82,14 +54,18 @@ export default function AboutPage() {
             </p>
             <div className="divider-accent" style={{ marginBottom: "28px" }} />
 
-            {/* Placeholder intro — to be filled */}
+            {/* Opening paragraph */}
             <div style={{
               background: "var(--sage-faint)", borderRadius: "var(--radius-card)",
-              padding: "28px 32px", border: "1px dashed rgba(125,132,113,0.4)",
+              padding: "28px 32px", border: "1px solid rgba(42,122,110,0.2)",
               marginBottom: "32px",
             }}>
-              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--sage-dark)", lineHeight: 1.9, margin: 0 }}>
-                ✏️ <em>תוכן פסקת ההיכרות יתווסף בקרוב...</em>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
+                אני פסיכולוגית חינוכית מומחית-מדריכה ומדריכת הורים עם כ-20 שנות ניסיון בעבודה עם ילדים, הורים ואנשי חינוך. לאורך השנים ליוויתי משפחות רבות בהתמודדות עם קשיי ויסות והתנהגות, הפרעות קשב ולקויות למידה, קשיים רגשיים וחברתיים ואתגרי הורות מורכבים. מתוך הניסיון המקצועי והאישי פיתחתי את מודל{" "}
+                <Link href="/model" style={{ color: "var(--terra-dark)", fontWeight: 600, textDecoration: "none", borderBottom: "1.5px solid var(--terra)" }}>
+                  ״ארגז הכלים ההורי״
+                </Link>
+                {" "}– גישה פרקטית שמנגישה ידע פסיכולוגי להורים ומסייעת להם ליצור שינוי אמיתי בקשר עם ילדיהם.
               </p>
             </div>
 
@@ -122,47 +98,202 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Detail sections */}
+      {/* ── DETAIL SECTIONS ──────────────────────────────────── */}
       <section className="sec-std" style={{ background: "var(--paper)" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            {SECTIONS.map(({ id, label, emoji, content }) => (
-              <div key={id} style={{
-                background: "white", borderRadius: "var(--radius-card-lg)",
-                border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
-                overflow: "hidden",
-              }}>
-                <div style={{
-                  padding: "24px 32px",
-                  borderBottom: content ? "1px solid var(--border)" : "none",
-                  display: "flex", alignItems: "center", gap: "14px",
-                }}>
-                  <span style={{ fontSize: "24px" }}>{emoji}</span>
-                  <h2 style={{
-                    fontFamily: "var(--font-serif)", fontSize: "22px",
-                    fontWeight: 600, color: "var(--charcoal)", margin: 0,
-                  }}>{label}</h2>
-                </div>
+        <div style={{ maxWidth: "860px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "20px" }}>
 
-                <div style={{ padding: "28px 32px" }}>
-                  {content ? (
-                    <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "16px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
-                      {content}
+          {/* ── 1. Background ─────────────────────────────────── */}
+          <div style={{
+            background: "white", borderRadius: "var(--radius-card-lg)",
+            border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
+            overflow: "hidden",
+          }}>
+            <div style={{
+              padding: "24px 32px",
+              borderBottom: "1px solid var(--border)",
+              display: "flex", alignItems: "center", gap: "14px",
+            }}>
+              <span style={{ fontSize: "24px" }}>🎓</span>
+              <h2 style={{
+                fontFamily: "var(--font-serif)", fontSize: "22px",
+                fontWeight: 600, color: "var(--charcoal)", margin: 0,
+              }}>רקע מקצועי וניסיון מעשי</h2>
+            </div>
+            <div style={{ padding: "28px 32px" }}>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
+                תואר שני בנוירופסיכולוגיה שיקומית עם התמחות בשיקום ילדים.
+              </p>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
+                פסיכולוגית חינוכית מומחית-מדריכה עם ניסיון רב שנים בשירותים פסיכולוגיים חינוכיים ברחבי הארץ. במסגרת עבודתי ליוויתי בתי ספר, גנים ורשויות מקומיות, לצד עבודה פרטנית עם ילדים והורים במצבי שגרה וחירום.
+              </p>
+
+              {/* Roles */}
+              <div style={{ background: "var(--linen)", borderRadius: "14px", padding: "22px 26px", marginBottom: "20px" }}>
+                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", fontWeight: 700, color: "var(--charcoal)", marginBottom: "12px" }}>בין התפקידים שמילאתי:</p>
+                {[
+                  "רכזת עירונית ללקויות למידה בשדרות",
+                  "רכזת חינוך מיוחד וועדות זכאות ואפיון באילת",
+                  "עבודה שוטפת בוועדות סטטוטוריות עירוניות ומחוזיות",
+                ].map(role => (
+                  <div key={role} style={{ display: "flex", gap: "10px", marginBottom: "8px", alignItems: "flex-start" }}>
+                    <span style={{ color: "var(--sage)", fontWeight: 700, flexShrink: 0, marginTop: "2px" }}>•</span>
+                    <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.75, margin: 0 }}>
+                      {role}
                     </p>
-                  ) : (
-                    <div style={{
-                      background: "var(--linen)", borderRadius: "10px",
-                      padding: "20px 24px", border: "1px dashed rgba(125,132,113,0.3)",
-                    }}>
-                      <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-muted)", margin: 0, fontStyle: "italic" }}>
-                        ✏️ תוכן יתווסף בקרוב...
-                      </p>
-                    </div>
-                  )}
-                </div>
+                  </div>
+                ))}
               </div>
-            ))}
+
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
+                בנוסף הנחיתי קבוצות הורים ואנשי חינוך, בין היתר במרכז מטיב״ה (מרכז לטיפול בבעיות התנהגות בילדים), במרכז דואט של אוניברסיטת בן גוריון ובהכשרות חוסן לאנשי חינוך בעוטף עזה.
+              </p>
+
+              <div style={{ background: "var(--terra-faint)", borderRadius: "12px", padding: "18px 22px", border: "1px solid rgba(196,114,122,0.2)" }}>
+                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--terra-dark)", lineHeight: 1.8, margin: 0 }}>
+                  🏛️ כיום אני גם מרצה במדרשה לפסיכולוגיה תחת מכללת לוינסקי בקורס ״פסיכו-דיאגנוסטיקה של הילד והמתבגר״ לפסיכולוגים בהסבה מקצועית.
+                </p>
+              </div>
+            </div>
           </div>
+
+          {/* ── 2. Specialties ────────────────────────────────── */}
+          <div style={{
+            background: "white", borderRadius: "var(--radius-card-lg)",
+            border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
+            overflow: "hidden",
+          }}>
+            <div style={{
+              padding: "24px 32px",
+              borderBottom: "1px solid var(--border)",
+              display: "flex", alignItems: "center", gap: "14px",
+            }}>
+              <span style={{ fontSize: "24px" }}>🔍</span>
+              <h2 style={{
+                fontFamily: "var(--font-serif)", fontSize: "22px",
+                fontWeight: 600, color: "var(--charcoal)", margin: 0,
+              }}>תחומי התמחות</h2>
+            </div>
+            <div style={{ padding: "28px 32px" }}>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
+                עבודתי מתמקדת בארבעה תחומים מרכזיים:
+              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "24px" }}>
+                {[
+                  { icon: "📋", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך" },
+                  { icon: "🌊", text: "התמודדות עם קשיי ויסות ובעיות התנהגות" },
+                  { icon: "🧠", text: "הפרעות קשב ולקויות למידה" },
+                  { icon: "🛡️", text: "התמודדות עם טראומה מתמשכת וחיזוק חוסן" },
+                ].map(({ icon, text }) => (
+                  <div key={text} style={{
+                    background: "var(--sage-faint)", borderRadius: "14px", padding: "18px 20px",
+                    border: "1px solid rgba(42,122,110,0.15)", display: "flex", gap: "10px", alignItems: "flex-start",
+                  }}>
+                    <span style={{ fontSize: "18px", flexShrink: 0 }}>{icon}</span>
+                    <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.7, margin: 0 }}>
+                      {text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
+                בנוסף אני עובדת עם משפחות סביב קשיים חברתיים, חרדה, עבודה עם ילדים על הרצף האוטיסטי, והדרכת הורים בגיל הרך.
+              </p>
+            </div>
+          </div>
+
+          {/* ── 3. Additional Activities ──────────────────────── */}
+          <div style={{
+            background: "white", borderRadius: "var(--radius-card-lg)",
+            border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
+            overflow: "hidden",
+          }}>
+            <div style={{
+              padding: "24px 32px",
+              borderBottom: "1px solid var(--border)",
+              display: "flex", alignItems: "center", gap: "14px",
+            }}>
+              <span style={{ fontSize: "24px" }}>✍️</span>
+              <h2 style={{
+                fontFamily: "var(--font-serif)", fontSize: "22px",
+                fontWeight: 600, color: "var(--charcoal)", margin: 0,
+              }}>עיסוקים נוספים</h2>
+            </div>
+            <div style={{ padding: "28px 32px" }}>
+              {[
+                { text: "מפתחת מודל ״ארגז הכלים ההורי״ – גישה פרקטית וחומלת להדרכת הורים קצרת מועד", accent: true },
+                { text: "מדריכת פסיכולוגים מתמחים לקראת מבחן מומחיות", accent: false },
+                { text: "מנחת הכשרות וקורסים לפסיכולוגים בתחומי פסיכו-דיאגנוסטיקה והדרכת הורים", accent: false },
+                { text: "מרצה בתחומי הורות, פסיכולוגיה חיובית והתפתחות ילדים", accent: false },
+              ].map(({ text, accent }) => (
+                <div key={text} style={{
+                  display: "flex", gap: "12px", marginBottom: "14px", alignItems: "flex-start",
+                  ...(accent ? {
+                    background: "var(--terra-faint)", borderRadius: "12px", padding: "16px 18px",
+                    border: "1px solid rgba(196,114,122,0.2)", marginBottom: "18px",
+                  } : {}),
+                }}>
+                  <span style={{ color: accent ? "var(--terra)" : "var(--sage)", fontWeight: 700, flexShrink: 0, marginTop: "2px" }}>•</span>
+                  <p style={{
+                    fontFamily: "var(--font-hebrew)", fontSize: accent ? "15px" : "14px",
+                    color: accent ? "var(--terra-dark)" : "var(--charcoal-soft)",
+                    fontWeight: accent ? 600 : 400,
+                    lineHeight: 1.75, margin: 0,
+                  }}>
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── 4. Personal Note ──────────────────────────────── */}
+          <div style={{
+            background: "white", borderRadius: "var(--radius-card-lg)",
+            border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
+            overflow: "hidden",
+          }}>
+            <div style={{
+              padding: "24px 32px",
+              borderBottom: "1px solid var(--border)",
+              display: "flex", alignItems: "center", gap: "14px",
+            }}>
+              <span style={{ fontSize: "24px" }}>🌿</span>
+              <h2 style={{
+                fontFamily: "var(--font-serif)", fontSize: "22px",
+                fontWeight: 600, color: "var(--charcoal)", margin: 0,
+              }}>בנימה אישית</h2>
+            </div>
+            <div style={{ padding: "28px 32px" }}>
+              <p style={{
+                fontFamily: "var(--font-serif)", fontSize: "22px", fontStyle: "italic",
+                fontWeight: 400, color: "var(--terra-dark)", lineHeight: 1.5,
+                margin: "0 0 20px", borderRight: "3px solid var(--terra)", paddingRight: "18px",
+              }}>
+                לפני שאני פסיכולוגית – אני אמא.
+              </p>
+
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
+                רבים מהעקרונות שמופיעים ב״ארגז הכלים ההורי״ נולדו מתוך החיים עצמם: הורות לשתי בנות, היותנו משפחת אומנה במשך שנתיים וחצי, ועבודה מקצועית עם משפחות וקהילות שחוו מצבי משבר וטראומה.
+              </p>
+
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
+                החוויות האלו חיזקו בי אמונה פשוטה: רוב ההורים רוצים להיות הורים טובים – הם פשוט זקוקים לכלים ברורים, פרקטיים וחומלים.
+              </p>
+
+              <div style={{
+                background: "linear-gradient(135deg, var(--sage-faint) 0%, var(--terra-faint) 100%)",
+                borderRadius: "var(--radius-card)", padding: "24px 28px",
+                border: "1px solid var(--border)",
+              }}>
+                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal)", lineHeight: 1.9, margin: 0, fontWeight: 500 }}>
+                  ״ארגז הכלים ההורי״ נולד מתוך הרצון להנגיש את הידע הפסיכולוגי להורים בצורה פשוטה וישימה, ולסייע להם לבנות קשר יציב, בטוח ומיטיב עם ילדיהם.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

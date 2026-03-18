@@ -3,70 +3,104 @@ import Link from "next/link";
 export default function ServicesPage() {
   return (
     <>
-      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #F5EAE4 0%, #F9F7F2 60%)", textAlign:"center" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #F8ECEE 0%, #F9F7F2 60%)", textAlign:"center" }}>
         <span className="tag-terra" style={{ marginBottom:"20px", display:"inline-block" }}>מה אני מציעה</span>
         <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,5vw,64px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 16px", letterSpacing:"-0.02em" }}>
           שירותים
         </h1>
         <p style={{ fontSize:"17px", color:"var(--charcoal-soft)", maxWidth:"520px", margin:"0 auto", lineHeight:1.82, fontFamily:"var(--font-hebrew)" }}>
-          שלוש מסגרות שירות — כולן מונחות על ידי אותו עקרון: כל משפחה ראויה לתמיכה שמתאימה לה.
+          כל משפחה ראויה לתמיכה שמתאימה לה. בחרו את המסגרת שמתאימה לכם.
         </p>
       </section>
 
       <section className="sec-std" style={{ background:"var(--paper)" }}>
         <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
 
-          {/* 1. Cedar Park Clinic */}
-          <div className="grid-2col" style={{ marginBottom:"80px" }}>
-            <div style={{ height:"320px", borderRadius:"var(--radius-card-lg)", background:"linear-gradient(135deg, var(--sage-faint) 0%, var(--sage-light) 100%)", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", fontSize:"64px", boxShadow:"var(--shadow-float)", border:"1px solid rgba(125,132,113,0.15)", gap:"14px" }}>
-              🏠
-              <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", color:"var(--sage-dark)", fontWeight:600 }}>Cedar Park, Austin TX</span>
+          {/* ══════════════════════════════════════════════════════
+              1. PARENT COACHING — PRIMARY SERVICE
+              ══════════════════════════════════════════════════════ */}
+          <div style={{ marginBottom:"80px" }}>
+            <div style={{ textAlign:"center", marginBottom:"48px" }}>
+              <span className="tag-terra" style={{ marginBottom:"16px", display:"inline-block" }}>השירות המרכזי</span>
+              <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(28px,3.5vw,44px)", color:"var(--charcoal)", marginBottom:"12px" }}>הדרכת הורים</h2>
+              <div className="divider-accent-center" style={{ marginBottom:"20px" }} />
+              <p style={{ fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.9, fontFamily:"var(--font-hebrew)", maxWidth:"640px", margin:"0 auto" }}>
+                הדרכה אישית ומותאמת על בסיס מודל ארגז הכלים ההורי. תהליך קצר מועד (5–12 פגישות) שמביא לשינוי אמיתי בקשר עם ילדכם.
+              </p>
             </div>
-            <div>
-              <span className="tag-sage" style={{ marginBottom:"18px", display:"inline-block" }}>Cedar Park · אוסטין, טקסס</span>
-              <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(28px,3.5vw,40px)", color:"var(--charcoal)", marginBottom:"16px" }}>קליניקה פרונטלית</h2>
-              <div className="divider-accent" style={{ marginBottom:"20px" }} />
-              <p style={{ fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.9, marginBottom:"16px", fontFamily:"var(--font-hebrew)" }}>
-                קליניקה פיזית בCedar Park, אוסטין — לייעוץ אישי והדרכות הורים בלבד.
-              </p>
-              <p style={{ fontSize:"14px", color:"var(--terra-dark)", background:"var(--terra-faint)", borderRadius:"10px", padding:"10px 16px", marginBottom:"28px", fontFamily:"var(--font-hebrew)", border:"1px solid rgba(193,127,95,0.2)" }}>
-                ⚠️ לא טיפול ואבחון — הדרכת הורים בלבד.
-              </p>
-              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginBottom:"32px" }}>
-                {["ייעוץ הורי אישי","הדרכת הורים","פגישות פרונטליות","מתאים לגילאי 4–14"].map(item => (
-                  <div key={item} style={{ background:"var(--sage-faint)", borderRadius:"10px", padding:"10px 16px", fontSize:"14px", color:"var(--sage-dark)", display:"flex", alignItems:"center", gap:"8px", fontFamily:"var(--font-hebrew)", border:"1px solid rgba(125,132,113,0.15)" }}>
-                    <span style={{ fontWeight:700 }}>✓</span>{item}
-                  </div>
-                ))}
+
+            {/* Pricing badge */}
+            <div style={{ textAlign:"center", marginBottom:"40px" }}>
+              <div style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--terra-faint)", border:"1px solid rgba(196,114,122,0.25)", borderRadius:"var(--radius-card)", padding:"18px 32px" }}>
+                <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>₪350</span>
+                <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)" }}>/</span>
+                <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>$115</span>
+                <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", marginRight:"8px" }}>לפגישה</span>
               </div>
-              <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-primary">📅 לקביעת פגישה</a>
+              <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginTop:"10px" }}>
+                פגישת ייעוץ ראשונה — 15 דקות, חינם, ללא התחייבות
+              </p>
+            </div>
+
+            {/* 3 Options */}
+            <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:"20px" }}>
+
+              {/* Option 1: Zoom */}
+              <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column" }}>
+                <div style={{ fontSize:"36px", marginBottom:"14px" }}>🌐</div>
+                <span className="tag-terra" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>הכי פופולרי</span>
+                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>פגישת זום</h3>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
+                  הדרכת הורים אישית בעברית — לישראלים בכל העולם. שעות נוחות להורים עובדים בישראל. גרתי בישראל גם לאחר ה-7.10 ומכירה מקרוב את המציאות המורכבת.
+                </p>
+                <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ textAlign:"center" }}>
+                  📅 לקביעת פגישת זום
+                </a>
+              </div>
+
+              {/* Option 2: In-person */}
+              <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column" }}>
+                <div style={{ fontSize:"36px", marginBottom:"14px" }}>🏠</div>
+                <span className="tag-sage" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>פרונטלי</span>
+                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>פגישה בקליניקה</h3>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
+                  קליניקה פיזית ב-Cedar Park, אוסטין TX. ייעוץ אישי והדרכות הורים פנים אל פנים. לא טיפול ואבחון — הדרכת הורים בלבד.
+                </p>
+                <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ textAlign:"center" }}>
+                  📅 לקביעת פגישה פרונטלית
+                </a>
+              </div>
+
+              {/* Option 3: Workshop */}
+              <div style={{ background:"linear-gradient(135deg, var(--terra-faint) 0%, #FFF8F4 100%)", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"2px solid var(--terra)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column", position:"relative" }}>
+                <div style={{ position:"absolute", top:"-12px", right:"24px", background:"var(--terra)", color:"white", borderRadius:"var(--radius-pill)", padding:"4px 16px", fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:700 }}>
+                  חדש!
+                </div>
+                <div style={{ fontSize:"36px", marginBottom:"14px" }}>👥</div>
+                <span className="tag-terra" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>קבוצתי</span>
+                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>סדנת הורים בזום</h3>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, marginBottom:"16px" }}>
+                  סדנה קבוצתית להכרות מעמיקה עם ארגז הכלים ההורי. 12 מפגשים בזום, קבוצה אינטימית של 5–8 זוגות הורים.
+                </p>
+                <div style={{ display:"flex", alignItems:"center", gap:"8px", marginBottom:"16px" }}>
+                  <span style={{ fontFamily:"var(--font-serif)", fontSize:"24px", fontWeight:600, color:"var(--terra-dark)" }}>₪1,200</span>
+                  <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)" }}>/</span>
+                  <span style={{ fontFamily:"var(--font-serif)", fontSize:"24px", fontWeight:600, color:"var(--terra-dark)" }}>$400</span>
+                  <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)" }}>לזוג</span>
+                </div>
+                <div style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginBottom:"20px", lineHeight:1.7 }}>
+                  12 מפגשים · 5–8 זוגות · בזום · בעברית
+                </div>
+                <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%D7%94%D7%94%D7%95%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ textAlign:"center", flex:"none" }}>
+                  💬 לפרטים והרשמה
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* 2. Zoom - Israel & World */}
-          <div className="grid-2col" style={{ marginBottom:"80px" }}>
-            <div>
-              <span className="tag-terra" style={{ marginBottom:"18px", display:"inline-block" }}>ישראל ועולם · פגישות זום</span>
-              <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(28px,3.5vw,40px)", color:"var(--charcoal)", marginBottom:"16px" }}>הדרכת הורים בזום</h2>
-              <div className="divider-accent" style={{ marginBottom:"20px" }} />
-              <p style={{ fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.9, marginBottom:"20px", fontFamily:"var(--font-hebrew)" }}>
-                הדרכת הורים אישית ומותאמת בעברית — לישראלים בכל העולם. לא סדנה קבוצתית. אני מקדישה לכל משפחה תשומת לב אישית, עובדת על האתגרים הספציפיים שלכם ובונה יחד אתכם ארגז כלים שמתאים לכם.
-              </p>
-              <p style={{ fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.9, marginBottom:"32px", fontFamily:"var(--font-hebrew)" }}>
-                שעות המפגשים נוחות במיוחד להורים עובדים בישראל הזקוקים לליווי בשעות הערב. גרתי בישראל גם לאחר ה-7.10 ומכירה מקרוב את המציאות המורכבת.
-              </p>
-              <div style={{ display:"flex", gap:"14px", flexWrap:"wrap" }}>
-                <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra">📅 קביעת פגישה</a>
-                <Link href="/model" className="btn-outline">קרא על המודל</Link>
-              </div>
-            </div>
-            <div style={{ height:"320px", borderRadius:"var(--radius-card-lg)", background:"linear-gradient(135deg, var(--terra-faint) 0%, var(--terra-light) 100%)", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", fontSize:"64px", boxShadow:"var(--shadow-float)", border:"1px solid rgba(193,127,95,0.15)", gap:"14px" }}>
-              🌍
-              <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", color:"var(--terra-dark)", fontWeight:600 }}>ישראל · ארה״ב · ועולם</span>
-            </div>
-          </div>
-
-          {/* 3. Organizations */}
+          {/* ══════════════════════════════════════════════════════
+              2. B2B — PROFESSIONAL TRAINING (no pricing)
+              ══════════════════════════════════════════════════════ */}
           <div style={{ background:"linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)", borderRadius:"var(--radius-card-lg)", padding:"64px", boxShadow:"var(--shadow-float)" }}>
             <div className="grid-services-img">
               <div style={{ textAlign:"center", fontSize:"64px" }}>🏫</div>
@@ -85,7 +119,7 @@ export default function ServicesPage() {
                   ))}
                 </div>
                 <Link href="/contact" style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"var(--terra)", color:"white", padding:"13px 28px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", textDecoration:"none" }}>
-                  השאר פרטים ונבנה ביחד את ההכשרה המתאימה לצוות שלך
+                  צרו קשר להצעה מותאמת
                 </Link>
               </div>
             </div>
@@ -102,15 +136,15 @@ export default function ServicesPage() {
           {[
             {
               q:"כמה פגישות בדרך כלל נדרשות?",
-              a:"אין תשובה אחת, אבל המודל מיועד להתמודדויות הוריות שגרתיות והכלים הפרקטיים שהוא מציע מאפשרים השגת שינוי בטווח קצר (5–12 פגישות). לאחר פגישת האינטייק ניתן לקבל הערכה ראשונית של משך התהליך ולכל אורכו מתבצעות עצירות להתבוננות על ההישגים והערכת הצורך בהמשך.",
+              a:"אין תשובה אחת, אבל המודל מיועד להתמודדויות הוריות שגרתיות והכלים הפרקטיים שהוא מציע מאפשרים השגת שינוי בטווח קצר (5–12 פגישות). לאחר פגישת האינטייק ניתן לקבל הערכה ראשונית של משך התהליך.",
+            },
+            {
+              q:"כמה עולה פגישה?",
+              a:"פגישה בודדת (זום או פרונטלית) עולה ₪350 / $115. סדנה קבוצתית של 12 מפגשים — ₪1,200 / $400 לזוג. פגישת ייעוץ ראשונה (15 דקות) ללא עלות.",
             },
             {
               q:"האם ניתן לקיים תהליך משמעותי גם מרחוק?",
-              a:"בהחלט כן. אני נותנת שירות להורים ישראלים בכל העולם ושעות המפגשים לרוב נוחות יותר להורים עובדים בישראל הזקוקים לליווי בשעות הערב ולאחר שהתפנו ממשימות היומיום. יש לציין כי התגוררתי בישראל גם לאחר ה-7.10 ואני מכירה מקרוב ולוקחת בחשבון את המציאות המורכבת של החיים בשגרת חירום.",
-            },
-            {
-              q:"האם השירות מוכר על ידי ביטוחים פרטיים?",
-              a:"בישראל הרישיונות שלי תקפים לכל השירותים שאני מספקת. אם הביטוח שלכם מכסה הדרכת הורים/ייעוץ — התשובה היא כן. לתשומת לבכם, ביטוחים מסוימים מחייבים הפניית רופא לאופנות טיפול ספציפית — במקרה כזה מומלץ לבדוק מראש.",
+              a:"בהחלט כן. אני נותנת שירות להורים ישראלים בכל העולם ושעות המפגשים לרוב נוחות יותר להורים עובדים בישראל. התגוררתי בישראל גם לאחר ה-7.10 ואני מכירה מקרוב את המציאות המורכבת.",
             },
             {
               q:"מה ההבדל בין טיפול פסיכולוגי להדרכת הורים?",
@@ -118,7 +152,7 @@ export default function ServicesPage() {
             },
           ].map(({ q, a }, i) => (
             <div key={i} className="card" style={{ padding:"28px 32px", marginBottom:"14px" }}>
-              <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", fontWeight:600, color:"var(--charcoal)", marginBottom:"12px" }}>{q}</h4>
+              <h3 style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", fontWeight:600, color:"var(--charcoal)", marginBottom:"12px" }}>{q}</h3>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", color:"var(--charcoal-soft)", lineHeight:1.82, margin:0 }}>{a}</p>
             </div>
           ))}

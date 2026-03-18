@@ -37,20 +37,20 @@ export default function Navbar() {
       <div style={{ maxWidth: "1160px", margin: "0 auto", padding: "0 32px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
         {/* Logo */}
-        <Link href="/about" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-          <Image src="/logo-transparent.png" alt="מאיה פלטי | PATH-LY" width={52} height={52} style={{ objectFit: "contain" }} />
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+          <Image src="/logo-transparent.webp" alt="מאיה פלטי | PATH-LY" width={52} height={52} style={{ objectFit: "contain" }} />
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "1px" }}>
             <span style={{ fontFamily: "var(--font-serif)", fontSize: "19px", fontWeight: 600, color: "var(--charcoal)", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
               מאיה פלטי
             </span>
-            <span style={{ fontFamily: "var(--font-hebrew)", fontSize: "10.5px", fontWeight: 500, color: "var(--terra)", letterSpacing: "0.07em" }}>
+            <span style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", fontWeight: 500, color: "var(--terra)", letterSpacing: "0.07em" }}>
               PATH·LY · פסיכולוגית חינוכית
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+        <nav aria-label="ניווט ראשי" style={{ display: "flex", alignItems: "center", gap: "2px" }}>
           {navLinks.map(({ href, label }) => {
             const active = pathname === href;
             return (
@@ -69,9 +69,9 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link href="/contact" className="btn-rose" style={{ marginRight: "10px", padding: "9px 20px", fontSize: "13.5px" }}>
+          <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose" style={{ marginRight: "10px", padding: "9px 20px", fontSize: "13.5px" }}>
             ייעוץ ראשוני חינם
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile Hamburger */}
@@ -92,9 +92,9 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-rose" onClick={() => setMenuOpen(false)} style={{ marginTop: "20px", display: "inline-flex" }}>
+          <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose" onClick={() => setMenuOpen(false)} style={{ marginTop: "20px", display: "inline-flex" }}>
             ייעוץ ראשוני חינם
-          </Link>
+          </a>
         </div>
       )}
     </header>

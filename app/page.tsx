@@ -32,9 +32,9 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ───────────────────────────────────────────────────────── */}
-      <section className="hero-full" style={{ minHeight:"100vh", display:"flex", alignItems:"center", position:"relative", overflow:"hidden", background:"linear-gradient(148deg, #F9F7F2 0%, #F0EBE1 55%, #EEF0EB 100%)", paddingTop:"100px" }}>
-        <div style={{ position:"absolute", top:"8%", left:"3%", width:"480px", height:"480px", borderRadius:"50%", background:"radial-gradient(circle, rgba(168,176,158,0.18) 0%, transparent 68%)", pointerEvents:"none" }} />
-        <div style={{ position:"absolute", bottom:"8%", right:"-4%", width:"360px", height:"360px", borderRadius:"50%", background:"radial-gradient(circle, rgba(193,127,95,0.13) 0%, transparent 68%)", pointerEvents:"none" }} />
+      <section className="hero-full" style={{ minHeight:"calc(100vh - 80px)", display:"flex", alignItems:"center", position:"relative", overflow:"hidden", background:"linear-gradient(148deg, #F9F7F2 0%, #F0EDE6 55%, #E8F2F0 100%)", paddingTop:"80px", paddingBottom:"40px" }}>
+        <div style={{ position:"absolute", top:"8%", left:"3%", width:"480px", height:"480px", borderRadius:"50%", background:"radial-gradient(circle, rgba(42,122,110,0.18) 0%, transparent 68%)", pointerEvents:"none" }} />
+        <div style={{ position:"absolute", bottom:"8%", right:"-4%", width:"360px", height:"360px", borderRadius:"50%", background:"radial-gradient(circle, rgba(196,114,122,0.13) 0%, transparent 68%)", pointerEvents:"none" }} />
 
         <div className="container grid-hero" style={{ width:"100%", position:"relative", zIndex:1 }}>
 
@@ -45,25 +45,30 @@ export default function Home() {
             {/* Name + עוד עליי */}
             <div style={{ display:"flex", alignItems:"center", gap:"14px", marginBottom:"22px", position:"relative" }}>
               <div>
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", fontWeight:700, color:"var(--charcoal)", margin:0 }}>מאיה פלטי</p>
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", color:"var(--charcoal-muted)", margin:0 }}>פסיכולוגית חינוכית מומחית</p>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"22px", fontWeight:700, color:"var(--charcoal)", margin:0 }}>מאיה פלטי</p>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", fontWeight:500, color:"var(--sage-dark)", margin:0 }}>פסיכולוגית חינוכית מומחית-מדריכה</p>
               </div>
               <Link href="/about" style={{ background:"var(--linen)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", padding:"7px 16px", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, color:"var(--sage-dark)", cursor:"pointer", transition:"all 200ms ease", marginRight:"8px", textDecoration:"none", display:"inline-flex", alignItems:"center", gap:"6px" }}>
                 עוד עליי ←
               </Link>
             </div>
 
-            <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,4.5vw,64px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", marginBottom:"12px", letterSpacing:"-0.02em", lineHeight:1.1 }}>
+            <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,4.5vw,64px)", fontWeight:400, color:"var(--charcoal)", marginBottom:"12px", letterSpacing:"-0.02em", lineHeight:1.1 }}>
               להיות ההורה שבחרתי
             </h1>
-            <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(20px,2.5vw,30px)", fontWeight:400, color:"var(--sage-dark)", marginBottom:"28px", letterSpacing:"-0.01em", lineHeight:1.3 }}>
+            <p style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(20px,2.5vw,30px)", fontWeight:400, color:"var(--sage-dark)", marginBottom:"28px", letterSpacing:"-0.01em", lineHeight:1.3 }}>
               הורות חומלת ונאמנה לכוונות בכלים פרקטיים
-            </h2>
+            </p>
 
-            <p style={{ fontSize:"17px", color:"var(--charcoal-soft)", marginBottom:"44px", lineHeight:1.82, maxWidth:"480px", fontFamily:"var(--font-hebrew)" }}>
+            <p style={{ fontSize:"17px", color:"var(--charcoal-soft)", marginBottom:"12px", lineHeight:1.82, maxWidth:"480px", fontFamily:"var(--font-hebrew)" }}>
               מדריכת הורים ומפתחת{" "}
               <span style={{ color:"var(--terra-dark)", fontWeight:600 }}>ארגז הכלים ההורי</span>.
+            </p>
+            <p style={{ fontSize:"17px", color:"var(--charcoal-soft)", marginBottom:"16px", lineHeight:1.82, maxWidth:"480px", fontFamily:"var(--font-hebrew)" }}>
               כלים יישומיים המותאמים אישית — לילדים בגיל{" "}<span dir="ltr" style={{ display:"inline-block" }}>4–14</span>.
+            </p>
+            <p style={{ fontSize:"14px", color:"var(--sage-dark)", fontWeight:500, marginBottom:"36px", lineHeight:1.7, maxWidth:"480px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"10px 16px", borderRadius:"10px", border:"1px solid rgba(42,122,110,0.15)" }}>
+              🌐 מיומנות גבוהה בהדרכה טיפולית אונליין בשעות נוחות להורים ישראלים
             </p>
 
             <div style={{ display:"flex", gap:"14px", flexWrap:"wrap", marginBottom:"32px" }}>
@@ -79,14 +84,14 @@ export default function Home() {
           <div>
             {/* Box lid */}
             <div style={{
-              background:"linear-gradient(180deg, #C8A882 0%, #B8976E 100%)",
+              background:"linear-gradient(180deg, #2A7A6E 0%, #4A9E90 100%)",
               borderRadius:"16px 16px 0 0",
               padding:"10px 24px 8px",
               display:"flex", alignItems:"center", justifyContent:"space-between",
               boxShadow:"0 -2px 8px rgba(0,0,0,0.08)",
-              border:"1px solid #A07850", borderBottom:"none",
+              border:"1px solid #1D5B52", borderBottom:"none",
             }}>
-              <span style={{ fontFamily:"var(--font-serif)", fontSize:"15px", fontWeight:600, color:"#FFF8EE", letterSpacing:"0.02em" }}>ארגז הכלים ההורי</span>
+              <span style={{ fontFamily:"var(--font-serif)", fontSize:"15px", fontWeight:600, color:"#F0FAF8", letterSpacing:"0.02em" }}>ארגז הכלים ההורי</span>
               <div style={{ display:"flex", alignItems:"center", gap:"6px" }}>
                 <div style={{ width:"8px", height:"8px", borderRadius:"50%", background:"rgba(255,255,255,0.25)", border:"1px solid rgba(255,255,255,0.4)" }} />
                 <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"11px", color:"rgba(255,248,238,0.75)", fontWeight:500 }}>10 כלים</span>
@@ -94,14 +99,14 @@ export default function Home() {
             </div>
 
             {/* Box hinge strip */}
-            <div style={{ height:"6px", background:"linear-gradient(180deg, #9A7245 0%, #B8976E 100%)", borderLeft:"1px solid #A07850", borderRight:"1px solid #A07850" }} />
+            <div style={{ height:"6px", background:"linear-gradient(180deg, #1D5B52 0%, #4A9E90 100%)", borderLeft:"1px solid #1D5B52", borderRight:"1px solid #1D5B52" }} />
 
             {/* Box body */}
             <div style={{
-              background:"linear-gradient(160deg, #F5EDD8 0%, #EDE0C4 100%)",
+              background:"linear-gradient(160deg, #E8F2F0 0%, #D5ECE8 100%)",
               borderRadius:"0 0 16px 16px",
               padding:"20px 20px 24px",
-              border:"1px solid #C8A882", borderTop:"none",
+              border:"1px solid #2A7A6E", borderTop:"none",
               boxShadow:"0 8px 32px rgba(120,80,30,0.18), inset 0 2px 12px rgba(180,140,80,0.12)",
               position:"relative",
             }}>
@@ -113,55 +118,57 @@ export default function Home() {
               </div>
 
               <div className="grid-toolbox" style={{ position:"relative", zIndex:1 }}>
-                {TOOLS.map(({ num, icon, title }) => (
+                {TOOLS.map(({ num, title }) => {
+                  const imgMap: Record<string, string> = {
+                    "01":"/tool-01-compassion.webp", "02":"/tool-02-reflectivity.webp",
+                    "03":"/tool-03-playfulness.webp", "04":"/tool-04-modeling.webp",
+                    "05":"/tool-05-developmental.webp", "06":"/tool-06-prophecy.webp",
+                    "07":"/tool-07-cooperation.webp", "08":"/tool-08-resilience.webp",
+                    "09":"/tool-09-magic-time.webp", "10":"/tool-10-strengths.webp",
+                  };
+                  return (
                   <Link key={num} href={`/model#tool-${num}`} style={{ textDecoration:"none" }}>
                     <div style={{
-                      background:"linear-gradient(160deg, #FDFAF3 0%, #F5EDD8 100%)",
                       borderRadius:"12px",
-                      padding:"14px 8px 10px",
-                      display:"flex", flexDirection:"column", alignItems:"center", gap:"8px",
-                      border:"1px solid rgba(180,140,80,0.3)",
-                      boxShadow:"0 2px 8px rgba(120,80,30,0.1), inset 0 1px 3px rgba(255,255,255,0.8)",
+                      overflow:"hidden",
+                      display:"flex", flexDirection:"column",
+                      border:"1px solid rgba(42,122,110,0.2)",
+                      boxShadow:"0 2px 8px rgba(42,122,110,0.1)",
                       transition:"all 200ms ease",
                       cursor:"pointer",
+                      background:"#FFFFFF",
                     }}
                       onMouseEnter={e => {
                         const el = e.currentTarget as HTMLElement;
                         el.style.transform="translateY(-4px)";
-                        el.style.boxShadow="0 8px 20px rgba(120,80,30,0.2), inset 0 1px 3px rgba(255,255,255,0.8)";
-                        el.style.background="linear-gradient(160deg, #FFFFFF 0%, #FDF5E4 100%)";
+                        el.style.boxShadow="0 8px 20px rgba(42,122,110,0.18)";
                       }}
                       onMouseLeave={e => {
                         const el = e.currentTarget as HTMLElement;
                         el.style.transform="translateY(0)";
-                        el.style.boxShadow="0 2px 8px rgba(120,80,30,0.1), inset 0 1px 3px rgba(255,255,255,0.8)";
-                        el.style.background="linear-gradient(160deg, #FDFAF3 0%, #F5EDD8 100%)";
+                        el.style.boxShadow="0 2px 8px rgba(42,122,110,0.1)";
                       }}>
-                      {/* Icon in circle */}
+                      {/* Full illustration */}
                       <div style={{
-                        width:"42px", height:"42px", borderRadius:"50%",
-                        background:"linear-gradient(135deg, #F0E6CC 0%, #E8D8B0 100%)",
-                        border:"1.5px solid rgba(180,140,80,0.35)",
-                        display:"flex", alignItems:"center", justifyContent:"center",
-                        boxShadow:"inset 0 1px 3px rgba(255,255,255,0.7), 0 1px 4px rgba(120,80,30,0.15)",
-                        flexShrink:0,
-                      }}>
-                        <ToolIconEl icon={icon} size={22} />
-                      </div>
+                        width:"100%", aspectRatio:"1",
+                        backgroundImage:`url(${imgMap[num]})`,
+                        backgroundSize:"cover", backgroundPosition:"center",
+                      }} />
                       {/* Label */}
                       <span style={{
-                        fontFamily:"var(--font-hebrew)", fontSize:"11px", fontWeight:600,
-                        color:"#5C3D1A", textAlign:"center", lineHeight:1.3,
-                        display:"block",
+                        fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:600,
+                        color:"var(--charcoal)", textAlign:"center", lineHeight:1.3,
+                        display:"block", padding:"8px 6px",
                       }}>{title}</span>
                     </div>
                   </Link>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Box bottom latch */}
               <div style={{ display:"flex", justifyContent:"center", marginTop:"16px" }}>
-                <div style={{ width:"32px", height:"10px", background:"linear-gradient(180deg, #C8A882 0%, #A07850 100%)", borderRadius:"0 0 8px 8px", border:"1px solid #8A6030", borderTop:"none", boxShadow:"0 2px 4px rgba(0,0,0,0.15)" }} />
+                <div style={{ width:"32px", height:"10px", background:"linear-gradient(180deg, #2A7A6E 0%, #1D5B52 100%)", borderRadius:"0 0 8px 8px", border:"1px solid #1D5B52", borderTop:"none", boxShadow:"0 2px 4px rgba(0,0,0,0.15)" }} />
               </div>
             </div>
           </div>
@@ -212,7 +219,7 @@ export default function Home() {
             <div style={{ position:"relative", marginBottom:"20px" }}>
               <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-float)", border:"1px solid var(--border)", aspectRatio:"4/5", maxHeight:"440px" }}>
                 <Image
-                  src="/maya-photo.png"
+                  src="/maya-photo.webp"
                   alt="מאיה פלטי — פסיכולוגית חינוכית מומחית"
                   width={480} height={560}
                   style={{ objectFit:"cover", objectPosition:"center top", width:"100%", height:"100%" }}
@@ -220,8 +227,8 @@ export default function Home() {
               </div>
               {/* Name badge overlay */}
               <div style={{ position:"absolute", bottom:"20px", right:"20px", background:"rgba(249,247,242,0.92)", backdropFilter:"blur(8px)", borderRadius:"14px", padding:"12px 18px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)" }}>
-                <p style={{ fontFamily:"var(--font-serif)", fontSize:"16px", fontWeight:600, color:"var(--charcoal)", margin:0, lineHeight:1.2 }}>מאיה פלטי</p>
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", color:"var(--terra)", margin:"3px 0 0", fontWeight:500 }}>פסיכולוגית חינוכית מומחית</p>
+                <p style={{ fontFamily:"var(--font-serif)", fontSize:"19px", fontWeight:600, color:"var(--charcoal)", margin:0, lineHeight:1.2 }}>מאיה פלטי</p>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--terra)", margin:"3px 0 0", fontWeight:500 }}>פסיכולוגית חינוכית מומחית-מדריכה</p>
               </div>
             </div>
 
@@ -253,7 +260,7 @@ export default function Home() {
       {/* ── WHO IS IT FOR ──────────────────────────────────────────────── */}
       <section className="sec-sm" style={{ background:"var(--linen)" }}>
         <div style={{ maxWidth:"820px", margin:"0 auto", textAlign:"center" }}>
-          <button onClick={() => setToolboxOpen(!toolboxOpen)} style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--paper)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-card)", padding:"22px 36px", cursor:"pointer", boxShadow:"var(--shadow-card)", transition:"all 220ms ease", width:"100%" }}
+          <button onClick={() => setToolboxOpen(!toolboxOpen)} aria-expanded={toolboxOpen} aria-controls="toolbox-fit-panel" style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--paper)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-card)", padding:"22px 36px", cursor:"pointer", boxShadow:"var(--shadow-card)", transition:"all 220ms ease", width:"100%" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card)"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
             <span style={{ fontSize:"28px" }}>🎯</span>
@@ -265,11 +272,23 @@ export default function Home() {
           </button>
 
           {toolboxOpen && (
-            <div style={{ background:"#FFFFFF", border:"1px solid var(--border)", borderRadius:"var(--radius-card)", padding:"32px", marginTop:"12px", boxShadow:"var(--shadow-card)", textAlign:"right" }}>
+            <div id="toolbox-fit-panel" role="region" aria-label="למי ארגז הכלים מתאים" style={{ background:"#FFFFFF", border:"1px solid var(--border)", borderRadius:"var(--radius-card)", padding:"32px", marginTop:"12px", boxShadow:"var(--shadow-card)", textAlign:"right" }}>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"16px" }}>
                 {[
-                  { title:"✅ מתאים להורים", items:["לילדים בגיל ‏14–4", "עם מודעות בסיסית לקשיי הילד", "עם מוטיבציה גבוהה לשינוי", "המסוגלים לתרגל בין פגישות"] },
-                  { title:"⚠️ פחות מתאים כאשר", items:["קיים קושי התפתחותי/נוירולוגי משמעותי", "יש פסיכופתולוגיה חמורה הדורשת טיפול פרטני", "מצב חירום אקוטי (גירושין, אבל, לידה)", "דרושה מעטפת פסיכיאטרית לילד"] },
+                  { title:"✅ מתאים להורים", items:[
+                    "לילדים בגיל 4–14 עם מודעות בסיסית לקשיי הילד ומוטיבציה לשינוי",
+                    "המתמודדים עם הפרעות קשב ולקויות למידה",
+                    "עיכוב התפתחותי",
+                    "קשיי גמילה ורכישת הרגלים",
+                    "קשיים בוויסות רגשי והתנהגותי (התפרצויות זעם וסוגיות שליטה)",
+                    "קשיים בדחיית סיפוקים, התמודדות עם תסכול, קבלת סמכות וגבולות",
+                    "קשיים הנובעים מהמצב הביטחוני או חשיפה למעגלי פגיעות של ה-7.10 והטראומה הלאומית",
+                    "קשיים חברתיים או קשיים בקשר הורה-ילד",
+                  ]},
+                  { title:"⚠️ פחות מתאים", items:[
+                    "התמודדות עם פסיכופתולוגיה קשה ומאובחנת או סיכון גבוה — אובדנות, הפרעות נפשיות קשות, פיגור ו-ASD בתפקוד נמוך",
+                    "מצב חירום אקוטי (גירושים לאחרונה, אובדן בן משפחה קרוב, פגיעה מינית חוזרת)",
+                  ]},
                 ].map(col => (
                   <div key={col.title}>
                     <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"12px" }}>{col.title}</h4>
@@ -281,7 +300,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div style={{ marginTop:"20px", padding:"16px", background:"var(--terra-faint)", borderRadius:"10px", border:"1px solid rgba(193,127,95,0.2)" }}>
+              <div style={{ marginTop:"20px", padding:"16px", background:"var(--terra-faint)", borderRadius:"10px", border:"1px solid rgba(196,114,122,0.2)" }}>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--terra-dark)", margin:0, lineHeight:1.8 }}>
                   <strong>לא בטוחים?</strong> פגישת הייעוץ הראשונה (חינם, 15 דק׳) נועדה בדיוק לזה — להבין יחד מה מתאים לכם.
                 </p>
@@ -304,13 +323,13 @@ export default function Home() {
               {
                 emoji:"🏠", title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
                 desc:"קליניקה פיזית לייעוץ אישי והדרכות הורים. לא טיפול ואבחון.",
-                bg:"var(--sage-faint)", accent:"rgba(125,132,113,0.2)",
+                bg:"var(--sage-faint)", accent:"rgba(42,122,110,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
               },
               {
                 emoji:"🌐", title:"ישראל ועולם", sub:"פגישות זום",
                 desc:"בזום, בעברית, מכל מקום בעולם. לקהילה הישראלית בארה״ב ולהורים בישראל.",
-                bg:"var(--terra-faint)", accent:"rgba(193,127,95,0.2)",
+                bg:"var(--terra-faint)", accent:"rgba(196,114,122,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
               },
               {
@@ -336,9 +355,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── TESTIMONIALS ────────────────────────────────────────────────── */}
+      <section className="sec-std" style={{ background:"var(--linen)" }}>
+        <div style={{ maxWidth:"960px", margin:"0 auto" }}>
+          <div style={{ textAlign:"center", marginBottom:"48px" }}>
+            <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,40px)", color:"var(--charcoal)", marginBottom:"12px", fontStyle:"italic", fontWeight:300 }}>מה הורים אומרים</h2>
+            <div className="divider-accent-center" />
+          </div>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:"24px" }}>
+            {[
+              {
+                quote: "המפגשים עם מאיה סייעו לי בשינוי תפיסתי כהורה המתקשה בשימת הגבולות הנדרשים עבור בתי ועבורי כהורה.",
+                who: "אמא לארבעה, במוקד בת 10 עם קשיים חברתיים",
+              },
+              {
+                quote: "ב-9 מפגשים עם מאיה הצלחנו להתמודד עם מגוון של דילמות ומורכבויות סביב התקשורת ההורית שלנו, אנו מרגישים שיפור משמעותי מאוד וגם חיבור עמוק יותר עם הבת שלנו.",
+                who: "הורים ל-3 בנות, במוקד בת 6 עם קשיים בוויסות התנהגותי והתמודדות עם סמכות",
+              },
+            ].map(({ quote, who }, i) => (
+              <div key={i} style={{
+                background:"#FFFFFF", borderRadius:"var(--radius-card-lg)",
+                padding:"36px 32px", border:"1px solid var(--border)",
+                boxShadow:"var(--shadow-card)", position:"relative",
+              }}>
+                <span style={{ position:"absolute", top:"16px", right:"24px", fontFamily:"var(--font-serif)", fontSize:"48px", color:"var(--terra-light)", opacity:0.3, lineHeight:1 }}>״</span>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", color:"var(--charcoal-soft)", lineHeight:1.9, margin:"0 0 20px", paddingTop:"12px" }}>
+                  {quote}
+                </p>
+                <div style={{ borderTop:"1px solid var(--border)", paddingTop:"14px" }}>
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", margin:0, fontWeight:500 }}>
+                    — {who}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
       <section className="sec-cta" style={{ textAlign:"center", position:"relative", overflow:"hidden", background:"linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)" }}>
-        <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"320px", height:"320px", borderRadius:"50%", background:"rgba(193,127,95,0.10)", pointerEvents:"none" }} />
+        <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"320px", height:"320px", borderRadius:"50%", background:"rgba(196,114,122,0.10)", pointerEvents:"none" }} />
         <div style={{ position:"relative", zIndex:1, maxWidth:"640px", margin:"0 auto" }}>
           <span className="tag-sage" style={{ marginBottom:"24px", display:"inline-block" }}>מוכנים להתחיל?</span>
           <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(28px,4vw,50px)", color:"#F9F7F2", marginBottom:"18px", fontWeight:300, fontStyle:"italic" }}>

@@ -1,56 +1,58 @@
-/* ─── Google Fonts: Cormorant Garamond (serif) + DM Sans (sans) + Heebo (Hebrew) ─── */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+/* ─── Google Fonts: Playfair Display (serif headings) + Rubik (Hebrew body) ─── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Rubik:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════════════
-   DESIGN TOKENS — Warm & Organic System
+   DESIGN TOKENS — Bold & Warm System (v2)
    ═══════════════════════════════════════════════════════════════════ */
 :root {
   /* Palette */
   --paper:          #F9F7F2;
-  --linen:          #F0EBE1;
-  --parchment:      #E8E0D0;
+  --linen:          #F0EDE6;
+  --parchment:      #E4DDD2;
 
-  --sage:           #7D8471;
-  --sage-light:     #A8B09E;
-  --sage-dark:      #5C6352;
-  --sage-faint:     #EEF0EB;
+  /* Primary: Deep Teal — trust, calm, professional */
+  --sage:           #2A7A6E;
+  --sage-light:     #4A9E90;
+  --sage-dark:      #1D5B52;
+  --sage-faint:     #E8F2F0;
 
-  --terra:          #C17F5F;
-  --terra-light:    #D4A088;
-  --terra-dark:     #9A5E41;
-  --terra-faint:    #F5EAE4;
-  --rose:           #C4687A;
-  --rose-dark:      #9E4F60;
-  --rose-light:     #D98A98;
-  --rose-faint:     #FAF0F2;
+  /* Accent: Dusty Rose — warmth, action, nurturing */
+  --terra:          #C4727A;
+  --terra-light:    #D99AA0;
+  --terra-dark:     #9E4F58;
+  --terra-faint:    #F8ECEE;
+  --rose:           #9E4F58;
+  --rose-dark:      #7E3B44;
+  --rose-light:     #C4727A;
+  --rose-faint:     #F8ECEE;
 
   --charcoal:       #2D2D2D;
-  --charcoal-soft:  #555555;
-  --charcoal-muted: #888880;
+  --charcoal-soft:  #4A4A4A;
+  --charcoal-muted: #6B6B64;
 
   --border:         #DDD8CE;
   --shadow-color:   196, 185, 168;
 
   /* Typography */
-  --font-serif:     'Cormorant Garamond', Georgia, serif;
-  --font-sans:      'DM Sans', system-ui, sans-serif;
-  --font-hebrew:    'Heebo', sans-serif;
+  --font-serif:     'Playfair Display', Georgia, serif;
+  --font-sans:      'Rubik', system-ui, sans-serif;
+  --font-hebrew:    'Rubik', sans-serif;
 
   /* Radius */
-  --radius-card:    20px;
-  --radius-card-lg: 32px;
+  --radius-card:    16px;
+  --radius-card-lg: 24px;
   --radius-pill:    9999px;
 
   /* Shadows */
-  --shadow-card:       0 2px 16px 0 rgba(196,185,168,0.18), 0 1px 4px 0 rgba(45,45,45,0.06);
-  --shadow-card-hover: 0 12px 40px 0 rgba(196,185,168,0.28), 0 4px 12px 0 rgba(45,45,45,0.08);
-  --shadow-float:      0 24px 64px 0 rgba(196,185,168,0.32), 0 8px 24px 0 rgba(45,45,45,0.10);
-  --shadow-button:     0 4px 16px 0 rgba(125,132,113,0.30);
-  --shadow-button-terra: 0 4px 16px 0 rgba(193,127,95,0.32);
+  --shadow-card:       0 2px 16px 0 rgba(42,122,110,0.08), 0 1px 4px 0 rgba(45,45,45,0.06);
+  --shadow-card-hover: 0 12px 40px 0 rgba(42,122,110,0.14), 0 4px 12px 0 rgba(45,45,45,0.08);
+  --shadow-float:      0 24px 64px 0 rgba(42,122,110,0.18), 0 8px 24px 0 rgba(45,45,45,0.10);
+  --shadow-button:     0 4px 16px 0 rgba(42,122,110,0.30);
+  --shadow-button-terra: 0 4px 16px 0 rgba(196,114,122,0.32);
 
   /* Easing */
   --ease-organic: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -107,6 +109,44 @@ p, li, span, label, input, textarea, select, button {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   ACCESSIBILITY — Focus States & Reduced Motion
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Visible focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--terra);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Buttons get pill-shaped focus ring */
+.btn-primary:focus-visible,
+.btn-terra:focus-visible,
+.btn-rose:focus-visible,
+.btn-outline:focus-visible,
+.btn-outline-terra:focus-visible,
+.btn-ghost-white:focus-visible {
+  outline: 3px solid var(--terra);
+  outline-offset: 3px;
+  border-radius: var(--radius-pill);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    SCROLLBAR — Warm & Minimal
    ═══════════════════════════════════════════════════════════════════ */
 ::-webkit-scrollbar          { width: 5px; height: 5px; }
@@ -121,7 +161,7 @@ p, li, span, label, input, textarea, select, button {
    SELECTION COLOR
    ═══════════════════════════════════════════════════════════════════ */
 ::selection {
-  background: rgba(193, 127, 95, 0.18);
+  background: rgba(196,114,122,0.18);
   color: var(--terra-dark);
 }
 
@@ -309,7 +349,7 @@ p, li, span, label, input, textarea, select, button {
   background: var(--rose-dark);
   border-color: var(--rose-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(196,104,122,0.35);
+  box-shadow: 0 4px 16px rgba(196,114,122,0.35);
 }
 .btn-rose:active { transform: translateY(0); box-shadow: none; }
 
@@ -402,7 +442,7 @@ p, li, span, label, input, textarea, select, button {
   color: var(--sage-dark);
   padding: 5px 14px;
   border-radius: var(--radius-pill);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   font-family: var(--font-hebrew);
@@ -413,7 +453,7 @@ p, li, span, label, input, textarea, select, button {
   color: var(--terra-dark);
   padding: 5px 14px;
   border-radius: var(--radius-pill);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   font-family: var(--font-hebrew);
@@ -424,7 +464,7 @@ p, li, span, label, input, textarea, select, button {
   color: var(--charcoal-soft);
   padding: 5px 14px;
   border-radius: var(--radius-pill);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   font-family: var(--font-hebrew);
@@ -473,7 +513,7 @@ p, li, span, label, input, textarea, select, button {
 }
 .form-input:focus {
   border-color: var(--sage);
-  box-shadow: 0 0 0 3px rgba(125,132,113,0.12);
+  box-shadow: 0 0 0 3px rgba(42,122,110,0.12);
 }
 .form-label {
   display: block;
