@@ -169,6 +169,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="he" dir="rtl">
       <head>
+        <meta charSet="utf-8" />
         <JsonLd />
       </head>
       <body>
