@@ -171,6 +171,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta charSet="utf-8" />
         <JsonLd />
+        <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossOrigin="anonymous" />
       </head>
       <body>
         <SkipToContent />
@@ -178,6 +179,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main-content">{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof twemoji !== 'undefined') {
+                twemoji.parse(document.body, {
+                  folder: 'svg',
+                  ext: '.svg',
+                  base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+                });
+                var observer = new MutationObserver(function() {
+                  twemoji.parse(document.body, {
+                    folder: 'svg',
+                    ext: '.svg',
+                    base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+                  });
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );

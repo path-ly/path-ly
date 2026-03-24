@@ -5,6 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Force emoji rendering in all browsers ─── */
+@layer base {
+  @font-face {
+    font-family: 'EmojiFont';
+    src: local('Apple Color Emoji'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local('Noto Color Emoji'), local('Android Emoji');
+    unicode-range: U+200D, U+2049-2BFF, U+2600-27BF, U+2934-2935, U+FE00-FE0F, U+1F000-1FAFF;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════════════
    DESIGN TOKENS — Bold & Warm System (v2)
    ═══════════════════════════════════════════════════════════════════ */
@@ -38,10 +47,10 @@
   --shadow-color:   196, 185, 168;
 
   /* Typography */
-  --font-serif:     'Playfair Display', Georgia, serif;
-  --font-sans:      'Rubik', system-ui, sans-serif;
-  --font-hebrew:    'Rubik', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
-  --font-emoji:     'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-serif:     'Playfair Display', Georgia, 'EmojiFont', serif;
+  --font-sans:      'Rubik', system-ui, 'EmojiFont', sans-serif;
+  --font-hebrew:    'Rubik', 'EmojiFont', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+  --font-emoji:     'EmojiFont', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
   /* Radius */
   --radius-card:    16px;
@@ -85,6 +94,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+}
+
+/* ─── Twemoji: render emoji as inline SVG images ─── */
+img.emoji {
+  display: inline-block;
+  height: 1.1em;
+  width: 1.1em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.15em;
 }
 
 /* ─── Headings: Serif, Established ───────────────────────────────── */
