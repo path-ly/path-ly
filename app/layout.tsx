@@ -171,7 +171,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta charSet="utf-8" />
         <JsonLd />
-        <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossOrigin="anonymous" />
       </head>
       <body>
         <SkipToContent />
@@ -182,21 +181,54 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              if (typeof twemoji !== 'undefined') {
-                twemoji.parse(document.body, {
-                  folder: 'svg',
-                  ext: '.svg',
-                  base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
-                });
-                var observer = new MutationObserver(function() {
-                  twemoji.parse(document.body, {
-                    folder: 'svg',
-                    ext: '.svg',
-                    base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+              (function() {
+                var emojiRegex = /(?:\\u{1F600}-\\u{1F64F}|[\\u{1F300}-\\u{1F5FF}]|[\\u{1F680}-\\u{1F6FF}]|[\\u{1F900}-\\u{1F9FF}]|[\\u{1FA00}-\\u{1FA6F}]|[\\u{1FA70}-\\u{1FAFF}]|[\\u{2600}-\\u{27BF}]|[\\u{2300}-\\u{23FF}]|[\\u{2B50}]|[\\u{FE00}-\\u{FE0F}]|[\\u{200D}]|[\\u{20E3}]|[\\u{E0020}-\\u{E007F}]|[\\u{2702}-\\u{27B0}]|[\\u{1F1E0}-\\u{1F1FF}])+/gu;
+                function toTwemojiUrl(emoji) {
+                  var cp = [];
+                  for (var i = 0; i < emoji.length; i++) {
+                    var c = emoji.codePointAt(i);
+                    if (c > 0xFFFF) i++;
+                    if (c !== 0xFE0F) cp.push(c.toString(16));
+                  }
+                  return 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/' + cp.join('-') + '.svg';
+                }
+                function replaceEmojis(root) {
+                  var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+                  var nodes = [];
+                  while (walker.nextNode()) nodes.push(walker.currentNode);
+                  nodes.forEach(function(node) {
+                    if (!node.textContent || node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE') return;
+                    var text = node.textContent;
+                    if (!emojiRegex.test(text)) return;
+                    emojiRegex.lastIndex = 0;
+                    var frag = document.createDocumentFragment();
+                    var lastIdx = 0;
+                    var match;
+                    while ((match = emojiRegex.exec(text)) !== null) {
+                      if (match.index > lastIdx) frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index)));
+                      var img = document.createElement('img');
+                      img.className = 'emoji';
+                      img.alt = match[0];
+                      img.src = toTwemojiUrl(match[0]);
+                      img.draggable = false;
+                      frag.appendChild(img);
+                      lastIdx = match.index + match[0].length;
+                    }
+                    if (lastIdx < text.length) frag.appendChild(document.createTextNode(text.slice(lastIdx)));
+                    if (frag.childNodes.length > 0) node.parentNode.replaceChild(frag, node);
                   });
-                });
-                observer.observe(document.body, { childList: true, subtree: true });
-              }
+                }
+                function run() { try { replaceEmojis(document.body); } catch(e) {} }
+                setTimeout(run, 50);
+                setTimeout(run, 300);
+                setTimeout(run, 1000);
+                setTimeout(run, 2500);
+                if (typeof MutationObserver !== 'undefined') {
+                  var t = null;
+                  new MutationObserver(function() { clearTimeout(t); t = setTimeout(run, 100); })
+                    .observe(document.documentElement, { childList: true, subtree: true });
+                }
+              })();
             `,
           }}
         />
