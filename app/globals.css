@@ -46,8 +46,9 @@
   --border:         #DDD8CE;
   --shadow-color:   196, 185, 168;
 
-  /* Typography */
-  --font-serif:     'Playfair Display', 'Rubik', Georgia, 'EmojiFont', serif;
+  /* Typography — Rubik for all text (Hebrew site); Playfair only for Latin decorative use */
+  --font-serif:     'Rubik', Georgia, 'EmojiFont', serif;
+  --font-serif-latin: 'Playfair Display', Georgia, serif;
   --font-sans:      'Rubik', system-ui, 'EmojiFont', sans-serif;
   --font-hebrew:    'Rubik', 'EmojiFont', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
   --font-emoji:     'EmojiFont', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
