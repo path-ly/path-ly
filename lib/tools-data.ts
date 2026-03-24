@@ -64,7 +64,7 @@ export const TOOLS: Tool[] = [
     ],
     example: "הבן שלך מסרב לצחצח שיניים כל ערב. במקום ׳סתם מתנגד׳ — שאל את עצמך: האם הוא עייף מדי? האם הוא צריך להרגיש שיש לו שליטה? ומה אני מרגיש כשהוא מסרב?",
     challenge: "הכי קשה לרפלקטיביות כשאנחנו מוצפים רגשית. ברגעים האלה — הגוף מוביל את הראש. כלי זה דורש תרגול בשעות השקטות כדי לשלוף אותו ברגעי סערה.",
-    video: "https://www.youtube.com/watch?v=apzXGEbZht0",
+    video: "https://www.youtube.com/watch?v=YTTSXc6sARg",
     videoLabel: "Still Face Experiment — למה הנוכחות הרגשית חשובה",
     videos: [
       { url: "https://vt.tiktok.com/ZSu9wWq3v/", label: "טיקטוק — רפלקטיביות" },
