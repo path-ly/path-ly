@@ -74,12 +74,12 @@ export default function ModelPage() {
                     }[num]
                   }.webp`} alt={title} style={{ width:"100%", height:"100%", objectFit:"cover" }} />
                 </div>
-                <div style={{ flex:1 }}>
-                  <div style={{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"4px" }}>
+                <div style={{ flex:1, minWidth:0 }}>
+                  <div style={{ display:"flex", alignItems:"center", gap:"10px", marginBottom:"4px", justifyContent:"flex-end" }}>
                     <span className={accent ? "tag-terra" : "tag-sage"} style={{ fontSize:"13px" }}>כלי {num}</span>
                     <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"20px", fontWeight:600, color:"var(--charcoal)", margin:0 }}>{title}</h3>
                   </div>
-                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", margin:0 }}>{short}</p>
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", margin:0, textAlign:"right" }}>{short}</p>
                 </div>
                 <span style={{ fontSize:"18px", color: accent ? "var(--terra)" : "var(--sage-dark)", flexShrink:0 }}>
                   {openTool===num ? "▲" : "▼"}

@@ -126,6 +126,13 @@ h1, h2, h3, h4, h5 {
 /* ─── Body: Clean sans ────────────────────────────────────────────── */
 p, li, span, label, input, textarea, select, button {
   font-family: var(--font-hebrew);
+  text-align: inherit;
+}
+
+/* Prevent Safari RTL text stretching in flex containers */
+button {
+  text-align: right;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
