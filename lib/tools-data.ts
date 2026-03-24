@@ -11,6 +11,7 @@ export interface Tool {
   challenge: string;
   video: string;
   videoLabel: string;
+  videos: { url: string; label: string }[];
   research: string;
   /** SEO-focused fields */
   seoTitle: string;
@@ -23,7 +24,7 @@ export const TOOLS: Tool[] = [
   {
     num: "01", slug: "self-compassion", icon: "🫶", title: "חמלה הורית ועצמית",
     accent: false,
-    short: "לסלוח לעצמנו כדי לסלוח לילד",
+    short: "לקבל את עצמנו כדי לקבל את הילד",
     desc: "90-95% מהאוכלוסיה מנהלים דיבור פנימי יומיומי. הקול שבו אנחנו מדברים לעצמנו הופך לקול שהילדים שלנו מפנימים. חמלה עצמית היא לא פינוק — היא תשתית.",
     tips: [
       "שימו לב לדיבור הפנימי שלכם אחרי שקורה משהו שלא רציתם, שאכזב או עצבן אתכם — מה אתם אומרים לעצמכם? אם עולה ביקורת — מעין הפנמתי אותה? של מי הקול הזה והאם אני יכול להגיד לו בעדינות (או בבוטות) להסתלק. נסו לדבר לעצמכם כמו אל חברה טובה — מה הייתם אומרים לה?",
@@ -35,6 +36,15 @@ export const TOOLS: Tool[] = [
     challenge: "ההורים שהכי קשה להם עם חמלה עצמית הם לרוב אלה שגדלו עם ביקורת פנימית גבוהה. קח את הזמן — זה שריר שצריך לאמן.",
     video: "https://www.youtube.com/watch?v=IvtZBUSplr4&t=390",
     videoLabel: "Kristin Neff — What is Self-Compassion?",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu93vmgb/", label: "טיקטוק — חמלה הורית" },
+      { url: "https://vt.tiktok.com/ZSu934Hou/", label: "טיקטוק — חמלה עצמית" },
+      { url: "https://vt.tiktok.com/ZSu9Tppo3/", label: "טיקטוק — דיבור פנימי" },
+      { url: "https://vt.tiktok.com/ZSuxeRdKm/", label: "טיקטוק — חיזוק עצמי" },
+      { url: "https://vt.tiktok.com/ZSuxeAWvo/", label: "טיקטוק — סליחה עצמית" },
+      { url: "https://share.google/TNu423w14oyIC8W56", label: "סרטון — חמלה בפעולה" },
+      { url: "https://share.google/5Zb0J1awCawywDa9M", label: "סרטון — חמלה והורות" },
+    ],
     research: "Kristin Neff — Self-Compassion Research · מחקרים מראים קשר חזק בין חמלה עצמית לבין ויסות רגשי בתוך מערכות יחסים קרובות.",
     seoTitle: "חמלה הורית ועצמית | כלי #1 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "למדו כיצד חמלה עצמית משפרת את היחסים עם ילדיכם. טיפים מעשיים, דוגמאות מהחיים וביסוס מחקרי מפסיכולוגית חינוכית מומחית.",
@@ -56,6 +66,12 @@ export const TOOLS: Tool[] = [
     challenge: "הכי קשה לרפלקטיביות כשאנחנו מוצפים רגשית. ברגעים האלה — הגוף מוביל את הראש. כלי זה דורש תרגול בשעות השקטות כדי לשלוף אותו ברגעי סערה.",
     video: "https://www.youtube.com/watch?v=apzXGEbZht0",
     videoLabel: "Still Face Experiment — למה הנוכחות הרגשית חשובה",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu9wWq3v/", label: "טיקטוק — רפלקטיביות" },
+      { url: "https://vt.tiktok.com/ZSu9o2Y74/", label: "טיקטוק — הקשבה לרגש" },
+      { url: "https://www.youtube.com/watch?v=yOD_NUvKQ74", label: "יוטיוב — רפלקטיביות הורית" },
+      { url: "https://www.youtube.com/watch?v=7xzmw1his0s", label: "יוטיוב — הבנת התנהגות" },
+    ],
     research: "מחקר על מנטליזציה (Fonagy, 2002) — רפלקטיביות הורית היא הגורם המנבא ביותר לאיכות ההתקשרות.",
     seoTitle: "רפלקטיביות הורית | כלי #2 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "4 שאלות שישנו את האופן שבו אתם מגיבים לילד. כלי רפלקטיביות הורית מבוסס מחקר מנטליזציה עם דוגמאות יישומיות.",
@@ -76,6 +92,9 @@ export const TOOLS: Tool[] = [
     challenge: "כשאנחנו עייפים ולחוצים, המשחקיות היא הדבר האחרון שמגיע לנו. כדאי לתרגל זאת ברגעים נוחים, כך שתהפוך לאוטומטית יותר בשעות הקשות.",
     video: "https://www.youtube.com/watch?v=dHg50mdODFM",
     videoLabel: "Lawrence Cohen — The Power of Playful Parenting",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu9K7Mu2/", label: "טיקטוק — משחקיות בהורות" },
+    ],
     research: "Pellegrini (2009), Gray (2011) — משחקיות תורמת לויסות עצמי, הפחתת התנגדות ולמידה יעילה.",
     seoTitle: "משחקיות בהורות | כלי #3 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "איך להפוך סירובים של ילדים לשיתוף פעולה דרך משחקיות? טיפים מעשיים להפחתת מאבקי כוח עם ילדים בגיל 4-14.",
@@ -96,6 +115,10 @@ export const TOOLS: Tool[] = [
     challenge: "קשה למדל ויסות רגשי כשאנחנו עצמנו לא עברנו את זה. אם גדלתם בסביבה שבה רגשות הוסתרו — זה אתגר. אבל גם ניסיון גלוי הוא מודלינג.",
     video: "https://www.youtube.com/watch?v=iCvmsMzlF7o",
     videoLabel: "Brené Brown — The Power of Vulnerability (TED)",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu93vmgb/", label: "טיקטוק — מודלינג הורי" },
+      { url: "https://www.youtube.com/watch?v=W5DD9ivH1aE", label: "יוטיוב — דוגמה אישית" },
+    ],
     research: "Bandura (1977) — Social Learning Theory · תצפית ולמידה חברתית כמנגנון ההשפעה המרכזי בגיל הילדות.",
     seoTitle: "מודלינג הורי | כלי #4 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "ילדים לומדים מהמעשים שלנו, לא מהמילים. כלים מעשיים למודלינג ויסות רגשי ותיקון אחרי טעויות הורות.",
@@ -116,6 +139,10 @@ export const TOOLS: Tool[] = [
     challenge: "הציפיות שלנו לילד מושפעות מאיך גדלנו (בדור ותקופה מאוד שונה), ממה חברים אחרים מספרים, מהמדיה וממיקום הילד במשפחה (הדרישות הגבוהות שמוצגות לבכור שונות מאוד מבן הזקונים שאנחנו נוטים להקטין). חשוב לבדוק מול מידע התפתחותי עדכני ולא רק מול ׳מה נראה לי הגיוני׳.",
     video: "https://www.youtube.com/watch?v=gm9CIJ74Oxw",
     videoLabel: "Daniel Siegel — Hand Model of the Brain",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu9KvyDj/", label: "טיקטוק — התאמה התפתחותית" },
+      { url: "https://www.youtube.com/watch?v=S_eO2KJHpMU", label: "יוטיוב — ציפיות לפי גיל" },
+    ],
     research: "Piaget, Vygotsky — תיאוריות התפתחות קוגניטיבית ואזורי ההתפתחות הקרובה.",
     seoTitle: "התאמה התפתחותית | כלי #5 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "ציפיות לא מותאמות לגיל יוצרות תסכול הדדי. למדו להתאים את הדרישות ליכולות הילד בגיל 4-14.",
@@ -137,6 +164,14 @@ export const TOOLS: Tool[] = [
     challenge: "כשאנחנו לחוצים או מתוסכלים מהילד, קשה לראות את הטוב. נסו לשאול את עצמכם לא איפה הילד בהשוואה לציפיות שלכם, אלא איך הוא הראה תהליך שיפור ביחס לתקופה ארוכה שעברה.",
     video: "https://www.youtube.com/watch?v=9FBxfd7DL3E",
     videoLabel: "Martin Seligman — The New Era of Positive Psychology (TED)",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu9vnMgy/", label: "טיקטוק — נבואה חיובית" },
+      { url: "https://vt.tiktok.com/ZSu93vmgb/", label: "טיקטוק — ציפיות מהילד" },
+      { url: "https://vt.tiktok.com/ZSu9Tppo3/", label: "טיקטוק — דיבור חיובי" },
+      { url: "https://youtu.be/CX8C7HJAlpI?si=nHhysGjSmvTsY3v-", label: "יוטיוב — אפקט פיגמליון" },
+      { url: "https://share.google/5Zb0J1awCawywDa9M", label: "סרטון — נבואה בפעולה" },
+      { url: "https://www.youtube.com/watch?v=S_eO2KJHpMU", label: "יוטיוב — חיזוק חיובי" },
+    ],
     research: "Pygmalion Effect — Rosenthal & Jacobson (1968) · ציפיות המטפל/המחנך משפיעות ישירות על ביצועי הילד.",
     seoTitle: "נבואה חיובית | כלי #6 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "איך להשתמש בציפיות חיוביות כדי לחזק את הדימוי העצמי של ילדכם. כלי מעשי מבוסס אפקט פיגמליון.",
@@ -157,6 +192,15 @@ export const TOOLS: Tool[] = [
     challenge: "שיתוף פעולה אמיתי דורש ויתור על ׳לנצח׳. להורים שגדלו בסביבה שבה סמכות = ציות, זה עלול להרגיש כמו חולשה. זה לא. זה הבשלה.",
     video: "https://www.youtube.com/watch?v=zuoPZkFcLVs",
     videoLabel: "Ross Greene — Kids Do Well If They Can",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu9wWq3v/", label: "טיקטוק — שיתוף פעולה" },
+      { url: "https://vt.tiktok.com/ZSu9Kpvvn/", label: "טיקטוק — הסכמות" },
+      { url: "https://vt.tiktok.com/ZSu9K7Mu2/", label: "טיקטוק — מניעת מאבקים" },
+      { url: "https://vt.tiktok.com/ZSu9EY7nG/", label: "טיקטוק — גבולות בלי כוח" },
+      { url: "https://vt.tiktok.com/ZSu9EW4sU/", label: "טיקטוק — הורות סמכותית" },
+      { url: "https://vt.tiktok.com/ZSu9o2Y74/", label: "טיקטוק — שיח לאחר אירוע" },
+      { url: "https://www.youtube.com/watch?v=W5DD9ivH1aE", label: "יוטיוב — שיתוף פעולה" },
+    ],
     research: "Greene, R.W. (2014) — Collaborative & Proactive Solutions · מחקר מראה כי שיתוף פעולה פרואקטיבי מפחית התנהגויות מאתגרות ומחזק מיומנויות רגשיות וחברתיות.",
     seoTitle: "שיתוף פעולה הורי | כלי #7 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "מניעה, עצירת הסלמה ותיקון — 3 שלבים לשיתוף פעולה עם ילדים במקום מאבקי כוח. כלים מעשיים להורים.",
@@ -178,6 +222,11 @@ export const TOOLS: Tool[] = [
     challenge: "ההורה הכי קשה לחוסן הוא ההורה שרואה את כאב ילדו ולא יכול לסבול את זה — הוא ממהר לתקן, לפתור, לנחם. לשבת עם הכאב של הילד מבלי ׳לתקן׳ — זה הכלי.",
     video: "https://www.youtube.com/watch?v=8-JXOnFOXQk",
     videoLabel: "Edith Grotberg — Resilience for Today",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu934Hou/", label: "טיקטוק — חוסן רגשי" },
+      { url: "https://share.google/TNu423w14oyIC8W56", label: "סרטון — בניית חוסן" },
+      { url: "https://www.youtube.com/watch?v=7xzmw1his0s", label: "יוטיוב — חוסן בילדות" },
+    ],
     research: "Masten, A. (2001) — Ordinary Magic: Resilience Processes in Development · מחקר מכונן שהראה כי חוסן בילדות נשען על משאבים ״רגילים״ — ובמרכזם קשר הורי יציב ותומך.",
     seoTitle: "חוסן רגשי בילדים | כלי #8 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "חוסן רגשי אינו היעדר קושי אלא היכולת לצמוח ממנו. כלים להורים לבניית חוסן אצל ילדים בגיל 4-14.",
@@ -198,6 +247,12 @@ export const TOOLS: Tool[] = [
     challenge: "בעולם עמוס — קשה לשמור על קביעות. אך דווקא ההקפדה על קביעות (גם אם 5 דקות בלבד) היא מה שבונה את תחושת הביטחון. ילד שיודע שה׳זמן שלו׳ מגיע — מחכה לו בשקט.",
     video: "https://www.youtube.com/watch?v=oLtQLFN7fPY",
     videoLabel: "PCIT — Special Time with Your Child",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu93vmgb/", label: "טיקטוק — זמן איכות" },
+      { url: "https://vt.tiktok.com/ZSu9KvyDj/", label: "טיקטוק — זמן קסם" },
+      { url: "https://vt.tiktok.com/ZSu9ERSnD/", label: "טיקטוק — נוכחות הורית" },
+      { url: "https://www.youtube.com/watch?v=yOD_NUvKQ74", label: "יוטיוב — זמן מיוחד" },
+    ],
     research: "Grolnick, W.S. & Ryan, R.M. (1989) — Parent Styles Associated with Children's Self-Regulation and Competence in School · מחקר שהוכיח כי אוטונומיה וקשר הורי תומך תורמים למוטיבציה פנימית יותר מאשר שליטה חיצונית.",
     seoTitle: "זמן קסם | כלי #9 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "10 דקות ביום שמשנות הכל. כלי זמן קסם בונה אמון, מפחית התנהגויות קשות ומחזק את הקשר ההורי.",
@@ -218,6 +273,10 @@ export const TOOLS: Tool[] = [
     challenge: "התרבות שלנו מאומנת לתקן חולשות. ציונים נמוכים מקבלים יותר תשומת לב מציונים גבוהים. לשנות את הפוקוס — צריך מאמץ מודע יומיומי.",
     video: "https://www.youtube.com/watch?v=9FBxfd7DL3E",
     videoLabel: "Martin Seligman — Positive Psychology (TED)",
+    videos: [
+      { url: "https://vt.tiktok.com/ZSu9vnMgy/", label: "טיקטוק — חוזקות ילדים" },
+      { url: "https://vt.tiktok.com/ZSuxeRdKm/", label: "טיקטוק — צמיחה מחוזקות" },
+    ],
     research: "Seligman, M.E.P. & Csikszentmihalyi, M. (2000) — Positive Psychology: An Introduction · VIA Character Strengths · מחקר מכונן שהראה כי המיקוד בחוזקות קיימות מוביל לצמיחה משמעותית יותר מתיקון חולשות.",
     seoTitle: "צמיחה מחוזקות | כלי #10 מארגז הכלים ההורי — מאיה פלטי",
     seoDescription: "פסיכולוגיה חיובית בפעולה: איך למקד בחוזקות הילד במקום לתקן חולשות. כלים מעשיים לצמיחה משפחתית.",

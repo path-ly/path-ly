@@ -435,6 +435,44 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 ▶ צפו בסרטון: {tool.videoLabel}
               </a>
             )}
+
+            {tool.videos && tool.videos.length > 0 && (
+              <div style={{ marginTop: "16px" }}>
+                <p style={{
+                  fontFamily: "var(--font-hebrew)", fontSize: "15px", fontWeight: 600,
+                  color: "var(--charcoal)", marginBottom: "12px",
+                }}>
+                  🎬 סרטונים נוספים
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                  {tool.videos.map((v, i) => (
+                    <a
+                      key={i}
+                      href={v.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        background: "var(--sage-faint)",
+                        color: "var(--sage-dark)",
+                        padding: "10px 16px",
+                        borderRadius: "12px",
+                        textDecoration: "none",
+                        fontFamily: "var(--font-hebrew)",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        border: "1px solid rgba(42,122,110,0.15)",
+                        transition: "all 180ms ease",
+                      }}
+                    >
+                      {v.url.includes("tiktok") ? "📱" : v.url.includes("youtube") || v.url.includes("youtu.be") ? "▶" : "🎥"} {v.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* ── RELATED TOOLS ───────────────────────────────── */}

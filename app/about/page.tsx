@@ -121,9 +121,6 @@ export default function AboutPage() {
             </div>
             <div style={{ padding: "28px 32px" }}>
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
-                תואר שני בנוירופסיכולוגיה שיקומית עם התמחות בשיקום ילדים.
-              </p>
-              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
                 פסיכולוגית חינוכית מומחית-מדריכה עם ניסיון רב שנים בשירותים פסיכולוגיים חינוכיים ברחבי הארץ. במסגרת עבודתי ליוויתי בתי ספר, גנים ורשויות מקומיות, לצד עבודה פרטנית עם ילדים והורים במצבי שגרה וחירום.
               </p>
 
@@ -131,9 +128,11 @@ export default function AboutPage() {
               <div style={{ background: "var(--linen)", borderRadius: "14px", padding: "22px 26px", marginBottom: "20px" }}>
                 <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", fontWeight: 700, color: "var(--charcoal)", marginBottom: "12px" }}>בין התפקידים שמילאתי:</p>
                 {[
-                  "רכזת עירונית ללקויות למידה בשדרות",
-                  "רכזת חינוך מיוחד וועדות זכאות ואפיון באילת",
-                  "עבודה שוטפת בוועדות סטטוטוריות עירוניות ומחוזיות",
+                  "פסיכולוגית בכירה ומדריכת הורים בשירותים פסיכולוגים שונים ברחבי הארץ ובמיוחד בדרום ובעוטף עזה",
+                  "ניהול והטמעה של ״מלקות ללמידה״ בשדרות",
+                  "פסיכולוגית מערכתית של החינוך החברתי ומערכות הגיל הרך בחלק מקיבוצי העוטף",
+                  "רכזת עירונית לתחום חינוך מיוחד וועדות זכאות ואפיון מטעם השירות הפסיכולוגי באילת",
+                  "נציגת ועדות התאמה מחוזיות להתאמות בבגרויות",
                 ].map(role => (
                   <div key={role} style={{ display: "flex", gap: "10px", marginBottom: "8px", alignItems: "flex-start" }}>
                     <span style={{ color: "var(--sage)", fontWeight: 700, flexShrink: 0, marginTop: "2px" }}>•</span>
@@ -175,30 +174,37 @@ export default function AboutPage() {
             </div>
             <div style={{ padding: "28px 32px" }}>
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
-                עבודתי מתמקדת בארבעה תחומים מרכזיים:
+                עבודתי מתמקדת בתחומים המרכזיים הבאים:
               </p>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "24px" }}>
                 {[
-                  { icon: "📋", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך" },
-                  { icon: "🌊", text: "התמודדות עם קשיי ויסות ובעיות התנהגות" },
-                  { icon: "🧠", text: "הפרעות קשב ולקויות למידה" },
-                  { icon: "🛡️", text: "התמודדות עם טראומה מתמשכת וחיזוק חוסן" },
-                ].map(({ icon, text }) => (
+                  { icon: "🌊", text: "קשיי ויסות רגשי והתנהגות", sub: "קשיים בקבלת גבולות וסמכות, התמודדות עם תסכול ודחיית סיפוקים וצורך בשליטה" },
+                  { icon: "🧠", text: "הפרעות קשב ולקויות למידה", sub: "עיכוב שפתי והתפתחותי, דיסלקציה, דיסגרפיה, ADD ו-ADHD" },
+                  { icon: "🛡️", text: "התמודדות עם טראומה, חרדה וחיזוק חוסן", sub: null },
+                  { icon: "📋", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך", sub: null },
+                ].map(({ icon, text, sub }) => (
                   <div key={text} style={{
                     background: "var(--sage-faint)", borderRadius: "14px", padding: "18px 20px",
                     border: "1px solid rgba(42,122,110,0.15)", display: "flex", gap: "10px", alignItems: "flex-start",
                   }}>
                     <span style={{ fontSize: "18px", flexShrink: 0 }}>{icon}</span>
-                    <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.7, margin: 0 }}>
-                      {text}
-                    </p>
+                    <div>
+                      <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.7, margin: 0, fontWeight: 600 }}>
+                        {text}
+                      </p>
+                      {sub && (
+                        <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12.5px", color: "var(--charcoal-muted)", lineHeight: 1.6, margin: "4px 0 0" }}>
+                          {sub}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
 
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
-                בנוסף אני עובדת עם משפחות סביב קשיים חברתיים, חרדה, עבודה עם ילדים על הרצף האוטיסטי, והדרכת הורים בגיל הרך.
+                בנוסף אני עובדת עם משפחות סביב קשיים חברתיים, חרדה, עבודה עם ילדים על הרצף האוטיסטי, והדרכת הורים בגיל הרך (יצירת הרגלים וגבולות, הקניית מיומנויות יומיום והתארגנות, גמילות ופיתוח יכולת להבעה רגשית מותאמת).
               </p>
             </div>
           </div>
@@ -279,7 +285,11 @@ export default function AboutPage() {
               </p>
 
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
-                החוויות האלו חיזקו בי אמונה פשוטה: רוב ההורים רוצים להיות הורים טובים – הם פשוט זקוקים לכלים ברורים, פרקטיים וחומלים.
+                החוויות האלו חיזקו בי אמונה פשוטה: הורים רוצים להיות מיטיבים לילדיהם – הם פשוט זקוקים לכלים ברורים, פרקטיים וחומלים.
+              </p>
+
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-muted)", lineHeight: 1.85, margin: "0 0 20px" }}>
+                להיות הורה זה אתגר יומיומי מורכב מאוד ולרב מלווה בתחושות קשות של אשמה, פספוס, בלבול או בושה, אבל בכלים פשוטים ניתן לבסס הורות מיטיבה שמדייקת את עצמה ומתפתחת עם הילד וזה התיקון הכי משמעותי שנעשה עבור הנחת שלנו ועבור עתיד ילדנו.
               </p>
 
               <div style={{

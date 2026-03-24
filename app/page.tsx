@@ -5,7 +5,7 @@ import { useState } from "react";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 
 const TOOLS = [
-  { num:"01", icon:"🫶", title:"חמלה הורית",       desc:"לסלוח לעצמנו כדי לסלוח לילד",              accent:false },
+  { num:"01", icon:"🫶", title:"חמלה הורית",       desc:"לקבל את עצמנו כדי לקבל את הילד",              accent:false },
   { num:"02", icon:"eye", title:"רפלקטיביות",      desc:"להבין מה מתחת לפני השטח",                   accent:true  },
   { num:"03", icon:"🎲", title:"משחקיות",           desc:"להפוך התנגדות לחיבור",                      accent:false },
   { num:"04", icon:"👣", title:"מודלינג",            desc:"ילדים לומדים מה שאנחנו עושים",               accent:true  },
@@ -72,7 +72,7 @@ export default function Home() {
             </p>
 
             <div style={{ display:"flex", gap:"14px", flexWrap:"wrap", marginBottom:"32px" }}>
-              <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra">ייעוץ ראשוני חינם (15 דק׳)</a>
+              <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99" target="_blank" rel="noopener noreferrer" className="btn-terra">ייעוץ ראשוני חינם (15 דק׳)</a>
               <Link href="/model" className="btn-outline">ארגז הכלים ההורי</Link>
             </div>
             <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)" }}>
@@ -274,31 +274,39 @@ export default function Home() {
           {toolboxOpen && (
             <div id="toolbox-fit-panel" role="region" aria-label="למי ארגז הכלים מתאים" style={{ background:"#FFFFFF", border:"1px solid var(--border)", borderRadius:"var(--radius-card)", padding:"32px", marginTop:"12px", boxShadow:"var(--shadow-card)", textAlign:"right" }}>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"16px" }}>
-                {[
-                  { title:"✅ מתאים להורים", items:[
-                    "לילדים בגיל 4–14 עם מודעות בסיסית לקשיי הילד ומוטיבציה לשינוי",
-                    "המתמודדים עם הפרעות קשב ולקויות למידה",
+                <div>
+                  <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"8px" }}>✅ מתאים להורים</h4>
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.7, margin:"0 0 12px" }}>
+                    לילדים בגיל 4–14 עם מודעות בסיסית לקשיי הילד ומוטיבציה לשינוי המתמודדים עם:
+                  </p>
+                  {[
+                    "הפרעות קשב ולקויות למידה",
                     "עיכוב התפתחותי",
                     "קשיי גמילה ורכישת הרגלים",
                     "קשיים בוויסות רגשי והתנהגותי (התפרצויות זעם וסוגיות שליטה)",
                     "קשיים בדחיית סיפוקים, התמודדות עם תסכול, קבלת סמכות וגבולות",
                     "קשיים הנובעים מהמצב הביטחוני או חשיפה למעגלי פגיעות של ה-7.10 והטראומה הלאומית",
                     "קשיים חברתיים או קשיים בקשר הורה-ילד",
-                  ]},
-                  { title:"⚠️ פחות מתאים", items:[
+                    "ריבים רבים בין אחים",
+                    "התמכרויות למסכים",
+                    "קשיים בהתארגנות וניהול משימות יומיום",
+                  ].map(item => (
+                    <p key={item} style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.7, margin:"6px 0", display:"flex", gap:"8px" }}>
+                      <span style={{ color:"var(--sage)", fontWeight:700, flexShrink:0 }}>•</span>{item}
+                    </p>
+                  ))}
+                </div>
+                <div>
+                  <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"12px" }}>⚠️ פחות מתאים</h4>
+                  {[
                     "התמודדות עם פסיכופתולוגיה קשה ומאובחנת או סיכון גבוה — אובדנות, הפרעות נפשיות קשות, פיגור ו-ASD בתפקוד נמוך",
                     "מצב חירום אקוטי (גירושים לאחרונה, אובדן בן משפחה קרוב, פגיעה מינית חוזרת)",
-                  ]},
-                ].map(col => (
-                  <div key={col.title}>
-                    <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"12px" }}>{col.title}</h4>
-                    {col.items.map(item => (
-                      <p key={item} style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.7, margin:"6px 0", display:"flex", gap:"8px" }}>
-                        <span style={{ color:"var(--sage)", fontWeight:700, flexShrink:0 }}>•</span>{item}
-                      </p>
-                    ))}
-                  </div>
-                ))}
+                  ].map(item => (
+                    <p key={item} style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.7, margin:"6px 0", display:"flex", gap:"8px" }}>
+                      <span style={{ color:"var(--sage)", fontWeight:700, flexShrink:0 }}>•</span>{item}
+                    </p>
+                  ))}
+                </div>
               </div>
               <div style={{ marginTop:"20px", padding:"16px", background:"var(--terra-faint)", borderRadius:"10px", border:"1px solid rgba(196,114,122,0.2)" }}>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--terra-dark)", margin:0, lineHeight:1.8 }}>
@@ -325,27 +333,35 @@ export default function Home() {
                 desc:"קליניקה פיזית לייעוץ אישי והדרכות הורים. לא טיפול ואבחון.",
                 bg:"var(--sage-faint)", accent:"rgba(42,122,110,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
+                highlight: null,
               },
               {
                 emoji:"🌐", title:"ישראל ועולם", sub:"פגישות זום",
                 desc:"בזום, בעברית, מכל מקום בעולם. לקהילה הישראלית בארה״ב ולהורים בישראל.",
                 bg:"var(--terra-faint)", accent:"rgba(196,114,122,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
+                highlight: "בשעות נוחות להורים בישראל",
               },
               {
                 emoji:"🏫", title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
                 desc:"הכשרות לפסיכולוגים, עו\"סים ואנשי טיפול. סדנאות לצוותי חינוך ובתי ספר.",
                 bg:"var(--parchment)", accent:"var(--border)",
                 href:"/contact?type=org", btnText:"לטופס פניה →",
+                highlight: null,
               },
-            ].map(({ emoji, title, sub, desc, bg, accent, href, btnText }) => (
-              <div key={title} style={{ background: bg, borderRadius:"var(--radius-card-lg)", padding:"32px 28px", border:`1px solid ${accent}`, boxShadow:"var(--shadow-card)", transition:"transform 300ms ease, box-shadow 300ms ease", display:"flex", flexDirection:"column" }}
+            ].map(({ emoji, title, sub, desc, bg, accent, href, btnText, highlight }) => (
+              <div key={title} style={{ background: bg, borderRadius:"var(--radius-card-lg)", padding:"28px 24px", border:`1px solid ${accent}`, boxShadow:"var(--shadow-card)", transition:"transform 300ms ease, box-shadow 300ms ease", display:"flex", flexDirection:"column" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="translateY(-5px)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card)"; }}>
-                <div style={{ fontSize:"36px", marginBottom:"16px" }}>{emoji}</div>
-                <span className="tag-parchment" style={{ marginBottom:"10px", display:"inline-block" }}>{sub}</span>
-                <h3 style={{ fontSize:"20px", fontWeight:600, color:"var(--charcoal)", marginBottom:"12px", fontFamily:"var(--font-serif)" }}>{title}</h3>
-                <p style={{ fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.75, fontFamily:"var(--font-hebrew)", flex:1, marginBottom:"20px" }}>{desc}</p>
+                <div style={{ fontSize:"28px", marginBottom:"12px" }}>{emoji}</div>
+                <span className="tag-parchment" style={{ marginBottom:"8px", display:"inline-block" }}>{sub}</span>
+                <h3 style={{ fontSize:"18px", fontWeight:600, color:"var(--charcoal)", marginBottom:"10px", fontFamily:"var(--font-serif)" }}>{title}</h3>
+                <p style={{ fontSize:"15px", color:"var(--charcoal-soft)", lineHeight:1.75, fontFamily:"var(--font-hebrew)", flex:1, marginBottom:"16px" }}>{desc}</p>
+                {highlight && (
+                  <p style={{ fontSize:"14px", fontWeight:600, color:"var(--sage-dark)", marginBottom:"16px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"8px 14px", borderRadius:"8px", border:"1px solid rgba(42,122,110,0.15)" }}>
+                    🌐 {highlight}
+                  </p>
+                )}
                 <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"6px", color:"var(--sage-dark)", fontWeight:700, textDecoration:"none", fontSize:"14px", fontFamily:"var(--font-hebrew)", borderBottom:"2px solid var(--sage)", paddingBottom:"2px", alignSelf:"flex-start" }}>
                   {btnText}
                 </a>
@@ -404,10 +420,10 @@ export default function Home() {
           <p style={{ fontSize:"17px", color:"rgba(249,247,242,0.72)", marginBottom:"40px", lineHeight:1.82, fontFamily:"var(--font-hebrew)" }}>
             פשוט שיחה. כדי לראות אם יש כימיה ואם אני יכולה לעזור.
           </p>
-          <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"#F9F7F2", color:"var(--terra-dark)", padding:"15px 40px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"16px", textDecoration:"none", boxShadow:"0 8px 32px rgba(0,0,0,0.25)", transition:"all 250ms ease" }}
+          <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"#F9F7F2", color:"var(--terra-dark)", padding:"15px 40px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"16px", textDecoration:"none", boxShadow:"0 8px 32px rgba(0,0,0,0.25)", transition:"all 250ms ease" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--terra-faint)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="#F9F7F2"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
-            📅 לקביעת שיחה ראשונה
+            💬 לשיחת ייעוץ ראשונה בוואטסאפ
           </a>
         </div>
       </section>

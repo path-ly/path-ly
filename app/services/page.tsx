@@ -3,12 +3,8 @@ import Link from "next/link";
 export default function ServicesPage() {
   return (
     <>
-      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #F8ECEE 0%, #F9F7F2 60%)", textAlign:"center" }}>
-        <span className="tag-terra" style={{ marginBottom:"20px", display:"inline-block" }}>מה אני מציעה</span>
-        <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,5vw,64px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 16px", letterSpacing:"-0.02em" }}>
-          שירותים
-        </h1>
-        <p style={{ fontSize:"17px", color:"var(--charcoal-soft)", maxWidth:"520px", margin:"0 auto", lineHeight:1.82, fontFamily:"var(--font-hebrew)" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #F8ECEE 0%, #F9F7F2 60%)", textAlign:"center", paddingBottom:"32px" }}>
+        <p style={{ fontSize:"19px", color:"var(--charcoal-soft)", maxWidth:"520px", margin:"0 auto", lineHeight:1.82, fontFamily:"var(--font-hebrew)", fontWeight:500 }}>
           כל משפחה ראויה לתמיכה שמתאימה לה. בחרו את המסגרת שמתאימה לכם.
         </p>
       </section>
@@ -32,7 +28,7 @@ export default function ServicesPage() {
             {/* Pricing badge */}
             <div style={{ textAlign:"center", marginBottom:"40px" }}>
               <div style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--terra-faint)", border:"1px solid rgba(196,114,122,0.25)", borderRadius:"var(--radius-card)", padding:"18px 32px" }}>
-                <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>₪350</span>
+                <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>₪354</span>
                 <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)" }}>/</span>
                 <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>$115</span>
                 <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", marginRight:"8px" }}>לפגישה</span>
@@ -101,7 +97,7 @@ export default function ServicesPage() {
           {/* ══════════════════════════════════════════════════════
               2. B2B — PROFESSIONAL TRAINING (no pricing)
               ══════════════════════════════════════════════════════ */}
-          <div style={{ background:"linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)", borderRadius:"var(--radius-card-lg)", padding:"64px", boxShadow:"var(--shadow-float)" }}>
+          <div style={{ background:"linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%)", borderRadius:"var(--radius-card-lg)", padding:"64px", boxShadow:"var(--shadow-float)" }}>
             <div className="grid-services-img">
               <div style={{ textAlign:"center", fontSize:"64px" }}>🏫</div>
               <div>
@@ -140,7 +136,7 @@ export default function ServicesPage() {
             },
             {
               q:"כמה עולה פגישה?",
-              a:"פגישה בודדת (זום או פרונטלית) עולה ₪350 / $115. סדנה קבוצתית של 12 מפגשים — ₪1,200 / $400 לזוג. פגישת ייעוץ ראשונה (15 דקות) ללא עלות.",
+              a:"פגישה בודדת (זום או פרונטלית) עולה ₪354 / $115. סדנה קבוצתית של 12 מפגשים — ₪1,200 / $400 לזוג. פגישת ייעוץ ראשונה (15 דקות) ללא עלות.",
             },
             {
               q:"האם ניתן לקיים תהליך משמעותי גם מרחוק?",
