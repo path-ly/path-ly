@@ -5,16 +5,16 @@ import { useState } from "react";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 
 const TOOLS = [
-  { num:"01", icon:"🫶", title:"חמלה הורית",       desc:"לקבל את עצמנו כדי לקבל את הילד",              accent:false },
+  { num:"01", icon:"♡", title:"חמלה הורית",       desc:"לקבל את עצמנו כדי לקבל את הילד",              accent:false },
   { num:"02", icon:"eye", title:"רפלקטיביות",      desc:"להבין מה מתחת לפני השטח",                   accent:true  },
-  { num:"03", icon:"🎲", title:"משחקיות",           desc:"להפוך התנגדות לחיבור",                      accent:false },
-  { num:"04", icon:"👣", title:"מודלינג",            desc:"ילדים לומדים מה שאנחנו עושים",               accent:true  },
+  { num:"03", icon:"⚀", title:"משחקיות",           desc:"להפוך התנגדות לחיבור",                      accent:false },
+  { num:"04", icon:"⚿", title:"מודלינג",            desc:"ילדים לומדים מה שאנחנו עושים",               accent:true  },
   { num:"05", icon:"ruler", title:"התאמה התפתחותית", desc:"לראות את הילד בגובה העיניים שלו",          accent:false },
   { num:"06", icon:"focus", title:"נבואה חיובית",  desc:"להתמקד בטוב כדי לעזור לו לגדול",           accent:true  },
   { num:"07", icon:"coop",  title:"שיתוף פעולה",   desc:"ממאבק להסכמה משותפת",                       accent:false },
   { num:"08", icon:"plant", title:"חוסן רגשי",     desc:"לצמוח ממשבר, יחד",                          accent:true  },
-  { num:"09", icon:"⏳", title:"זמן קסם",            desc:"נוכחות שבונה אמון ובסיס",                   accent:false },
-  { num:"10", icon:"✨", title:"צמיחה מחוזקות",     desc:"להכיר ולהשתמש במה שיש",                    accent:true  },
+  { num:"09", icon:"⧗", title:"זמן קסם",            desc:"נוכחות שבונה אמון ובסיס",                   accent:false },
+  { num:"10", icon:"✦", title:"צמיחה מחוזקות",     desc:"להכיר ולהשתמש במה שיש",                    accent:true  },
 ];
 
 function ToolIconEl({ icon, size = 20 }: { icon: string; size?: number }) {
@@ -40,7 +40,7 @@ export default function Home() {
 
           {/* ── Text column ── */}
           <div>
-            <span className="tag-sage" style={{ marginBottom:"28px", display:"inline-block" }}>🌿 &nbsp;20 שנות ניסיון בעבודה עם ילדים והוריהם</span>
+            <span className="tag-sage" style={{ marginBottom:"28px", display:"inline-block" }}>✿ &nbsp;20 שנות ניסיון בעבודה עם ילדים והוריהם</span>
 
             {/* Name + עוד עליי */}
             <div style={{ display:"flex", alignItems:"center", gap:"14px", marginBottom:"22px", position:"relative" }}>
@@ -68,7 +68,7 @@ export default function Home() {
               כלים יישומיים המותאמים אישית — לילדים בגיל{" "}<span dir="ltr" style={{ display:"inline-block" }}>4–14</span>.
             </p>
             <p style={{ fontSize:"14px", color:"var(--sage-dark)", fontWeight:500, marginBottom:"36px", lineHeight:1.7, maxWidth:"480px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"10px 16px", borderRadius:"10px", border:"1px solid rgba(42,122,110,0.15)" }}>
-              🌐 מיומנות גבוהה בהדרכה טיפולית אונליין בשעות נוחות להורים ישראלים
+              ◉ מיומנות גבוהה בהדרכה טיפולית אונליין בשעות נוחות להורים ישראלים
             </p>
 
             <div style={{ display:"flex", gap:"14px", flexWrap:"wrap", marginBottom:"32px" }}>
@@ -76,7 +76,7 @@ export default function Home() {
               <Link href="/model" className="btn-outline">ארגז הכלים ההורי</Link>
             </div>
             <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)" }}>
-              📍 Cedar Park, אוסטין TX · 🌐 זום לישראל ולכל העולם
+              • Cedar Park, אוסטין TX · ◉ זום לישראל ולכל העולם
             </p>
           </div>
 
@@ -235,10 +235,10 @@ export default function Home() {
             {/* Credentials */}
             <div className="grid-2col-sm">
               {[
-                { icon:"🎓", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
-                { icon:"📍", text:"Cedar Park, TX & ישראל (זום)", href:null },
-                { icon:"👶", text:"מתמחה בגיל 4–14", href:null },
-                { icon:"📚", text:"מבוסס מחקר עדכני", href:"/model#research" },
+                { icon:"▴", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
+                { icon:"•", text:"Cedar Park, TX & ישראל (זום)", href:null },
+                { icon:"⚬", text:"מתמחה בגיל 4–14", href:null },
+                { icon:"≡", text:"מבוסס מחקר עדכני", href:"/model#research" },
               ].map(({ icon, text, href }) => (
                 href ? (
                   <a key={text} href={href} style={{ textDecoration:"none", background:"var(--paper)", borderRadius:"12px", padding:"14px 16px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center", boxShadow:"var(--shadow-card)" }}>
@@ -263,7 +263,7 @@ export default function Home() {
           <button onClick={() => setToolboxOpen(!toolboxOpen)} aria-expanded={toolboxOpen} aria-controls="toolbox-fit-panel" style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--paper)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-card)", padding:"22px 36px", cursor:"pointer", boxShadow:"var(--shadow-card)", transition:"all 220ms ease", width:"100%" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card)"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
-            <span style={{ fontSize:"28px" }}>🎯</span>
+            <span style={{ fontSize:"28px" }}>◉</span>
             <div style={{ textAlign:"right", flex:1 }}>
               <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", color:"var(--charcoal)", margin:0, fontWeight:600 }}>למי ארגז הכלים מתאים?</h3>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", margin:"4px 0 0" }}>לחצו לפירוט</p>
@@ -297,7 +297,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div>
-                  <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"12px" }}>⚠️ פחות מתאים</h4>
+                  <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"12px" }}>⚠ פחות מתאים</h4>
                   {[
                     "התמודדות עם פסיכופתולוגיה קשה ומאובחנת או סיכון גבוה — אובדנות, הפרעות נפשיות קשות, פיגור ו-ASD בתפקוד נמוך",
                     "מצב חירום אקוטי (גירושים לאחרונה, אובדן בן משפחה קרוב, פגיעה מינית חוזרת)",
@@ -329,21 +329,21 @@ export default function Home() {
           <div className="grid-3col">
             {[
               {
-                emoji:"🏠", title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
+                emoji:"⌂", title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
                 desc:"קליניקה פיזית לייעוץ אישי והדרכות הורים. לא טיפול ואבחון.",
                 bg:"var(--sage-faint)", accent:"rgba(42,122,110,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
                 highlight: null,
               },
               {
-                emoji:"🌐", title:"ישראל ועולם", sub:"פגישות זום",
+                emoji:"◉", title:"ישראל ועולם", sub:"פגישות זום",
                 desc:"בזום, בעברית, מכל מקום בעולם. לקהילה הישראלית בארה״ב ולהורים בישראל.",
                 bg:"var(--terra-faint)", accent:"rgba(196,114,122,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
                 highlight: "בשעות נוחות להורים בישראל",
               },
               {
-                emoji:"🏫", title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
+                emoji:"⌂", title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
                 desc:"הכשרות לפסיכולוגים, עו\"סים ואנשי טיפול. סדנאות לצוותי חינוך ובתי ספר.",
                 bg:"var(--parchment)", accent:"var(--border)",
                 href:"/contact?type=org", btnText:"לטופס פניה →",
@@ -359,7 +359,7 @@ export default function Home() {
                 <p style={{ fontSize:"15px", color:"var(--charcoal-soft)", lineHeight:1.75, fontFamily:"var(--font-hebrew)", flex:1, marginBottom:"16px" }}>{desc}</p>
                 {highlight && (
                   <p style={{ fontSize:"14px", fontWeight:600, color:"var(--sage-dark)", marginBottom:"16px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"8px 14px", borderRadius:"8px", border:"1px solid rgba(42,122,110,0.15)" }}>
-                    🌐 {highlight}
+                    ◉ {highlight}
                   </p>
                 )}
                 <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"6px", color:"var(--sage-dark)", fontWeight:700, textDecoration:"none", fontSize:"14px", fontFamily:"var(--font-hebrew)", borderBottom:"2px solid var(--sage)", paddingBottom:"2px", alignSelf:"flex-start" }}>
@@ -423,7 +423,7 @@ export default function Home() {
           <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"#F9F7F2", color:"var(--terra-dark)", padding:"15px 40px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"16px", textDecoration:"none", boxShadow:"0 8px 32px rgba(0,0,0,0.25)", transition:"all 250ms ease" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--terra-faint)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="#F9F7F2"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
-            💬 לשיחת ייעוץ ראשונה בוואטסאפ
+            ◉ לשיחת ייעוץ ראשונה בוואטסאפ
           </a>
         </div>
       </section>

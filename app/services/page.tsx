@@ -43,7 +43,7 @@ export default function ServicesPage() {
 
               {/* Option 1: Zoom */}
               <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column" }}>
-                <div style={{ fontSize:"36px", marginBottom:"14px" }}>🌐</div>
+                <div style={{ fontSize:"36px", marginBottom:"14px" }}>◉</div>
                 <span className="tag-terra" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>הכי פופולרי</span>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>פגישת זום</h3>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
@@ -56,7 +56,7 @@ export default function ServicesPage() {
 
               {/* Option 2: In-person */}
               <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column" }}>
-                <div style={{ fontSize:"36px", marginBottom:"14px" }}>🏠</div>
+                <div style={{ fontSize:"36px", marginBottom:"14px" }}>⌂</div>
                 <span className="tag-sage" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>פרונטלי</span>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>פגישה בקליניקה</h3>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
@@ -88,7 +88,7 @@ export default function ServicesPage() {
                   12 מפגשים · 5–8 זוגות · בזום · בעברית
                 </div>
                 <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%D7%94%D7%94%D7%95%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ textAlign:"center", flex:"none" }}>
-                  💬 לפרטים והרשמה
+                  ◉ לפרטים והרשמה
                 </a>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function ServicesPage() {
               ══════════════════════════════════════════════════════ */}
           <div style={{ background:"linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%)", borderRadius:"var(--radius-card-lg)", padding:"64px", boxShadow:"var(--shadow-float)" }}>
             <div className="grid-services-img">
-              <div style={{ textAlign:"center", fontSize:"64px" }}>🏫</div>
+              <div style={{ textAlign:"center", fontSize:"64px" }}>⌂</div>
               <div>
                 <span className="tag-parchment" style={{ marginBottom:"18px", display:"inline-block", background:"rgba(249,247,242,0.12)", color:"#E8E0D0" }}>ארגונים ומוסדות</span>
                 <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3vw,38px)", color:"#F9F7F2", marginBottom:"16px" }}>הכשרות מקצועיות</h2>

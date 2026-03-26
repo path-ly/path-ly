@@ -78,7 +78,7 @@ export default function ContactPage() {
             {/* Address */}
             <div style={{ display:"flex", gap:"14px", marginBottom:"26px", alignItems:"flex-start" }}>
               <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(196,114,122,0.15)" }}>
-                📍
+                •
               </div>
               <div>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontWeight:700, color:"var(--charcoal)", margin:"0 0 4px", fontSize:"15px" }}>קליניקה</p>
@@ -148,7 +148,7 @@ export default function ContactPage() {
 
             {/* Note */}
             <div style={{ background:"var(--sage)", borderRadius:"var(--radius-card)", padding:"24px 28px", marginTop:"16px" }}>
-              <p style={{ fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", color:"#FFFFFF", marginBottom:"8px" }}>⏰ זמינות</p>
+              <p style={{ fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", color:"#FFFFFF", marginBottom:"8px" }}>◷ זמינות</p>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", lineHeight:1.82, color:"rgba(255,255,255,0.88)" }}>
                 בדרך כלל אני מגיבה תוך 24 שעות בימי עסקים. במצב חירום נפשי — פנו לקו החירום של עמותת ״ער״ן״.
               </p>
@@ -163,7 +163,7 @@ export default function ContactPage() {
                 borderRadius:"var(--radius-card-lg)", padding:"72px 48px", textAlign:"center",
                 border:"1px solid rgba(42,122,110,0.2)", boxShadow:"var(--shadow-float)",
               }}>
-                <div style={{ fontSize:"60px", marginBottom:"24px" }}>🌿</div>
+                <div style={{ fontSize:"60px", marginBottom:"24px" }}>✿</div>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"32px", color:"var(--charcoal)", marginBottom:"16px", fontStyle:"italic", fontWeight:300 }}>
                   תודה! קיבלתי את פנייתכם.
                 </h3>

@@ -99,7 +99,7 @@ export default function ModelPage() {
                     {/* Practical tips */}
                     <div style={{ background:"rgba(255,255,255,0.85)", borderRadius:"12px", padding:"20px 22px", border:"1px solid var(--border)" }}>
                       <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color: accent ? "var(--terra-dark)" : "var(--sage-dark)", marginBottom:"12px", margin:"0 0 12px" }}>
-                        🛠️ איך מיישמים בפועל
+                        ⚒ איך מיישמים בפועל
                       </h4>
                       <ul style={{ margin:0, padding:0, listStyle:"none" }}>
                         {tips.map((tip, i) => (
@@ -115,7 +115,7 @@ export default function ModelPage() {
                     <div style={{ display:"flex", flexDirection:"column", gap:"12px" }}>
                       <div style={{ background:"rgba(255,255,255,0.85)", borderRadius:"12px", padding:"18px 20px", border:"1px solid var(--border)", flex:1 }}>
                         <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color: accent ? "var(--terra-dark)" : "var(--sage-dark)", margin:"0 0 8px" }}>
-                          💡 דוגמה מהחיים
+                          ◉ דוגמה מהחיים
                         </h4>
                         <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13.5px", color:"var(--charcoal-soft)", lineHeight:1.75, margin:0 }}>
                           {example}
@@ -123,7 +123,7 @@ export default function ModelPage() {
                       </div>
                       <div style={{ background:"rgba(255,255,255,0.75)", borderRadius:"12px", padding:"16px 20px", border:`1px solid ${accent ? "rgba(196,114,122,0.2)" : "rgba(42,122,110,0.2)"}` }}>
                         <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color:"var(--charcoal-muted)", margin:"0 0 6px" }}>
-                          ⚠️ אתגר נפוץ
+                          ⚠ אתגר נפוץ
                         </h4>
                         <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", lineHeight:1.7, margin:0 }}>
                           {challenge}
@@ -136,7 +136,7 @@ export default function ModelPage() {
                   <div className="grid-research">
                     <div style={{ background:"rgba(255,255,255,0.7)", borderRadius:"10px", padding:"14px 18px", border:"1px solid var(--border)" }}>
                       <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", margin:0, lineHeight:1.7 }}>
-                        📚 <strong>ביסוס מחקרי:</strong> {research}
+                        ≡ <strong>ביסוס מחקרי:</strong> {research}
                       </p>
                     </div>
                     {video && (
@@ -144,7 +144,7 @@ export default function ModelPage() {
                         style={{ display:"flex", alignItems:"center", gap:"8px", background: accent ? "var(--terra)" : "var(--sage)", color:"white", padding:"12px 18px", borderRadius:"10px", textDecoration:"none", whiteSpace:"nowrap", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, flexShrink:0, transition:"all 180ms ease" }}
                         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity="0.85"; (e.currentTarget as HTMLElement).style.transform="translateY(-1px)"; }}
                         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity="1"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
-                        ▶ {videoLabel}
+                        ▸ {videoLabel}
                       </a>
                     )}
                   </div>
@@ -159,7 +159,7 @@ export default function ModelPage() {
                         {videos.map((v, i) => (
                           <a key={i} href={v.url} target="_blank" rel="noopener noreferrer"
                             style={{ display:"inline-flex", alignItems:"center", gap:"6px", background:"rgba(255,255,255,0.7)", color: accent ? "var(--terra-dark)" : "var(--sage-dark)", padding:"8px 14px", borderRadius:"10px", textDecoration:"none", fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:500, border:`1px solid ${accent ? "rgba(196,114,122,0.2)" : "rgba(42,122,110,0.15)"}`, transition:"all 180ms ease" }}>
-                            {v.url.includes("tiktok") ? "📱" : v.url.includes("youtube") || v.url.includes("youtu.be") ? "▶" : "🎥"} {v.label}
+                            {v.url.includes("tiktok") ? "☎" : v.url.includes("youtube") || v.url.includes("youtu.be") ? "▸" : "🎥"} {v.label}
                           </a>
                         ))}
                       </div>
@@ -199,10 +199,10 @@ export default function ModelPage() {
 
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"14px", marginTop:"20px" }}>
             {[
-              { icon:"1️⃣", text:"אינטייק — הכרת הסיפור המשפחתי" },
-              { icon:"2️⃣", text:"פסיכואדוקציה — בחירת הכלים" },
-              { icon:"3️⃣", text:"ליווי בשטח — יישום ודיוק" },
-              { icon:"4️⃣", text:"הטמעת שינוי וסיכום" },
+              { icon:"①", text:"אינטייק — הכרת הסיפור המשפחתי" },
+              { icon:"②", text:"פסיכואדוקציה — בחירת הכלים" },
+              { icon:"③", text:"ליווי בשטח — יישום ודיוק" },
+              { icon:"④", text:"הטמעת שינוי וסיכום" },
             ].map(({ icon, text }) => (
               <div key={text} style={{ background:"var(--paper)", borderRadius:"12px", padding:"14px 18px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center" }}>
                 <span style={{ fontSize:"20px" }}>{icon}</span>
@@ -231,7 +231,7 @@ export default function ModelPage() {
           </div>
 
           <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", textAlign:"center", lineHeight:1.7 }}>
-            📚 ביסוס מחקרי מפורט מופיע בכל כלי בנפרד —{" "}
+            ≡ ביסוס מחקרי מפורט מופיע בכל כלי בנפרד —{" "}
             <a href="#tool-01" style={{ color:"var(--sage)", fontWeight:600, textDecoration:"none", borderBottom:"1px solid var(--sage)" }}>
               גללו למעלה לכלים
             </a>

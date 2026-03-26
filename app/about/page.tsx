@@ -41,7 +41,7 @@ export default function AboutPage() {
 
           {/* Intro text */}
           <div>
-            <span className="tag-sage" style={{ marginBottom: "20px", display: "inline-block" }}>🌿 &nbsp;עוד עליי</span>
+            <span className="tag-sage" style={{ marginBottom: "20px", display: "inline-block" }}>✿ &nbsp;עוד עליי</span>
             <h1 style={{
               fontFamily: "var(--font-serif)", fontSize: "clamp(32px,4vw,52px)",
               fontWeight: 300, fontStyle: "italic", color: "var(--charcoal)",
@@ -113,7 +113,7 @@ export default function AboutPage() {
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
             }}>
-              <span style={{ fontSize: "24px" }}>🎓</span>
+              <span style={{ fontSize: "24px" }}>▴</span>
               <h2 style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px",
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
@@ -166,7 +166,7 @@ export default function AboutPage() {
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
             }}>
-              <span style={{ fontSize: "24px" }}>🔍</span>
+              <span style={{ fontSize: "24px" }}>◯</span>
               <h2 style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px",
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
@@ -179,10 +179,10 @@ export default function AboutPage() {
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "24px" }}>
                 {[
-                  { icon: "🌊", text: "קשיי ויסות רגשי והתנהגות", sub: "קשיים בקבלת גבולות וסמכות, התמודדות עם תסכול ודחיית סיפוקים וצורך בשליטה" },
-                  { icon: "🧠", text: "הפרעות קשב ולקויות למידה", sub: "עיכוב שפתי והתפתחותי, דיסלקציה, דיסגרפיה, ADD ו-ADHD" },
-                  { icon: "🛡️", text: "התמודדות עם טראומה, חרדה וחיזוק חוסן", sub: null },
-                  { icon: "📋", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך", sub: null },
+                  { icon: "≈", text: "קשיי ויסות רגשי והתנהגות", sub: "קשיים בקבלת גבולות וסמכות, התמודדות עם תסכול ודחיית סיפוקים וצורך בשליטה" },
+                  { icon: "◎", text: "הפרעות קשב ולקויות למידה", sub: "עיכוב שפתי והתפתחותי, דיסלקציה, דיסגרפיה, ADD ו-ADHD" },
+                  { icon: "⌗", text: "התמודדות עם טראומה, חרדה וחיזוק חוסן", sub: null },
+                  { icon: "▭", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך", sub: null },
                 ].map(({ icon, text, sub }) => (
                   <div key={text} style={{
                     background: "var(--sage-faint)", borderRadius: "14px", padding: "18px 20px",
@@ -220,7 +220,7 @@ export default function AboutPage() {
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
             }}>
-              <span style={{ fontSize: "24px" }}>✍️</span>
+              <span style={{ fontSize: "24px" }}>✎</span>
               <h2 style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px",
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
@@ -265,7 +265,7 @@ export default function AboutPage() {
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
             }}>
-              <span style={{ fontSize: "24px" }}>🌿</span>
+              <span style={{ fontSize: "24px" }}>✿</span>
               <h2 style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px",
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
