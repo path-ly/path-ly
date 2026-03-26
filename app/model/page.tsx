@@ -64,6 +64,7 @@ export default function ModelPage() {
                   borderRadius: openTool===num ? "var(--radius-card) var(--radius-card) 0 0" : "var(--radius-card)",
                   padding:"20px 24px", cursor:"pointer", boxShadow:"var(--shadow-card)",
                   display:"flex", alignItems:"center", gap:"16px", transition:"all 200ms ease",
+                  WebkitTextSizeAdjust:"100%",
                 }}>
                 <div style={{ width:"52px", height:"52px", borderRadius:"12px", overflow:"hidden", flexShrink:0, border:"1px solid var(--border)" }}>
                   <img src={`/tool-${num}-${
