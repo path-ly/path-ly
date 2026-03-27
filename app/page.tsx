@@ -2,19 +2,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import SiteIcon from "@/components/SiteIcon";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 
 const TOOLS = [
-  { num:"01", icon:"♡", title:"חמלה הורית",       desc:"לקבל את עצמנו כדי לקבל את הילד",              accent:false },
+  { num:"01", icon:"heart-hands", title:"חמלה הורית",       desc:"לקבל את עצמנו כדי לקבל את הילד",              accent:false },
   { num:"02", icon:"eye", title:"רפלקטיביות",      desc:"להבין מה מתחת לפני השטח",                   accent:true  },
-  { num:"03", icon:"⚀", title:"משחקיות",           desc:"להפוך התנגדות לחיבור",                      accent:false },
-  { num:"04", icon:"⚿", title:"מודלינג",            desc:"ילדים לומדים מה שאנחנו עושים",               accent:true  },
+  { num:"03", icon:"dice", title:"משחקיות",           desc:"להפוך התנגדות לחיבור",                      accent:false },
+  { num:"04", icon:"footprints", title:"מודלינג",            desc:"ילדים לומדים מה שאנחנו עושים",               accent:true  },
   { num:"05", icon:"ruler", title:"התאמה התפתחותית", desc:"לראות את הילד בגובה העיניים שלו",          accent:false },
   { num:"06", icon:"focus", title:"נבואה חיובית",  desc:"להתמקד בטוב כדי לעזור לו לגדול",           accent:true  },
   { num:"07", icon:"coop",  title:"שיתוף פעולה",   desc:"ממאבק להסכמה משותפת",                       accent:false },
   { num:"08", icon:"plant", title:"חוסן רגשי",     desc:"לצמוח ממשבר, יחד",                          accent:true  },
-  { num:"09", icon:"⧗", title:"זמן קסם",            desc:"נוכחות שבונה אמון ובסיס",                   accent:false },
-  { num:"10", icon:"✦", title:"צמיחה מחוזקות",     desc:"להכיר ולהשתמש במה שיש",                    accent:true  },
+  { num:"09", icon:"hourglass", title:"זמן קסם",            desc:"נוכחות שבונה אמון ובסיס",                   accent:false },
+  { num:"10", icon:"sparkles", title:"צמיחה מחוזקות",     desc:"להכיר ולהשתמש במה שיש",                    accent:true  },
 ];
 
 function ToolIconEl({ icon, size = 20 }: { icon: string; size?: number }) {
@@ -23,7 +24,7 @@ function ToolIconEl({ icon, size = 20 }: { icon: string; size?: number }) {
   if (icon === "focus") return <FocusGoodIcon size={size} />;
   if (icon === "coop")  return <CooperationIcon size={size} />;
   if (icon === "plant") return <PlantFromRockIcon size={size} />;
-  return <span style={{ fontSize: size }}>{icon}</span>;
+  return <SiteIcon name={icon} size={size} />;
 }
 
 export default function Home() {
@@ -40,7 +41,7 @@ export default function Home() {
 
           {/* ── Text column ── */}
           <div>
-            <span className="tag-sage" style={{ marginBottom:"28px", display:"inline-block" }}>✿ &nbsp;20 שנות ניסיון בעבודה עם ילדים והוריהם</span>
+            <span className="tag-sage" style={{ marginBottom:"28px", display:"inline-flex", alignItems:"center", gap:"6px" }}><SiteIcon name="flower" size={16} /> 20 שנות ניסיון בעבודה עם ילדים והוריהם</span>
 
             {/* Name + עוד עליי */}
             <div style={{ display:"flex", alignItems:"center", gap:"14px", marginBottom:"22px", position:"relative" }}>
@@ -68,7 +69,7 @@ export default function Home() {
               כלים יישומיים המותאמים אישית — לילדים בגיל{" "}<span dir="ltr" style={{ display:"inline-block" }}>4–14</span>.
             </p>
             <p style={{ fontSize:"14px", color:"var(--sage-dark)", fontWeight:500, marginBottom:"36px", lineHeight:1.7, maxWidth:"480px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"10px 16px", borderRadius:"10px", border:"1px solid rgba(42,122,110,0.15)" }}>
-              ◉ מיומנות גבוהה בהדרכה טיפולית אונליין בשעות נוחות להורים ישראלים
+              <span style={{ display:"inline-flex", alignItems:"center", gap:"6px" }}><SiteIcon name="dot" size={14} /> מיומנות גבוהה בהדרכה טיפולית אונליין בשעות נוחות להורים ישראלים</span>
             </p>
 
             <div style={{ display:"flex", gap:"14px", flexWrap:"wrap", marginBottom:"32px" }}>
@@ -76,7 +77,7 @@ export default function Home() {
               <Link href="/model" className="btn-outline">ארגז הכלים ההורי</Link>
             </div>
             <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)" }}>
-              • Cedar Park, אוסטין TX · ◉ זום לישראל ולכל העולם
+              • Cedar Park, אוסטין TX · זום לישראל ולכל העולם
             </p>
           </div>
 
@@ -235,19 +236,19 @@ export default function Home() {
             {/* Credentials */}
             <div className="grid-2col-sm">
               {[
-                { icon:"▴", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
-                { icon:"•", text:"Cedar Park, TX & ישראל (זום)", href:null },
-                { icon:"⚬", text:"מתמחה בגיל 4–14", href:null },
-                { icon:"≡", text:"מבוסס מחקר עדכני", href:"/model#research" },
-              ].map(({ icon, text, href }) => (
+                { iconName:"star", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
+                { iconName:"house", text:"Cedar Park, TX & ישראל (זום)", href:null },
+                { iconName:"baby", text:"מתמחה בגיל 4–14", href:null },
+                { iconName:"book", text:"מבוסס מחקר עדכני", href:"/model#research" },
+              ].map(({ iconName, text, href }) => (
                 href ? (
                   <a key={text} href={href} style={{ textDecoration:"none", background:"var(--paper)", borderRadius:"12px", padding:"14px 16px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center", boxShadow:"var(--shadow-card)" }}>
-                    <span style={{ fontSize:"18px" }}>{icon}</span>
+                    <SiteIcon name={iconName} size={18} />
                     <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--sage-dark)", fontWeight:600, textDecoration:"underline dotted" }}>{text}</span>
                   </a>
                 ) : (
                   <div key={text} style={{ background:"var(--paper)", borderRadius:"12px", padding:"14px 16px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center", boxShadow:"var(--shadow-card)" }}>
-                    <span style={{ fontSize:"18px" }}>{icon}</span>
+                    <SiteIcon name={iconName} size={18} />
                     <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-soft)" }}>{text}</span>
                   </div>
                 )
@@ -263,19 +264,19 @@ export default function Home() {
           <button onClick={() => setToolboxOpen(!toolboxOpen)} aria-expanded={toolboxOpen} aria-controls="toolbox-fit-panel" style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--paper)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-card)", padding:"22px 36px", cursor:"pointer", boxShadow:"var(--shadow-card)", transition:"all 220ms ease", width:"100%" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card)"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
-            <span style={{ fontSize:"28px" }}>◉</span>
+            <span style={{ fontSize:"28px", display:"flex", alignItems:"center" }}><SiteIcon name="dot" size={28} /></span>
             <div style={{ textAlign:"right", flex:1 }}>
               <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", color:"var(--charcoal)", margin:0, fontWeight:600 }}>למי ארגז הכלים מתאים?</h3>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", margin:"4px 0 0" }}>לחצו לפירוט</p>
             </div>
-            <span style={{ fontSize:"20px", color:"var(--terra)", marginRight:"auto" }}>{toolboxOpen ? "▲" : "▼"}</span>
+            <span style={{ color:"var(--terra)", marginRight:"auto", display:"flex" }}>{toolboxOpen ? <SiteIcon name="chevron-up" size={20} /> : <SiteIcon name="chevron-down" size={20} />}</span>
           </button>
 
           {toolboxOpen && (
             <div id="toolbox-fit-panel" role="region" aria-label="למי ארגז הכלים מתאים" style={{ background:"#FFFFFF", border:"1px solid var(--border)", borderRadius:"var(--radius-card)", padding:"32px", marginTop:"12px", boxShadow:"var(--shadow-card)", textAlign:"right" }}>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"16px" }}>
                 <div>
-                  <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"8px" }}>✅ מתאים להורים</h4>
+                  <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"8px", display:"flex", alignItems:"center", gap:"6px" }}><SiteIcon name="check-circle" size={16} /> מתאים להורים</h4>
                   <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.7, margin:"0 0 12px" }}>
                     לילדים בגיל 4–14 עם מודעות בסיסית לקשיי הילד ומוטיבציה לשינוי המתמודדים עם:
                   </p>
@@ -297,7 +298,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div>
-                  <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"12px" }}>⚠ פחות מתאים</h4>
+                  <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"12px", display:"flex", alignItems:"center", gap:"6px" }}><SiteIcon name="alert" size={16} /> פחות מתאים</h4>
                   {[
                     "התמודדות עם פסיכופתולוגיה קשה ומאובחנת או סיכון גבוה — אובדנות, הפרעות נפשיות קשות, פיגור ו-ASD בתפקוד נמוך",
                     "מצב חירום אקוטי (גירושים לאחרונה, אובדן בן משפחה קרוב, פגיעה מינית חוזרת)",
@@ -329,37 +330,37 @@ export default function Home() {
           <div className="grid-3col">
             {[
               {
-                emoji:"⌂", title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
+                iconName:"house", title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
                 desc:"קליניקה פיזית לייעוץ אישי והדרכות הורים. לא טיפול ואבחון.",
                 bg:"var(--sage-faint)", accent:"rgba(42,122,110,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
                 highlight: null,
               },
               {
-                emoji:"◉", title:"ישראל ועולם", sub:"פגישות זום",
+                iconName:"video", title:"ישראל ועולם", sub:"פגישות זום",
                 desc:"בזום, בעברית, מכל מקום בעולם. לקהילה הישראלית בארה״ב ולהורים בישראל.",
                 bg:"var(--terra-faint)", accent:"rgba(196,114,122,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
                 highlight: "בשעות נוחות להורים בישראל",
               },
               {
-                emoji:"⌂", title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
+                iconName:"users", title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
                 desc:"הכשרות לפסיכולוגים, עו\"סים ואנשי טיפול. סדנאות לצוותי חינוך ובתי ספר.",
                 bg:"var(--parchment)", accent:"var(--border)",
                 href:"/contact?type=org", btnText:"לטופס פניה →",
                 highlight: null,
               },
-            ].map(({ emoji, title, sub, desc, bg, accent, href, btnText, highlight }) => (
+            ].map(({ iconName, title, sub, desc, bg, accent, href, btnText, highlight }) => (
               <div key={title} style={{ background: bg, borderRadius:"var(--radius-card-lg)", padding:"28px 24px", border:`1px solid ${accent}`, boxShadow:"var(--shadow-card)", transition:"transform 300ms ease, box-shadow 300ms ease", display:"flex", flexDirection:"column" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="translateY(-5px)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card)"; }}>
-                <div style={{ fontSize:"28px", marginBottom:"12px" }}>{emoji}</div>
+                <div style={{ marginBottom:"12px" }}><SiteIcon name={iconName} size={28} /></div>
                 <span className="tag-parchment" style={{ marginBottom:"8px", display:"inline-block" }}>{sub}</span>
                 <h3 style={{ fontSize:"18px", fontWeight:600, color:"var(--charcoal)", marginBottom:"10px", fontFamily:"var(--font-serif)" }}>{title}</h3>
                 <p style={{ fontSize:"15px", color:"var(--charcoal-soft)", lineHeight:1.75, fontFamily:"var(--font-hebrew)", flex:1, marginBottom:"16px" }}>{desc}</p>
                 {highlight && (
-                  <p style={{ fontSize:"14px", fontWeight:600, color:"var(--sage-dark)", marginBottom:"16px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"8px 14px", borderRadius:"8px", border:"1px solid rgba(42,122,110,0.15)" }}>
-                    ◉ {highlight}
+                  <p style={{ fontSize:"14px", fontWeight:600, color:"var(--sage-dark)", marginBottom:"16px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"8px 14px", borderRadius:"8px", border:"1px solid rgba(42,122,110,0.15)", display:"flex", alignItems:"center", gap:"6px" }}>
+                    <SiteIcon name="dot" size={14} /> {highlight}
                   </p>
                 )}
                 <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"6px", color:"var(--sage-dark)", fontWeight:700, textDecoration:"none", fontSize:"14px", fontFamily:"var(--font-hebrew)", borderBottom:"2px solid var(--sage)", paddingBottom:"2px", alignSelf:"flex-start" }}>
@@ -423,7 +424,7 @@ export default function Home() {
           <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"#F9F7F2", color:"var(--terra-dark)", padding:"15px 40px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"16px", textDecoration:"none", boxShadow:"0 8px 32px rgba(0,0,0,0.25)", transition:"all 250ms ease" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--terra-faint)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="#F9F7F2"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
-            ◉ לשיחת ייעוץ ראשונה בוואטסאפ
+            <SiteIcon name="dot" size={16} /> לשיחת ייעוץ ראשונה בוואטסאפ
           </a>
         </div>
       </section>

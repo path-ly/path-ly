@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import SiteIcon from "@/components/SiteIcon";
 
 type Category = "all" | "professional" | "inspirational";
 type ContentType = "song" | "poem" | "article" | "book" | "research";
@@ -25,7 +26,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:1, type:"poem", category:"inspirational",
     title:"סיזיפית", creator:"מאיה פלטי",
-    tag:"הורות אמיתית", emoji:"🌅",
+    tag:"הורות אמיתית", emoji:"sunrise",
     excerpt:"ממחר בבוקר אני אהיה אמא טובה, אעטוף אותם כל היום בביטוי גאווה ואהבה... שיר על המחזוריות, ההבטחות, והחמלה שאנחנו כל כך זקוקות לה.",
     accentColor:"terra", featured:true, isMine:true,
     fullContent:`ממחר בבוקר אני אהיה אמא טובה,
@@ -81,7 +82,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:3, type:"poem", category:"inspirational",
     title:"העיקר הכוונה?", creator:"מאיה פלטי",
-    tag:"ילדות ואמהות", emoji:"✿",
+    tag:"ילדות ואמהות", emoji:"flower",
     excerpt:"פעם, לא כל כך מזמן, כשהייתי קטנה, את היית אלוהים ואני המאמינה... שיר על הבת שנהיית אמא, ועל מה שנשאר בדרך.",
     accentColor:"terra", isMine:true,
     fullContent:`העיקר הכוונה?
@@ -108,7 +109,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:4, type:"poem", category:"inspirational",
     title:"הגורו של ארוחות הערב", creator:"מאיה פלטי",
-    tag:"הומור ואמת", emoji:"⊙",
+    tag:"הומור ואמת", emoji:"dot",
     excerpt:"בפנטזיה היא הגורו של ארוחות הערב המשפחתיות, מזריקה לכל ביס ותבשיל ים של משמעויות... ארוחת ערב כמטפורה לכל הפער בין הפנטזיה ההורית למציאות.",
     accentColor:"sage", isMine:true,
     fullContent:`בפנטזיה היא הגורו של ארוחות הערב המשפחתיות
@@ -143,7 +144,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:12, type:"poem", category:"inspirational",
     title:"The Road Not Taken", creator:"Robert Frost",
-    tag:"בחירה", emoji:"🌲",
+    tag:"בחירה", emoji:"tree",
     excerpt:"Two roads diverged in a yellow wood — and every parent stands at this crossroads daily.",
     accentColor:"terra",
     link:"https://www.poetryfoundation.org/poems/44272/the-road-not-taken",
@@ -152,7 +153,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:13, type:"article", category:"professional",
     title:"חמלה עצמית והורית — כלי 1", creator:"מאיה פלטי",
-    tag:"כלי מרכזי", emoji:"♥",
+    tag:"כלי מרכזי", emoji:"heart",
     excerpt:"90-95% מהאוכלוסיה מנהלים דיבור פנימי יומיומי. הקול שאנחנו מדברים בו אל עצמנו — הוא הקול שהילדים שלנו יפנימו. לכן חמלה עצמית היא לא פינוק — היא תשתית.",
     accentColor:"terra", featured:true, isMine:true,
     link:"/model#tool-01",
@@ -160,7 +161,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:14, type:"article", category:"professional",
     title:"רפלקטיביות הורית — כלי 2", creator:"מאיה פלטי",
-    tag:"כלי מרכזי", emoji:"◉",
+    tag:"כלי מרכזי", emoji:"dot",
     excerpt:"אנחנו מגיבים על אוטומט — כפתור נלחץ והתגובה מתרחשת. הרפלקטיביות היא ארבע שאלות פשוטות: מה אני חושב? מה אני מרגיש? מה האחר חושב? מה הוא מרגיש?",
     accentColor:"sage", isMine:true,
     link:"/model#tool-02",
@@ -168,7 +169,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:15, type:"article", category:"professional",
     title:"משחקיות — כלי 3", creator:"מאיה פלטי",
-    tag:"יישום מידי", emoji:"⚀",
+    tag:"יישום מידי", emoji:"dice",
     excerpt:"משחקיות היא לא פעילות מיוחדת — היא תנוחת נפש. כניסה דרך החלון כשדלת ההתנגדות נסגרת. לנטרל מאבקי כוח, להפחית התנגדות, ולהפוך אינטראקציות יומיומיות לחיבור.",
     accentColor:"terra", isMine:true,
     link:"/model#tool-03",
@@ -176,7 +177,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:16, type:"article", category:"professional",
     title:"ממאבק לשיתוף פעולה — כלי 7", creator:"מאיה פלטי",
-    tag:"מניעה ותיקון", emoji:"⚌",
+    tag:"מניעה ותיקון", emoji:"handshake",
     excerpt:"רוב העבודה נעשית בין האירועים, לא בתוכם. מניעה, עצירת הסלמה ותיקון — שלושת השלבים שהורים מדווחים שמשנים הכל. המטרה היא לא לנצח — אלא ללכת יחד.",
     accentColor:"sage", featured:true, isMine:true,
     link:"/model#tool-07",
@@ -184,7 +185,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:17, type:"article", category:"professional",
     title:"זמן קסם — כלי 9", creator:"מאיה פלטי",
-    tag:"קשר ואמון", emoji:"⧗",
+    tag:"קשר ואמון", emoji:"hourglass",
     excerpt:"5–20 דקות ביום, קבועות, בטוחות, ולא מוטלות בספק. הילד בוחר. ההורה נוכח. זהו הבסיס לסמכות שמבוססת על כבוד שהורווח — לא על כוח.",
     accentColor:"terra", isMine:true,
     link:"/model#tool-09",
@@ -193,7 +194,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:18, type:"book", category:"professional",
     title:"No Drama Discipline", creator:"Daniel J. Siegel",
-    tag:"חינוך מוחי", emoji:"◎",
+    tag:"חינוך מוחי", emoji:"brain",
     excerpt:"המדע מאחורי ויסות רגשי אצל ילדים — וכיצד הורות יכולה לעצב את מבנה המוח.",
     accentColor:"sage",
     link:"https://www.amazon.com/No-Drama-Discipline-Whole-Brain-Nurturing/dp/0553384007",
@@ -201,7 +202,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:19, type:"book", category:"professional",
     title:"The Whole-Brain Child", creator:"Siegel & Payne Bryson",
-    tag:"נוירולוגיה", emoji:"⚛",
+    tag:"נוירולוגיה", emoji:"atom",
     excerpt:"12 אסטרטגיות לטיפוח מוח ילדכם — מבוססות מחקר, ניתנות ליישום.",
     accentColor:"terra",
     link:"https://www.amazon.com/Whole-Brain-Child-Revolutionary-Strategies-Developing/dp/0553386697",
@@ -209,7 +210,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:20, type:"book", category:"professional",
     title:"How to Talk So Kids Will Listen", creator:"Faber & Mazlish",
-    tag:"תקשורת", emoji:"◉",
+    tag:"תקשורת", emoji:"dot",
     excerpt:"ספר קלאסי שמלמד שינוי שפה — ושינוי שפה משנה את כל הדינמיקה.",
     accentColor:"sage",
     link:"https://www.amazon.com/How-Talk-Kids-Will-Listen/dp/1451663889",
@@ -217,7 +218,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:21, type:"research", category:"professional",
     title:"ACE Study", creator:"CDC & Kaiser Permanente",
-    tag:"טראומה", emoji:"▭",
+    tag:"טראומה", emoji:"clipboard",
     excerpt:"מחקר ה-ACE על חוויות ילדות שליליות — הבסיס המדעי לחשיבות הורות בריאה.",
     accentColor:"terra",
     link:"https://www.cdc.gov/aces/about/index.html",
@@ -225,7 +226,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:22, type:"article", category:"professional",
     title:"The Still Face Experiment", creator:"Edward Tronick",
-    tag:"התקשרות", emoji:"🎥",
+    tag:"התקשרות", emoji:"video",
     excerpt:"ניסוי הפנים הדוממות — הדגמה של 3 דקות שמסבירה הכל על הצורך של ילד בקשר.",
     accentColor:"sage",
     link:"https://www.youtube.com/watch?v=apzXGEbZht0",
@@ -291,7 +292,7 @@ function AIChatBubble() {
           transformOrigin:"bottom left",
         }}>
           <div style={{ background:"linear-gradient(135deg, var(--sage-dark) 0%, #3D3530 100%)", padding:"18px 20px", display:"flex", alignItems:"center", gap:"12px" }}>
-            <div style={{ width:"38px", height:"38px", borderRadius:"50%", background:"rgba(249,247,242,0.15)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", border:"1.5px solid rgba(249,247,242,0.25)", flexShrink:0 }}>✿</div>
+            <div style={{ width:"38px", height:"38px", borderRadius:"50%", background:"rgba(249,247,242,0.15)", display:"flex", alignItems:"center", justifyContent:"center", border:"1.5px solid rgba(249,247,242,0.25)", flexShrink:0 }}><SiteIcon name="flower" size={18} /></div>
             <div style={{ flex:1 }}>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13.5px", fontWeight:700, color:"#F9F7F2", margin:0 }}>התייעצו עם המודל של מאיה פלטי</p>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"11px", color:"rgba(249,247,242,0.6)", margin:"2px 0 0" }}>עוזרת AI | ארגז הכלים ההורי</p>
@@ -348,7 +349,7 @@ function AIChatBubble() {
         boxShadow:"0 8px 32px rgba(45,45,45,0.22)",
         transition:"all 280ms ease", whiteSpace:"nowrap",
       }}>
-        <span style={{ fontSize:"18px" }}>{open ? "✕" : "✿"}</span>
+        {open ? <SiteIcon name="x" size={18} /> : <SiteIcon name="flower" size={18} />}
         {open ? "סגור" : "התייעצו עם המודל של מאיה"}
       </button>
     </div>
@@ -370,12 +371,12 @@ function LibraryCard({ item }: { item: LibraryItem }) {
 
       {item.featured && (
         <div style={{ position:"absolute", top:"14px", right:"-1px", background:"var(--terra)", color:"white", fontSize:"10px", fontWeight:700, fontFamily:"var(--font-hebrew)", letterSpacing:"0.06em", padding:"4px 12px 4px 14px", borderRadius:"3px 0 0 3px" }}>
-          ★ נבחר
+          <><SiteIcon name="star" size={12} /> נבחר</>
         </div>
       )}
       {item.isMine && (
         <div style={{ position:"absolute", top: item.featured ? "40px" : "14px", right:"-1px", background:"var(--sage)", color:"white", fontSize:"10px", fontWeight:700, fontFamily:"var(--font-hebrew)", letterSpacing:"0.06em", padding:"4px 12px 4px 14px", borderRadius:"3px 0 0 3px" }}>
-          ✎ מאיה פלטי
+          <><SiteIcon name="pencil" size={12} /> מאיה פלטי</>
         </div>
       )}
 
@@ -421,7 +422,7 @@ function LibraryCard({ item }: { item: LibraryItem }) {
               color: isSage ? "var(--sage-dark)" : "var(--terra-dark)",
               cursor:"pointer", width:"100%", transition:"all 180ms ease",
             }}>
-              {expanded ? "▲ סגור" : "▼ לקריאה מלאה"}
+              {expanded ? <><SiteIcon name="chevron-up" size={14} /> סגור</> : <><SiteIcon name="chevron-down" size={14} /> לקריאה מלאה</>}
             </button>
           )}
           {item.link && (
@@ -445,9 +446,9 @@ function LibraryCard({ item }: { item: LibraryItem }) {
 
 // ─── Filter constants ──────────────────────────────────────────────────────────
 const FILTER_OPTIONS: {value:Category; label:string; emoji:string}[] = [
-  { value:"all",           label:"הכל",         emoji:"✦" },
-  { value:"professional",  label:"חומר מקצועי", emoji:"≡" },
-  { value:"inspirational", label:"השראה",        emoji:"🎵" },
+  { value:"all",           label:"הכל",         emoji:"sparkle" },
+  { value:"professional",  label:"חומר מקצועי", emoji:"book" },
+  { value:"inspirational", label:"השראה",        emoji:"music" },
 ];
 
 const TYPE_FILTERS: {value:ContentType|"all"; label:string}[] = [
@@ -543,7 +544,7 @@ export default function LibraryPage() {
               borderBottom: mineOnly ? "2.5px solid var(--sage)" : "2.5px solid transparent",
               marginBottom:"-1px", transition:"all 200ms ease", whiteSpace:"nowrap",
             }}>
-              <span>✎</span>
+              <SiteIcon name="pencil" size={14} />
               <span>מאיה פלטי</span>
               <span style={{ background: mineOnly ? "var(--sage-faint)" : "var(--linen)", color: mineOnly ? "var(--sage-dark)" : "var(--charcoal-muted)", fontSize:"11px", fontWeight:700, padding:"2px 8px", borderRadius:"var(--radius-pill)" }}>
                 {ITEMS.filter(i=>i.isMine).length}
@@ -553,7 +554,7 @@ export default function LibraryPage() {
             <div style={{ flex:1 }} />
 
             <div style={{ display:"flex", alignItems:"center", padding:"0 4px", position:"relative" }}>
-              <span style={{ position:"absolute", right:"16px", fontSize:"13px", opacity:0.45, pointerEvents:"none" }}>◯</span>
+              <span style={{ position:"absolute", right:"16px", opacity:0.45, pointerEvents:"none", display:"flex" }}><SiteIcon name="search" size={13} /></span>
               <input value={search} onChange={e => setSearch(e.target.value)} placeholder="חיפוש..."
                 style={{ padding:"7px 36px 7px 14px", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal)", background:"var(--linen)", outline:"none", width:"152px", textAlign:"right" }}
               />
@@ -599,7 +600,7 @@ export default function LibraryPage() {
 
           {filtered.length === 0 ? (
             <div style={{ textAlign:"center", padding:"80px 0" }}>
-              <div style={{ fontSize:"52px", marginBottom:"20px" }}>◯</div>
+              <div style={{ marginBottom:"20px" }}><SiteIcon name="search" size={52} /></div>
               <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"26px", color:"var(--charcoal)", marginBottom:"12px" }}>לא נמצאו תוצאות</h3>
               <p style={{ fontFamily:"var(--font-hebrew)", color:"var(--charcoal-muted)", fontSize:"15px" }}>נסו מילת חיפוש אחרת או נקו את הסינון</p>
             </div>

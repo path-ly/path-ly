@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import SiteIcon, { CircledNumber } from "@/components/SiteIcon";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 import { TOOLS } from "@/lib/tools-data";
 
@@ -11,7 +12,7 @@ function ToolIconEl({ icon, size = 28 }: { icon: string; size?: number }) {
   if (icon === "focus") return <FocusGoodIcon size={size} />;
   if (icon === "coop")  return <CooperationIcon size={size} />;
   if (icon === "plant") return <PlantFromRockIcon size={size} />;
-  return <span style={{ fontSize: size }}>{icon}</span>;
+  return <SiteIcon name={icon} size={size} />;
 }
 
 
@@ -82,8 +83,8 @@ export default function ModelPage() {
                   </div>
                   <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", margin:0, textAlign:"right" }}>{short}</p>
                 </div>
-                <span style={{ fontSize:"18px", color: accent ? "var(--terra)" : "var(--sage-dark)", flexShrink:0 }}>
-                  {openTool===num ? "▲" : "▼"}
+                <span style={{ color: accent ? "var(--terra)" : "var(--sage-dark)", flexShrink:0 }}>
+                  {openTool===num ? <SiteIcon name="chevron-up" size={18} /> : <SiteIcon name="chevron-down" size={18} />}
                 </span>
               </button>
 
@@ -99,8 +100,8 @@ export default function ModelPage() {
 
                     {/* Practical tips */}
                     <div style={{ background:"rgba(255,255,255,0.85)", borderRadius:"12px", padding:"20px 22px", border:"1px solid var(--border)" }}>
-                      <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color: accent ? "var(--terra-dark)" : "var(--sage-dark)", marginBottom:"12px", margin:"0 0 12px" }}>
-                        ⚒ איך מיישמים בפועל
+                      <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color: accent ? "var(--terra-dark)" : "var(--sage-dark)", marginBottom:"12px", margin:"0 0 12px", display:"flex", alignItems:"center", gap:"6px" }}>
+                        <SiteIcon name="hammer" size={14} /> איך מיישמים בפועל
                       </h4>
                       <ul style={{ margin:0, padding:0, listStyle:"none" }}>
                         {tips.map((tip, i) => (
@@ -115,16 +116,16 @@ export default function ModelPage() {
                     {/* Example + Challenge */}
                     <div style={{ display:"flex", flexDirection:"column", gap:"12px" }}>
                       <div style={{ background:"rgba(255,255,255,0.85)", borderRadius:"12px", padding:"18px 20px", border:"1px solid var(--border)", flex:1 }}>
-                        <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color: accent ? "var(--terra-dark)" : "var(--sage-dark)", margin:"0 0 8px" }}>
-                          ◉ דוגמה מהחיים
+                        <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color: accent ? "var(--terra-dark)" : "var(--sage-dark)", margin:"0 0 8px", display:"flex", alignItems:"center", gap:"6px" }}>
+                          <SiteIcon name="dot" size={14} /> דוגמה מהחיים
                         </h4>
                         <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13.5px", color:"var(--charcoal-soft)", lineHeight:1.75, margin:0 }}>
                           {example}
                         </p>
                       </div>
                       <div style={{ background:"rgba(255,255,255,0.75)", borderRadius:"12px", padding:"16px 20px", border:`1px solid ${accent ? "rgba(196,114,122,0.2)" : "rgba(42,122,110,0.2)"}` }}>
-                        <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color:"var(--charcoal-muted)", margin:"0 0 6px" }}>
-                          ⚠ אתגר נפוץ
+                        <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:700, color:"var(--charcoal-muted)", margin:"0 0 6px", display:"flex", alignItems:"center", gap:"6px" }}>
+                          <SiteIcon name="alert" size={14} /> אתגר נפוץ
                         </h4>
                         <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", lineHeight:1.7, margin:0 }}>
                           {challenge}
@@ -136,8 +137,8 @@ export default function ModelPage() {
                   {/* Research + Video */}
                   <div className="grid-research">
                     <div style={{ background:"rgba(255,255,255,0.7)", borderRadius:"10px", padding:"14px 18px", border:"1px solid var(--border)" }}>
-                      <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", margin:0, lineHeight:1.7 }}>
-                        ≡ <strong>ביסוס מחקרי:</strong> {research}
+                      <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", margin:0, lineHeight:1.7, display:"flex", gap:"6px", alignItems:"flex-start" }}>
+                        <span style={{ flexShrink:0, marginTop:"2px", display:"flex" }}><SiteIcon name="book" size={14} /></span> <span><strong>ביסוס מחקרי:</strong> {research}</span>
                       </p>
                     </div>
                     {video && (
@@ -145,7 +146,7 @@ export default function ModelPage() {
                         style={{ display:"flex", alignItems:"center", gap:"8px", background: accent ? "var(--terra)" : "var(--sage)", color:"white", padding:"12px 18px", borderRadius:"10px", textDecoration:"none", whiteSpace:"nowrap", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, flexShrink:0, transition:"all 180ms ease" }}
                         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity="0.85"; (e.currentTarget as HTMLElement).style.transform="translateY(-1px)"; }}
                         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity="1"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
-                        ▸ {videoLabel}
+                        <SiteIcon name="play" size={13} /> {videoLabel}
                       </a>
                     )}
                   </div>
@@ -153,14 +154,14 @@ export default function ModelPage() {
                   {/* Additional videos */}
                   {videos && videos.length > 0 && (
                     <div style={{ marginTop:"16px" }}>
-                      <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:600, color:"var(--charcoal)", marginBottom:"10px" }}>
-                        🎬 סרטונים נוספים
+                      <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:600, color:"var(--charcoal)", marginBottom:"10px", display:"flex", alignItems:"center", gap:"6px" }}>
+                        <SiteIcon name="clapperboard" size={16} /> סרטונים נוספים
                       </p>
                       <div style={{ display:"flex", flexWrap:"wrap", gap:"8px" }}>
                         {videos.map((v, i) => (
                           <a key={i} href={v.url} target="_blank" rel="noopener noreferrer"
                             style={{ display:"inline-flex", alignItems:"center", gap:"6px", background:"rgba(255,255,255,0.7)", color: accent ? "var(--terra-dark)" : "var(--sage-dark)", padding:"8px 14px", borderRadius:"10px", textDecoration:"none", fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:500, border:`1px solid ${accent ? "rgba(196,114,122,0.2)" : "rgba(42,122,110,0.15)"}`, transition:"all 180ms ease" }}>
-                            {v.url.includes("tiktok") ? "☎" : v.url.includes("youtube") || v.url.includes("youtu.be") ? "▸" : "🎥"} {v.label}
+                            {v.url.includes("tiktok") ? <SiteIcon name="smartphone" size={12} /> : v.url.includes("youtube") || v.url.includes("youtu.be") ? <SiteIcon name="play" size={12} /> : <SiteIcon name="video" size={12} />} {v.label}
                           </a>
                         ))}
                       </div>
@@ -200,13 +201,13 @@ export default function ModelPage() {
 
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"14px", marginTop:"20px" }}>
             {[
-              { icon:"①", text:"אינטייק — הכרת הסיפור המשפחתי" },
-              { icon:"②", text:"פסיכואדוקציה — בחירת הכלים" },
-              { icon:"③", text:"ליווי בשטח — יישום ודיוק" },
-              { icon:"④", text:"הטמעת שינוי וסיכום" },
-            ].map(({ icon, text }) => (
+              { n:1, text:"אינטייק — הכרת הסיפור המשפחתי" },
+              { n:2, text:"פסיכואדוקציה — בחירת הכלים" },
+              { n:3, text:"ליווי בשטח — יישום ודיוק" },
+              { n:4, text:"הטמעת שינוי וסיכום" },
+            ].map(({ n, text }) => (
               <div key={text} style={{ background:"var(--paper)", borderRadius:"12px", padding:"14px 18px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center" }}>
-                <span style={{ fontSize:"20px" }}>{icon}</span>
+                <CircledNumber n={n} size={22} />
                 <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)" }}>{text}</span>
               </div>
             ))}
@@ -231,8 +232,8 @@ export default function ModelPage() {
             </p>
           </div>
 
-          <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", textAlign:"center", lineHeight:1.7 }}>
-            ≡ ביסוס מחקרי מפורט מופיע בכל כלי בנפרד —{" "}
+          <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", textAlign:"center", lineHeight:1.7, display:"flex", alignItems:"center", justifyContent:"center", gap:"6px", flexWrap:"wrap" }}>
+            <SiteIcon name="book" size={14} /> ביסוס מחקרי מפורט מופיע בכל כלי בנפרד —{" "}
             <a href="#tool-01" style={{ color:"var(--sage)", fontWeight:600, textDecoration:"none", borderBottom:"1px solid var(--sage)" }}>
               גללו למעלה לכלים
             </a>
@@ -248,8 +249,8 @@ export default function ModelPage() {
         <p style={{ fontSize:"17px", color:"rgba(249,247,242,0.82)", marginBottom:"36px", fontFamily:"var(--font-hebrew)" }}>
           פגישת ייעוץ ראשונה — 15 דקות, חינם, ללא התחייבות.
         </p>
-        <a href="https://calendly.com/maya-palty" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ display:"inline-block" }}>
-          📅 לקביעת פגישה
+        <a href="https://calendly.com/maya-palty" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ display:"inline-flex", alignItems:"center", gap:"6px" }}>
+          <SiteIcon name="calendar" size={16} /> לקביעת פגישה
         </a>
       </section>
     </>

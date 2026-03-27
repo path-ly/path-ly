@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SiteIcon from "@/components/SiteIcon";
 
 export default function AboutPage() {
   return (
@@ -41,7 +42,7 @@ export default function AboutPage() {
 
           {/* Intro text */}
           <div>
-            <span className="tag-sage" style={{ marginBottom: "20px", display: "inline-block" }}>✿ &nbsp;עוד עליי</span>
+            <span className="tag-sage" style={{ marginBottom: "20px", display: "inline-flex", alignItems: "center", gap: "6px" }}><SiteIcon name="flower" size={14} /> עוד עליי</span>
             <h1 style={{
               fontFamily: "var(--font-serif)", fontSize: "clamp(32px,4vw,52px)",
               fontWeight: 300, fontStyle: "italic", color: "var(--charcoal)",
@@ -90,7 +91,7 @@ export default function AboutPage() {
 
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
               <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose">
-                📅 לקביעת פגישה
+                <><SiteIcon name="calendar" size={14} /> לקביעת פגישה</>
               </a>
               <Link href="/model" className="btn-outline">ארגז הכלים ←</Link>
             </div>
@@ -113,7 +114,7 @@ export default function AboutPage() {
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
             }}>
-              <span style={{ fontSize: "24px" }}>▴</span>
+              <SiteIcon name="star" size={24} />
               <h2 style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px",
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
@@ -149,7 +150,7 @@ export default function AboutPage() {
 
               <div style={{ background: "var(--terra-faint)", borderRadius: "12px", padding: "18px 22px", border: "1px solid rgba(196,114,122,0.2)" }}>
                 <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--terra-dark)", lineHeight: 1.8, margin: 0 }}>
-                  🏛️ כיום אני גם מרצה במדרשה לפסיכולוגיה תחת מכללת לוינסקי בקורס ״פסיכו-דיאגנוסטיקה של הילד והמתבגר״ לפסיכולוגים בהסבה מקצועית.
+                   כיום אני גם מרצה במדרשה לפסיכולוגיה תחת מכללת לוינסקי בקורס ״פסיכו-דיאגנוסטיקה של הילד והמתבגר״ לפסיכולוגים בהסבה מקצועית.
                 </p>
               </div>
             </div>
@@ -166,7 +167,7 @@ export default function AboutPage() {
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
             }}>
-              <span style={{ fontSize: "24px" }}>◯</span>
+              <SiteIcon name="search" size={24} />
               <h2 style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px",
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
@@ -179,10 +180,10 @@ export default function AboutPage() {
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "24px" }}>
                 {[
-                  { icon: "≈", text: "קשיי ויסות רגשי והתנהגות", sub: "קשיים בקבלת גבולות וסמכות, התמודדות עם תסכול ודחיית סיפוקים וצורך בשליטה" },
-                  { icon: "◎", text: "הפרעות קשב ולקויות למידה", sub: "עיכוב שפתי והתפתחותי, דיסלקציה, דיסגרפיה, ADD ו-ADHD" },
-                  { icon: "⌗", text: "התמודדות עם טראומה, חרדה וחיזוק חוסן", sub: null },
-                  { icon: "▭", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך", sub: null },
+                  { icon: "heart", text: "קשיי ויסות רגשי והתנהגות", sub: "קשיים בקבלת גבולות וסמכות, התמודדות עם תסכול ודחיית סיפוקים וצורך בשליטה" },
+                  { icon: "brain", text: "הפרעות קשב ולקויות למידה", sub: "עיכוב שפתי והתפתחותי, דיסלקציה, דיסגרפיה, ADD ו-ADHD" },
+                  { icon: "shield", text: "התמודדות עם טראומה, חרדה וחיזוק חוסן", sub: null },
+                  { icon: "clipboard", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך", sub: null },
                 ].map(({ icon, text, sub }) => (
                   <div key={text} style={{
                     background: "var(--sage-faint)", borderRadius: "14px", padding: "18px 20px",
@@ -220,7 +221,7 @@ export default function AboutPage() {
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
             }}>
-              <span style={{ fontSize: "24px" }}>✎</span>
+              <SiteIcon name="pencil" size={24} />
               <h2 style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px",
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
@@ -265,7 +266,7 @@ export default function AboutPage() {
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
             }}>
-              <span style={{ fontSize: "24px" }}>✿</span>
+              <SiteIcon name="flower" size={24} />
               <h2 style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px",
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
@@ -316,7 +317,7 @@ export default function AboutPage() {
           שיחת ייעוץ ראשונה — 15 דקות, חינם, ללא התחייבות.
         </p>
         <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ display: "inline-block" }}>
-          📅 לקביעת פגישה
+          <><SiteIcon name="calendar" size={14} /> לקביעת פגישה</>
         </a>
       </section>
     </>

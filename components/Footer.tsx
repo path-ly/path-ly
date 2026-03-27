@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import SiteIcon from "@/components/SiteIcon";
 
 export default function Footer() {
   return (
@@ -49,11 +50,11 @@ export default function Footer() {
             <h4 style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", fontWeight: 700, color: "var(--terra-light)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "18px" }}>יצירת קשר</h4>
             {[
               { flag: "US", country: "אוסטין, טקסס", detail: "פגישות פרונטליות" },
-              { flag: "◉", country: "ישראל ועולם – זום", detail: "פגישות וידאו בכל מקום" },
-              { flag: "☎", country: "WhatsApp", detail: "לשיחת ייעוץ ראשונה חינם (15 דק׳)" },
+              { flag: "video", country: "ישראל ועולם – זום", detail: "פגישות וידאו בכל מקום" },
+              { flag: "phone", country: "WhatsApp", detail: "לשיחת ייעוץ ראשונה חינם (15 דק׳)" },
             ].map(({ flag, country, detail }) => (
               <div key={country} style={{ marginBottom: "18px" }}>
-                <p style={{ fontSize: "14px", color: "rgba(232,224,208,0.9)", marginBottom: "3px", fontFamily: "var(--font-hebrew)" }}>{flag} {country}</p>
+                <p style={{ fontSize: "14px", color: "rgba(232,224,208,0.9)", marginBottom: "3px", fontFamily: "var(--font-hebrew)" }}><SiteIcon name={flag} size={16} /> {country}</p>
                 <p style={{ fontSize: "13px", color: "rgba(232,224,208,0.55)", fontFamily: "var(--font-hebrew)" }}>{detail}</p>
               </div>
             ))}

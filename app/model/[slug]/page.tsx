@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { TOOLS, getToolBySlug, getToolsBySlug } from "@/lib/tools-data";
+import SiteIcon from "@/components/SiteIcon";
+import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 
 // Generate static params for all tool slugs
 export function generateStaticParams() {
@@ -143,10 +145,13 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             כלי #{tool.num} מתוך 10
           </span>
 
-          <div style={{ fontSize: "48px", marginBottom: "16px" }}>
-            {tool.icon === "eye" || tool.icon === "ruler" || tool.icon === "focus" || tool.icon === "coop" || tool.icon === "plant"
-              ? "🔧"
-              : tool.icon}
+          <div style={{ marginBottom: "16px" }}>
+            {tool.icon === "eye" ? <EyeInEyeIcon size={48} /> 
+              : tool.icon === "ruler" ? <GrowthRulerIcon size={48} />
+              : tool.icon === "focus" ? <FocusGoodIcon size={48} />
+              : tool.icon === "coop" ? <CooperationIcon size={48} />
+              : tool.icon === "plant" ? <PlantFromRockIcon size={48} />
+              : <SiteIcon name={tool.icon} size={48} />}
           </div>
 
           <h1
@@ -249,7 +254,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 gap: "10px",
               }}
             >
-              <span>🛠️</span> איך מיישמים בפועל
+              <SiteIcon name="hammer" size={16} /> איך מיישמים בפועל
             </h2>
             {tool.tips.map((tip, i) => (
               <div
@@ -318,7 +323,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 gap: "10px",
               }}
             >
-              <span>💡</span> דוגמה מהחיים
+              <SiteIcon name="lightbulb" size={16} /> דוגמה מהחיים
             </h2>
             <p
               style={{
@@ -356,7 +361,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 gap: "10px",
               }}
             >
-              <span>⚠️</span> אתגר נפוץ
+              <SiteIcon name="alert" size={16} /> אתגר נפוץ
             </h2>
             <p
               style={{
@@ -397,7 +402,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   marginBottom: "8px",
                 }}
               >
-                📚 ביסוס מחקרי
+                <><SiteIcon name="book" size={16} /> ביסוס מחקרי</>
               </h3>
               <p
                 style={{
@@ -432,7 +437,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   transition: "opacity 180ms ease",
                 }}
               >
-                ▶ צפו בסרטון: {tool.videoLabel}
+                <><SiteIcon name="play" size={14} /> צפו בסרטון: {tool.videoLabel}</>
               </a>
             )}
 
@@ -442,7 +447,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   fontFamily: "var(--font-hebrew)", fontSize: "15px", fontWeight: 600,
                   color: "var(--charcoal)", marginBottom: "12px",
                 }}>
-                  🎬 סרטונים נוספים
+                  <><SiteIcon name="clapperboard" size={16} /> סרטונים נוספים</>
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                   {tool.videos.map((v, i) => (
@@ -467,7 +472,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                         transition: "all 180ms ease",
                       }}
                     >
-                      {v.url.includes("tiktok") ? "📱" : v.url.includes("youtube") || v.url.includes("youtu.be") ? "▶" : "🎥"} {v.label}
+                      {v.url.includes("tiktok") ? <SiteIcon name="smartphone" size={12} /> : v.url.includes("youtube") || v.url.includes("youtu.be") ? <SiteIcon name="play" size={12} /> : <SiteIcon name="video" size={12} />} {v.label}
                     </a>
                   ))}
                 </div>
@@ -513,9 +518,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                     }}
                   >
                     <span style={{ fontSize: "24px", display: "block", marginBottom: "8px" }}>
-                      {rt.icon === "eye" || rt.icon === "ruler" || rt.icon === "focus" || rt.icon === "coop" || rt.icon === "plant"
-                        ? "🔧"
-                        : rt.icon}
+                      {rt.icon === "eye" ? <EyeInEyeIcon size={20} /> 
+                        : rt.icon === "ruler" ? <GrowthRulerIcon size={20} />
+                        : rt.icon === "focus" ? <FocusGoodIcon size={20} />
+                        : rt.icon === "coop" ? <CooperationIcon size={20} />
+                        : rt.icon === "plant" ? <PlantFromRockIcon size={20} />
+                        : <SiteIcon name={rt.icon} size={20} />}
                     </span>
                     <h3
                       style={{
@@ -650,7 +658,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 boxShadow: "0 8px 32px rgba(0,0,0,0.25)",
               }}
             >
-              📅 לקביעת שיחה ראשונה
+              <><SiteIcon name="calendar" size={16} /> לקביעת שיחה ראשונה</>
             </a>
           </div>
 

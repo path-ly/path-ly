@@ -22,7 +22,7 @@ export interface Tool {
 
 export const TOOLS: Tool[] = [
   {
-    num: "01", slug: "self-compassion", icon: "🫶", title: "חמלה הורית ועצמית",
+    num: "01", slug: "self-compassion", icon: "heart-hands", title: "חמלה הורית ועצמית",
     accent: false,
     short: "לקבל את עצמנו כדי לקבל את הילד",
     desc: "90-95% מהאוכלוסיה מנהלים דיבור פנימי יומיומי. הקול שבו אנחנו מדברים לעצמנו הופך לקול שהילדים שלנו מפנימים. חמלה עצמית היא לא פינוק — היא תשתית.",
@@ -79,7 +79,7 @@ export const TOOLS: Tool[] = [
     relatedTools: ["self-compassion", "cooperation"],
   },
   {
-    num: "03", slug: "playfulness", icon: "🎲", title: "משחקיות",
+    num: "03", slug: "playfulness", icon: "dice", title: "משחקיות",
     accent: false,
     short: "להפוך התנגדות לחיבור",
     desc: "משחקיות היא לא פעילות מיוחדת — היא תנוחת נפש. כניסה דרך החלון כשדלת ההתנגדות נסגרת. מנטרלת מאבקי כוח ומאפשרת שיתוף פעולה אמיתי.",
@@ -102,7 +102,7 @@ export const TOOLS: Tool[] = [
     relatedTools: ["cooperation", "magic-time"],
   },
   {
-    num: "04", slug: "modeling", icon: "👣", title: "מודלינג הורי",
+    num: "04", slug: "modeling", icon: "footprints", title: "מודלינג הורי",
     accent: true,
     short: "הילדים שלנו קוראים אותנו כמו ספר פתוח, לכן עלינו לשים לב לתוכן של הספר...",
     desc: "ילדים לומדים פחות ממה שאנחנו אומרים ויותר את מה שאנחנו עושים. מודלינג אוטנטי של ויסות רגשי, תיקון אחרי טעות ואנושיות.",
@@ -234,7 +234,7 @@ export const TOOLS: Tool[] = [
     relatedTools: ["modeling", "self-compassion"],
   },
   {
-    num: "09", slug: "magic-time", icon: "⏳", title: "זמן קסם",
+    num: "09", slug: "magic-time", icon: "hourglass", title: "זמן קסם",
     accent: false,
     short: "קשר אינטימי מצריך זמן משותף וחוויות אישיות שלנו",
     desc: "5–20 דקות ביום, קבועות, בטוחות. הילד בוחר. ההורה נוכח. זהו הבסיס לסמכות שמבוססת על כבוד שהורווח — לא על כוח.",
@@ -260,7 +260,7 @@ export const TOOLS: Tool[] = [
     relatedTools: ["playfulness", "positive-prophecy"],
   },
   {
-    num: "10", slug: "growth-from-strengths", icon: "✨", title: "צמיחה מחוזקות",
+    num: "10", slug: "growth-from-strengths", icon: "sparkles", title: "צמיחה מחוזקות",
     accent: true,
     short: "להכיר ולהשתמש במה שיש",
     desc: "פסיכולוגיה חיובית מלמדת שהמיקוד בחוזקות קיימות — לא בתיקון חולשות — הוא הדרך הגדולה ביותר לצמיחה. כל משפחה מגיעה עם ארסנל של כוחות.",

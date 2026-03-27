@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SiteIcon from "@/components/SiteIcon";
 
 export default function ServicesPage() {
   return (
@@ -43,27 +44,27 @@ export default function ServicesPage() {
 
               {/* Option 1: Zoom */}
               <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column" }}>
-                <div style={{ fontSize:"36px", marginBottom:"14px" }}>◉</div>
+                <div style={{ marginBottom:"14px" }}><SiteIcon name="video" size={36} /></div>
                 <span className="tag-terra" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>הכי פופולרי</span>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>פגישת זום</h3>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
                   הדרכת הורים אישית בעברית — לישראלים בכל העולם. שעות נוחות להורים עובדים בישראל. גרתי בישראל גם לאחר ה-7.10 ומכירה מקרוב את המציאות המורכבת.
                 </p>
                 <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ textAlign:"center" }}>
-                  📅 לקביעת פגישת זום
+                  <><SiteIcon name="calendar" size={14} /> לקביעת פגישת זום</>
                 </a>
               </div>
 
               {/* Option 2: In-person */}
               <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column" }}>
-                <div style={{ fontSize:"36px", marginBottom:"14px" }}>⌂</div>
+                <div style={{ marginBottom:"14px" }}><SiteIcon name="house" size={36} /></div>
                 <span className="tag-sage" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>פרונטלי</span>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>פגישה בקליניקה</h3>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
                   קליניקה פיזית ב-Cedar Park, אוסטין TX. ייעוץ אישי והדרכות הורים פנים אל פנים. לא טיפול ואבחון — הדרכת הורים בלבד.
                 </p>
                 <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ textAlign:"center" }}>
-                  📅 לקביעת פגישה פרונטלית
+                  <><SiteIcon name="calendar" size={14} /> לקביעת פגישה פרונטלית</>
                 </a>
               </div>
 
@@ -72,7 +73,7 @@ export default function ServicesPage() {
                 <div style={{ position:"absolute", top:"-12px", right:"24px", background:"var(--terra)", color:"white", borderRadius:"var(--radius-pill)", padding:"4px 16px", fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:700 }}>
                   חדש!
                 </div>
-                <div style={{ fontSize:"36px", marginBottom:"14px" }}>👥</div>
+                <div style={{ marginBottom:"14px" }}><SiteIcon name="users" size={36} /></div>
                 <span className="tag-terra" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>קבוצתי</span>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>סדנת הורים בזום</h3>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, marginBottom:"16px" }}>
@@ -88,7 +89,7 @@ export default function ServicesPage() {
                   12 מפגשים · 5–8 זוגות · בזום · בעברית
                 </div>
                 <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%D7%94%D7%94%D7%95%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ textAlign:"center", flex:"none" }}>
-                  ◉ לפרטים והרשמה
+                  <><SiteIcon name="dot" size={14} /> לפרטים והרשמה</>
                 </a>
               </div>
             </div>
@@ -99,7 +100,7 @@ export default function ServicesPage() {
               ══════════════════════════════════════════════════════ */}
           <div style={{ background:"linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%)", borderRadius:"var(--radius-card-lg)", padding:"64px", boxShadow:"var(--shadow-float)" }}>
             <div className="grid-services-img">
-              <div style={{ textAlign:"center", fontSize:"64px" }}>⌂</div>
+              <div style={{ textAlign:"center" }}><SiteIcon name="building" size={64} /></div>
               <div>
                 <span className="tag-parchment" style={{ marginBottom:"18px", display:"inline-block", background:"rgba(249,247,242,0.12)", color:"#E8E0D0" }}>ארגונים ומוסדות</span>
                 <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3vw,38px)", color:"#F9F7F2", marginBottom:"16px" }}>הכשרות מקצועיות</h2>
@@ -110,7 +111,7 @@ export default function ServicesPage() {
                 <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginBottom:"32px" }}>
                   {["הכשרת פסיכולוגים","הדרכת עו״סים","סדנאות לצוותי חינוך","הרצאות לאנשי מקצוע","ליווי מוסדי","פיתוח תכניות"].map(item => (
                     <div key={item} style={{ background:"rgba(249,247,242,0.08)", borderRadius:"10px", padding:"10px 16px", fontSize:"14px", color:"rgba(249,247,242,0.9)", display:"flex", alignItems:"center", gap:"8px", fontFamily:"var(--font-hebrew)", border:"1px solid rgba(249,247,242,0.10)" }}>
-                      <span style={{ color:"var(--terra-light)", fontWeight:700 }}>✓</span>{item}
+                      <SiteIcon name="check" size={14} className="inline-block" />{item}
                     </div>
                   ))}
                 </div>

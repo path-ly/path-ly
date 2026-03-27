@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import SiteIcon from "@/components/SiteIcon";
 
 function WhatsAppIcon() {
   return (
@@ -89,8 +90,8 @@ export default function ContactPage() {
 
             {/* Phone */}
             <div style={{ display:"flex", gap:"14px", marginBottom:"26px", alignItems:"flex-start" }}>
-              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(196,114,122,0.15)" }}>
-                📞
+              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, border:"1px solid rgba(196,114,122,0.15)" }}>
+                <SiteIcon name="phone" size={18} />
               </div>
               <div>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontWeight:700, color:"var(--charcoal)", margin:"0 0 6px", fontSize:"15px" }}>טלפון</p>
@@ -118,8 +119,8 @@ export default function ContactPage() {
 
             {/* Email */}
             <div style={{ display:"flex", gap:"14px", marginBottom:"26px", alignItems:"flex-start" }}>
-              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(196,114,122,0.15)" }}>
-                📧
+              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--terra-faint)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, border:"1px solid rgba(196,114,122,0.15)" }}>
+                <SiteIcon name="mail" size={18} />
               </div>
               <div>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontWeight:700, color:"var(--charcoal)", margin:"0 0 4px", fontSize:"15px" }}>אימייל</p>
@@ -132,8 +133,8 @@ export default function ContactPage() {
 
             {/* Calendly */}
             <div style={{ display:"flex", gap:"14px", marginBottom:"26px", alignItems:"flex-start" }}>
-              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--sage-faint)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"18px", flexShrink:0, border:"1px solid rgba(42,122,110,0.15)" }}>
-                📅
+              <div style={{ width:"44px", height:"44px", borderRadius:"12px", background:"var(--sage-faint)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, border:"1px solid rgba(42,122,110,0.15)" }}>
+                <SiteIcon name="calendar" size={18} />
               </div>
               <div>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontWeight:700, color:"var(--charcoal)", margin:"0 0 8px", fontSize:"15px" }}>קביעת פגישה</p>
@@ -141,14 +142,14 @@ export default function ContactPage() {
                   style={{ display:"inline-flex", alignItems:"center", gap:"6px", background:"var(--sage)", color:"white", padding:"9px 18px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"13px", textDecoration:"none", transition:"all 200ms ease" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--sage-dark)"; (e.currentTarget as HTMLElement).style.transform="translateY(-1px)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="var(--sage)"; (e.currentTarget as HTMLElement).style.transform="translateY(0)"; }}>
-                  📅 לקביעת פגישה ב-Calendly
+                  <><SiteIcon name="calendar" size={14} /> לקביעת פגישה ב-Calendly</>
                 </a>
               </div>
             </div>
 
             {/* Note */}
             <div style={{ background:"var(--sage)", borderRadius:"var(--radius-card)", padding:"24px 28px", marginTop:"16px" }}>
-              <p style={{ fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", color:"#FFFFFF", marginBottom:"8px" }}>◷ זמינות</p>
+              <p style={{ fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", color:"#FFFFFF", marginBottom:"8px", display:"flex", alignItems:"center", gap:"6px" }}><SiteIcon name="clock" size={14} /> זמינות</p>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", lineHeight:1.82, color:"rgba(255,255,255,0.88)" }}>
                 בדרך כלל אני מגיבה תוך 24 שעות בימי עסקים. במצב חירום נפשי — פנו לקו החירום של עמותת ״ער״ן״.
               </p>
@@ -163,7 +164,7 @@ export default function ContactPage() {
                 borderRadius:"var(--radius-card-lg)", padding:"72px 48px", textAlign:"center",
                 border:"1px solid rgba(42,122,110,0.2)", boxShadow:"var(--shadow-float)",
               }}>
-                <div style={{ fontSize:"60px", marginBottom:"24px" }}>✿</div>
+                <div style={{ marginBottom:"24px" }}><SiteIcon name="flower" size={60} /></div>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"32px", color:"var(--charcoal)", marginBottom:"16px", fontStyle:"italic", fontWeight:300 }}>
                   תודה! קיבלתי את פנייתכם.
                 </h3>
