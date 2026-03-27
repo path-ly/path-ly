@@ -330,42 +330,44 @@ export default function Home() {
           <div className="grid-3col">
             {[
               {
-                iconName:"house", title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
+                title:"Cedar Park, אוסטין TX", sub:"קליניקה פרונטלית",
                 desc:"קליניקה פיזית לייעוץ אישי והדרכות הורים. לא טיפול ואבחון.",
-                bg:"var(--sage-faint)", accent:"rgba(42,122,110,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
-                highlight: null,
+                img:"/service-clinic.webp", highlight: null,
               },
               {
-                iconName:"video", title:"ישראל ועולם", sub:"פגישות זום",
+                title:"ישראל ועולם", sub:"פגישות זום",
                 desc:"בזום, בעברית, מכל מקום בעולם. לקהילה הישראלית בארה״ב ולהורים בישראל.",
-                bg:"var(--terra-faint)", accent:"rgba(196,114,122,0.2)",
                 href:"https://calendly.com/maya_palty/50min", btnText:"לקביעת פגישה →",
-                highlight: "בשעות נוחות להורים בישראל",
+                img:"/service-zoom.webp", highlight: "בשעות נוחות להורים בישראל",
               },
               {
-                iconName:"users", title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
+                title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
                 desc:"הכשרות לפסיכולוגים, עו\"סים ואנשי טיפול. סדנאות לצוותי חינוך ובתי ספר.",
-                bg:"var(--parchment)", accent:"var(--border)",
                 href:"/contact?type=org", btnText:"לטופס פניה →",
-                highlight: null,
+                img:"/service-training.webp", highlight: null,
               },
-            ].map(({ iconName, title, sub, desc, bg, accent, href, btnText, highlight }) => (
-              <div key={title} style={{ background: bg, borderRadius:"var(--radius-card-lg)", padding:"28px 24px", border:`1px solid ${accent}`, boxShadow:"var(--shadow-card)", transition:"transform 300ms ease, box-shadow 300ms ease", display:"flex", flexDirection:"column" }}
+            ].map(({ title, sub, desc, href, btnText, img, highlight }) => (
+              <div key={title} style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-card)", transition:"transform 300ms ease, box-shadow 300ms ease", display:"flex", flexDirection:"column", position:"relative", minHeight:"380px" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="translateY(-5px)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card)"; }}>
-                <div style={{ marginBottom:"12px" }}><SiteIcon name={iconName} size={28} /></div>
-                <span className="tag-parchment" style={{ marginBottom:"8px", display:"inline-block" }}>{sub}</span>
-                <h3 style={{ fontSize:"18px", fontWeight:600, color:"var(--charcoal)", marginBottom:"10px", fontFamily:"var(--font-serif)" }}>{title}</h3>
-                <p style={{ fontSize:"15px", color:"var(--charcoal-soft)", lineHeight:1.75, fontFamily:"var(--font-hebrew)", flex:1, marginBottom:"16px" }}>{desc}</p>
-                {highlight && (
-                  <p style={{ fontSize:"14px", fontWeight:600, color:"var(--sage-dark)", marginBottom:"16px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"8px 14px", borderRadius:"8px", border:"1px solid rgba(42,122,110,0.15)", display:"flex", alignItems:"center", gap:"6px" }}>
-                    <SiteIcon name="dot" size={14} /> {highlight}
-                  </p>
-                )}
-                <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"6px", color:"var(--sage-dark)", fontWeight:700, textDecoration:"none", fontSize:"14px", fontFamily:"var(--font-hebrew)", borderBottom:"2px solid var(--sage)", paddingBottom:"2px", alignSelf:"flex-start" }}>
-                  {btnText}
-                </a>
+                <Image src={img} alt={title} fill style={{ objectFit:"cover", objectPosition:"center top" }} sizes="(max-width:768px) 100vw, 33vw" />
+                <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(30,30,30,0.92) 0%, rgba(30,30,30,0.7) 50%, rgba(30,30,30,0.15) 100%)" }} />
+                <div style={{ position:"relative", zIndex:1, padding:"28px 24px", marginTop:"auto", display:"flex", flexDirection:"column" }}>
+                  <span style={{ display:"inline-block", marginBottom:"8px", alignSelf:"flex-start", background:"rgba(249,247,242,0.15)", color:"#F9F7F2", padding:"4px 14px", borderRadius:"var(--radius-pill)", fontSize:"12px", fontWeight:600, fontFamily:"var(--font-hebrew)", border:"1px solid rgba(249,247,242,0.2)", backdropFilter:"blur(4px)" }}>{sub}</span>
+                  <h3 style={{ fontSize:"20px", fontWeight:600, color:"#F9F7F2", marginBottom:"10px", fontFamily:"var(--font-serif)" }}>{title}</h3>
+                  <p style={{ fontSize:"14px", color:"rgba(249,247,242,0.85)", lineHeight:1.75, fontFamily:"var(--font-hebrew)", marginBottom:"16px" }}>{desc}</p>
+                  {highlight && (
+                    <p style={{ fontSize:"13px", fontWeight:600, color:"#F9F7F2", marginBottom:"16px", fontFamily:"var(--font-hebrew)", background:"rgba(42,122,110,0.5)", padding:"7px 14px", borderRadius:"8px", border:"1px solid rgba(42,122,110,0.4)", display:"flex", alignItems:"center", gap:"6px", backdropFilter:"blur(4px)" }}>
+                      <SiteIcon name="dot" size={14} /> {highlight}
+                    </p>
+                  )}
+                  <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", gap:"6px", color:"#F9F7F2", fontWeight:700, textDecoration:"none", fontSize:"14px", fontFamily:"var(--font-hebrew)", background:"var(--terra)", padding:"10px 22px", borderRadius:"var(--radius-pill)", alignSelf:"flex-start", transition:"background 200ms ease" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--terra-dark)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="var(--terra)"; }}>
+                    {btnText}
+                  </a>
+                </div>
               </div>
             ))}
           </div>

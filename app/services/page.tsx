@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SiteIcon from "@/components/SiteIcon";
 
 export default function ServicesPage() {
@@ -43,54 +44,69 @@ export default function ServicesPage() {
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:"20px" }}>
 
               {/* Option 1: Zoom */}
-              <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column" }}>
-                <div style={{ marginBottom:"14px" }}><SiteIcon name="video" size={36} /></div>
-                <span className="tag-terra" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>הכי פופולרי</span>
-                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>פגישת זום</h3>
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
-                  הדרכת הורים אישית בעברית — לישראלים בכל העולם. שעות נוחות להורים עובדים בישראל. גרתי בישראל גם לאחר ה-7.10 ומכירה מקרוב את המציאות המורכבת.
-                </p>
-                <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ textAlign:"center" }}>
-                  <><SiteIcon name="calendar" size={14} /> לקביעת פגישת זום</>
-                </a>
+              <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column", position:"relative", minHeight:"420px" }}>
+                <Image src="/service-zoom.webp" alt="פגישת זום" fill style={{ objectFit:"cover", objectPosition:"center top" }} sizes="(max-width:768px) 100vw, 33vw" />
+                <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(30,30,30,0.95) 0%, rgba(30,30,30,0.75) 50%, rgba(30,30,30,0.15) 100%)" }} />
+                <div style={{ position:"relative", zIndex:1, padding:"32px 28px", marginTop:"auto", display:"flex", flexDirection:"column" }}>
+                  <span style={{ display:"inline-block", marginBottom:"10px", alignSelf:"flex-start", background:"var(--terra)", color:"white", padding:"4px 14px", borderRadius:"var(--radius-pill)", fontSize:"12px", fontWeight:700, fontFamily:"var(--font-hebrew)" }}>הכי פופולרי</span>
+                  <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"#F9F7F2", marginBottom:"8px" }}>פגישת זום</h3>
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"rgba(249,247,242,0.85)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
+                    הדרכת הורים אישית בעברית — לישראלים בכל העולם. שעות נוחות להורים עובדים בישראל. גרתי בישראל גם לאחר ה-7.10 ומכירה מקרוב את המציאות המורכבת.
+                  </p>
+                  <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", gap:"8px", background:"var(--terra)", color:"white", padding:"12px 24px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", textDecoration:"none", transition:"background 200ms ease" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--terra-dark)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="var(--terra)"; }}>
+                    <SiteIcon name="calendar" size={14} /> לקביעת פגישת זום
+                  </a>
+                </div>
               </div>
 
               {/* Option 2: In-person */}
-              <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column" }}>
-                <div style={{ marginBottom:"14px" }}><SiteIcon name="house" size={36} /></div>
-                <span className="tag-sage" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>פרונטלי</span>
-                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>פגישה בקליניקה</h3>
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
-                  קליניקה פיזית ב-Cedar Park, אוסטין TX. ייעוץ אישי והדרכות הורים פנים אל פנים. לא טיפול ואבחון — הדרכת הורים בלבד.
-                </p>
-                <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ textAlign:"center" }}>
-                  <><SiteIcon name="calendar" size={14} /> לקביעת פגישה פרונטלית</>
-                </a>
+              <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column", position:"relative", minHeight:"420px" }}>
+                <Image src="/service-clinic.webp" alt="פגישה בקליניקה" fill style={{ objectFit:"cover", objectPosition:"center" }} sizes="(max-width:768px) 100vw, 33vw" />
+                <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(30,30,30,0.95) 0%, rgba(30,30,30,0.75) 50%, rgba(30,30,30,0.15) 100%)" }} />
+                <div style={{ position:"relative", zIndex:1, padding:"32px 28px", marginTop:"auto", display:"flex", flexDirection:"column" }}>
+                  <span style={{ display:"inline-block", marginBottom:"10px", alignSelf:"flex-start", background:"rgba(42,122,110,0.7)", color:"white", padding:"4px 14px", borderRadius:"var(--radius-pill)", fontSize:"12px", fontWeight:700, fontFamily:"var(--font-hebrew)", border:"1px solid rgba(42,122,110,0.4)" }}>פרונטלי</span>
+                  <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"#F9F7F2", marginBottom:"8px" }}>פגישה בקליניקה</h3>
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"rgba(249,247,242,0.85)", lineHeight:1.8, flex:1, marginBottom:"24px" }}>
+                    קליניקה פיזית ב-Cedar Park, אוסטין TX. ייעוץ אישי והדרכות הורים פנים אל פנים. לא טיפול ואבחון — הדרכת הורים בלבד.
+                  </p>
+                  <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", gap:"8px", background:"var(--sage)", color:"white", padding:"12px 24px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", textDecoration:"none", transition:"background 200ms ease" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--sage-dark)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="var(--sage)"; }}>
+                    <SiteIcon name="calendar" size={14} /> לקביעת פגישה פרונטלית
+                  </a>
+                </div>
               </div>
 
               {/* Option 3: Workshop */}
-              <div style={{ background:"linear-gradient(135deg, var(--terra-faint) 0%, #FFF8F4 100%)", borderRadius:"var(--radius-card-lg)", padding:"36px 32px", border:"2px solid var(--terra)", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column", position:"relative" }}>
-                <div style={{ position:"absolute", top:"-12px", right:"24px", background:"var(--terra)", color:"white", borderRadius:"var(--radius-pill)", padding:"4px 16px", fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:700 }}>
-                  חדש!
+              <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-card)", display:"flex", flexDirection:"column", position:"relative", minHeight:"420px" }}>
+                <Image src="/service-training.webp" alt="סדנת הורים" fill style={{ objectFit:"cover", objectPosition:"center top" }} sizes="(max-width:768px) 100vw, 33vw" />
+                <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top, rgba(30,30,30,0.95) 0%, rgba(30,30,30,0.75) 50%, rgba(30,30,30,0.15) 100%)" }} />
+                <div style={{ position:"relative", zIndex:1, padding:"32px 28px", marginTop:"auto", display:"flex", flexDirection:"column" }}>
+                  <div style={{ position:"absolute", top:"16px", right:"20px", background:"var(--terra)", color:"white", borderRadius:"var(--radius-pill)", padding:"4px 16px", fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:700, zIndex:2 }}>
+                    חדש!
+                  </div>
+                  <span style={{ display:"inline-block", marginBottom:"10px", alignSelf:"flex-start", background:"rgba(196,114,122,0.5)", color:"white", padding:"4px 14px", borderRadius:"var(--radius-pill)", fontSize:"12px", fontWeight:700, fontFamily:"var(--font-hebrew)", border:"1px solid rgba(196,114,122,0.3)" }}>קבוצתי</span>
+                  <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"#F9F7F2", marginBottom:"8px" }}>סדנת הורים בזום</h3>
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"rgba(249,247,242,0.85)", lineHeight:1.8, marginBottom:"16px" }}>
+                    סדנה קבוצתית להכרות מעמיקה עם ארגז הכלים ההורי. 12 מפגשים בזום, קבוצה אינטימית של 5–8 זוגות הורים.
+                  </p>
+                  <div style={{ display:"flex", alignItems:"center", gap:"8px", marginBottom:"16px" }}>
+                    <span style={{ fontFamily:"var(--font-serif)", fontSize:"24px", fontWeight:600, color:"#F9F7F2" }}>₪1,200</span>
+                    <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"rgba(249,247,242,0.6)" }}>/</span>
+                    <span style={{ fontFamily:"var(--font-serif)", fontSize:"24px", fontWeight:600, color:"#F9F7F2" }}>$400</span>
+                    <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"rgba(249,247,242,0.6)" }}>לזוג</span>
+                  </div>
+                  <div style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"rgba(249,247,242,0.65)", marginBottom:"20px", lineHeight:1.7 }}>
+                    12 מפגשים · 5–8 זוגות · בזום · בעברית
+                  </div>
+                  <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%D7%94%D7%94%D7%95%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener noreferrer" style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", gap:"8px", background:"var(--terra)", color:"white", padding:"12px 24px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", textDecoration:"none", transition:"background 200ms ease" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="var(--terra-dark)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="var(--terra)"; }}>
+                    <SiteIcon name="dot" size={14} /> לפרטים והרשמה
+                  </a>
                 </div>
-                <div style={{ marginBottom:"14px" }}><SiteIcon name="users" size={36} /></div>
-                <span className="tag-terra" style={{ marginBottom:"12px", display:"inline-block", alignSelf:"flex-start" }}>קבוצתי</span>
-                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color:"var(--charcoal)", marginBottom:"8px" }}>סדנת הורים בזום</h3>
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.8, marginBottom:"16px" }}>
-                  סדנה קבוצתית להכרות מעמיקה עם ארגז הכלים ההורי. 12 מפגשים בזום, קבוצה אינטימית של 5–8 זוגות הורים.
-                </p>
-                <div style={{ display:"flex", alignItems:"center", gap:"8px", marginBottom:"16px" }}>
-                  <span style={{ fontFamily:"var(--font-serif)", fontSize:"24px", fontWeight:600, color:"var(--terra-dark)" }}>₪1,200</span>
-                  <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)" }}>/</span>
-                  <span style={{ fontFamily:"var(--font-serif)", fontSize:"24px", fontWeight:600, color:"var(--terra-dark)" }}>$400</span>
-                  <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)" }}>לזוג</span>
-                </div>
-                <div style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginBottom:"20px", lineHeight:1.7 }}>
-                  12 מפגשים · 5–8 זוגות · בזום · בעברית
-                </div>
-                <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%D7%94%D7%94%D7%95%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ textAlign:"center", flex:"none" }}>
-                  <><SiteIcon name="dot" size={14} /> לפרטים והרשמה</>
-                </a>
               </div>
             </div>
           </div>
@@ -98,7 +114,10 @@ export default function ServicesPage() {
           {/* ══════════════════════════════════════════════════════
               2. B2B — PROFESSIONAL TRAINING (no pricing)
               ══════════════════════════════════════════════════════ */}
-          <div style={{ background:"linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%)", borderRadius:"var(--radius-card-lg)", padding:"64px", boxShadow:"var(--shadow-float)" }}>
+          <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-float)", position:"relative", minHeight:"400px" }}>
+            <Image src="/service-training.webp" alt="הכשרות מקצועיות" fill style={{ objectFit:"cover", objectPosition:"center" }} sizes="100vw" />
+            <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(42,122,110,0.92) 0%, rgba(29,91,82,0.95) 100%)" }} />
+            <div style={{ position:"relative", zIndex:1, padding:"64px" }}>
             <div className="grid-services-img">
               <div style={{ textAlign:"center" }}><SiteIcon name="building" size={64} /></div>
               <div>
@@ -119,6 +138,7 @@ export default function ServicesPage() {
                   צרו קשר להצעה מותאמת
                 </Link>
               </div>
+            </div>
             </div>
           </div>
         </div>
