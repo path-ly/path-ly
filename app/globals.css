@@ -1,5 +1,4 @@
-/* ─── Google Fonts: Playfair Display (serif headings) + Rubik (Hebrew body, incl. italic) ─── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+/* ─── Fonts loaded via next/font/google in layout.tsx ─── */
 
 @tailwind base;
 @tailwind components;
@@ -37,11 +36,11 @@
   --border:         #DDD8CE;
   --shadow-color:   196, 185, 168;
 
-  /* Typography — Rubik for all text (Hebrew site); Playfair only for Latin decorative use */
-  --font-serif:     'Rubik', Georgia, serif;
-  --font-serif-latin: 'Playfair Display', Georgia, serif;
-  --font-sans:      'Rubik', system-ui, sans-serif;
-  --font-hebrew:    'Rubik', sans-serif;
+  /* Typography — loaded via next/font in layout.tsx */
+  --font-serif:     var(--font-rubik), Georgia, serif;
+  --font-serif-latin: var(--font-playfair), Georgia, serif;
+  --font-sans:      var(--font-rubik), system-ui, sans-serif;
+  --font-hebrew:    var(--font-rubik), sans-serif;
 
   /* Radius */
   --radius-card:    16px;

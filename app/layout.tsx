@@ -1,9 +1,26 @@
 import type { Metadata } from "next";
+import { Rubik, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SkipToContent from "@/components/SkipToContent";
+
+const rubik = Rubik({
+  subsets: ["latin", "hebrew"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-rubik",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-playfair",
+});
 
 const BASE_URL = "https://www.path-ly.com";
 
@@ -167,12 +184,12 @@ function JsonLd() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl">
+    <html lang="he" dir="rtl" className={`${rubik.variable} ${playfair.variable}`}>
       <head>
         <meta charSet="utf-8" />
         <JsonLd />
       </head>
-      <body>
+      <body className={rubik.className}>
         <SkipToContent />
         <Navbar />
         <main id="main-content">{children}</main>
