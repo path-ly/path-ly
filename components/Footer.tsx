@@ -33,6 +33,7 @@ export default function Footer() {
               { href: "/",         label: "דף הבית" },
               { href: "/about",    label: "עליי" },
               { href: "/model",    label: "ארגז הכלים ההורי" },
+              { href: "/research", label: "ביסוס מחקרי" },
               { href: "/services", label: "שירותים" },
               { href: "/library",  label: "הספרייה" },
               { href: "/contact",  label: "צרו קשר" },

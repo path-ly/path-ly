@@ -15,7 +15,7 @@ export default function WhatsAppFloat() {
       onMouseLeave={() => setHovered(false)}
       style={{
         position: "fixed",
-        bottom: "28px",
+        bottom: "calc(28px + env(safe-area-inset-bottom, 0px))",
         left: "28px",
         zIndex: 150,
         display: "flex",

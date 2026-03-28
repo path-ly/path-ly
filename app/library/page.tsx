@@ -93,7 +93,7 @@ const ITEMS: LibraryItem[] = [
   {
     id:2, type:"poem", category:"inspirational",
     title:"יום אחד היא התביישה", creator:"מאיה פלטי",
-    tag:"פגיעות", emoji:"|",
+    tag:"פגיעות", emoji:"heart",
     excerpt:"יום אחד היא התביישה. והגדולה אמרה: אמא אל תהיה עם עצמך קשה... שיר על האם שנעלמת מעצמה, ועל הילדים שמחכים שתחזור.",
     accentColor:"sage", isMine:true,
     fullContent:`יום אחד היא התביישה.
@@ -444,7 +444,7 @@ function LibraryCard({ item }: { item: LibraryItem }) {
         display:"flex", alignItems:"center", justifyContent:"center",
         fontSize:"36px", borderBottom:"1px solid var(--border)",
       }}>
-        {item.emoji}
+        <SiteIcon name={item.emoji} size={36} />
       </div>
 
       <div style={{ padding:"22px", flex:1, display:"flex", flexDirection:"column", gap:"10px" }}>
@@ -582,7 +582,7 @@ export default function LibraryPage() {
                   borderBottom: category === opt.value && !mineOnly ? "2.5px solid var(--terra)" : "2.5px solid transparent",
                   marginBottom:"-1px", transition:"all 200ms ease", whiteSpace:"nowrap",
                 }}>
-                <span>{opt.emoji}</span>
+                <span><SiteIcon name={opt.emoji} size={14} /></span>
                 <span>{opt.label}</span>
                 <span style={{ background: category === opt.value && !mineOnly ? "var(--terra-faint)" : "var(--linen)", color: category === opt.value && !mineOnly ? "var(--terra-dark)" : "var(--charcoal-muted)", fontSize:"11px", fontWeight:700, padding:"2px 8px", borderRadius:"var(--radius-pill)" }}>
                   {counts[opt.value as keyof typeof counts]}
