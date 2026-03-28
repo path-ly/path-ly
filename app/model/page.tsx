@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import SiteIcon, { CircledNumber } from "@/components/SiteIcon";
@@ -135,11 +136,11 @@ export default function ModelPage() {
 
                   {/* Research + Video */}
                   <div className="grid-research">
-                    <div style={{ background:"rgba(255,255,255,0.7)", borderRadius:"10px", padding:"14px 18px", border:"1px solid var(--border)" }}>
+                    <Link href={`/research#tool-${num}`} style={{ background:"rgba(255,255,255,0.7)", borderRadius:"10px", padding:"14px 18px", border:"1px solid var(--border)", textDecoration:"none", display:"block", transition:"all 180ms ease" }}>
                       <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", margin:0, lineHeight:1.7, display:"flex", gap:"6px", alignItems:"flex-start" }}>
-                        <span style={{ flexShrink:0, marginTop:"2px", display:"flex" }}><SiteIcon name="book" size={14} /></span> <span><strong>ביסוס מחקרי:</strong> {research}</span>
+                        <span style={{ flexShrink:0, marginTop:"2px", display:"flex" }}><SiteIcon name="book" size={14} /></span> <span><strong>ביסוס מחקרי:</strong> {research} <span style={{ color: accent ? "var(--terra-dark)" : "var(--sage-dark)", fontWeight:600 }}>לממצאים המלאים ←</span></span>
                       </p>
-                    </div>
+                    </Link>
                     {video && (
                       <a href={video} target="_blank" rel="noopener noreferrer"
                         style={{ display:"flex", alignItems:"center", gap:"8px", background: accent ? "var(--terra)" : "var(--sage)", color:"white", padding:"12px 18px", borderRadius:"10px", textDecoration:"none", whiteSpace:"nowrap", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, flexShrink:0, transition:"all 180ms ease" }}

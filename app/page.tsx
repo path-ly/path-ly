@@ -239,7 +239,7 @@ export default function Home() {
                 { iconName:"star", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
                 { iconName:"house", text:"Cedar Park, TX & ישראל (זום)", href:null },
                 { iconName:"baby", text:"מתמחה בגיל 4–14", href:null },
-                { iconName:"book", text:"מבוסס מחקר עדכני", href:"/model#research" },
+                { iconName:"book", text:"מבוסס מחקר עדכני", href:"/research" },
               ].map(({ iconName, text, href }) => (
                 href ? (
                   <a key={text} href={href} style={{ textDecoration:"none", background:"var(--paper)", borderRadius:"12px", padding:"14px 16px", border:"1px solid var(--border)", display:"flex", gap:"10px", alignItems:"center", boxShadow:"var(--shadow-card)" }}>
