@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SkipToContent from "@/components/SkipToContent";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const rubik = Rubik({
   subsets: ["latin", "hebrew"],
@@ -191,6 +192,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={rubik.className}>
         <SkipToContent />
+        <ScrollReveal />
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />

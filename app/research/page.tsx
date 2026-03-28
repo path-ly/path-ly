@@ -156,7 +156,7 @@ export default function ResearchPage() {
       </section>
 
       {/* Research by tool */}
-      <section className="sec-std" style={{ background:"var(--paper)" }}>
+      <section className="sec-std reveal" style={{ background:"var(--paper)" }}>
         <div style={{ maxWidth:"860px", margin:"0 auto" }}>
           {RESEARCH.map(({ num, toolTitle, slug, accent, studies }) => (
             <div key={num} id={`tool-${num}`} style={{ marginBottom:"48px", scrollMarginTop:"100px" }}>
@@ -207,7 +207,7 @@ export default function ResearchPage() {
       </section>
 
       {/* CTA */}
-      <section className="sec-md" style={{ background:"var(--sage)", textAlign:"center" }}>
+      <section className="sec-md reveal-scale" style={{ background:"var(--sage)", textAlign:"center" }}>
         <div style={{ maxWidth:"600px", margin:"0 auto" }}>
           <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(24px,3vw,36px)", color:"#F9F7F2", marginBottom:"16px", fontStyle:"italic", fontWeight:300 }}>
             רוצים ליישם את המחקר בחיים שלכם?

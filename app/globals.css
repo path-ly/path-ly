@@ -113,6 +113,16 @@ p, li, span, label, input, textarea, select, button {
 button {
   text-align: right;
   -webkit-text-size-adjust: 100%;
+  letter-spacing: normal;
+}
+
+/* Safari RTL flex child fix — prevent text stretching */
+button > div,
+button > span,
+button p {
+  letter-spacing: normal;
+  -webkit-text-size-adjust: 100%;
+  word-spacing: normal;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -686,4 +696,77 @@ textarea:focus-visible,
   .grid-hero { gap: 40px !important; }
   .grid-2col { gap: 40px !important; }
   .container { padding: 0 24px !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Elements start hidden, reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children — each child delays slightly more */
+.reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > .reveal:nth-child(2) { transition-delay: 100ms; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger > .reveal:nth-child(5) { transition-delay: 400ms; }
+.reveal-stagger > .reveal:nth-child(6) { transition-delay: 500ms; }
+
+/* Card hover lifts */
+.card-lift {
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 300ms ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(45, 45, 45, 0.12);
+}
+
+/* Fade-in from left (for RTL — content slides from reading direction) */
+.reveal-rtl {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-rtl.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale-in for hero elements */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-rtl,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card-lift:hover {
+    transform: none;
+  }
 }

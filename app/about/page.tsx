@@ -100,7 +100,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── DETAIL SECTIONS ──────────────────────────────────── */}
-      <section className="sec-std" style={{ background: "var(--paper)" }}>
+      <section className="sec-std reveal" style={{ background: "var(--paper)" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "20px" }}>
 
           {/* ── 1. Background ─────────────────────────────────── */}
@@ -309,7 +309,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="sec-md" style={{ background: "var(--sage)", textAlign: "center" }}>
+      <section className="sec-md reveal-scale" style={{ background: "var(--sage)", textAlign: "center" }}>
         <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(24px,3.5vw,38px)", color: "#FFFFFF", marginBottom: "16px", fontStyle: "italic", fontWeight: 300 }}>
           רוצים להכיר אישית?
         </h2>

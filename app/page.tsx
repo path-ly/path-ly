@@ -194,7 +194,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ──────────────────────────────────────────────────────── */}
-      <section className="sec-std" style={{ background:"var(--paper)" }}>
+      <section className="sec-std reveal" style={{ background:"var(--paper)" }}>
         <div className="container grid-2col-rev">
           <div>
             <span className="tag-terra" style={{ marginBottom:"16px", display:"inline-block" }}>הגישה שלי</span>
@@ -259,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* ── WHO IS IT FOR ──────────────────────────────────────────────── */}
-      <section className="sec-sm" style={{ background:"var(--linen)" }}>
+      <section className="sec-sm reveal" style={{ background:"var(--linen)" }}>
         <div style={{ maxWidth:"820px", margin:"0 auto", textAlign:"center" }}>
           <button onClick={() => setToolboxOpen(!toolboxOpen)} aria-expanded={toolboxOpen} aria-controls="toolbox-fit-panel" style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--paper)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-card)", padding:"22px 36px", cursor:"pointer", boxShadow:"var(--shadow-card)", transition:"all 220ms ease", width:"100%" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow="var(--shadow-card-hover)"; (e.currentTarget as HTMLElement).style.transform="translateY(-2px)"; }}
@@ -320,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ──────────────────────────────────────────────────── */}
-      <section className="sec-std" style={{ background:"var(--paper)" }}>
+      <section className="sec-std reveal" style={{ background:"var(--paper)" }}>
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:"56px" }}>
             <h2 style={{ fontSize:"clamp(28px,4vw,44px)", color:"var(--charcoal)", marginBottom:"16px" }}>כיצד נעבוד יחד?</h2>
@@ -375,7 +375,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ────────────────────────────────────────────────── */}
-      <section className="sec-std" style={{ background:"var(--linen)" }}>
+      <section className="sec-std reveal" style={{ background:"var(--linen)" }}>
         <div style={{ maxWidth:"960px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"48px" }}>
             <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,40px)", color:"var(--charcoal)", marginBottom:"12px", fontStyle:"italic", fontWeight:300 }}>מה הורים אומרים</h2>
@@ -429,7 +429,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
-      <section className="sec-cta" style={{ textAlign:"center", position:"relative", overflow:"hidden", background:"linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)" }}>
+      <section className="sec-cta reveal-scale" style={{ textAlign:"center", position:"relative", overflow:"hidden", background:"linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)" }}>
         <div style={{ position:"absolute", top:"-80px", right:"-80px", width:"320px", height:"320px", borderRadius:"50%", background:"rgba(196,114,122,0.10)", pointerEvents:"none" }} />
         <div style={{ position:"relative", zIndex:1, maxWidth:"640px", margin:"0 auto" }}>
           <span className="tag-sage" style={{ marginBottom:"24px", display:"inline-block" }}>מוכנים להתחיל?</span>
