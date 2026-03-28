@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import SiteIcon, { CircledNumber } from "@/components/SiteIcon";
@@ -167,14 +166,6 @@ export default function ModelPage() {
                       </div>
                     </div>
                   )}
-
-                  {/* Link to full tool page */}
-                  <div style={{ marginTop:"20px", textAlign:"center" }}>
-                    <Link href={`/model/${slug}`}
-                      style={{ display:"inline-flex", alignItems:"center", gap:"6px", color: accent ? "var(--terra-dark)" : "var(--sage-dark)", fontWeight:700, textDecoration:"none", fontSize:"14px", fontFamily:"var(--font-hebrew)", borderBottom:`2px solid ${accent ? "var(--terra)" : "var(--sage)"}`, paddingBottom:"2px" }}>
-                      לעמוד המלא של כלי זה ←
-                    </Link>
-                  </div>
                 </div>
               )}
             </div>

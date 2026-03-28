@@ -3,7 +3,7 @@ import { useState, useMemo } from "react";
 import SiteIcon from "@/components/SiteIcon";
 
 type Category = "all" | "professional" | "inspirational";
-type ContentType = "song" | "poem" | "article" | "book" | "research";
+type ContentType = "song" | "poem" | "article" | "book" | "research" | "video";
 
 interface LibraryItem {
   id: number;
@@ -132,23 +132,6 @@ const ITEMS: LibraryItem[] = [
 וכשהיא סוף סוף נושמת, היא יכולה לשים לב,
 שהקטן כבר מצליח לבד את הכיסא לקרב.`,
   },
-  // ── Inspirational – poems ─────────────────────────────────────────────────
-  {
-    id:11, type:"poem", category:"inspirational",
-    title:"ילדיך אינם שלך", creator:"ח׳ליל ג׳ובראן",
-    tag:"שחרור", emoji:"~",
-    excerpt:"ילדיך אינם ילדיך. הם בני החיים ובנותיו של עצמם. הם מגיעים דרכך אך לא ממך.",
-    accentColor:"sage",
-    link:"https://www.poetryfoundation.org/poems/46549/on-children",
-  },
-  {
-    id:12, type:"poem", category:"inspirational",
-    title:"The Road Not Taken", creator:"Robert Frost",
-    tag:"בחירה", emoji:"tree",
-    excerpt:"Two roads diverged in a yellow wood — and every parent stands at this crossroads daily.",
-    accentColor:"terra",
-    link:"https://www.poetryfoundation.org/poems/44272/the-road-not-taken",
-  },
   // ── Professional – Maya's own tools ──────────────────────────────────────
   {
     id:13, type:"article", category:"professional",
@@ -190,30 +173,14 @@ const ITEMS: LibraryItem[] = [
     accentColor:"terra", isMine:true,
     link:"/model#tool-09",
   },
-  // ── Professional – books & research ──────────────────────────────────────
+  // ── Professional – videos & research ──────────────────────────────────────
   {
-    id:18, type:"book", category:"professional",
-    title:"No Drama Discipline", creator:"Daniel J. Siegel",
-    tag:"חינוך מוחי", emoji:"brain",
-    excerpt:"המדע מאחורי ויסות רגשי אצל ילדים — וכיצד הורות יכולה לעצב את מבנה המוח.",
-    accentColor:"sage",
-    link:"https://www.amazon.com/No-Drama-Discipline-Whole-Brain-Nurturing/dp/0553384007",
-  },
-  {
-    id:19, type:"book", category:"professional",
-    title:"The Whole-Brain Child", creator:"Siegel & Payne Bryson",
-    tag:"נוירולוגיה", emoji:"atom",
-    excerpt:"12 אסטרטגיות לטיפוח מוח ילדכם — מבוססות מחקר, ניתנות ליישום.",
-    accentColor:"terra",
-    link:"https://www.amazon.com/Whole-Brain-Child-Revolutionary-Strategies-Developing/dp/0553386697",
-  },
-  {
-    id:20, type:"book", category:"professional",
-    title:"How to Talk So Kids Will Listen", creator:"Faber & Mazlish",
-    tag:"תקשורת", emoji:"dot",
-    excerpt:"ספר קלאסי שמלמד שינוי שפה — ושינוי שפה משנה את כל הדינמיקה.",
-    accentColor:"sage",
-    link:"https://www.amazon.com/How-Talk-Kids-Will-Listen/dp/1451663889",
+    id:18, type:"video" as ContentType, category:"professional",
+    title:"כל הסרטונים מארגז הכלים", creator:"מאיה פלטי",
+    tag:"ארגז הכלים", emoji:"video",
+    excerpt:"אוסף כל הסרטונים הרלוונטיים ל-10 הכלים בארגז הכלים ההורי — טיקטוק, יוטיוב ועוד.",
+    accentColor:"terra", featured:true, isMine:true,
+    link:"/model",
   },
   {
     id:21, type:"research", category:"professional",
@@ -234,7 +201,7 @@ const ITEMS: LibraryItem[] = [
 ];
 
 const TYPE_LABELS: Record<ContentType, string> = {
-  song:"שיר", poem:"שירה", article:"מאמר/כלי", book:"ספר", research:"מחקר"
+  song:"שיר", poem:"שירה", article:"מאמר/כלי", book:"ספר", research:"מחקר", video:"סרטון"
 };
 
 // ─── AI Chat Bubble ───────────────────────────────────────────────────────────
@@ -454,8 +421,8 @@ const FILTER_OPTIONS: {value:Category; label:string; emoji:string}[] = [
 const TYPE_FILTERS: {value:ContentType|"all"; label:string}[] = [
   { value:"all",      label:"כל הסוגים" },
   { value:"poem",     label:"שירה ופרוזה" },
-  { value:"article",  label:"מאמרים וכלים" },
-  { value:"book",     label:"ספרים" },
+  { value:"article",  label:"כלים" },
+  { value:"video",    label:"סרטונים" },
   { value:"research", label:"מחקרים" },
 ];
 
