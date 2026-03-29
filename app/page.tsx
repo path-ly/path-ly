@@ -45,10 +45,12 @@ export default function Home() {
 
             {/* Name + עוד עליי */}
             <div style={{ display:"flex", alignItems:"center", gap:"14px", marginBottom:"22px", position:"relative" }}>
-              <div>
+              <Link href="/about" style={{ textDecoration:"none", transition:"opacity 200ms ease" }}
+                onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { (e.currentTarget as HTMLElement).style.opacity = "0.75"; }}
+                onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"22px", fontWeight:700, color:"var(--charcoal)", margin:0 }}>מאיה פלטי</p>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", fontWeight:500, color:"var(--sage-dark)", margin:0 }}>פסיכולוגית חינוכית מומחית-מדריכה</p>
-              </div>
+              </Link>
               <Link href="/about" style={{ background:"var(--linen)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", padding:"7px 16px", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, color:"var(--sage-dark)", cursor:"pointer", transition:"all 200ms ease", marginRight:"8px", textDecoration:"none", display:"inline-flex", alignItems:"center", gap:"6px" }}>
                 עוד עליי ←
               </Link>

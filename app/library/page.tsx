@@ -427,12 +427,12 @@ function LibraryCard({ item }: { item: LibraryItem }) {
 
       {item.featured && (
         <div style={{ position:"absolute", top:"14px", right:"-1px", background:"var(--terra)", color:"white", fontSize:"10px", fontWeight:700, fontFamily:"var(--font-hebrew)", letterSpacing:"0.06em", padding:"4px 12px 4px 14px", borderRadius:"3px 0 0 3px" }}>
-          <><SiteIcon name="star" size={12} /> נבחר</>
+          <><SiteIcon name="heart" size={12} /> מומלץ</>
         </div>
       )}
       {item.isMine && (
         <div style={{ position:"absolute", top: item.featured ? "40px" : "14px", right:"-1px", background:"var(--sage)", color:"white", fontSize:"10px", fontWeight:700, fontFamily:"var(--font-hebrew)", letterSpacing:"0.06em", padding:"4px 12px 4px 14px", borderRadius:"3px 0 0 3px" }}>
-          <><SiteIcon name="pencil" size={12} /> מאיה פלטי</>
+          כתיבה מקורית
         </div>
       )}
 
@@ -441,10 +441,11 @@ function LibraryCard({ item }: { item: LibraryItem }) {
         background: isSage
           ? "linear-gradient(135deg, var(--sage-faint) 0%, rgba(42,122,110,0.25) 100%)"
           : "linear-gradient(135deg, var(--terra-faint) 0%, rgba(212,160,136,0.25) 100%)",
-        display:"flex", alignItems:"center", justifyContent:"center",
-        fontSize:"36px", borderBottom:"1px solid var(--border)",
+        display:"flex", alignItems:"center", justifyContent:"center", gap:"12px",
+        borderBottom:"1px solid var(--border)",
       }}>
-        <SiteIcon name={item.emoji} size={36} />
+        <SiteIcon name={item.emoji} size={28} />
+        <span style={{ fontFamily:"var(--font-serif)", fontSize:"20px", fontWeight:600, color: isSage ? "var(--sage-dark)" : "var(--terra-dark)", lineHeight:1.2 }}>{item.title}</span>
       </div>
 
       <div style={{ padding:"22px", flex:1, display:"flex", flexDirection:"column", gap:"10px" }}>
@@ -600,7 +601,7 @@ export default function LibraryPage() {
               borderBottom: mineOnly ? "2.5px solid var(--sage)" : "2.5px solid transparent",
               marginBottom:"-1px", transition:"all 200ms ease", whiteSpace:"nowrap",
             }}>
-              <SiteIcon name="pencil" size={14} />
+              <SiteIcon name="star" size={14} />
               <span>מאיה פלטי</span>
               <span style={{ background: mineOnly ? "var(--sage-faint)" : "var(--linen)", color: mineOnly ? "var(--sage-dark)" : "var(--charcoal-muted)", fontSize:"11px", fontWeight:700, padding:"2px 8px", borderRadius:"var(--radius-pill)" }}>
                 {ITEMS.filter(i=>i.isMine).length}

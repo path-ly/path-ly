@@ -29,9 +29,9 @@ export default function Navbar() {
     <header style={{
       position: "fixed", top: 0, right: 0, left: 0, zIndex: 200,
       transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
-      background:  scrolled ? "rgba(249,247,242,0.94)" : "transparent",
-      backdropFilter: scrolled ? "blur(14px)" : "none",
-      WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
+      background:  scrolled ? "rgba(249,247,242,0.94)" : "rgba(249,247,242,0.65)",
+      backdropFilter: scrolled ? "blur(14px)" : "blur(8px)",
+      WebkitBackdropFilter: scrolled ? "blur(14px)" : "blur(8px)",
       borderBottom: scrolled ? "1px solid #DDD8CE" : "1px solid transparent",
       padding: scrolled ? "8px 0" : "16px 0",
     }}>

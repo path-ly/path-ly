@@ -142,7 +142,7 @@ export default function ResearchPage() {
   return (
     <>
       {/* Hero */}
-      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #E8F2F0 0%, #F9F7F2 60%)", textAlign:"center" }}>
+      <section className="sec-hero" style={{ background:"linear-gradient(150deg, #E8F2F0 0%, #F9F7F2 60%)", textAlign:"center", paddingBottom:"48px" }}>
         <span className="tag-sage" style={{ marginBottom:"20px", display:"inline-block" }}>ביסוס מחקרי</span>
         <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(36px,5vw,60px)", fontWeight:300, fontStyle:"italic", color:"var(--charcoal)", margin:"0 0 16px" }}>
           המחקר מאחורי ארגז הכלים
@@ -156,7 +156,7 @@ export default function ResearchPage() {
       </section>
 
       {/* Research by tool */}
-      <section className="sec-std reveal" style={{ background:"var(--paper)" }}>
+      <section className="sec-std reveal" style={{ background:"var(--paper)", paddingTop:"48px" }}>
         <div style={{ maxWidth:"860px", margin:"0 auto" }}>
           {RESEARCH.map(({ num, toolTitle, slug, accent, studies }) => (
             <div key={num} id={`tool-${num}`} style={{ marginBottom:"48px", scrollMarginTop:"100px" }}>
