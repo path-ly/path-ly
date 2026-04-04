@@ -309,7 +309,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── TIMELINE ──────────────────────────────────────── */}
-      <section className="sec-std reveal" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--linen) 100%)" }}>
+      <section className="sec-std" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--linen) 100%)" }}>
         <div style={{ maxWidth: "760px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "48px" }}>
             <SiteIcon name="star" size={28} />
