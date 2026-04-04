@@ -37,6 +37,7 @@ export default function Footer() {
               { href: "/services", label: "שירותים" },
               { href: "/library",  label: "הספרייה" },
               { href: "/contact",  label: "צרו קשר" },
+              { href: "/en",       label: "English" },
             ].map(({ href, label }) => (
               <Link key={href} href={href} style={{ display: "block", color: "rgba(232,224,208,0.72)", textDecoration: "none", fontFamily: "var(--font-hebrew)", fontSize: "14px", marginBottom: "10px", transition: "color 180ms ease" }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#F9F7F2"}
