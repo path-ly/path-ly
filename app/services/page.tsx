@@ -37,6 +37,9 @@ export default function ServicesPage() {
                 <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", marginRight:"8px" }}>לפגישה</span>
               </div>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginTop:"10px" }}>
+                מחיר בש״ח לתושבי ישראל · מחיר בדולר לתושבי ארה״ב
+              </p>
+              <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginTop:"6px" }}>
                 פגישת ייעוץ ראשונה — 15 דקות, חינם, ללא התחייבות
               </p>
             </div>

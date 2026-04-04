@@ -67,9 +67,16 @@ export default function Footer() {
           <p style={{ fontSize: "12px", opacity: 0.42, fontFamily: "var(--font-hebrew)" }}>
             © {new Date().getFullYear()} מאיה פלטי · PATH-LY · כל הזכויות שמורות
           </p>
-          <p style={{ fontSize: "12px", opacity: 0.42, fontFamily: "var(--font-hebrew)" }}>
-            פסיכולוגית חינוכית מומחית · רישיון משרד החינוך
-          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            <Link href="/privacy" style={{ fontSize: "12px", opacity: 0.52, fontFamily: "var(--font-hebrew)", color: "#E8E0D0", textDecoration: "none", transition: "opacity 180ms ease" }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.85"}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "0.52"}>
+              מדיניות פרטיות
+            </Link>
+            <p style={{ fontSize: "12px", opacity: 0.42, fontFamily: "var(--font-hebrew)" }}>
+              פסיכולוגית חינוכית מומחית · רישיון משרד החינוך
+            </p>
+          </div>
         </div>
       </div>
     </footer>

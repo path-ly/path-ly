@@ -308,6 +308,122 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── TIMELINE ──────────────────────────────────────── */}
+      <section className="sec-std reveal" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--linen) 100%)" }}>
+        <div style={{ maxWidth: "760px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+            <SiteIcon name="star" size={28} />
+            <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(24px,3vw,36px)", fontWeight: 600, color: "var(--charcoal)", margin: "12px 0 8px" }}>
+              ציר זמן מקצועי
+            </h2>
+            <div className="divider-accent-center" />
+          </div>
+
+          <div style={{ position: "relative", paddingRight: "40px" }}>
+            {/* Vertical line */}
+            <div style={{ position: "absolute", right: "14px", top: "8px", bottom: "8px", width: "2px", background: "linear-gradient(180deg, var(--sage) 0%, var(--terra) 100%)", borderRadius: "2px", opacity: 0.25 }} />
+
+            {[
+              {
+                year: "2001–2004",
+                title: "תואר ראשון במדעי ההתנהגות",
+                sub: "אוניברסיטת בן גוריון בנגב · בהצטיינות",
+                color: "sage" as const,
+              },
+              {
+                year: "2004–2007",
+                title: "תואר שני בנוירו-פסיכולוגיה שיקומית",
+                sub: "אוניברסיטת בן גוריון בנגב",
+                color: "sage" as const,
+              },
+              {
+                year: "2007–2010",
+                title: "פסיכולוגית חינוכית בשירות הציבורי",
+                sub: "שער הנגב · באר שבע",
+                color: "terra" as const,
+              },
+              {
+                year: "2010–2016",
+                title: "פסיכולוגית בכירה ומדריכה",
+                sub: "רמת גן · קריית ביאליק · קבלת תעודת מומחית",
+                color: "terra" as const,
+              },
+              {
+                year: "2016–2023",
+                title: "שדרות והעוטף — הובלה מקצועית",
+                sub: "ריכוז דיאגנוסטיקה · הדרכת מתמחים · ממלאת מקום מנהלת שפ״ח",
+                color: "terra" as const,
+              },
+              {
+                year: "2020–2023",
+                title: "הקליניקה הפרטית וחינוך",
+                sub: "גברעם · בני שמעון · הדרכות הורים אונליין",
+                color: "sage" as const,
+              },
+              {
+                year: "2023–2024",
+                title: "עוטף עזה — מענה לאחר ה-7.10",
+                sub: "טיפולים והדרכות הורים ומורים · שפ״ח מרחבים",
+                color: "terra" as const,
+              },
+              {
+                year: "2024–2025",
+                title: "מסע משפחתי סביב העולם",
+                sub: "שנת חופש עם המשפחה",
+                color: "sage" as const,
+              },
+              {
+                year: "2026",
+                title: "אוסטין, טקסס — PATH-LY",
+                sub: "קליניקה פרטית · זום להורים ישראלים בכל העולם · הרצאות באקדמיה",
+                color: "terra" as const,
+                current: true,
+              },
+            ].map(({ year, title, sub, color, current }, i) => (
+              <div key={i} style={{ position: "relative", marginBottom: i === 8 ? "0" : "28px", paddingRight: "36px" }}>
+                {/* Dot on line */}
+                <div style={{
+                  position: "absolute", right: "6px", top: "18px",
+                  width: current ? "18px" : "14px", height: current ? "18px" : "14px",
+                  borderRadius: "50%",
+                  background: current ? (color === "terra" ? "var(--terra)" : "var(--sage)") : "var(--paper)",
+                  border: `2.5px solid ${color === "terra" ? "var(--terra)" : "var(--sage)"}`,
+                  zIndex: 2,
+                  boxShadow: current ? `0 0 0 4px ${color === "terra" ? "rgba(196,114,122,0.2)" : "rgba(42,122,110,0.2)"}` : "none",
+                }} />
+
+                {/* Card */}
+                <div style={{
+                  background: "white",
+                  borderRadius: "var(--radius-card)",
+                  padding: "18px 22px",
+                  border: current ? `1.5px solid ${color === "terra" ? "var(--terra)" : "var(--sage)"}` : "1px solid var(--border)",
+                  boxShadow: current ? "var(--shadow-card-hover)" : "var(--shadow-card)",
+                }}>
+                  <span style={{
+                    fontFamily: "var(--font-hebrew)", fontSize: "12px", fontWeight: 700,
+                    color: color === "terra" ? "var(--terra-dark)" : "var(--sage-dark)",
+                    letterSpacing: "0.03em",
+                    background: color === "terra" ? "var(--terra-faint)" : "var(--sage-faint)",
+                    padding: "3px 10px", borderRadius: "var(--radius-pill)",
+                    display: "inline-block", marginBottom: "8px",
+                    direction: "ltr",
+                  }}>
+                    {year}
+                  </span>
+                  <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", fontWeight: 600, color: "var(--charcoal)", margin: "0 0 4px", lineHeight: 1.4 }}>
+                    {title}
+                  </p>
+                  <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", color: "var(--charcoal-muted)", margin: 0, lineHeight: 1.7 }}>
+                    {sub}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="sec-md reveal-scale" style={{ background: "var(--sage)", textAlign: "center" }}>
         <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(24px,3.5vw,38px)", color: "#FFFFFF", marginBottom: "16px", fontStyle: "italic", fontWeight: 300 }}>

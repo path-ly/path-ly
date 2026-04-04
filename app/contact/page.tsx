@@ -190,13 +190,13 @@ export default function ContactPage() {
                 <label htmlFor="contact-phone" className="form-label">טלפון</label>
                 <input id="contact-phone" className="form-input" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="050-0000000" />
 
-                <label htmlFor="contact-service" className="form-label">סוג הפנייה</label>
+                <label htmlFor="contact-service" className="form-label">סוג שירות</label>
                 <select id="contact-service" className="form-input" name="service" value={form.service} onChange={handleChange} style={{ cursor:"pointer" }}>
                   <option value="">בחרו סוג שירות</option>
-                  <option value="parenting">הדרכת הורים</option>
-                  <option value="zoom">פגישת זום (ישראל / עולם)</option>
-                  <option value="clinic">קליניקה פרונטלית (Cedar Park)</option>
-                  <option value="org">הכשרה ארגונית / צוות חינוך</option>
+                  <option value="zoom">הדרכת הורים (זום)</option>
+                  <option value="clinic">הדרכת הורים (פרונטלי)</option>
+                  <option value="workshop">סדנת הורים</option>
+                  <option value="training">הכשרה מקצועית</option>
                   <option value="other">אחר</option>
                 </select>
 
