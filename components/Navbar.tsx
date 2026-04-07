@@ -51,7 +51,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav aria-label="ניווט ראשי" style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+        <nav aria-label="ניווט ראשי" className="hide-mobile" style={{ display: "flex", alignItems: "center", gap: "2px" }}>
           {navLinks.map(({ href, label }) => {
             const active = pathname === href;
             return (

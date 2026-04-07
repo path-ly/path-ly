@@ -12,7 +12,7 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      <section className="sec-std reveal" style={{ background:"var(--paper)" }}>
+      <section className="sec-std" style={{ background:"var(--paper)" }}>
         <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
 
           {/* ══════════════════════════════════════════════════════
@@ -149,7 +149,7 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="sec-md reveal" style={{ background:"var(--linen)" }}>
+      <section className="sec-md" style={{ background:"var(--linen)" }}>
         <div style={{ maxWidth:"780px", margin:"0 auto" }}>
           <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,40px)", textAlign:"center", color:"var(--charcoal)", marginBottom:"48px", fontStyle:"italic", fontWeight:300 }}>
             שאלות נפוצות
