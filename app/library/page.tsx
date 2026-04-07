@@ -570,7 +570,7 @@ export default function LibraryPage() {
       {/* Sticky Filter Bar */}
       <div style={{ position:"sticky", top:"64px", zIndex:50, background:"rgba(249,247,242,0.95)", backdropFilter:"blur(14px)", borderBottom:"1px solid var(--border)", boxShadow:"0 2px 12px rgba(45,45,45,0.06)" }}>
         <div style={{ maxWidth:"1160px", margin:"0 auto", padding:"0 20px" }}>
-          <div style={{ display:"flex", gap:"0", borderBottom:"1px solid var(--border)", overflowX:"auto" }}>
+          <div className="library-filter-tabs" style={{ display:"flex", gap:"0", borderBottom:"1px solid var(--border)", overflowX:"auto" }}>
             {FILTER_OPTIONS.map(opt => (
               <button key={opt.value}
                 onClick={() => { setCategory(opt.value); setTypeFilter("all"); setMineOnly(false); }}
@@ -662,7 +662,7 @@ export default function LibraryPage() {
               <p style={{ fontFamily:"var(--font-hebrew)", color:"var(--charcoal-muted)", fontSize:"15px" }}>נסו מילת חיפוש אחרת או נקו את הסינון</p>
             </div>
           ) : (
-            <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(288px, 1fr))", gap:"22px" }}>
+            <div className="library-grid" style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(288px, 1fr))", gap:"22px" }}>
               {filtered.map(item => <LibraryCard key={item.id} item={item} />)}
             </div>
           )}
@@ -674,7 +674,7 @@ export default function LibraryPage() {
         <div style={{ maxWidth:"500px", margin:"0 auto" }}>
           <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(24px,3.5vw,38px)", color:"#FFFFFF", marginBottom:"14px", fontStyle:"italic", fontWeight:300 }}>קבלו תכנים ישירות למייל</h2>
           <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", color:"rgba(249,247,242,0.82)", marginBottom:"28px", lineHeight:1.82 }}>מדי חודש — שיר, מאמר, ורעיון אחד שיכול לשנות משהו.</p>
-          <div style={{ display:"flex", gap:"10px", justifyContent:"center" }}>
+          <div className="newsletter-row" style={{ display:"flex", gap:"10px", justifyContent:"center" }}>
             <label htmlFor="newsletter-email" className="sr-only" style={{ position:"absolute", width:"1px", height:"1px", overflow:"hidden", clip:"rect(0,0,0,0)" }}>כתובת אימייל</label>
             <input id="newsletter-email" type="email" aria-label="כתובת אימייל" placeholder="כתובת האימייל שלכם" style={{ flex:1, padding:"13px 18px", borderRadius:"var(--radius-pill)", border:"none", fontSize:"15px", fontFamily:"var(--font-hebrew)", textAlign:"right", outline:"none", maxWidth:"260px", background:"#FFFFFF", color:"var(--charcoal)" }} />
             <button style={{ background:"var(--terra)", color:"white", border:"none", padding:"13px 22px", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontWeight:700, fontSize:"14px", cursor:"pointer", whiteSpace:"nowrap" }}>הרשמה</button>

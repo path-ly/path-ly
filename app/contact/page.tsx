@@ -173,7 +173,7 @@ export default function ContactPage() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{
+              <form onSubmit={handleSubmit} className="contact-form-card" style={{
                 background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"48px",
                 boxShadow:"var(--shadow-card-hover)", border:"1px solid var(--border)",
               }}>

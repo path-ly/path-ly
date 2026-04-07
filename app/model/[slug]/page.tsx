@@ -194,10 +194,11 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* ── MAIN CONTENT ─────────────────────────────────────── */}
-      <section style={{ padding: "64px 32px", background: "var(--paper)" }}>
+      <section className="tool-page-section" style={{ padding: "64px 32px", background: "var(--paper)" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto" }}>
           {/* Description */}
           <div
+            className="tool-page-card"
             style={{
               background: "#FFFFFF",
               borderRadius: "var(--radius-card-lg)",
@@ -233,6 +234,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           {/* Practical Tips */}
           <div
+            className="tool-page-card"
             style={{
               background: "#FFFFFF",
               borderRadius: "var(--radius-card-lg)",
@@ -303,6 +305,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           {/* Real-life Example */}
           <div
+            className="tool-page-card"
             style={{
               background: accentFaint,
               borderRadius: "var(--radius-card-lg)",
@@ -340,6 +343,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           {/* Common Challenge */}
           <div
+            className="tool-page-card"
             style={{
               background: "#FFFFFF",
               borderRadius: "var(--radius-card-lg)",
@@ -554,6 +558,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           {/* ── PREV / NEXT NAVIGATION ──────────────────────── */}
           <div
+            className="tool-prev-next"
             style={{
               display: "flex",
               justifyContent: "space-between",
@@ -609,6 +614,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           {/* ── CTA ──────────────────────────────────────────── */}
           <div
+            className="tool-page-card"
             style={{
               background: "linear-gradient(135deg, var(--charcoal) 0%, #3D3530 100%)",
               borderRadius: "var(--radius-card-lg)",

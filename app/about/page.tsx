@@ -109,7 +109,7 @@ export default function AboutPage() {
             border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
             overflow: "hidden",
           }}>
-            <div style={{
+            <div className="about-detail-header" style={{
               padding: "24px 32px",
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
               }}>רקע מקצועי וניסיון מעשי</h2>
             </div>
-            <div style={{ padding: "28px 32px" }}>
+            <div className="about-detail-body" style={{ padding: "28px 32px" }}>
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
                 פסיכולוגית חינוכית מומחית-מדריכה עם ניסיון רב שנים בשירותים פסיכולוגיים חינוכיים ברחבי הארץ. במסגרת עבודתי ליוויתי בתי ספר, גנים ורשויות מקומיות, לצד עבודה פרטנית עם ילדים והורים במצבי שגרה וחירום.
               </p>
@@ -162,7 +162,7 @@ export default function AboutPage() {
             border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
             overflow: "hidden",
           }}>
-            <div style={{
+            <div className="about-detail-header" style={{
               padding: "24px 32px",
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
@@ -173,12 +173,12 @@ export default function AboutPage() {
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
               }}>תחומי התמחות</h2>
             </div>
-            <div style={{ padding: "28px 32px" }}>
+            <div className="about-detail-body" style={{ padding: "28px 32px" }}>
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
                 עבודתי מתמקדת בתחומים המרכזיים הבאים:
               </p>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "24px" }}>
+              <div className="grid-2col-sm" style={{ marginBottom: "24px" }}>
                 {[
                   { icon: "heart", text: "קשיי ויסות רגשי והתנהגות", sub: "קשיים בקבלת גבולות וסמכות, התמודדות עם תסכול ודחיית סיפוקים וצורך בשליטה" },
                   { icon: "brain", text: "הפרעות קשב ולקויות למידה", sub: "עיכוב שפתי והתפתחותי, דיסלקציה, דיסגרפיה, ADD ו-ADHD" },
@@ -216,7 +216,7 @@ export default function AboutPage() {
             border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
             overflow: "hidden",
           }}>
-            <div style={{
+            <div className="about-detail-header" style={{
               padding: "24px 32px",
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
               }}>עיסוקים נוספים</h2>
             </div>
-            <div style={{ padding: "28px 32px" }}>
+            <div className="about-detail-body" style={{ padding: "28px 32px" }}>
               {[
                 { text: "מפתחת מודל ״ארגז הכלים ההורי״ – גישה פרקטית וחומלת להדרכת הורים קצרת מועד", accent: true },
                 { text: "מדריכת פסיכולוגים מתמחים לקראת מבחן מומחיות", accent: false },
@@ -261,7 +261,7 @@ export default function AboutPage() {
             border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
             overflow: "hidden",
           }}>
-            <div style={{
+            <div className="about-detail-header" style={{
               padding: "24px 32px",
               borderBottom: "1px solid var(--border)",
               display: "flex", alignItems: "center", gap: "14px",
@@ -272,7 +272,7 @@ export default function AboutPage() {
                 fontWeight: 600, color: "var(--charcoal)", margin: 0,
               }}>בנימה אישית</h2>
             </div>
-            <div style={{ padding: "28px 32px" }}>
+            <div className="about-detail-body" style={{ padding: "28px 32px" }}>
               <p style={{
                 fontFamily: "var(--font-serif)", fontSize: "22px", fontStyle: "italic",
                 fontWeight: 400, color: "var(--terra-dark)", lineHeight: 1.5,

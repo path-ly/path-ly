@@ -276,7 +276,7 @@ export default function Home() {
 
           {toolboxOpen && (
             <div id="toolbox-fit-panel" role="region" aria-label="למי ארגז הכלים מתאים" style={{ background:"#FFFFFF", border:"1px solid var(--border)", borderRadius:"var(--radius-card)", padding:"32px", marginTop:"12px", boxShadow:"var(--shadow-card)", textAlign:"right" }}>
-              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"16px" }}>
+              <div className="grid-2col-rev" style={{ gap:"16px" }}>
                 <div>
                   <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"8px", display:"flex", alignItems:"center", gap:"6px" }}><SiteIcon name="check-circle" size={16} /> מתאים להורים</h4>
                   <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.7, margin:"0 0 12px" }}>
@@ -383,7 +383,7 @@ export default function Home() {
             <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,40px)", color:"var(--charcoal)", marginBottom:"12px", fontStyle:"italic", fontWeight:300 }}>מה הורים אומרים</h2>
             <div className="divider-accent-center" />
           </div>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:"24px" }}>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:"24px" }}>
             {[
               {
                 quote: "המפגשים עם מאיה סייעו לי בשינוי תפיסתי כהורה המתקשה בשימת הגבולות הנדרשים עבור בתי ועבורי כהורה.",

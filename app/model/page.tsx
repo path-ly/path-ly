@@ -89,7 +89,7 @@ export default function ModelPage() {
               </button>
 
               {openTool===num && (
-                <div id={`tool-content-${num}`} role="region" aria-labelledby={`tool-${num}`} style={{ background: accent ? "var(--terra-faint)" : "var(--sage-faint)", border:`1.5px solid ${accent ? "rgba(196,114,122,0.3)" : "rgba(42,122,110,0.3)"}`, borderTop:"none", borderRadius:"0 0 var(--radius-card) var(--radius-card)", padding:"28px 32px" }}>
+                <div id={`tool-content-${num}`} role="region" aria-labelledby={`tool-${num}`} className="toolbox-body" style={{ background: accent ? "var(--terra-faint)" : "var(--sage-faint)", border:`1.5px solid ${accent ? "rgba(196,114,122,0.3)" : "rgba(42,122,110,0.3)"}`, borderTop:"none", borderRadius:"0 0 var(--radius-card) var(--radius-card)", padding:"28px 32px" }}>
 
                   {/* Description */}
                   <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.9, marginBottom:"24px" }}>
@@ -181,7 +181,7 @@ export default function ModelPage() {
             איך נתאמן יחד על הכלים הללו?
           </h2>
           <div className="divider-accent-center" style={{ marginBottom:"36px" }} />
-          <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"44px 48px", boxShadow:"var(--shadow-card)", border:"1px solid var(--border)" }}>
+          <div className="card" style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"44px 48px", boxShadow:"var(--shadow-card)", border:"1px solid var(--border)" }}>
             <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.95, margin:0 }}>
               הקשר שלנו מתחיל בפגישת אינטייק במהלכה אני אוספת את כל הרקע הנדרש על מנת להתאים לכם תוכנית אישית המתאימה ל-5–12 מפגשים. בסוף השיחה הראשונה כבר נסכים על 2–3 מטרות ראשיות ונבחר כלי 1 להתחיל להתאמן עליו.
               <br /><br />
@@ -191,7 +191,7 @@ export default function ModelPage() {
             </p>
           </div>
 
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"14px", marginTop:"20px" }}>
+          <div className="grid-2col-sm" style={{ marginTop:"20px" }}>
             {[
               { n:1, text:"אינטייק — הכרת הסיפור המשפחתי" },
               { n:2, text:"פסיכואדוקציה — בחירת הכלים" },
@@ -215,7 +215,7 @@ export default function ModelPage() {
           </h2>
           <div className="divider-accent-center" style={{ marginBottom:"32px" }} />
 
-          <div style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 40px", boxShadow:"var(--shadow-card)", border:"1px solid var(--border)", marginBottom:"28px" }}>
+          <div className="card" style={{ background:"#FFFFFF", borderRadius:"var(--radius-card-lg)", padding:"36px 40px", boxShadow:"var(--shadow-card)", border:"1px solid var(--border)", marginBottom:"28px" }}>
             <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"16px", color:"var(--charcoal-soft)", lineHeight:1.9, margin:"0 0 20px" }}>
               ארגז הכלים ההורי מבוסס על שילוב של גישות מחקריות מוכחות מתחום הפסיכולוגיה החיובית, תיאוריית ההתקשרות, מדעי המוח ההתפתחותיים, והגישה ההתנהגותית-קוגניטיבית. כל כלי נשען על ממצאים עדכניים ומיושם בהתאמה אישית לכל משפחה.
             </p>

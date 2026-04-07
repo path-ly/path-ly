@@ -685,6 +685,35 @@ textarea:focus-visible,
 
   /* Services image hide on mobile */
   .services-img-col { display: none !important; }
+
+  /* B2B section inner padding */
+  .b2b-inner { padding: 28px 20px !important; }
+
+  /* Contact form card */
+  .contact-form-card { padding: 28px 20px !important; }
+
+  /* About detail cards */
+  .about-detail-header { padding: 18px 20px !important; }
+  .about-detail-body { padding: 20px !important; }
+
+  /* Tool individual page content */
+  .tool-page-section { padding: 40px 20px !important; }
+  .tool-page-card { padding: 28px 20px !important; }
+
+  /* Library filter bar — scroll horizontally */
+  .library-filter-tabs { overflow-x: auto !important; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .library-filter-tabs::-webkit-scrollbar { display: none; }
+
+  /* Newsletter row */
+  .newsletter-row { flex-wrap: wrap !important; justify-content: center !important; }
+  .newsletter-row input { max-width: 100% !important; width: 100% !important; }
+
+  /* Prev/Next tool navigation */
+  .tool-prev-next { flex-direction: column !important; }
+  .tool-prev-next a { width: 100% !important; justify-content: center !important; }
+
+  /* Library card grid */
+  .library-grid { grid-template-columns: 1fr !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════

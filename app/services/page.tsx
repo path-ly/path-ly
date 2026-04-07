@@ -121,7 +121,7 @@ export default function ServicesPage() {
           <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-float)", position:"relative", minHeight:"400px" }}>
             <Image src="/service-training.webp" alt="הכשרות מקצועיות" fill style={{ objectFit:"cover", objectPosition:"center" }} sizes="100vw" />
             <div style={{ position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(42,122,110,0.92) 0%, rgba(29,91,82,0.95) 100%)" }} />
-            <div style={{ position:"relative", zIndex:1, padding:"64px" }}>
+            <div className="b2b-inner" style={{ position:"relative", zIndex:1, padding:"64px" }}>
             <div className="grid-services-img">
               <div style={{ textAlign:"center" }}><SiteIcon name="building" size={64} /></div>
               <div>
@@ -131,7 +131,7 @@ export default function ServicesPage() {
                 <p style={{ fontSize:"16px", color:"rgba(249,247,242,0.78)", lineHeight:1.9, marginBottom:"28px", fontFamily:"var(--font-hebrew)" }}>
                   הכשרות מקצועיות והדרכות לצוותי חינוך — פסיכולוגים, עובדים סוציאליים ואנשי טיפול, גני ילדים ובתי ספר.
                 </p>
-                <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", marginBottom:"32px" }}>
+                <div className="grid-2col-sm" style={{ marginBottom:"32px" }}>
                   {["הכשרת פסיכולוגים","הדרכת עו״סים","סדנאות לצוותי חינוך","הרצאות לאנשי מקצוע","ליווי מוסדי","פיתוח תכניות"].map(item => (
                     <div key={item} style={{ background:"rgba(249,247,242,0.08)", borderRadius:"10px", padding:"10px 16px", fontSize:"14px", color:"rgba(249,247,242,0.9)", display:"flex", alignItems:"center", gap:"8px", fontFamily:"var(--font-hebrew)", border:"1px solid rgba(249,247,242,0.10)" }}>
                       <SiteIcon name="check" size={14} className="inline-block" />{item}
