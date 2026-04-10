@@ -293,120 +293,342 @@ const TYPE_LABELS: Record<ContentType, string> = {
   song:"שיר", poem:"שירה", article:"מאמר/כלי", book:"ספר", research:"מחקר", video:"סרטון"
 };
 
-// ─── AI Chat Bubble ───────────────────────────────────────────────────────────
+// ─── Decision-Tree Chat Bubble ────────────────────────────────────────────────
+
+type ChatScreen = "menu" | "pricing" | "booking" | "toolbox" | "tools-list" | "tool-detail" | "who" | "zoom" | "ages" | "contact";
+
+const TOOL_PREVIEWS: { label: string; slug: string; short: string; desc: string }[] = [
+  { label: "חמלה הורית", slug: "self-compassion", short: "לקבל את עצמנו כדי לקבל את הילד", desc: "הקול שבו אנחנו מדברים לעצמנו הופך לקול שהילדים שלנו מפנימים. חמלה עצמית היא לא פינוק — היא תשתית." },
+  { label: "רפלקטיביות", slug: "reflectivity", short: "להבין מה מתחת לפני השטח", desc: "4 שאלות פשוטות: מה אני חושב? מה אני מרגיש? מה הילד חושב? מה הוא מרגיש?" },
+  { label: "משחקיות", slug: "playfulness", short: "להפוך התנגדות לחיבור", desc: "משחקיות היא לא פעילות מיוחדת — היא תנוחת נפש. כניסה דרך החלון כשדלת ההתנגדות נסגרת." },
+  { label: "מודלינג", slug: "modeling", short: "הילדים קוראים אותנו כמו ספר פתוח", desc: "הילדים שלנו קוראים אותנו כמו ספר פתוח, לכן עלינו לשים לב לתוכן של הספר." },
+  { label: "התאמה התפתחותית", slug: "developmental-fit", short: "לראות את הילד בגובה העיניים שלו", desc: "ציפיות שמתאימות לגיל ולשלב ההתפתחותי מפחיתות תסכול — גם אצל ההורה וגם אצל הילד." },
+  { label: "נבואה חיובית", slug: "positive-prophecy", short: "להתמקד בטוב כדי לעזור לו לגדול", desc: "כשאנחנו מזהים ומחזקים את הטוב — הילד לומד לראות את עצמו דרך העיניים האלה." },
+  { label: "שיתוף פעולה", slug: "cooperation", short: "ממאבק להסכמה משותפת", desc: "במקום מאבקי כוח — דרך שבה שני הצדדים מרגישים שנשמעו ושותפים להחלטה." },
+  { label: "חוסן רגשי", slug: "resilience", short: "היכולת לשוב לצורה לאחר לחץ ולצמוח ממנו", desc: "חוסן הוא לא להיות חזק — אלא לדעת ליפול ולקום, ולגדול מהתהליך." },
+  { label: "זמן קסם", slug: "magic-time", short: "זמן משותף שיוצר חיבור אישי", desc: "קשר אינטימי מצריך זמן משותף — רגעים קטנים של נוכחות מלאה שבונים ביטחון." },
+  { label: "צמיחה מחוזקות", slug: "growth-from-strengths", short: "להכיר ולהשתמש במה שיש", desc: "כשמזהים את החוזקות של הילד ובונים עליהן — הצמיחה באה מתוך ביטחון ולא מתוך חסך." },
+];
+
+const WA_LINK = "https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99";
+const CAL_LINK = "https://calendly.com/maya_palty/50min";
+
 function AIChatBubble() {
   const [open, setOpen] = useState(false);
-  const [msgs, setMsgs] = useState([
-    { role:"ai", text:"שלום! אני עוזרת ה-AI של מאיה פלטי. אשמח לעזור לכם לחקור את הספרייה, להבין את כלי ארגז הכלים ההורי, או פשוט לחשוב יחד על הורות. מה עולה לכם?" }
-  ]);
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [screen, setScreen] = useState<ChatScreen>("menu");
+  const [selectedTool, setSelectedTool] = useState<number>(0);
+  const scrollRef = { current: null as HTMLDivElement | null };
 
-  const send = async () => {
-    const text = input.trim();
-    if (!text || loading) return;
-    setInput("");
-    const next = [...msgs, { role:"user", text }];
-    setMsgs(next);
-    setLoading(true);
-    try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify({
-          model:"claude-sonnet-4-20250514",
-          max_tokens:1000,
-          system:`אתה עוזר וירטואלי המייצג את מאיה פלטי — פסיכולוגית חינוכית מומחית עם כמעט 20 שנות ניסיון, מפתחת מודל "ארגז הכלים ההורי".
-המודל כולל 10 כלים: חמלה הורית, רפלקטיביות, משחקיות, מודלינג, התאמה התפתחותית, נבואה חיובית, ממאבק לשיתוף פעולה, חוסן, זמן קסם, ופסיכולוגיה חיובית.
-תפקידך לעזור להורים שמבקרים בספרייה לחשוב על הורות ולהתחבר לכלים הללו.
-ענה בעברית בלבד, בחמימות ובמקצועיות, בקצרה (2-4 משפטים).
-אל תספק עצות טיפוליות ישירות — הפנה לייעוץ אישי עם מאיה לשאלות מורכבות.`,
-          messages: next.slice(1).map(m => ({
-            role: m.role === "ai" ? "assistant" : "user",
-            content: m.text
-          }))
-        })
-      });
-      const data = await res.json();
-      const reply = data.content?.[0]?.text ?? "מצטערת, לא הצלחתי לענות כרגע.";
-      setMsgs(m => [...m, { role:"ai", text:reply }]);
-    } catch(_e) {
-      setMsgs(m => [...m, { role:"ai", text:"משהו השתבש. אנא נסו שוב." }]);
+  const goTo = (s: ChatScreen) => {
+    setScreen(s);
+    setTimeout(() => { scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" }); }, 50);
+  };
+
+  const bubbleStyle = (isBot: boolean): React.CSSProperties => ({
+    background: isBot ? "var(--terra-faint)" : "var(--sage-faint)",
+    borderRadius: isBot ? "18px 18px 18px 4px" : "18px 18px 4px 18px",
+    padding: "11px 15px",
+    border: isBot ? "1px solid rgba(196,114,122,0.15)" : "1px solid rgba(42,122,110,0.15)",
+    fontFamily: "var(--font-hebrew)", fontSize: "13.5px", color: "var(--charcoal-soft)", lineHeight: "1.75",
+  });
+
+  const btnStyle: React.CSSProperties = {
+    background: "white", border: "1.5px solid var(--sage)", color: "var(--sage-dark)",
+    padding: "8px 14px", borderRadius: "18px", fontFamily: "var(--font-hebrew)", fontSize: "12.5px",
+    fontWeight: 500, cursor: "pointer", transition: "all 0.2s", textAlign: "right",
+  };
+
+  const ctaBtn = (href: string, label: string, bg: string): React.ReactNode => (
+    <a href={href} target="_blank" rel="noopener noreferrer" style={{
+      display: "inline-flex", alignItems: "center", gap: "6px",
+      padding: "9px 18px", borderRadius: "18px", fontFamily: "var(--font-hebrew)",
+      fontSize: "12.5px", fontWeight: 600, color: "white", background: bg,
+      textDecoration: "none", marginTop: "8px",
+    }}>{label}</a>
+  );
+
+  const backBtn = (
+    <button onClick={() => goTo("menu")} style={{ ...btnStyle, border: "1.5px solid var(--border)", color: "var(--charcoal-muted)", marginTop: "4px" }}>
+      <SiteIcon name="chevron-right" size={12} /> חזרה לתפריט
+    </button>
+  );
+
+  const renderScreen = () => {
+    switch (screen) {
+      case "menu":
+        return (
+          <>
+            <div style={bubbleStyle(true)}>
+              שלום! אני העוזרת הדיגיטלית של מאיה. בקרוב אשתדרג ואוכל גם לייעץ בהתאמה אישית — אבל כבר עכשיו אפשר לעזור עם כמה שאלות נפוצות:
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "4px" }}>
+              {([
+                ["pricing", "כמה עולה פגישה?"],
+                ["booking", "איך קובעים פגישה?"],
+                ["toolbox", "מה זה ארגז הכלים?"],
+                ["who", "מי את מאיה?"],
+                ["zoom", "גם בזום?"],
+                ["ages", "לאיזה גילאים?"],
+                ["contact", "רוצה לדבר עם מאיה"],
+              ] as [ChatScreen, string][]).map(([s, label]) => (
+                <button key={s} onClick={() => goTo(s)} style={btnStyle}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+                >{label}</button>
+              ))}
+            </div>
+          </>
+        );
+
+      case "pricing":
+        return (
+          <>
+            <div style={bubbleStyle(false)}>כמה עולה פגישה?</div>
+            <div style={bubbleStyle(true)}>
+              <strong>הדרכת הורים אישית:</strong> ₪354 / $115 לפגישה<br/>
+              <strong>סדנת הורים בזום (קבוצתי):</strong> ₪1,200 / $400 לזוג — 12 מפגשים<br/><br/>
+              שיחת ייעוץ ראשונה: 15 דקות, חינם, ללא התחייבות
+            </div>
+            {ctaBtn(WA_LINK, "לשיחת ייעוץ חינם בוואטסאפ", "#25D366")}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "10px" }}>
+              <button onClick={() => goTo("booking")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >איך קובעים פגישה?</button>
+              <button onClick={() => goTo("zoom")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >גם בזום?</button>
+              {backBtn}
+            </div>
+          </>
+        );
+
+      case "booking":
+        return (
+          <>
+            <div style={bubbleStyle(false)}>איך קובעים פגישה?</div>
+            <div style={bubbleStyle(true)}>
+              <strong>שלב 1:</strong> שיחת ייעוץ ראשונה חינם (15 דקות) — כדי להכיר ולוודא שההדרכה מתאימה לכם.<br/>
+              <strong>שלב 2:</strong> קביעת פגישה ראשונה ביומן של מאיה.<br/><br/>
+              תהליך ההדרכה הוא קצר מועד — בדרך כלל 5 עד 12 פגישות.
+            </div>
+            {ctaBtn(WA_LINK, "שיחת ייעוץ חינם בוואטסאפ", "#25D366")}
+            <br/>
+            {ctaBtn(CAL_LINK, "לקביעת פגישה ב-Calendly", "var(--terra)")}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "10px" }}>
+              <button onClick={() => goTo("pricing")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >כמה עולה פגישה?</button>
+              {backBtn}
+            </div>
+          </>
+        );
+
+      case "toolbox":
+        return (
+          <>
+            <div style={bubbleStyle(false)}>מה זה ארגז הכלים?</div>
+            <div style={bubbleStyle(true)}>
+              ארגז הכלים ההורי הוא מודל שפיתחה מאיה — 10 כלים מעשיים מבוססי מחקר שעוזרים להורים לחזק את הקשר עם ילדיהם ולהתמודד עם אתגרי היומיום.<br/><br/>
+              כל כלי עוסק בהיבט אחר של ההורות: חמלה, משחקיות, חוסן, שיתוף פעולה ועוד.
+            </div>
+            <a href="/model" style={{
+              display: "inline-flex", alignItems: "center", gap: "6px",
+              padding: "9px 18px", borderRadius: "18px", fontFamily: "var(--font-hebrew)",
+              fontSize: "12.5px", fontWeight: 600, color: "white", background: "var(--sage)",
+              textDecoration: "none", marginTop: "8px",
+            }}><SiteIcon name="wrench" size={13} /> לעמוד ארגז הכלים</a>
+            <div style={{ marginTop: "12px" }}>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--charcoal-muted)", marginBottom: "6px" }}>רוצים להכיר כלי ספציפי?</p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
+                {TOOL_PREVIEWS.map((t, i) => (
+                  <button key={t.slug} onClick={() => { setSelectedTool(i); goTo("tool-detail"); }} style={{ ...btnStyle, fontSize: "11.5px", padding: "6px 11px" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+                  >{t.label}</button>
+                ))}
+              </div>
+            </div>
+            <div style={{ marginTop: "8px" }}>{backBtn}</div>
+          </>
+        );
+
+      case "tool-detail": {
+        const t = TOOL_PREVIEWS[selectedTool];
+        return (
+          <>
+            <div style={bubbleStyle(false)}>{t.label}</div>
+            <div style={bubbleStyle(true)}>
+              <strong>{t.label}</strong> — {t.short}<br/><br/>
+              {t.desc}
+            </div>
+            <a href={`/model/${t.slug}`} style={{
+              display: "inline-flex", alignItems: "center", gap: "6px",
+              padding: "9px 18px", borderRadius: "18px", fontFamily: "var(--font-hebrew)",
+              fontSize: "12.5px", fontWeight: 600, color: "white", background: "var(--sage)",
+              textDecoration: "none", marginTop: "8px",
+            }}>לקרוא עוד על {t.label}</a>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "10px" }}>
+              <button onClick={() => goTo("toolbox")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >כלי נוסף</button>
+              {backBtn}
+            </div>
+          </>
+        );
+      }
+
+      case "who":
+        return (
+          <>
+            <div style={bubbleStyle(false)}>מי את מאיה?</div>
+            <div style={bubbleStyle(true)}>
+              מאיה פלטי היא פסיכולוגית חינוכית מומחית-מדריכה עם ניסיון של שנים בעבודה עם הורים וילדים.<br/><br/>
+              מאיה מתמחה בהדרכת הורים לילדים בגילאי 4–14, ומלווה משפחות ישראליות בארץ ובעולם.<br/>
+              היא גרה כיום בטקסס ומכירה מקרוב את המציאות של משפחות ישראליות בחו״ל.
+            </div>
+            <a href="/about" style={{
+              display: "inline-flex", alignItems: "center", gap: "6px",
+              padding: "9px 18px", borderRadius: "18px", fontFamily: "var(--font-hebrew)",
+              fontSize: "12.5px", fontWeight: 600, color: "white", background: "var(--sage)",
+              textDecoration: "none", marginTop: "8px",
+            }}>לעמוד עליי</a>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "10px" }}>
+              <button onClick={() => goTo("booking")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >איך קובעים פגישה?</button>
+              <button onClick={() => goTo("contact")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >רוצה לדבר עם מאיה</button>
+              {backBtn}
+            </div>
+          </>
+        );
+
+      case "zoom":
+        return (
+          <>
+            <div style={bubbleStyle(false)}>גם בזום?</div>
+            <div style={bubbleStyle(true)}>
+              בהחלט! רוב הפגישות מתקיימות בזום.<br/>
+              מאיה עובדת עם הורים ישראלים בכל העולם — בשעות נוחות להורים עובדים בישראל.<br/><br/>
+              יש גם אפשרות לפגישה פרונטלית בקליניקה בסידר פארק, אוסטין, טקסס.
+            </div>
+            {ctaBtn(WA_LINK, "לתיאום שיחה ראשונה", "#25D366")}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "10px" }}>
+              <button onClick={() => goTo("pricing")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >כמה עולה פגישה?</button>
+              <button onClick={() => goTo("booking")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >איך קובעים פגישה?</button>
+              {backBtn}
+            </div>
+          </>
+        );
+
+      case "ages":
+        return (
+          <>
+            <div style={bubbleStyle(false)}>לאיזה גילאים?</div>
+            <div style={bubbleStyle(true)}>
+              מאיה מתמחה בהדרכת הורים לילדים בגילאי <strong>4 עד 14</strong>.<br/>
+              ההדרכה מתמקדת בהורים — לא בילדים. אנחנו עובדים ביחד על הכלים וההתנהגויות שמשנות את הדינמיקה המשפחתית.<br/><br/>
+              <strong>חשוב:</strong> בארה״ב מאיה עוסקת בהדרכת הורים ולא בטיפול או אבחון.
+            </div>
+            {ctaBtn(WA_LINK, "לבדוק אם מתאים לנו", "#25D366")}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "10px" }}>
+              <button onClick={() => goTo("toolbox")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >מה זה ארגז הכלים?</button>
+              <button onClick={() => goTo("pricing")} style={btnStyle}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage)"; (e.currentTarget as HTMLElement).style.color = "white"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "white"; (e.currentTarget as HTMLElement).style.color = "var(--sage-dark)"; }}
+              >כמה עולה פגישה?</button>
+              {backBtn}
+            </div>
+          </>
+        );
+
+      case "contact":
+        return (
+          <>
+            <div style={bubbleStyle(false)}>רוצה לדבר עם מאיה</div>
+            <div style={bubbleStyle(true)}>
+              כמובן! הדרך הכי מהירה להגיע למאיה היא דרך וואטסאפ.<br/>
+              שלחו הודעה ומאיה תחזור אליכם בהקדם.
+            </div>
+            {ctaBtn(WA_LINK, "שליחת הודעה בוואטסאפ", "#25D366")}
+            <br/>
+            <a href="/contact" style={{
+              display: "inline-flex", alignItems: "center", gap: "6px",
+              padding: "9px 18px", borderRadius: "18px", fontFamily: "var(--font-hebrew)",
+              fontSize: "12.5px", fontWeight: 600, color: "white", background: "var(--charcoal-muted)",
+              textDecoration: "none", marginTop: "8px",
+            }}><SiteIcon name="mail" size={13} /> טופס יצירת קשר</a>
+            <div style={{ marginTop: "10px" }}>{backBtn}</div>
+          </>
+        );
+
+      default:
+        return null;
     }
-    setLoading(false);
   };
 
   return (
-    <div style={{ position:"fixed", bottom:"28px", left:"28px", zIndex:1000 }}>
+    <div style={{ position: "fixed", bottom: "28px", left: "28px", zIndex: 1000 }}>
       {open && (
         <div style={{
-          position:"absolute", bottom:"72px", left:0, width:"340px",
-          background:"#FFFFFF", borderRadius:"var(--radius-card-lg)",
-          boxShadow:"0 24px 64px rgba(45,45,45,0.18)",
-          border:"1px solid var(--border)", overflow:"hidden",
-          animation:"scaleIn 0.25s cubic-bezier(0.34,1.56,0.64,1) forwards",
-          transformOrigin:"bottom left",
+          position: "absolute", bottom: "72px", left: 0, width: "350px",
+          background: "#FFFFFF", borderRadius: "var(--radius-card-lg)",
+          boxShadow: "0 24px 64px rgba(45,45,45,0.18)",
+          border: "1px solid var(--border)", overflow: "hidden",
+          animation: "scaleIn 0.25s cubic-bezier(0.34,1.56,0.64,1) forwards",
+          transformOrigin: "bottom left",
         }}>
-          <div style={{ background:"linear-gradient(135deg, var(--sage-dark) 0%, #3D3530 100%)", padding:"18px 20px", display:"flex", alignItems:"center", gap:"12px" }}>
-            <div style={{ width:"38px", height:"38px", borderRadius:"50%", background:"rgba(249,247,242,0.15)", display:"flex", alignItems:"center", justifyContent:"center", border:"1.5px solid rgba(249,247,242,0.25)", flexShrink:0 }}><SiteIcon name="flower" size={18} /></div>
-            <div style={{ flex:1 }}>
-              <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13.5px", fontWeight:700, color:"#F9F7F2", margin:0 }}>התייעצו עם המודל של מאיה פלטי</p>
-              <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"11px", color:"rgba(249,247,242,0.6)", margin:"2px 0 0" }}>עוזרת AI | ארגז הכלים ההורי</p>
+          {/* Header */}
+          <div style={{ background: "linear-gradient(135deg, var(--sage-dark) 0%, #3D3530 100%)", padding: "16px 20px", display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(249,247,242,0.15)", display: "flex", alignItems: "center", justifyContent: "center", border: "1.5px solid rgba(249,247,242,0.25)", flexShrink: 0 }}>
+              <SiteIcon name="flower" size={16} />
             </div>
-            <button onClick={() => setOpen(false)} style={{ background:"none", border:"none", color:"rgba(249,247,242,0.6)", cursor:"pointer", fontSize:"20px", lineHeight:1, padding:"4px", flexShrink:0 }}>×</button>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "13.5px", fontWeight: 700, color: "#F9F7F2", margin: 0 }}>העוזרת של מאיה פלטי</p>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "rgba(249,247,242,0.6)", margin: "2px 0 0" }}>כאן כדי לעזור לכם להתמצא</p>
+            </div>
+            <button onClick={() => { setOpen(false); setScreen("menu"); }} style={{ background: "none", border: "none", color: "rgba(249,247,242,0.6)", cursor: "pointer", fontSize: "20px", lineHeight: 1, padding: "4px", flexShrink: 0 }}>×</button>
           </div>
 
-          <div style={{ height:"300px", overflowY:"auto", padding:"16px", display:"flex", flexDirection:"column", gap:"12px" }}>
-            {msgs.map((msg, i) => (
-              <div key={i} style={{ display:"flex", justifyContent: msg.role === "user" ? "flex-start" : "flex-end" }}>
-                <div style={{
-                  maxWidth:"82%",
-                  background: msg.role === "user" ? "var(--sage-faint)" : "var(--terra-faint)",
-                  borderRadius: msg.role === "user" ? "18px 18px 4px 18px" : "18px 18px 18px 4px",
-                  padding:"10px 14px",
-                  border: msg.role === "user" ? "1px solid rgba(42,122,110,0.15)" : "1px solid rgba(196,114,122,0.15)",
-                }}>
-                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13.5px", color:"var(--charcoal-soft)", lineHeight:1.72, margin:0 }}>{msg.text}</p>
-                </div>
-              </div>
-            ))}
-            {loading && (
-              <div style={{ display:"flex", justifyContent:"flex-end" }}>
-                <div style={{ background:"var(--terra-faint)", borderRadius:"18px 18px 18px 4px", padding:"12px 16px", border:"1px solid rgba(196,114,122,0.15)", display:"flex", gap:"5px", alignItems:"center" }}>
-                  {[0,1,2].map(i => (
-                    <div key={i} style={{ width:"6px", height:"6px", borderRadius:"50%", background:"var(--terra)", animation:"float 1.2s ease-in-out infinite", animationDelay:`${i*0.2}s` }} />
-                  ))}
-                </div>
-              </div>
-            )}
+          {/* Content */}
+          <div ref={el => { scrollRef.current = el; }} style={{ maxHeight: "360px", overflowY: "auto", padding: "16px", display: "flex", flexDirection: "column", gap: "10px" }}>
+            {renderScreen()}
           </div>
 
-          <div style={{ padding:"12px 16px", borderTop:"1px solid var(--border)", display:"flex", gap:"8px" }}>
-            <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === "Enter" && send()}
-              placeholder="שאלו על הורות, כלים, שירה..."
-              style={{ flex:1, padding:"10px 14px", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", fontFamily:"var(--font-hebrew)", fontSize:"13.5px", color:"var(--charcoal)", background:"var(--paper)", outline:"none", textAlign:"right" }}
-            />
-            <button onClick={send} disabled={loading || !input.trim()} style={{ width:"38px", height:"38px", borderRadius:"50%", background:input.trim() ? "var(--sage)" : "var(--parchment)", border:"none", cursor:input.trim() ? "pointer" : "default", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"15px", flexShrink:0, transition:"background 200ms ease" }}>
-              ←
-            </button>
-          </div>
-          <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"10px", color:"var(--charcoal-muted)", textAlign:"center", padding:"8px 16px 12px", margin:0, borderTop:"1px solid var(--border)" }}>
-            עוזרת AI. לייעוץ אישי — פנו למאיה פלטי ישירות.
+          {/* Footer */}
+          <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "10px", color: "var(--charcoal-muted)", textAlign: "center", padding: "8px 16px 12px", margin: 0, borderTop: "1px solid var(--border)" }}>
+            לייעוץ אישי — פנו למאיה פלטי ישירות.
           </p>
         </div>
       )}
 
       <button onClick={() => setOpen(!open)} style={{
-        display:"flex", alignItems:"center", gap:"10px",
+        display: "flex", alignItems: "center", gap: "10px",
         background: open ? "var(--charcoal)" : "linear-gradient(135deg, var(--sage-dark) 0%, #3D3530 100%)",
-        color:"#FFFFFF", border:"none", cursor:"pointer",
-        padding:"13px 20px", borderRadius:"var(--radius-pill)",
-        fontFamily:"var(--font-hebrew)", fontSize:"13.5px", fontWeight:600,
-        boxShadow:"0 8px 32px rgba(45,45,45,0.22)",
-        transition:"all 280ms ease", whiteSpace:"nowrap",
+        color: "#FFFFFF", border: "none", cursor: "pointer",
+        padding: "13px 20px", borderRadius: "var(--radius-pill)",
+        fontFamily: "var(--font-hebrew)", fontSize: "13.5px", fontWeight: 600,
+        boxShadow: "0 8px 32px rgba(45,45,45,0.22)",
+        transition: "all 280ms ease", whiteSpace: "nowrap",
       }}>
         {open ? <SiteIcon name="x" size={18} /> : <SiteIcon name="flower" size={18} />}
-        {open ? "סגור" : "התייעצו עם המודל של מאיה"}
+        {open ? "סגור" : "איך אפשר לעזור?"}
       </button>
     </div>
   );
