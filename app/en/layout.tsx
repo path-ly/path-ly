@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Maya Palty | Parent Coaching for Israeli Families in the US",
   description:
-    "Research-based parent coaching for Israeli families raising kids in America. 20+ years of experience, ages 3-15. Zoom sessions at convenient hours.",
+    "Research-based parent coaching for Israeli families raising kids in America. 20+ years of experience, ages 4-14. Zoom sessions at convenient hours.",
   alternates: {
     canonical: "https://www.path-ly.com/en",
     languages: {

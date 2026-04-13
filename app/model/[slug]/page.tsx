@@ -380,34 +380,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             </p>
           </div>
 
-          {/* Poem (if exists) */}
-          {tool.poem && (
-            <div
-              style={{
-                background: "#FFFFFF",
-                borderRadius: "16px",
-                padding: "32px",
-                marginBottom: "32px",
-                border: "1px solid var(--border)",
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-hebrew)",
-                  fontSize: "15px",
-                  color: "var(--charcoal)",
-                  lineHeight: 2,
-                  margin: 0,
-                  whiteSpace: "pre-line",
-                  textAlign: "center",
-                  fontStyle: "italic",
-                }}
-              >
-                {tool.poem}
-              </p>
-            </div>
-          )}
-
           {/* Research + Video */}
           <div
             style={{

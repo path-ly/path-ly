@@ -48,6 +48,8 @@ import {
   ChevronRight,
   CircleDot,
   Clipboard,
+  Info,
+  ExternalLink,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -107,6 +109,8 @@ const ICON_MAP: Record<string, LucideIcon> = {
   
   // Decorative / bullet
   'dot': CircleDot,
+  'info': Info,
+  'external-link': ExternalLink,
 };
 
 interface SiteIconProps {

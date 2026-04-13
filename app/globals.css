@@ -617,6 +617,13 @@ textarea:focus-visible,
 .grid-tool-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
 .grid-research   { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
 
+/* Research page — methodology accordion */
+.research-details summary { user-select: none; transition: opacity 0.15s; }
+.research-details summary:hover { opacity: 0.8; }
+.research-details summary::-webkit-details-marker { display: none; }
+.research-details summary::marker { display: none; content: ""; }
+.research-details[open] summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+
 /* Container */
 .container       { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
 .container-md    { max-width: 1040px; margin: 0 auto; }
