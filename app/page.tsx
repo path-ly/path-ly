@@ -7,14 +7,14 @@ import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFro
 
 const TOOLS = [
   { num:"01", icon:"heart-hands", title:"חמלה הורית",       desc:"לקבל את עצמנו כדי לקבל את הילד",              accent:false },
-  { num:"02", icon:"eye", title:"רפלקטיביות",      desc:"להבין מה מתחת לפני השטח",                   accent:true  },
+  { num:"02", icon:"eye", title:"רפלקטיביות",      desc:"להבין את המסר שמאחורי ההתנהגות",            accent:true  },
   { num:"03", icon:"dice", title:"משחקיות",           desc:"להפוך התנגדות לחיבור",                      accent:false },
   { num:"04", icon:"footprints", title:"מודלינג",            desc:"ילדים לומדים מה שאנחנו עושים",               accent:true  },
   { num:"05", icon:"ruler", title:"התאמה התפתחותית", desc:"לראות את הילד בגובה העיניים שלו",          accent:false },
   { num:"06", icon:"focus", title:"נבואה חיובית",  desc:"להתמקד בטוב כדי לעזור לו לגדול",           accent:true  },
-  { num:"07", icon:"coop",  title:"שיתוף פעולה",   desc:"ממאבק להסכמה משותפת",                       accent:false },
-  { num:"08", icon:"plant", title:"חוסן רגשי",     desc:"לצמוח ממשבר, יחד",                          accent:true  },
-  { num:"09", icon:"hourglass", title:"זמן קסם",            desc:"נוכחות שבונה אמון ובסיס",                   accent:false },
+  { num:"07", icon:"coop",  title:"ממאבק להסכמה",  desc:"ממאבק להסכמה משותפת",                       accent:false },
+  { num:"08", icon:"plant", title:"חוסן רגשי",     desc:"להפוך לימונים ללימונדה",                    accent:true  },
+  { num:"09", icon:"hourglass", title:"זמן קסם",            desc:"5-20 דקות ביום — הבסיס לקשר",               accent:false },
   { num:"10", icon:"sparkles", title:"צמיחה מחוזקות",     desc:"להכיר ולהשתמש במה שיש",                    accent:true  },
 ];
 
@@ -68,7 +68,7 @@ export default function Home() {
               <span style={{ color:"var(--terra-dark)", fontWeight:600 }}>ארגז הכלים ההורי</span>.
             </p>
             <p style={{ fontSize:"17px", color:"var(--charcoal-soft)", marginBottom:"16px", lineHeight:1.82, maxWidth:"480px", fontFamily:"var(--font-hebrew)" }}>
-              כלים יישומיים המותאמים אישית — לילדים בגיל{" "}<span dir="ltr" style={{ display:"inline-block" }}>4–14</span>.
+              כלים יישומיים המותאמים אישית — לילדים בגיל{" "}<span dir="ltr" style={{ display:"inline-block" }}>3–15</span>.
             </p>
             <p style={{ fontSize:"14px", color:"var(--sage-dark)", fontWeight:500, marginBottom:"36px", lineHeight:1.7, maxWidth:"480px", fontFamily:"var(--font-hebrew)", background:"var(--sage-faint)", padding:"10px 16px", borderRadius:"10px", border:"1px solid rgba(42,122,110,0.15)" }}>
               <span style={{ display:"inline-flex", alignItems:"center", gap:"6px" }}><SiteIcon name="dot" size={14} /> מיומנות גבוהה בהדרכה טיפולית אונליין בשעות נוחות להורים ישראלים</span>
@@ -183,7 +183,7 @@ export default function Home() {
         <div style={{ maxWidth:"960px", margin:"0 auto", display:"flex", justifyContent:"space-around", flexWrap:"wrap", gap:"28px", textAlign:"center" }}>
           {[
             { num:"20",   label:"שנות ניסיון" },
-            { num:"4–14", label:"גיל הילדים" },
+            { num:"3–15", label:"גיל הילדים" },
             { num:"10",   label:"כלים בארגז" },
             { num:"2",    label:"יבשות · ישראל & ארה״ב" },
           ].map(({ num, label }) => (
@@ -240,7 +240,7 @@ export default function Home() {
               {[
                 { iconName:"star", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
                 { iconName:"house", text:"Cedar Park, TX & ישראל (זום)", href:null },
-                { iconName:"baby", text:"מתמחה בגיל 4–14", href:null },
+                { iconName:"baby", text:"מתמחה בגיל 3–15", href:null },
                 { iconName:"book", text:"מבוסס מחקר עדכני", href:"/research" },
               ].map(({ iconName, text, href }) => (
                 href ? (
@@ -280,7 +280,7 @@ export default function Home() {
                 <div>
                   <h4 style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--charcoal)", marginBottom:"8px", display:"flex", alignItems:"center", gap:"6px" }}><SiteIcon name="check-circle" size={16} /> מתאים להורים</h4>
                   <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.7, margin:"0 0 12px" }}>
-                    לילדים בגיל 4–14 עם מודעות בסיסית לקשיי הילד ומוטיבציה לשינוי המתמודדים עם:
+                    לילדים בגיל 3–15 עם מודעות בסיסית לקשיי הילד ומוטיבציה לשינוי המתמודדים עם:
                   </p>
                   {[
                     "הפרעות קשב ולקויות למידה",

@@ -74,7 +74,7 @@ export default function AboutPage() {
             <div className="grid-2col-sm" style={{ marginBottom: "32px" }}>
               {[
                 { num: "20+", label: "שנות ניסיון" },
-                { num: "4–14", label: "גיל הילדים", ltr: true },
+                { num: "3–15", label: "גיל הילדים", ltr: true },
                 { num: "2", label: "יבשות · ישראל & ארה״ב" },
                 { num: "10", label: "כלים בארגז" },
               ].map(({ num, label, ltr }) => (
