@@ -53,7 +53,7 @@ export default function ModelPage() {
             לחצו על כל כלי לפירוט מלא, מחקר תומך וקישורים רלוונטיים
           </p>
 
-          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, video, videoLabel, videos, research }) => (
+          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, poem, video, videoLabel, videos, research }) => (
             <div key={num} id={`tool-${num}`} style={{ marginBottom:"12px" }}>
               <button
                 onClick={() => setOpenTool(openTool === num ? null : num)}
@@ -107,7 +107,7 @@ export default function ModelPage() {
                         {tips.map((tip, i) => (
                           <li key={i} style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.75, marginBottom:"8px", display:"flex", gap:"8px" }}>
                             <span style={{ color: accent ? "var(--terra)" : "var(--sage)", fontWeight:700, flexShrink:0 }}>•</span>
-                            {tip}
+                            <span dangerouslySetInnerHTML={{ __html: tip }} />
                           </li>
                         ))}
                       </ul>
@@ -131,6 +131,13 @@ export default function ModelPage() {
                           {challenge}
                         </p>
                       </div>
+                      {poem && (
+                        <div style={{ background:"rgba(255,255,255,0.75)", borderRadius:"12px", padding:"20px 24px", border:`1px solid ${accent ? "rgba(196,114,122,0.2)" : "rgba(42,122,110,0.2)"}`, marginTop:"12px" }}>
+                          <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal)", lineHeight:1.9, margin:0, whiteSpace:"pre-line", textAlign:"center", fontStyle:"italic" }}>
+                            {poem}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
 
