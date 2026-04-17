@@ -50,16 +50,22 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", fontWeight: 700, color: "var(--terra-light)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "18px" }}>יצירת קשר</h4>
-            {[
-              { flag: "US", country: "אוסטין, טקסס", detail: "פגישות פרונטליות" },
-              { flag: "video", country: "ישראל ועולם – זום", detail: "פגישות וידאו בכל מקום" },
-              { flag: "phone", country: "WhatsApp", detail: "לשיחת ייעוץ ראשונה חינם (15 דק׳)" },
-            ].map(({ flag, country, detail }) => (
-              <div key={country} style={{ marginBottom: "18px" }}>
-                <p style={{ fontSize: "14px", color: "rgba(232,224,208,0.9)", marginBottom: "3px", fontFamily: "var(--font-hebrew)" }}><SiteIcon name={flag} size={16} /> {country}</p>
-                <p style={{ fontSize: "13px", color: "rgba(232,224,208,0.55)", fontFamily: "var(--font-hebrew)" }}>{detail}</p>
-              </div>
-            ))}
+            <div style={{ marginBottom: "18px" }}>
+              <p style={{ fontSize: "14px", color: "rgba(232,224,208,0.9)", marginBottom: "3px", fontFamily: "var(--font-hebrew)" }}><SiteIcon name="house" size={16} /> אוסטין, טקסס</p>
+              <p style={{ fontSize: "13px", color: "rgba(232,224,208,0.55)", fontFamily: "var(--font-hebrew)" }}>פגישות פרונטליות</p>
+            </div>
+            <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" style={{ display: "block", marginBottom: "18px", textDecoration: "none", transition: "opacity 180ms ease" }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.8"}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}>
+              <p style={{ fontSize: "14px", color: "rgba(232,224,208,0.9)", marginBottom: "3px", fontFamily: "var(--font-hebrew)" }}><SiteIcon name="video" size={16} /> ישראל ועולם – זום</p>
+              <p style={{ fontSize: "13px", color: "rgba(232,224,208,0.55)", fontFamily: "var(--font-hebrew)", margin: 0 }}>פגישות וידאו בכל מקום</p>
+            </a>
+            <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99" target="_blank" rel="noopener noreferrer" style={{ display: "block", marginBottom: "18px", textDecoration: "none", transition: "opacity 180ms ease" }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.8"}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}>
+              <p style={{ fontSize: "14px", color: "rgba(232,224,208,0.9)", marginBottom: "3px", fontFamily: "var(--font-hebrew)" }}><SiteIcon name="phone" size={16} /> WhatsApp</p>
+              <p style={{ fontSize: "13px", color: "rgba(232,224,208,0.55)", fontFamily: "var(--font-hebrew)", margin: 0 }}>לשיחת ייעוץ ראשונה חינם (15 דק׳)</p>
+            </a>
           </div>
         </div>
 
