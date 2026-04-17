@@ -405,6 +405,13 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               >
                 {tool.poem}
               </p>
+              {tool.poemLink && (
+                <p style={{ textAlign: "center", marginTop: "18px" }}>
+                  <a href={tool.poemLink.href} style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: tool.accent ? "var(--terra-dark)" : "var(--sage-dark)", fontWeight: 600, textDecoration: "underline" }}>
+                    {tool.poemLink.label} ←
+                  </a>
+                </p>
+              )}
             </div>
           )}
 

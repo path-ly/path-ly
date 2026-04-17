@@ -53,7 +53,7 @@ export default function ModelPage() {
             לחצו על כל כלי לפירוט מלא, מחקר תומך וקישורים רלוונטיים
           </p>
 
-          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, poem, video, videoLabel, videos, research }) => (
+          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, poem, poemLink, video, videoLabel, videos, research }) => (
             <div key={num} id={`tool-${num}`} style={{ marginBottom:"12px" }}>
               <button
                 onClick={() => setOpenTool(openTool === num ? null : num)}
@@ -136,6 +136,13 @@ export default function ModelPage() {
                           <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal)", lineHeight:1.9, margin:0, whiteSpace:"pre-line", textAlign:"center", fontStyle:"italic" }}>
                             {poem}
                           </p>
+                          {poemLink && (
+                            <p style={{ textAlign:"center", marginTop:"14px", margin:"14px 0 0" }}>
+                              <Link href={poemLink.href} style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color: accent ? "var(--terra-dark)" : "var(--sage-dark)", fontWeight:600, textDecoration:"underline" }}>
+                                {poemLink.label} ←
+                              </Link>
+                            </p>
+                          )}
                         </div>
                       )}
                     </div>

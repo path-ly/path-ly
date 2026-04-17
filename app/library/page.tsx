@@ -640,7 +640,7 @@ function LibraryCard({ item }: { item: LibraryItem }) {
   const isSage = item.accentColor === "sage";
 
   return (
-    <div style={{
+    <div id={`library-${item.id}`} style={{
       background:"#FFFFFF", borderRadius:"var(--radius-card)", border:"1px solid var(--border)",
       boxShadow:"var(--shadow-card)", overflow:"hidden", display:"flex", flexDirection:"column",
       transition:"transform 320ms cubic-bezier(0.4,0,0.2,1), box-shadow 320ms ease",
