@@ -195,29 +195,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── INTRO VIDEO ──────────────────────────────────────────────── */}
-      <section className="sec-std" style={{ background:"var(--linen)" }}>
-        <div style={{ maxWidth:"560px", margin:"0 auto", textAlign:"center" }}>
-          <span className="tag-sage" style={{ marginBottom:"16px", display:"inline-block" }}>היכרות קצרה</span>
-          <h2 style={{ fontSize:"clamp(24px,3.5vw,36px)", color:"var(--charcoal)", marginBottom:"8px", lineHeight:1.2 }}>
-            מי אני ומה זה ארגז הכלים
-          </h2>
-          <div className="divider-accent" style={{ marginBottom:"28px", marginRight:"auto", marginLeft:"auto" }} />
-          <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-card)", border:"1px solid var(--border)", background:"#000" }}>
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              poster=""
-              style={{ width:"100%", display:"block", maxHeight:"640px", objectFit:"contain" }}
-            >
-              <source src="/maya-intro.mp4" type="video/mp4" />
-              הדפדפן שלכם לא תומך בניגון וידאו.
-            </video>
-          </div>
-        </div>
-      </section>
-
       {/* ── ABOUT ──────────────────────────────────────────────────────── */}
       <section className="sec-std reveal" style={{ background:"var(--paper)" }}>
         <div className="container grid-2col-rev">
