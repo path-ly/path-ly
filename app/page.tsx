@@ -49,7 +49,7 @@ export default function Home() {
                 onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { (e.currentTarget as HTMLElement).style.opacity = "0.75"; }}
                 onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"22px", fontWeight:700, color:"var(--charcoal)", margin:0 }}>מאיה פלטי</p>
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", fontWeight:500, color:"var(--sage-dark)", margin:0 }}>פסיכולוגית חינוכית מומחית-מדריכה</p>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", fontWeight:500, color:"var(--sage-dark)", margin:0 }}>פסיכולוגית חינוכית מומחית ומדריכת הורים</p>
               </Link>
               <Link href="/about" style={{ background:"var(--linen)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", padding:"7px 16px", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, color:"var(--sage-dark)", cursor:"pointer", transition:"all 200ms ease", marginRight:"8px", textDecoration:"none", display:"inline-flex", alignItems:"center", gap:"6px" }}>
                 עוד עליי ←
@@ -223,7 +223,7 @@ export default function Home() {
               <div style={{ borderRadius:"var(--radius-card-lg)", overflow:"hidden", boxShadow:"var(--shadow-float)", border:"1px solid var(--border)", aspectRatio:"4/5", maxHeight:"440px" }}>
                 <Image
                   src="/maya-photo.webp"
-                  alt="מאיה פלטי — פסיכולוגית חינוכית מומחית"
+                  alt="מאיה פלטי — פסיכולוגית חינוכית מומחית ומדריכת הורים"
                   width={480} height={560}
                   style={{ objectFit:"cover", objectPosition:"center top", width:"100%", height:"100%" }}
                 />
@@ -231,14 +231,14 @@ export default function Home() {
               {/* Name badge overlay */}
               <div style={{ position:"absolute", bottom:"20px", right:"20px", background:"rgba(249,247,242,0.92)", backdropFilter:"blur(8px)", borderRadius:"14px", padding:"12px 18px", border:"1px solid var(--border)", boxShadow:"var(--shadow-card)" }}>
                 <p style={{ fontFamily:"var(--font-serif)", fontSize:"19px", fontWeight:600, color:"var(--charcoal)", margin:0, lineHeight:1.2 }}>מאיה פלטי</p>
-                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--terra)", margin:"3px 0 0", fontWeight:500 }}>פסיכולוגית חינוכית מומחית-מדריכה</p>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--terra)", margin:"3px 0 0", fontWeight:500 }}>פסיכולוגית חינוכית מומחית ומדריכת הורים</p>
               </div>
             </div>
 
             {/* Credentials */}
             <div className="grid-2col-sm">
               {[
-                { iconName:"star", text:"פסיכולוגית חינוכית מומחית", href:"/model" },
+                { iconName:"star", text:"מדריכת הורים מוסמכת", href:"/model" },
                 { iconName:"house", text:"Cedar Park, TX & ישראל (זום)", href:null },
                 { iconName:"baby", text:"מתמחה בגיל 3–15", href:null },
                 { iconName:"book", text:"מבוסס מחקר עדכני", href:"/research" },
@@ -345,7 +345,7 @@ export default function Home() {
               },
               {
                 title:"ארגונים וצוותים", sub:"הכשרות לאנשי מקצוע",
-                desc:"הכשרות לפסיכולוגים, עו\"סים ואנשי טיפול. סדנאות לצוותי חינוך ובתי ספר.",
+                desc:"הכשרות והדרכה מקצועית בפסיכולוגיה חינוכית לפסיכולוגים, עו\"סים ואנשי טיפול. סדנאות לצוותי חינוך ובתי ספר.",
                 href:"/contact?type=org", btnText:"לטופס פניה →",
                 img:"/service-training.webp", highlight: null,
               },
@@ -408,6 +408,10 @@ export default function Home() {
               {
                 quote: "במספר בודד של מפגשים למדתי להבין את הבן שלי ברמה עמוקה יותר, להתחבר לרגשות ולתהליכים שעוברים עליו וביחד לעבור מהמורות.",
                 who: "אמא לבן 6 עם קשיי ויסות והתנהגות",
+              },
+              {
+                quote: "כבר במפגש הראשון מאיה עברה איתי על הפרטים בדקדוק וקשב רב, נתנה לי כלים להתמודדות והדריכה אותי שלב אחרי שלב. לאחר כ-3 מפגשים כבר הגענו לפתרון הסוגייה שנשמר עד היום בצורה טובה ויציבה ובכל זאת המשכתי במפגשים, שסייעו לי בהצבת גבולות ברורים ונכונים עבור בני, בהבנת צרכיו הרגשיים, ובהתמודדות פרקטית עם העומס שבהורות היום-יומית במגוון מצבים (שגרה/מלחמה). ממליצה בחום ואהבה על הדרכת ההורים בהנחיית מאיה – מקצוענית, קשובה, ממוקדת ופרקטית.",
+                who: "אמא לארבעה, במוקד בן 6 עם קשיים בוויסות רגשי-התנהגותי וחרדה",
               },
             ].map(({ quote, who }, i) => (
               <div key={i} style={{

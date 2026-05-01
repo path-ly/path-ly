@@ -129,7 +129,7 @@ export default function ServicesPage() {
                 <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3vw,38px)", color:"#F9F7F2", marginBottom:"16px" }}>הכשרות מקצועיות</h2>
                 <div style={{ width:"36px", height:"2px", background:"var(--terra)", borderRadius:"2px", marginBottom:"20px" }} />
                 <p style={{ fontSize:"16px", color:"rgba(249,247,242,0.78)", lineHeight:1.9, marginBottom:"28px", fontFamily:"var(--font-hebrew)" }}>
-                  הכשרות מקצועיות והדרכות לצוותי חינוך — פסיכולוגים, עובדים סוציאליים ואנשי טיפול, גני ילדים ובתי ספר.
+                  הכשרות מקצועיות והדרכה בפסיכולוגיה חינוכית לפסיכולוגים, עובדים סוציאליים, אנשי טיפול, צוותי חינוך ובתי ספר.
                 </p>
                 <div className="grid-2col-sm" style={{ marginBottom:"32px" }}>
                   {["הכשרת פסיכולוגים","הדרכת עו״סים","סדנאות לצוותי חינוך","הרצאות לאנשי מקצוע","ליווי מוסדי","פיתוח תכניות"].map(item => (

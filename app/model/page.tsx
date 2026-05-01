@@ -234,7 +234,7 @@ export default function ModelPage() {
               ארגז הכלים ההורי מבוסס על שילוב של גישות מחקריות מוכחות מתחום הפסיכולוגיה החיובית, תיאוריית ההתקשרות, מדעי המוח ההתפתחותיים, והגישה ההתנהגותית-קוגניטיבית. כל כלי נשען על ממצאים עדכניים ומיושם בהתאמה אישית לכל משפחה.
             </p>
             <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"15px", color:"var(--charcoal-soft)", lineHeight:1.9, margin:0 }}>
-              בין החוקרים והתיאוריות המרכזיים שמנחים את הגישה: Kristin Neff (חמלה עצמית), Peter Fonagy (מנטליזציה ורפלקטיביות), Albert Bandura (למידה חברתית), Piaget & Vygotsky (התפתחות קוגניטיבית), Rosenthal (אפקט פיגמליון), Ross Greene (שיתוף פעולה פרואקטיבי), Ann Masten (חוסן), ו-Martin Seligman (פסיכולוגיה חיובית וחוזקות).
+              בין החוקרים והתיאוריות המרכזיים שמנחים את הגישה: Kristin Neff (חמלה עצמית), Peter Fonagy (מנטליזציה ורפלקטיביות), Albert Bandura (למידה חברתית), Piaget & Vygotsky (התפתחות קוגניטיבית), Rosenthal (אפקט פיגמליון), מולי להד (חוסן ומשאבי התמודדות), ו-Martin Seligman (פסיכולוגיה חיובית וחוזקות).
             </p>
           </div>
 

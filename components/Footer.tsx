@@ -71,7 +71,7 @@ export default function Footer() {
 
         {/* Gender inclusivity note */}
         <p style={{ fontSize: "12px", opacity: 0.55, fontFamily: "var(--font-hebrew)", textAlign: "center", marginBottom: "0", marginTop: "32px", lineHeight: 1.7 }}>
-          * האתר כתוב בלשון זכר מטעמי נוחות בלבד, וכל האמור בו מכוון לשני המינים כאחד.
+          * ההתייחסות לילד בלשון זכר נובעת מטעמי נוחות בלבד והכוונה תמיד לשני המינים — בנים ובנות.
         </p>
 
         <div style={{ borderTop: "1px solid rgba(249,247,242,0.1)", paddingTop: "24px", marginTop: "24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
@@ -85,7 +85,7 @@ export default function Footer() {
               מדיניות פרטיות
             </Link>
             <p style={{ fontSize: "12px", opacity: 0.42, fontFamily: "var(--font-hebrew)" }}>
-              פסיכולוגית חינוכית מומחית · רישיון משרד החינוך
+              פסיכולוגית חינוכית מומחית · בעלת רישיון מטעם משרד הבריאות
             </p>
           </div>
         </div>
