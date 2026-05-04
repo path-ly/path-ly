@@ -56,6 +56,20 @@ export default function Home() {
               </Link>
             </div>
 
+            {/* Intro video */}
+            <div style={{ marginBottom:"24px", maxWidth:"380px" }}>
+              <div style={{ borderRadius:"16px", overflow:"hidden", boxShadow:"0 4px 20px rgba(0,0,0,0.12)", border:"1px solid var(--border)", background:"#000" }}>
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  style={{ width:"100%", display:"block", maxHeight:"480px", objectFit:"contain" }}
+                >
+                  <source src="/maya-intro.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+
             <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,4.5vw,64px)", fontWeight:400, color:"var(--charcoal)", marginBottom:"12px", letterSpacing:"-0.02em", lineHeight:1.1 }}>
               להיות ההורה שבחרתי
             </h1>
