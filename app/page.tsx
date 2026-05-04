@@ -74,13 +74,6 @@ export default function Home() {
               <span style={{ display:"inline-flex", alignItems:"center", gap:"6px" }}><SiteIcon name="dot" size={14} /> מיומנות גבוהה בהדרכה טיפולית אונליין בשעות נוחות להורים ישראלים</span>
             </p>
 
-            <Link href="/about" style={{ display:"inline-flex", alignItems:"center", gap:"8px", fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--terra-dark)", fontWeight:600, textDecoration:"none", marginBottom:"28px" }}>
-              <span style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", width:"28px", height:"28px", borderRadius:"50%", background:"var(--terra-faint)", border:"1px solid rgba(196,114,122,0.3)" }}>
-                <span style={{ width:0, height:0, borderTop:"6px solid transparent", borderBottom:"6px solid transparent", borderLeft:"10px solid var(--terra-dark)", marginLeft:"2px" }} />
-              </span>
-              רוצים לשמוע אותי? לחצו...
-            </Link>
-
             <div style={{ display:"flex", gap:"14px", flexWrap:"wrap", marginBottom:"32px" }}>
               <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99" target="_blank" rel="noopener noreferrer" className="btn-terra">ייעוץ ראשוני חינם (15 דק׳)</a>
               <Link href="/model" className="btn-outline">ארגז הכלים ההורי</Link>
@@ -92,6 +85,16 @@ export default function Home() {
 
           {/* ── Wooden toolbox ── */}
           <div>
+            {/* Video link */}
+            <Link href="/about" style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:"10px", fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--terra-dark)", fontWeight:600, textDecoration:"none", marginBottom:"16px", padding:"10px 20px", background:"var(--terra-faint)", borderRadius:"var(--radius-pill)", border:"1px solid rgba(196,114,122,0.25)", transition:"all 200ms ease", maxWidth:"280px", margin:"0 auto 16px" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background="rgba(196,114,122,0.15)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background="var(--terra-faint)"; }}>
+              <span style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", width:"26px", height:"26px", borderRadius:"50%", background:"rgba(196,114,122,0.2)" }}>
+                <span style={{ width:0, height:0, borderTop:"5px solid transparent", borderBottom:"5px solid transparent", borderLeft:"9px solid var(--terra-dark)", marginLeft:"2px" }} />
+              </span>
+              רוצים לשמוע אותי? לחצו...
+            </Link>
+
             {/* Box lid */}
             <div style={{
               background:"linear-gradient(180deg, #2A7A6E 0%, #4A9E90 100%)",
