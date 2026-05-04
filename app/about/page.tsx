@@ -11,7 +11,7 @@ export default function AboutPage() {
       }}>
         <div className="grid-hero" style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-          {/* Photo */}
+          {/* Photo + bio text (right column) */}
           <div className="mobile-first" style={{ position: "relative" }}>
             <div style={{
               borderRadius: "var(--radius-card-lg)",
@@ -38,9 +38,52 @@ export default function AboutPage() {
               <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", fontWeight: 600, color: "var(--charcoal)", margin: 0 }}>מאיה פלטי · Maya Palty</p>
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--terra)", margin: "3px 0 0", fontWeight: 500 }}>פסיכולוגית חינוכית מומחית־מדריכה, מדריכת הורים · PATH·LY</p>
             </div>
+
+            {/* Bio text below photo */}
+            <div style={{ marginTop: "24px" }}>
+              <div style={{
+                background: "var(--sage-faint)", borderRadius: "var(--radius-card)",
+                padding: "24px 28px", border: "1px solid rgba(42,122,110,0.2)",
+                marginBottom: "20px",
+              }}>
+                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
+                  אני פסיכולוגית חינוכית מומחית־מדריכה ומדריכת הורים, עם כ-20 שנות ניסיון בעבודה עם ילדים, הורים ואנשי חינוך. לאורך השנים ליוויתי משפחות רבות בהתמודדות עם קשיי ויסות והתנהגות, הפרעות קשב ולקויות למידה, קשיים רגשיים וחברתיים ואתגרי הורות מורכבים. מתוך הניסיון המקצועי והאישי פיתחתי את מודל{" "}
+                  <Link href="/model" style={{ color: "var(--terra-dark)", fontWeight: 600, textDecoration: "none", borderBottom: "1.5px solid var(--terra)" }}>
+                    ״ארגז הכלים ההורי״
+                  </Link>
+                  {" "}– גישה פרקטית שמנגישה ידע פסיכולוגי להורים ומסייעת להם ליצור שינוי אמיתי בקשר עם ילדיהם.
+                </p>
+              </div>
+
+              {/* Quick stats */}
+              <div className="grid-2col-sm" style={{ marginBottom: "20px" }}>
+                {[
+                  { num: "20+", label: "שנות ניסיון" },
+                  { num: "3–15", label: "גיל הילדים", ltr: true },
+                  { num: "2", label: "יבשות · ישראל & ארה״ב" },
+                  { num: "10", label: "כלים בארגז" },
+                ].map(({ num, label, ltr }) => (
+                  <div key={label} style={{
+                    background: "white", borderRadius: "14px", padding: "18px",
+                    border: "1px solid var(--border)", textAlign: "center",
+                    boxShadow: "var(--shadow-card)",
+                  }}>
+                    <div style={{ fontFamily: "var(--font-serif)", fontSize: "28px", fontWeight: 600, color: "var(--terra)", lineHeight: 1, direction: ltr ? "ltr" : undefined }}>{num}</div>
+                    <div style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--charcoal-muted)", marginTop: "4px" }}>{label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose">
+                  <><SiteIcon name="calendar" size={14} /> לקביעת פגישה</>
+                </a>
+                <Link href="/model" className="btn-outline">ארגז הכלים ←</Link>
+              </div>
+            </div>
           </div>
 
-          {/* Intro text */}
+          {/* Video (left column) */}
           <div>
             <span className="tag-sage" style={{ marginBottom: "20px", display: "inline-flex", alignItems: "center", gap: "6px" }}><SiteIcon name="flower" size={14} /> עוד עליי</span>
             <h1 style={{
@@ -55,46 +98,19 @@ export default function AboutPage() {
             </p>
             <div className="divider-accent" style={{ marginBottom: "28px" }} />
 
-            {/* Opening paragraph */}
-            <div style={{
-              background: "var(--sage-faint)", borderRadius: "var(--radius-card)",
-              padding: "28px 32px", border: "1px solid rgba(42,122,110,0.2)",
-              marginBottom: "32px",
-            }}>
-              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
-                אני פסיכולוגית חינוכית מומחית־מדריכה ומדריכת הורים, עם כ-20 שנות ניסיון בעבודה עם ילדים, הורים ואנשי חינוך. לאורך השנים ליוויתי משפחות רבות בהתמודדות עם קשיי ויסות והתנהגות, הפרעות קשב ולקויות למידה, קשיים רגשיים וחברתיים ואתגרי הורות מורכבים. מתוך הניסיון המקצועי והאישי פיתחתי את מודל{" "}
-                <Link href="/model" style={{ color: "var(--terra-dark)", fontWeight: 600, textDecoration: "none", borderBottom: "1.5px solid var(--terra)" }}>
-                  ״ארגז הכלים ההורי״
-                </Link>
-                {" "}– גישה פרקטית שמנגישה ידע פסיכולוגי להורים ומסייעת להם ליצור שינוי אמיתי בקשר עם ילדיהם.
-              </p>
+            <div style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 6px 28px rgba(0,0,0,0.12)", border: "1px solid var(--border)", background: "#000" }}>
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                style={{ width: "100%", display: "block", maxHeight: "640px", objectFit: "contain" }}
+              >
+                <source src="/maya-intro.mp4" type="video/mp4" />
+              </video>
             </div>
-
-            {/* Quick stats */}
-            <div className="grid-2col-sm" style={{ marginBottom: "32px" }}>
-              {[
-                { num: "20+", label: "שנות ניסיון" },
-                { num: "3–15", label: "גיל הילדים", ltr: true },
-                { num: "2", label: "יבשות · ישראל & ארה״ב" },
-                { num: "10", label: "כלים בארגז" },
-              ].map(({ num, label, ltr }) => (
-                <div key={label} style={{
-                  background: "white", borderRadius: "14px", padding: "18px",
-                  border: "1px solid var(--border)", textAlign: "center",
-                  boxShadow: "var(--shadow-card)",
-                }}>
-                  <div style={{ fontFamily: "var(--font-serif)", fontSize: "28px", fontWeight: 600, color: "var(--terra)", lineHeight: 1, direction: ltr ? "ltr" : undefined }}>{num}</div>
-                  <div style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--charcoal-muted)", marginTop: "4px" }}>{label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose">
-                <><SiteIcon name="calendar" size={14} /> לקביעת פגישה</>
-              </a>
-              <Link href="/model" className="btn-outline">ארגז הכלים ←</Link>
-            </div>
+            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", color: "var(--charcoal-muted)", marginTop: "12px", textAlign: "center" }}>
+              היכרות קצרה עם מאיה וארגז הכלים · 1 דקה
+            </p>
           </div>
         </div>
       </section>
