@@ -29,6 +29,7 @@ function ToolIconEl({ icon, size = 20 }: { icon: string; size?: number }) {
 
 export default function Home() {
   const [toolboxOpen, setToolboxOpen] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <>
@@ -54,20 +55,6 @@ export default function Home() {
               <Link href="/about" style={{ background:"var(--linen)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", padding:"7px 16px", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, color:"var(--sage-dark)", cursor:"pointer", transition:"all 200ms ease", marginRight:"8px", textDecoration:"none", display:"inline-flex", alignItems:"center", gap:"6px" }}>
                 עוד עליי ←
               </Link>
-            </div>
-
-            {/* Intro video */}
-            <div style={{ marginBottom:"24px", maxWidth:"380px" }}>
-              <div style={{ borderRadius:"16px", overflow:"hidden", boxShadow:"0 4px 20px rgba(0,0,0,0.12)", border:"1px solid var(--border)", background:"#000" }}>
-                <video
-                  controls
-                  playsInline
-                  preload="metadata"
-                  style={{ width:"100%", display:"block", maxHeight:"480px", objectFit:"contain" }}
-                >
-                  <source src="/maya-intro.mp4" type="video/mp4" />
-                </video>
-              </div>
             </div>
 
             <h1 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(38px,4.5vw,64px)", fontWeight:400, color:"var(--charcoal)", marginBottom:"12px", letterSpacing:"-0.02em", lineHeight:1.1 }}>
@@ -208,6 +195,66 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ── INTRO VIDEO ──────────────────────────────────────────────── */}
+      <section style={{ background:"var(--paper)", paddingTop:"48px", paddingBottom:"48px" }}>
+        <div style={{ maxWidth:"320px", margin:"0 auto", textAlign:"center" }}>
+          <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--sage-dark)", fontWeight:600, marginBottom:"14px" }}>
+            היכרות קצרה עם מאיה וארגז הכלים
+          </p>
+          {/* Thumbnail with play button */}
+          <div
+            onClick={() => setVideoOpen(true)}
+            style={{ position:"relative", borderRadius:"20px", overflow:"hidden", cursor:"pointer", boxShadow:"0 6px 28px rgba(0,0,0,0.12)", border:"2px solid var(--border)", aspectRatio:"9/16", background:"#1a1a1a" }}
+          >
+            <video
+              muted
+              playsInline
+              preload="metadata"
+              style={{ width:"100%", height:"100%", objectFit:"cover", opacity:0.75 }}
+            >
+              <source src="/maya-intro.mp4#t=2" type="video/mp4" />
+            </video>
+            {/* Play overlay */}
+            <div style={{ position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", background:"rgba(0,0,0,0.15)" }}>
+              <div style={{ width:"64px", height:"64px", borderRadius:"50%", background:"rgba(255,255,255,0.92)", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 4px 16px rgba(0,0,0,0.2)" }}>
+                <div style={{ width:0, height:0, borderTop:"14px solid transparent", borderBottom:"14px solid transparent", borderLeft:"22px solid var(--sage-dark)", marginLeft:"4px" }} />
+              </div>
+            </div>
+          </div>
+          <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", color:"var(--charcoal-muted)", marginTop:"12px" }}>
+            1 דקה · לחצו לצפייה
+          </p>
+        </div>
+      </section>
+
+      {/* Video Lightbox Modal */}
+      {videoOpen && (
+        <div
+          onClick={() => setVideoOpen(false)}
+          style={{ position:"fixed", inset:0, zIndex:9999, background:"rgba(0,0,0,0.88)", display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer" }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{ position:"relative", maxWidth:"400px", width:"90vw", maxHeight:"90vh", borderRadius:"16px", overflow:"hidden", background:"#000" }}
+          >
+            <button
+              onClick={() => setVideoOpen(false)}
+              style={{ position:"absolute", top:"12px", right:"12px", zIndex:10, width:"36px", height:"36px", borderRadius:"50%", background:"rgba(0,0,0,0.6)", border:"none", color:"#fff", fontSize:"20px", cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center" }}
+            >
+              ✕
+            </button>
+            <video
+              autoPlay
+              controls
+              playsInline
+              style={{ width:"100%", display:"block", maxHeight:"90vh", objectFit:"contain" }}
+            >
+              <source src="/maya-intro.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      )}
 
       {/* ── ABOUT ──────────────────────────────────────────────────────── */}
       <section className="sec-std reveal" style={{ background:"var(--paper)" }}>
