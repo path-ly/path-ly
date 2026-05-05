@@ -56,16 +56,18 @@ export default function AboutPage() {
             </p>
             <div className="divider-accent" style={{ marginBottom: "12px" }} />
 
-            {/* Video — portrait, contained */}
-            <div style={{ borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 16px rgba(0,0,0,0.1)", border: "1px solid var(--border)", background: "#111", height: "320px" }}>
-              <video
-                controls
-                playsInline
-                preload="metadata"
-                style={{ width: "100%", height: "100%", display: "block", objectFit: "contain" }}
-              >
-                <source src="/maya-intro.mp4" type="video/mp4" />
-              </video>
+            {/* Video — portrait, matching photo height */}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div style={{ width: "240px", borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 16px rgba(0,0,0,0.1)", border: "1px solid var(--border)" }}>
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  style={{ width: "100%", display: "block" }}
+                >
+                  <source src="/maya-intro.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
             <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--charcoal-muted)", marginTop: "6px", textAlign: "center", marginBottom: 0 }}>
               היכרות קצרה · 1 דקה
