@@ -6,21 +6,21 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="sec-hero" style={{
+      <section style={{
         background: "linear-gradient(150deg, #F8ECEE 0%, #F9F7F2 60%)",
-        paddingTop: "90px", paddingBottom: "32px",
+        paddingTop: "90px", paddingBottom: "32px", paddingRight: "32px", paddingLeft: "32px",
       }}>
-        <div className="grid-hero" style={{ maxWidth: "1100px", margin: "0 auto", alignItems: "start" }}>
+        {/* Row 1: Photo + Text + Video — 3 columns */}
+        <div style={{ maxWidth: "1060px", margin: "0 auto", display: "grid", gridTemplateColumns: "280px 1fr 220px", gap: "32px", alignItems: "start" }}>
 
-          {/* Photo (right column) */}
-          <div className="mobile-first" style={{ position: "relative" }}>
+          {/* Photo (right in RTL) */}
+          <div style={{ position: "relative", gridColumn: "1" }}>
             <div style={{
               borderRadius: "var(--radius-card-lg)",
               overflow: "hidden",
               boxShadow: "var(--shadow-float)",
               border: "1px solid var(--border)",
               aspectRatio: "3/4",
-              maxHeight: "400px",
             }}>
               <Image
                 src="/maya-photo.webp"
@@ -30,70 +30,60 @@ export default function AboutPage() {
                 priority
               />
             </div>
-            <div style={{
-              position: "absolute", bottom: "16px", right: "16px",
-              background: "rgba(249,247,242,0.95)", backdropFilter: "blur(10px)",
-              borderRadius: "12px", padding: "10px 16px",
-              border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
-            }}>
-              <p style={{ fontFamily: "var(--font-serif)", fontSize: "15px", fontWeight: 600, color: "var(--charcoal)", margin: 0 }}>מאיה פלטי</p>
-              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--terra)", margin: "2px 0 0", fontWeight: 500 }}>פסיכולוגית חינוכית מומחית ומדריכת הורים</p>
-            </div>
           </div>
 
-          {/* Name + Video (left column) */}
-          <div>
-            <span className="tag-sage" style={{ marginBottom: "8px", display: "inline-flex", alignItems: "center", gap: "6px" }}><SiteIcon name="flower" size={14} /> עוד עליי</span>
+          {/* Center text */}
+          <div style={{ paddingTop: "8px" }}>
+            <span className="tag-sage" style={{ marginBottom: "10px", display: "inline-flex", alignItems: "center", gap: "6px" }}><SiteIcon name="flower" size={14} /> עוד עליי</span>
             <h1 style={{
-              fontFamily: "var(--font-serif)", fontSize: "clamp(26px,3vw,40px)",
+              fontFamily: "var(--font-serif)", fontSize: "clamp(28px,3vw,42px)",
               fontWeight: 300, fontStyle: "italic", color: "var(--charcoal)",
-              margin: "0 0 2px", lineHeight: 1.2,
+              margin: "0 0 4px", lineHeight: 1.2,
             }}>
               מאיה פלטי
             </h1>
-            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "clamp(13px,1.6vw,17px)", fontWeight: 400, color: "var(--terra)", margin: "0 0 12px" }}>
+            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "16px", fontWeight: 400, color: "var(--terra)", margin: "0 0 16px" }}>
               פסיכולוגית חינוכית מומחית ומדריכת הורים
             </p>
-            <div className="divider-accent" style={{ marginBottom: "12px" }} />
+            <div className="divider-accent" style={{ marginBottom: "16px" }} />
 
-            {/* Video — portrait, matching photo height */}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <div style={{ width: "210px", borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 16px rgba(0,0,0,0.1)", border: "1px solid var(--border)" }}>
-                <video
-                  controls
-                  playsInline
-                  preload="metadata"
-                  style={{ width: "100%", display: "block" }}
-                >
-                  <source src="/maya-intro.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--charcoal-muted)", marginTop: "6px", textAlign: "center", marginBottom: 0 }}>
-              היכרות קצרה · 1 דקה
-            </p>
-          </div>
-        </div>
-
-        {/* Full-width bio + stats + CTAs */}
-        <div style={{ maxWidth: "860px", margin: "20px auto 0", padding: "0 24px" }}>
-          {/* Bio paragraph */}
-          <div style={{
-            background: "var(--sage-faint)", borderRadius: "var(--radius-card)",
-            padding: "24px 28px", border: "1px solid rgba(42,122,110,0.2)",
-            marginBottom: "24px",
-          }}>
-            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.85, margin: 0 }}>
+            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.85, margin: "0 0 20px" }}>
               אני פסיכולוגית חינוכית מומחית־מדריכה ומדריכת הורים, עם כ-20 שנות ניסיון בעבודה עם ילדים, הורים ואנשי חינוך. לאורך השנים ליוויתי משפחות רבות בהתמודדות עם קשיי ויסות והתנהגות, הפרעות קשב ולקויות למידה, קשיים רגשיים וחברתיים ואתגרי הורות מורכבים. מתוך הניסיון המקצועי והאישי פיתחתי את מודל{" "}
               <Link href="/model" style={{ color: "var(--terra-dark)", fontWeight: 600, textDecoration: "none", borderBottom: "1.5px solid var(--terra)" }}>
                 ״ארגז הכלים ההורי״
               </Link>
               {" "}– גישה פרקטית שמנגישה ידע פסיכולוגי להורים ומסייעת להם ליצור שינוי אמיתי בקשר עם ילדיהם.
             </p>
+
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+              <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose">
+                <><SiteIcon name="calendar" size={14} /> לקביעת פגישה</>
+              </a>
+              <Link href="/model" className="btn-outline">ארגז הכלים ←</Link>
+            </div>
           </div>
 
-          {/* Stats row — 4 across */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px", marginBottom: "24px" }}>
+          {/* Video (left in RTL) */}
+          <div>
+            <div style={{ borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 16px rgba(0,0,0,0.1)", border: "1px solid var(--border)", background: "#1a1a1a" }}>
+              <video
+                controls
+                playsInline
+                preload="auto"
+                style={{ width: "100%", display: "block" }}
+              >
+                <source src="/maya-intro.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--charcoal-muted)", marginTop: "6px", textAlign: "center" }}>
+              היכרות קצרה · 1 דקה
+            </p>
+          </div>
+        </div>
+
+        {/* Row 2: Stats — full width */}
+        <div style={{ maxWidth: "860px", margin: "28px auto 0", padding: "0" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
             {[
               { num: "20+", label: "שנות ניסיון" },
               { num: "3–15", label: "גיל הילדים", ltr: true },
@@ -101,22 +91,14 @@ export default function AboutPage() {
               { num: "10", label: "כלים בארגז" },
             ].map(({ num, label, ltr }) => (
               <div key={label} style={{
-                background: "white", borderRadius: "14px", padding: "16px 12px",
+                background: "white", borderRadius: "14px", padding: "14px 10px",
                 border: "1px solid var(--border)", textAlign: "center",
                 boxShadow: "var(--shadow-card)",
               }}>
-                <div style={{ fontFamily: "var(--font-serif)", fontSize: "24px", fontWeight: 600, color: "var(--terra)", lineHeight: 1, direction: ltr ? "ltr" : undefined }}>{num}</div>
+                <div style={{ fontFamily: "var(--font-serif)", fontSize: "22px", fontWeight: 600, color: "var(--terra)", lineHeight: 1, direction: ltr ? "ltr" : undefined }}>{num}</div>
                 <div style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--charcoal-muted)", marginTop: "4px" }}>{label}</div>
               </div>
             ))}
-          </div>
-
-          {/* CTAs */}
-          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
-            <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose">
-              <><SiteIcon name="calendar" size={14} /> לקביעת פגישה</>
-            </a>
-            <Link href="/model" className="btn-outline">ארגז הכלים ←</Link>
           </div>
         </div>
       </section>
