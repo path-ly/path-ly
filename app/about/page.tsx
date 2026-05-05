@@ -8,6 +8,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="sec-hero" style={{
         background: "linear-gradient(150deg, #F8ECEE 0%, #F9F7F2 60%)",
+        paddingTop: "100px", paddingBottom: "40px",
       }}>
         <div className="grid-hero" style={{ maxWidth: "1100px", margin: "0 auto", alignItems: "start" }}>
 
@@ -19,7 +20,7 @@ export default function AboutPage() {
               boxShadow: "var(--shadow-float)",
               border: "1px solid var(--border)",
               aspectRatio: "3/4",
-              maxHeight: "480px",
+              maxHeight: "440px",
             }}>
               <Image
                 src="/maya-photo.webp"
@@ -30,30 +31,30 @@ export default function AboutPage() {
               />
             </div>
             <div style={{
-              position: "absolute", bottom: "20px", right: "20px",
+              position: "absolute", bottom: "16px", right: "16px",
               background: "rgba(249,247,242,0.95)", backdropFilter: "blur(10px)",
-              borderRadius: "14px", padding: "12px 18px",
+              borderRadius: "12px", padding: "10px 16px",
               border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
             }}>
-              <p style={{ fontFamily: "var(--font-serif)", fontSize: "16px", fontWeight: 600, color: "var(--charcoal)", margin: 0 }}>מאיה פלטי</p>
+              <p style={{ fontFamily: "var(--font-serif)", fontSize: "15px", fontWeight: 600, color: "var(--charcoal)", margin: 0 }}>מאיה פלטי</p>
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--terra)", margin: "2px 0 0", fontWeight: 500 }}>פסיכולוגית חינוכית מומחית ומדריכת הורים</p>
             </div>
           </div>
 
           {/* Name + Video (left column) */}
           <div>
-            <span className="tag-sage" style={{ marginBottom: "12px", display: "inline-flex", alignItems: "center", gap: "6px" }}><SiteIcon name="flower" size={14} /> עוד עליי</span>
+            <span className="tag-sage" style={{ marginBottom: "8px", display: "inline-flex", alignItems: "center", gap: "6px" }}><SiteIcon name="flower" size={14} /> עוד עליי</span>
             <h1 style={{
-              fontFamily: "var(--font-serif)", fontSize: "clamp(28px,3.5vw,44px)",
+              fontFamily: "var(--font-serif)", fontSize: "clamp(26px,3vw,40px)",
               fontWeight: 300, fontStyle: "italic", color: "var(--charcoal)",
-              margin: "0 0 4px", lineHeight: 1.2,
+              margin: "0 0 2px", lineHeight: 1.2,
             }}>
               מאיה פלטי
             </h1>
-            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "clamp(14px,1.8vw,18px)", fontWeight: 400, color: "var(--terra)", margin: "0 0 16px" }}>
+            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "clamp(13px,1.6vw,17px)", fontWeight: 400, color: "var(--terra)", margin: "0 0 12px" }}>
               פסיכולוגית חינוכית מומחית ומדריכת הורים
             </p>
-            <div className="divider-accent" style={{ marginBottom: "16px" }} />
+            <div className="divider-accent" style={{ marginBottom: "12px" }} />
 
             {/* Video — compact */}
             <div style={{ borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 16px rgba(0,0,0,0.1)", border: "1px solid var(--border)", background: "#000" }}>
@@ -61,19 +62,19 @@ export default function AboutPage() {
                 controls
                 playsInline
                 preload="metadata"
-                style={{ width: "100%", display: "block", maxHeight: "340px", objectFit: "contain" }}
+                style={{ width: "100%", display: "block", maxHeight: "280px", objectFit: "contain" }}
               >
                 <source src="/maya-intro.mp4" type="video/mp4" />
               </video>
             </div>
-            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12px", color: "var(--charcoal-muted)", marginTop: "8px", textAlign: "center", marginBottom: 0 }}>
+            <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "11px", color: "var(--charcoal-muted)", marginTop: "6px", textAlign: "center", marginBottom: 0 }}>
               היכרות קצרה · 1 דקה
             </p>
           </div>
         </div>
 
-        {/* Full-width bio + stats + CTAs — below the 2-column hero */}
-        <div style={{ maxWidth: "860px", margin: "36px auto 0", padding: "0 24px" }}>
+        {/* Full-width bio + stats + CTAs */}
+        <div style={{ maxWidth: "860px", margin: "28px auto 0", padding: "0 24px" }}>
           {/* Bio paragraph */}
           <div style={{
             background: "var(--sage-faint)", borderRadius: "var(--radius-card)",
