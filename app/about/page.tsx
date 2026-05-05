@@ -8,7 +8,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="sec-hero" style={{
         background: "linear-gradient(150deg, #F8ECEE 0%, #F9F7F2 60%)",
-        paddingTop: "100px", paddingBottom: "40px",
+        paddingTop: "90px", paddingBottom: "32px",
       }}>
         <div className="grid-hero" style={{ maxWidth: "1100px", margin: "0 auto", alignItems: "start" }}>
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
               boxShadow: "var(--shadow-float)",
               border: "1px solid var(--border)",
               aspectRatio: "3/4",
-              maxHeight: "440px",
+              maxHeight: "400px",
             }}>
               <Image
                 src="/maya-photo.webp"
@@ -58,7 +58,7 @@ export default function AboutPage() {
 
             {/* Video — portrait, matching photo height */}
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <div style={{ width: "240px", borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 16px rgba(0,0,0,0.1)", border: "1px solid var(--border)" }}>
+              <div style={{ width: "210px", borderRadius: "14px", overflow: "hidden", boxShadow: "0 4px 16px rgba(0,0,0,0.1)", border: "1px solid var(--border)" }}>
                 <video
                   controls
                   playsInline
@@ -76,7 +76,7 @@ export default function AboutPage() {
         </div>
 
         {/* Full-width bio + stats + CTAs */}
-        <div style={{ maxWidth: "860px", margin: "28px auto 0", padding: "0 24px" }}>
+        <div style={{ maxWidth: "860px", margin: "20px auto 0", padding: "0 24px" }}>
           {/* Bio paragraph */}
           <div style={{
             background: "var(--sage-faint)", borderRadius: "var(--radius-card)",
