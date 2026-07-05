@@ -289,6 +289,15 @@ const ITEMS: LibraryItem[] = [
     link:"/library/five-love-languages-parent-child",
     linkLabel:"למאמר המלא",
   },
+  {
+    id:26, type:"article", category:"professional",
+    title:"ילדי סחלב וילדי חרצית: איך להבין את הרגישות של הילד", creator:"מאיה פלטי",
+    tag:"חומר מקצועי", emoji:"flower",
+    excerpt:"מה אומרת מטאפורת ילדי הסחלב והחרצית, איך היא עוזרת להבין רגישות, ויסות וקשר — ומה אפשר לעשות אחרת בבית.",
+    accentColor:"sage", featured:true, isMine:true,
+    link:"/library/orchid-dandelion-children-parenting",
+    linkLabel:"למאמר המלא",
+  },
 ];
 
 const TYPE_LABELS: Record<ContentType, string> = {
