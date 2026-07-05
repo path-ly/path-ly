@@ -280,6 +280,15 @@ const ITEMS: LibraryItem[] = [
     link:"/library/mirror-neurons-parenting",
     linkLabel:"למאמר המלא",
   },
+  {
+    id:25, type:"article", category:"professional",
+    title:"5 שפות האהבה בהורות: איך ילדים מרגישים אהובים בגילים שונים?", creator:"מאיה פלטי",
+    tag:"קשר הורה־ילד", emoji:"heart",
+    excerpt:"איך 5 שפות האהבה משתנות לפי גיל, ומה הורים יכולים לעשות כדי לחזק קשר, נראות וביטחון רגשי עם הילד.",
+    accentColor:"terra", featured:true, isMine:true,
+    link:"/library/five-love-languages-parent-child",
+    linkLabel:"למאמר המלא",
+  },
 ];
 
 const TYPE_LABELS: Record<ContentType, string> = {
