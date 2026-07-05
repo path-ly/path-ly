@@ -19,6 +19,7 @@ interface LibraryItem {
   isMine?: boolean;
   fullContent?: string;
   link?: string;
+  linkLabel?: string;
 }
 
 const ITEMS: LibraryItem[] = [
@@ -260,6 +261,15 @@ const ITEMS: LibraryItem[] = [
     excerpt:"ניסוי הפנים הדוממות — הדגמה של 3 דקות שמסבירה הכל על הצורך של ילד בקשר.",
     accentColor:"sage",
     link:"https://www.youtube.com/watch?v=apzXGEbZht0",
+  },
+  {
+    id:23, type:"article", category:"professional",
+    title:"שינה אצל ילדים: לא רק כמה שעות, אלא איך נרגעים לתוך הלילה", creator:"מאיה פלטי",
+    tag:"ויסות רגשי וחוסן", emoji:"clock",
+    excerpt:"כמה שעות שינה ילדים צריכים, איך שינה קשורה לפחדים ושליטה, ואיך בונים טקס שינה רגוע ובריא בבית.",
+    accentColor:"sage", featured:true, isMine:true,
+    link:"/library/child-sleep-routines",
+    linkLabel:"למאמר המלא",
   },
 ];
 
@@ -688,7 +698,7 @@ function LibraryCard({ item }: { item: LibraryItem }) {
               color: isSage ? "var(--sage-dark)" : "var(--terra-dark)",
               textDecoration:"none", transition:"all 180ms ease",
             }}>
-              ← {item.link.startsWith("/") ? "לעמוד הכלי" : "פתח קישור"}
+              ← {item.linkLabel ?? (item.link.startsWith("/") ? "לעמוד הכלי" : "פתח קישור")}
             </a>
           )}
         </div>
