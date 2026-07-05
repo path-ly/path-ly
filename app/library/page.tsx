@@ -271,6 +271,15 @@ const ITEMS: LibraryItem[] = [
     link:"/library/child-sleep-routines",
     linkLabel:"למאמר המלא",
   },
+  {
+    id:24, type:"article", category:"professional",
+    title:"הילדים שלנו קוראים אותנו: נוירוני מראה, ויסות ומודלינג בהורות", creator:"מאיה פלטי",
+    tag:"מודלינג וויסות משותף", emoji:"brain",
+    excerpt:"מהם נוירוני מראה, איך הם קשורים למודלינג, ויסות וחמלה בהורות, ומה אפשר לתרגל בבית בלי אשמה ובלי פתרונות קסם.",
+    accentColor:"terra", featured:true, isMine:true,
+    link:"/library/mirror-neurons-parenting",
+    linkLabel:"למאמר המלא",
+  },
 ];
 
 const TYPE_LABELS: Record<ContentType, string> = {

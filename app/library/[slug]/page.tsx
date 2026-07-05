@@ -123,7 +123,7 @@ export default function LibraryArticlePage({ params }: { params: { slug: string 
               marginBottom: "20px",
             }}
           >
-            <SiteIcon name="clock" size={14} /> {article.mainCategory}
+            <SiteIcon name={article.icon ?? "clock"} size={14} /> {article.mainCategory}
           </span>
 
           <h1
@@ -363,7 +363,7 @@ export default function LibraryArticlePage({ params }: { params: { slug: string 
                 gap: "10px",
               }}
             >
-              <SiteIcon name="lightbulb" size={16} /> שאלות להתבוננות
+              <SiteIcon name="lightbulb" size={16} /> {article.reflectionHeading ?? "שאלות להתבוננות"}
             </h2>
             {article.reflectionQuestions.map((q, i) => (
               <div key={i} style={{ display: "flex", gap: "12px", marginBottom: "12px", alignItems: "flex-start" }}>
