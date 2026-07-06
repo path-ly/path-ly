@@ -298,6 +298,15 @@ const ITEMS: LibraryItem[] = [
     link:"/library/orchid-dandelion-children-parenting",
     linkLabel:"למאמר המלא",
   },
+  {
+    id:27, type:"article", category:"professional",
+    title:"הילד הוא לא הבעיה: החצנת הבעיה בהורות", creator:"מאיה פלטי",
+    tag:"ויסות רגשי וחוסן", emoji:"book",
+    excerpt:"איך החצנת הבעיה בגישה הנרטיבית עוזרת להורים ולילדים להתמודד עם כעס, חרדה, מסכים והתנגדות בלי להפוך את הילד לבעיה.",
+    accentColor:"terra", featured:true, isMine:true,
+    link:"/library/externalizing-the-problem-parenting",
+    linkLabel:"למאמר המלא",
+  },
 ];
 
 const TYPE_LABELS: Record<ContentType, string> = {
