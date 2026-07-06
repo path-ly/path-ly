@@ -11,8 +11,9 @@ export function generateStaticParams() {
 }
 
 // Dynamic metadata per article
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const article = getLibraryArticleBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = getLibraryArticleBySlug(slug);
   if (!article) return {};
 
   const url = `https://www.path-ly.com/library/${article.slug}`;
@@ -37,8 +38,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function LibraryArticlePage({ params }: { params: { slug: string } }) {
-  const article = getLibraryArticleBySlug(params.slug);
+export default async function LibraryArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = getLibraryArticleBySlug(slug);
   if (!article) notFound();
 
   const relatedTools = getToolsBySlug(article.relatedToolSlugs);
