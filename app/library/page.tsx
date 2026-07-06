@@ -307,6 +307,15 @@ const ITEMS: LibraryItem[] = [
     link:"/library/externalizing-the-problem-parenting",
     linkLabel:"למאמר המלא",
   },
+  {
+    id:28, type:"article", category:"professional",
+    title:"בררנות באוכל אצל ילדים: מתי זה טבעי ומתי כדאי לבדוק?", creator:"מאיה פלטי",
+    tag:"אכילה והרגלי תזונה", emoji:"shield",
+    excerpt:"איך להבחין בין בררנות אכילה טבעית לבין קושי רחב יותר, ואיך לעזור לילדים בגילאים שונים בלי מאבקי כוח.",
+    accentColor:"sage", featured:true, isMine:true,
+    link:"/library/picky-eating-children",
+    linkLabel:"למאמר המלא",
+  },
 ];
 
 const TYPE_LABELS: Record<ContentType, string> = {
