@@ -511,7 +511,7 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
                 fontStyle: "italic",
               }}
             >
-              רוצים ליווי בבניית שגרת שינה בריאה?
+              {article.ctaHeading ?? "רוצים ליווי בבניית הכלים לבית שלכם?"}
             </h2>
             <p
               style={{
