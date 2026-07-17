@@ -790,7 +790,7 @@ export default function LibraryPage() {
     const q = search.toLowerCase();
     const textMatch = !q || item.title.toLowerCase().includes(q) || item.creator.toLowerCase().includes(q) || item.tag.toLowerCase().includes(q);
     return catMatch && typeMatch && mineMatch && textMatch;
-  }), [category, typeFilter, mineOnly, search]);
+  }).sort((a, b) => b.id - a.id), [category, typeFilter, mineOnly, search]);
 
   const counts = {
     all: ITEMS.length,
