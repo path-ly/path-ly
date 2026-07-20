@@ -318,9 +318,9 @@ const ITEMS: LibraryItem[] = [
   },
   {
     id:29, type:"article", category:"professional",
-    title:"אנקומפרזיס אצל ילדים: כשהגוף מדבר במקום הילד", creator:"מאיה פלטי",
+    title:"אנקופרזיס אצל ילדים: כשהגוף מדבר במקום הילד", creator:"מאיה פלטי",
     tag:"התפתחות וגמילה", emoji:"sunrise",
-    excerpt:"אנקומפרזיס בילדים אינו לרוב \"דווקא\". הסבר נגיש על עצירות, בושה, שירותים ומה הורים יכולים לעשות אחרת.",
+    excerpt:"אנקופרזיס בילדים אינו לרוב \"דווקא\". הסבר נגיש על עצירות, בושה, שירותים ומה הורים יכולים לעשות אחרת.",
     accentColor:"terra", featured:true, isMine:true,
     link:"/library/encopresis-children-parenting",
     linkLabel:"למאמר המלא",
