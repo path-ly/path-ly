@@ -694,17 +694,6 @@ function LibraryCard({ item }: { item: LibraryItem }) {
       position:"relative",
     }}>
 
-      {item.featured && (
-        <div style={{ position:"absolute", top:"14px", right:"-1px", background:"var(--terra)", color:"white", fontSize:"10px", fontWeight:700, fontFamily:"var(--font-hebrew)", letterSpacing:"0.06em", padding:"4px 12px 4px 14px", borderRadius:"3px 0 0 3px" }}>
-          <><SiteIcon name="heart" size={12} /> מומלץ</>
-        </div>
-      )}
-      {item.isMine && (
-        <div style={{ position:"absolute", top: item.featured ? "40px" : "14px", right:"-1px", background:"var(--sage)", color:"white", fontSize:"10px", fontWeight:700, fontFamily:"var(--font-hebrew)", letterSpacing:"0.06em", padding:"4px 12px 4px 14px", borderRadius:"3px 0 0 3px" }}>
-          כתיבה מקורית
-        </div>
-      )}
-
       <div style={{
         height:"88px",
         background: isSage
@@ -719,6 +708,16 @@ function LibraryCard({ item }: { item: LibraryItem }) {
 
       <div style={{ padding:"22px", flex:1, display:"flex", flexDirection:"column", gap:"10px" }}>
         <div style={{ display:"flex", alignItems:"center", gap:"8px", flexWrap:"wrap" }}>
+          {item.featured && (
+            <span style={{ display:"inline-flex", alignItems:"center", gap:"4px", background:"var(--terra)", color:"white", fontFamily:"var(--font-hebrew)", fontSize:"10px", fontWeight:700, padding:"3px 10px", borderRadius:"var(--radius-pill)", letterSpacing:"0.04em" }}>
+              <SiteIcon name="heart" size={11} /> מומלץ
+            </span>
+          )}
+          {item.isMine && (
+            <span style={{ display:"inline-flex", alignItems:"center", background:"var(--sage)", color:"white", fontFamily:"var(--font-hebrew)", fontSize:"10px", fontWeight:700, padding:"3px 10px", borderRadius:"var(--radius-pill)", letterSpacing:"0.04em" }}>
+              כתיבה מקורית
+            </span>
+          )}
           <span style={{ background:"var(--linen)", color:"var(--charcoal-soft)", fontFamily:"var(--font-hebrew)", fontSize:"10px", fontWeight:700, padding:"3px 10px", borderRadius:"var(--radius-pill)", letterSpacing:"0.06em", border:"1px solid var(--border)" }}>
             {TYPE_LABELS[item.type]}
           </span>

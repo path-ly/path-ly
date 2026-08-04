@@ -391,7 +391,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ────────────────────────────────────────────────── */}
-      <section className="sec-std reveal" style={{ background:"var(--linen)" }}>
+      <section className="sec-std" style={{ background:"var(--linen)" }}>
         <div style={{ maxWidth:"960px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"48px" }}>
             <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,40px)", color:"var(--charcoal)", marginBottom:"12px", fontStyle:"italic", fontWeight:300 }}>מה הורים אומרים</h2>
