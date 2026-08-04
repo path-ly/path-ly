@@ -325,6 +325,15 @@ const ITEMS: LibraryItem[] = [
     link:"/library/encopresis-children-parenting",
     linkLabel:"למאמר המלא",
   },
+  {
+    id:30, type:"article", category:"professional",
+    title:"מחויבות והתמדה בשינוי הרגלים הוריים", creator:"מאיה פלטי",
+    tag:"ארגז הכלים ההורי", emoji:"footprints",
+    excerpt:"שינוי בהרגלים הוריים דורש זמן, חזרתיות ומחויבות. כך מלמדים ילדים שפה חדשה של יחסים בלי כוחנות ובלי לדרוש מעצמנו שלמות.",
+    accentColor:"sage", featured:true, isMine:true,
+    link:"/library/parental_commitment_persistence",
+    linkLabel:"למאמר המלא",
+  },
 ];
 
 const TYPE_LABELS: Record<ContentType, string> = {

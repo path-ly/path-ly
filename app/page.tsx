@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import SiteIcon from "@/components/SiteIcon";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
+import { LIBRARY_ARTICLES } from "@/lib/library-articles";
 
 const TOOLS = [
   { num:"01", icon:"heart-hands", title:"חמלה הורית",       desc:"לקבל את עצמנו כדי לקבל את הילד",              accent:false },
@@ -29,6 +30,9 @@ function ToolIconEl({ icon, size = 20 }: { icon: string; size?: number }) {
 
 export default function Home() {
   const [toolboxOpen, setToolboxOpen] = useState(false);
+
+  // Three newest library articles (newest article sits last in LIBRARY_ARTICLES)
+  const latestArticles = LIBRARY_ARTICLES.slice(-3).reverse();
 
   return (
     <>
@@ -440,6 +444,42 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHAT'S NEW (latest library articles) ────────────────────────── */}
+      <section className="sec-std" style={{ background:"var(--paper)" }}>
+        <div style={{ maxWidth:"1040px", margin:"0 auto" }}>
+          <div style={{ textAlign:"center", marginBottom:"48px" }}>
+            <span style={{ display:"inline-flex", alignItems:"center", gap:"7px", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, color:"var(--terra-dark)", background:"var(--terra-faint)", padding:"6px 16px", borderRadius:"var(--radius-pill)", marginBottom:"16px", border:"1px solid rgba(196,114,122,0.2)" }}>
+              <SiteIcon name="sparkles" size={15} /> חדש בספרייה
+            </span>
+            <h2 style={{ fontFamily:"var(--font-serif)", fontSize:"clamp(26px,3.5vw,40px)", color:"var(--charcoal)", marginBottom:"12px", fontStyle:"italic", fontWeight:300 }}>מאמרים אחרונים</h2>
+            <div className="divider-accent-center" />
+          </div>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:"24px" }}>
+            {latestArticles.map((a) => (
+              <Link key={a.slug} href={`/library/${a.slug}`} className="card-lg" style={{
+                textDecoration:"none", padding:"30px 28px",
+                display:"flex", flexDirection:"column", gap:"14px",
+              }}>
+                <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
+                  <span style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", width:"44px", height:"44px", borderRadius:"12px", background:"var(--sage-faint)", color:"var(--sage-dark)", flexShrink:0 }}>
+                    <SiteIcon name={a.icon || "book"} size={22} />
+                  </span>
+                  <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:600, color:"var(--sage-dark)", background:"var(--sage-faint)", padding:"4px 12px", borderRadius:"var(--radius-pill)" }}>{a.mainCategory}</span>
+                </div>
+                <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"20px", fontWeight:600, color:"var(--charcoal)", margin:0, lineHeight:1.4 }}>{a.title}</h3>
+                <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.75, margin:0, display:"-webkit-box", WebkitLineClamp:3, WebkitBoxOrient:"vertical", overflow:"hidden" }}>{a.kicker}</p>
+                <span style={{ marginTop:"auto", paddingTop:"4px", fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:700, color:"var(--terra-dark)" }}>למאמר המלא</span>
+              </Link>
+            ))}
+          </div>
+          <div style={{ textAlign:"center", marginTop:"40px" }}>
+            <Link href="/library" style={{ display:"inline-flex", alignItems:"center", gap:"8px", fontFamily:"var(--font-hebrew)", fontSize:"15px", fontWeight:700, color:"var(--sage-dark)", background:"var(--paper)", border:"1.5px solid var(--border)", borderRadius:"var(--radius-pill)", padding:"13px 32px", textDecoration:"none", boxShadow:"var(--shadow-card)" }}>
+              <SiteIcon name="book" size={17} /> לכל המאמרים בספרייה
+            </Link>
           </div>
         </div>
       </section>
