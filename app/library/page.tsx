@@ -334,6 +334,15 @@ const ITEMS: LibraryItem[] = [
     link:"/library/parental_commitment_persistence",
     linkLabel:"למאמר המלא",
   },
+  {
+    id:31, type:"article", category:"professional",
+    title:"מהכוונה להרגל: 7 ההרגלים של אנשים אפקטיביים בהורות", creator:"מאיה פלטי",
+    tag:"ארגז הכלים ההורי", emoji:"footprints",
+    excerpt:"איך מתרגמים את שבעת ההרגלים של סטיבן קובי להורות, והופכים כוונות, ערכים וקשר להרגלים יומיומיים — עם חיבור ישיר לארגז הכלים ההורי.",
+    accentColor:"terra", featured:true, isMine:true,
+    link:"/library/7habitsparenting",
+    linkLabel:"למאמר המלא",
+  },
 ];
 
 const TYPE_LABELS: Record<ContentType, string> = {
