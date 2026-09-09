@@ -339,10 +339,34 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
                   ))}
                 </div>
               )}
+
+              {section.table && (
+                <div style={{ overflowX: "auto", marginTop: (section.body.length || section.list) ? "16px" : 0 }}>
+                  <table style={{ borderCollapse: "collapse", width: "100%", minWidth: "480px", fontFamily: "var(--font-hebrew)", fontSize: "13.5px" }}>
+                    <thead>
+                      <tr>
+                        {section.table.headers.map((h, hi) => (
+                          <th key={hi} style={{ textAlign: "right", padding: "10px 12px", background: "var(--sage-faint)", border: "1px solid var(--border)", color: "var(--charcoal)", fontWeight: 700, whiteSpace: "nowrap" }}>{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {section.table.rows.map((row, ri) => (
+                        <tr key={ri}>
+                          {row.map((cell, ci) => (
+                            <td key={ci} style={{ padding: "10px 12px", border: "1px solid var(--border)", color: "var(--charcoal-soft)", lineHeight: 1.7, verticalAlign: "top", whiteSpace: "pre-line", background: ci === 0 ? "var(--linen)" : "#FFFFFF", fontWeight: ci === 0 ? 600 : 400 }}>{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           ))}
 
           {/* Reflection questions */}
+          {article.reflectionQuestions && article.reflectionQuestions.length > 0 && (
           <div
             className="tool-page-card"
             style={{
@@ -395,6 +419,7 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
               </div>
             ))}
           </div>
+          )}
 
           {/* Summary */}
           <div
@@ -434,6 +459,18 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
               </p>
             ))}
           </div>
+
+          {article.bibliography && article.bibliography.length > 0 && (
+          <div
+            className="tool-page-card"
+            style={{ background: "#FFFFFF", borderRadius: "var(--radius-card-lg)", padding: "36px 40px", boxShadow: "var(--shadow-card)", border: "1px solid var(--border)", marginBottom: "48px" }}
+          >
+            <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "22px", color: "var(--charcoal)", marginBottom: "16px", fontWeight: 500 }}>מקורות</h2>
+            {article.bibliography.map((ref, i) => (
+              <p key={i} style={{ fontFamily: "var(--font-hebrew)", fontSize: "13.5px", color: "var(--charcoal-muted)", lineHeight: 1.8, margin: "0 0 12px", direction: "rtl" }}>{ref}</p>
+            ))}
+          </div>
+          )}
 
           {/* ── RELATED TOOLS ───────────────────────────────── */}
           {relatedTools.length > 0 && (
