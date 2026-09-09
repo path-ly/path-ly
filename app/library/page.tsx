@@ -1,14 +1,22 @@
 "use client";
 import { useState, useMemo } from "react";
 import SiteIcon from "@/components/SiteIcon";
+import { LIBRARY_ARTICLES } from "@/lib/library-articles";
 
-type Category = "all" | "professional" | "inspirational";
+const CATEGORIES = [
+  "ויסות רגשי וחוסן",
+  "הורות מודעת, טיפוח קשר ויחסים במשפחה",
+  "התפתחות ילדים, יצירת הרגלים ושגרות",
+  "סמכות, גבולות ויצירת שיתוף פעולה",
+  "לקויות למידה וקשב ועיכוב התפתחותי",
+] as const;
+type Category = "all" | (typeof CATEGORIES)[number];
 type ContentType = "song" | "poem" | "article" | "book" | "research" | "video";
 
 interface LibraryItem {
   id: number;
   type: ContentType;
-  category: "professional" | "inspirational";
+  categories: string[];
   title: string;
   creator: string;
   tag: string;
@@ -22,10 +30,10 @@ interface LibraryItem {
   linkLabel?: string;
 }
 
-const ITEMS: LibraryItem[] = [
+const MANUAL_ITEMS: LibraryItem[] = [
   // ── Maya's own poems ──────────────────────────────────────────────────────
   {
-    id:1, type:"poem", category:"inspirational",
+    id:1, type:"poem", categories:[],
     title:"סיזיפית", creator:"מאיה פלטי",
     tag:"הורות אמיתית", emoji:"sunrise",
     excerpt:"ממחר בבוקר אני אהיה אמא טובה, אעטוף אותם כל היום בביטוי גאווה ואהבה... שיר על המחזוריות, ההבטחות, והחמלה שאנחנו כל כך זקוקות לה.",
@@ -92,7 +100,7 @@ const ITEMS: LibraryItem[] = [
 שהכי חשוב זה חמלה ולהיות רכה איתי עכשיו.`,
   },
   {
-    id:3, type:"poem", category:"inspirational",
+    id:3, type:"poem", categories:[],
     title:"העיקר הכוונה?", creator:"מאיה פלטי",
     tag:"ילדות ואמהות", emoji:"flower",
     excerpt:"פעם, לא כל כך מזמן, כשהייתי קטנה, את היית אלוהים ואני המאמינה... שיר על הבת שנהיית אמא, ועל מה שנשאר בדרך.",
@@ -126,7 +134,7 @@ const ITEMS: LibraryItem[] = [
 ותאמרי לי שוב ש:"הכל אפשרי".`,
   },
   {
-    id:4, type:"poem", category:"inspirational",
+    id:4, type:"poem", categories:[],
     title:"הגורו של ארוחות הערב", creator:"מאיה פלטי",
     tag:"הומור ואמת", emoji:"dot",
     excerpt:"בפנטזיה היא הגורו של ארוחות הערב המשפחתיות, מזריקה לכל ביס ותבשיל ים של משמעויות... ארוחת ערב כמטפורה לכל הפער בין הפנטזיה ההורית למציאות.",
@@ -181,7 +189,7 @@ const ITEMS: LibraryItem[] = [
 אשת חיל מי ימצא`,
   },
   {
-    id:5, type:"poem", category:"inspirational",
+    id:5, type:"poem", categories:[],
     title:"המפתח לארגז הכלים — אומנות המינון ההורי", creator:"מאיה פלטי",
     tag:"מסגרת", emoji:"dot",
     excerpt:"הכל עניין של מינונים. הורות היא התפקיד הקשה ביותר שרובנו בחרנו לעצמנו — הורות טובה דיה היא משימה מורכבת שרובנו מצליחים לעמוד בה.",
@@ -198,7 +206,7 @@ const ITEMS: LibraryItem[] = [
   },
   // ── Professional – Maya's own tools ──────────────────────────────────────
   {
-    id:13, type:"article", category:"professional",
+    id:13, type:"article", categories:[],
     title:"חמלה עצמית והורית — כלי 1", creator:"מאיה פלטי",
     tag:"כלי מרכזי", emoji:"heart",
     excerpt:"90-95% מהאוכלוסיה מנהלים דיבור פנימי יומיומי. הקול שאנחנו מדברים בו אל עצמנו — הוא הקול שהילדים שלנו יפנימו. לכן חמלה עצמית היא לא פינוק — היא תשתית.",
@@ -206,7 +214,7 @@ const ITEMS: LibraryItem[] = [
     link:"/model#tool-01",
   },
   {
-    id:14, type:"article", category:"professional",
+    id:14, type:"article", categories:[],
     title:"רפלקטיביות הורית — כלי 2", creator:"מאיה פלטי",
     tag:"כלי מרכזי", emoji:"dot",
     excerpt:"אנחנו מגיבים על אוטומט — כפתור נלחץ והתגובה מתרחשת. הרפלקטיביות היא ארבע שאלות פשוטות: מה אני חושב? מה אני מרגיש? מה האחר חושב? מה הוא מרגיש?",
@@ -214,7 +222,7 @@ const ITEMS: LibraryItem[] = [
     link:"/model#tool-02",
   },
   {
-    id:15, type:"article", category:"professional",
+    id:15, type:"article", categories:[],
     title:"משחקיות — כלי 3", creator:"מאיה פלטי",
     tag:"יישום מידי", emoji:"dice",
     excerpt:"משחקיות היא לא פעילות מיוחדת — היא תנוחת נפש. כניסה דרך החלון כשדלת ההתנגדות נסגרת. לנטרל מאבקי כוח, להפחית התנגדות, ולהפוך אינטראקציות יומיומיות לחיבור.",
@@ -222,7 +230,7 @@ const ITEMS: LibraryItem[] = [
     link:"/model#tool-03",
   },
   {
-    id:16, type:"article", category:"professional",
+    id:16, type:"article", categories:[],
     title:"ממאבק לשיתוף פעולה — כלי 7", creator:"מאיה פלטי",
     tag:"מניעה ותיקון", emoji:"handshake",
     excerpt:"רוב העבודה נעשית בין האירועים, לא בתוכם. מניעה, עצירת הסלמה ותיקון — שלושת השלבים שהורים מדווחים שמשנים הכל. המטרה היא לא לנצח — אלא ללכת יחד.",
@@ -230,7 +238,7 @@ const ITEMS: LibraryItem[] = [
     link:"/model#tool-07",
   },
   {
-    id:17, type:"article", category:"professional",
+    id:17, type:"article", categories:[],
     title:"זמן קסם — כלי 9", creator:"מאיה פלטי",
     tag:"קשר ואמון", emoji:"hourglass",
     excerpt:"5–20 דקות ביום, קבועות, בטוחות, ולא מוטלות בספק. הילד בוחר. ההורה נוכח. זהו הבסיס לסמכות שמבוססת על כבוד שהורווח — לא על כוח.",
@@ -239,111 +247,32 @@ const ITEMS: LibraryItem[] = [
   },
   // ── Professional – videos & research ──────────────────────────────────────
   {
-    id:18, type:"video" as ContentType, category:"professional",
+    id:18, type:"video" as ContentType, categories:[],
     title:"כל הסרטונים מארגז הכלים", creator:"מאיה פלטי",
     tag:"ארגז הכלים", emoji:"video",
     excerpt:"אוסף כל הסרטונים הרלוונטיים ל-10 הכלים בארגז הכלים ההורי — טיקטוק, יוטיוב ועוד.",
     accentColor:"terra", featured:true, isMine:true,
     link:"/model",
   },
-  {
-    id:21, type:"research", category:"professional",
-    title:"ACE Study", creator:"CDC & Kaiser Permanente",
-    tag:"טראומה", emoji:"clipboard",
-    excerpt:"מחקר ה-ACE על חוויות ילדות שליליות — הבסיס המדעי לחשיבות הורות בריאה.",
-    accentColor:"terra",
-    link:"https://www.cdc.gov/aces/about/index.html",
-  },
-  {
-    id:22, type:"article", category:"professional",
-    title:"The Still Face Experiment", creator:"Edward Tronick",
-    tag:"התקשרות", emoji:"video",
-    excerpt:"ניסוי הפנים הדוממות — הדגמה של 3 דקות שמסבירה הכל על הצורך של ילד בקשר.",
-    accentColor:"sage",
-    link:"https://www.youtube.com/watch?v=apzXGEbZht0",
-  },
-  {
-    id:23, type:"article", category:"professional",
-    title:"שינה אצל ילדים: לא רק כמה שעות, אלא איך נרגעים לתוך הלילה", creator:"מאיה פלטי",
-    tag:"ויסות רגשי וחוסן", emoji:"clock",
-    excerpt:"כמה שעות שינה ילדים צריכים, איך שינה קשורה לפחדים ושליטה, ואיך בונים טקס שינה רגוע ובריא בבית.",
-    accentColor:"sage", featured:true, isMine:true,
-    link:"/library/child-sleep-routines",
-    linkLabel:"למאמר המלא",
-  },
-  {
-    id:24, type:"article", category:"professional",
-    title:"הילדים שלנו קוראים אותנו: נוירוני מראה, ויסות ומודלינג בהורות", creator:"מאיה פלטי",
-    tag:"מודלינג וויסות משותף", emoji:"brain",
-    excerpt:"מהם נוירוני מראה, איך הם קשורים למודלינג, ויסות וחמלה בהורות, ומה אפשר לתרגל בבית בלי אשמה ובלי פתרונות קסם.",
-    accentColor:"terra", featured:true, isMine:true,
-    link:"/library/mirror-neurons-parenting",
-    linkLabel:"למאמר המלא",
-  },
-  {
-    id:25, type:"article", category:"professional",
-    title:"5 שפות האהבה בהורות: איך ילדים מרגישים אהובים בגילים שונים?", creator:"מאיה פלטי",
-    tag:"קשר הורה־ילד", emoji:"heart",
-    excerpt:"איך 5 שפות האהבה משתנות לפי גיל, ומה הורים יכולים לעשות כדי לחזק קשר, נראות וביטחון רגשי עם הילד.",
-    accentColor:"terra", featured:true, isMine:true,
-    link:"/library/five-love-languages-parent-child",
-    linkLabel:"למאמר המלא",
-  },
-  {
-    id:26, type:"article", category:"professional",
-    title:"ילדי סחלב וילדי סביון: איך להבין את הרגישות של הילד", creator:"מאיה פלטי",
-    tag:"חומר מקצועי", emoji:"flower",
-    excerpt:"מה אומרת מטאפורת ילדי הסחלב והסביון, איך היא עוזרת להבין רגישות, ויסות וקשר — ומה אפשר לעשות אחרת בבית.",
-    accentColor:"sage", featured:true, isMine:true,
-    link:"/library/orchid-dandelion-children-parenting",
-    linkLabel:"למאמר המלא",
-  },
-  {
-    id:27, type:"article", category:"professional",
-    title:"הילד הוא לא הבעיה: החצנת הבעיה בהורות", creator:"מאיה פלטי",
-    tag:"ויסות רגשי וחוסן", emoji:"book",
-    excerpt:"איך החצנת הבעיה בגישה הנרטיבית עוזרת להורים ולילדים להתמודד עם כעס, חרדה, מסכים והתנגדות בלי להפוך את הילד לבעיה.",
-    accentColor:"terra", featured:true, isMine:true,
-    link:"/library/externalizing-the-problem-parenting",
-    linkLabel:"למאמר המלא",
-  },
-  {
-    id:28, type:"article", category:"professional",
-    title:"בררנות באוכל אצל ילדים: מתי זה טבעי ומתי כדאי לבדוק?", creator:"מאיה פלטי",
-    tag:"אכילה והרגלי תזונה", emoji:"shield",
-    excerpt:"איך להבחין בין בררנות אכילה טבעית לבין קושי רחב יותר, ואיך לעזור לילדים בגילאים שונים בלי מאבקי כוח.",
-    accentColor:"sage", featured:true, isMine:true,
-    link:"/library/picky-eating-children",
-    linkLabel:"למאמר המלא",
-  },
-  {
-    id:29, type:"article", category:"professional",
-    title:"אנקופרזיס אצל ילדים: כשהגוף מדבר במקום הילד", creator:"מאיה פלטי",
-    tag:"התפתחות וגמילה", emoji:"sunrise",
-    excerpt:"אנקופרזיס בילדים אינו לרוב \"דווקא\". הסבר נגיש על עצירות, בושה, שירותים ומה הורים יכולים לעשות אחרת.",
-    accentColor:"terra", featured:true, isMine:true,
-    link:"/library/encopresis-children-parenting",
-    linkLabel:"למאמר המלא",
-  },
-  {
-    id:30, type:"article", category:"professional",
-    title:"מחויבות והתמדה בשינוי הרגלים הוריים", creator:"מאיה פלטי",
-    tag:"ארגז הכלים ההורי", emoji:"footprints",
-    excerpt:"שינוי בהרגלים הוריים דורש זמן, חזרתיות ומחויבות. כך מלמדים ילדים שפה חדשה של יחסים בלי כוחנות ובלי לדרוש מעצמנו שלמות.",
-    accentColor:"sage", featured:true, isMine:true,
-    link:"/library/parental_commitment_persistence",
-    linkLabel:"למאמר המלא",
-  },
-  {
-    id:31, type:"article", category:"professional",
-    title:"מהכוונה להרגל: 7 ההרגלים של אנשים אפקטיביים בהורות", creator:"מאיה פלטי",
-    tag:"ארגז הכלים ההורי", emoji:"footprints",
-    excerpt:"איך מתרגמים את שבעת ההרגלים של סטיבן קובי להורות, והופכים כוונות, ערכים וקשר להרגלים יומיומיים — עם חיבור ישיר לארגז הכלים ההורי.",
-    accentColor:"terra", featured:true, isMine:true,
-    link:"/library/7habitsparenting",
-    linkLabel:"למאמר המלא",
-  },
 ];
+
+const ARTICLE_ITEMS: LibraryItem[] = LIBRARY_ARTICLES.map((a, idx) => ({
+  id: 1000 + idx,
+  type: "article",
+  categories: a.categories,
+  title: a.title,
+  creator: "מאיה פלטי",
+  tag: a.categories[0],
+  emoji: a.icon ?? "book",
+  excerpt: a.seoDescription,
+  accentColor: idx % 2 === 0 ? "sage" : "terra",
+  featured: true,
+  isMine: true,
+  link: `/library/${a.slug}`,
+  linkLabel: "למאמר המלא",
+}));
+
+const ITEMS: LibraryItem[] = [...MANUAL_ITEMS, ...ARTICLE_ITEMS];
 
 const TYPE_LABELS: Record<ContentType, string> = {
   song:"שיר", poem:"שירה", article:"מאמר/כלי", book:"ספר", research:"מחקר", video:"סרטון"
@@ -780,9 +709,8 @@ function LibraryCard({ item }: { item: LibraryItem }) {
 
 // ─── Filter constants ──────────────────────────────────────────────────────────
 const FILTER_OPTIONS: {value:Category; label:string; emoji:string}[] = [
-  { value:"all",           label:"הכל",         emoji:"sparkle" },
-  { value:"professional",  label:"חומר מקצועי", emoji:"book" },
-  { value:"inspirational", label:"השראה",        emoji:"music" },
+  { value:"all", label:"הכל", emoji:"sparkle" },
+  ...CATEGORIES.map((c) => ({ value: c as Category, label: c, emoji: "book" })),
 ];
 
 const TYPE_FILTERS: {value:ContentType|"all"; label:string}[] = [
@@ -801,7 +729,7 @@ export default function LibraryPage() {
   const [mineOnly,   setMineOnly]   = useState(false);
 
   const filtered = useMemo(() => ITEMS.filter(item => {
-    const catMatch  = category === "all"   || item.category === category;
+    const catMatch  = category === "all" || item.categories.includes(category as string);
     const typeMatch = typeFilter === "all" || item.type === typeFilter;
     const mineMatch = !mineOnly || item.isMine;
     const q = search.toLowerCase();
@@ -809,11 +737,8 @@ export default function LibraryPage() {
     return catMatch && typeMatch && mineMatch && textMatch;
   }).sort((a, b) => b.id - a.id), [category, typeFilter, mineOnly, search]);
 
-  const counts = {
-    all: ITEMS.length,
-    professional:  ITEMS.filter(i => i.category === "professional").length,
-    inspirational: ITEMS.filter(i => i.category === "inspirational").length,
-  };
+  const counts: Record<string, number> = { all: ITEMS.length };
+  CATEGORIES.forEach((c) => { counts[c] = ITEMS.filter(i => i.categories.includes(c)).length; });
 
   return (
     <>
@@ -827,14 +752,14 @@ export default function LibraryPage() {
           הספרייה
         </h1>
         <p style={{ fontSize:"17px", color:"var(--charcoal-soft)", maxWidth:"600px", margin:"0 auto 40px", lineHeight:1.82, fontFamily:"var(--font-hebrew)" }}>
-          שירים ומאמרים שלי והשראה מאחרים — לפעמים אפשר ללמוד באמצעות ידע, ולפעמים צריך להרגיש את זה.
+          שירים ומאמרים מאת מאיה פלטי — לפעמים אפשר ללמוד באמצעות ידע, ולפעמים צריך להרגיש את זה.
         </p>
 
         <div style={{ display:"flex", justifyContent:"center", gap:"12px", flexWrap:"wrap" }}>
           {[
-            { n: ITEMS.filter(i=>i.isMine).length, label:"יצירות מאיה פלטי", color:"var(--terra)" },
-            { n: counts.inspirational,              label:"יצירות השראה",       color:"var(--sage-dark)" },
-            { n: counts.professional,               label:"מקורות מקצועיים",    color:"var(--charcoal)" },
+            { n: ITEMS.length, label:"סה״כ תכנים", color:"var(--terra)" },
+            { n: ITEMS.filter(i=>i.type==="article").length, label:"מאמרים", color:"var(--sage-dark)" },
+            { n: ITEMS.filter(i=>i.type==="poem").length, label:"שירה", color:"var(--charcoal)" },
           ].map(({ n, label, color }) => (
             <div key={label} style={{ background:"rgba(255,255,255,0.7)", border:"1px solid var(--border)", borderRadius:"var(--radius-pill)", padding:"8px 20px", display:"flex", gap:"8px", alignItems:"center", backdropFilter:"blur(8px)" }}>
               <span style={{ fontFamily:"var(--font-serif)", fontSize:"22px", fontWeight:600, color, lineHeight:1 }}>{n}</span>
@@ -867,23 +792,6 @@ export default function LibraryPage() {
                 </span>
               </button>
             ))}
-
-            {/* Maya's content tab */}
-            <button onClick={() => { setMineOnly(true); setCategory("all"); setTypeFilter("all"); }} style={{
-              display:"flex", alignItems:"center", gap:"7px", padding:"16px 20px",
-              background:"none", border:"none", cursor:"pointer",
-              fontFamily:"var(--font-hebrew)", fontSize:"14px",
-              fontWeight: mineOnly ? 700 : 400,
-              color: mineOnly ? "var(--sage-dark)" : "var(--charcoal-soft)",
-              borderBottom: mineOnly ? "2.5px solid var(--sage)" : "2.5px solid transparent",
-              marginBottom:"-1px", transition:"all 200ms ease", whiteSpace:"nowrap",
-            }}>
-              <SiteIcon name="star" size={14} />
-              <span>מאיה פלטי</span>
-              <span style={{ background: mineOnly ? "var(--sage-faint)" : "var(--linen)", color: mineOnly ? "var(--sage-dark)" : "var(--charcoal-muted)", fontSize:"11px", fontWeight:700, padding:"2px 8px", borderRadius:"var(--radius-pill)" }}>
-                {ITEMS.filter(i=>i.isMine).length}
-              </span>
-            </button>
 
             <div style={{ flex:1 }} />
 

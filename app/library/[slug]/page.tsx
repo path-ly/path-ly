@@ -64,7 +64,7 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
     mainEntityOfPage: `https://www.path-ly.com/library/${article.slug}`,
     inLanguage: "he-IL",
     keywords: article.seoKeywords.join(", "),
-    about: article.mainCategory,
+    about: article.categories.join(", "),
     isPartOf: {
       "@type": "CreativeWork",
       name: "הספרייה",
@@ -125,7 +125,7 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
               marginBottom: "20px",
             }}
           >
-            <SiteIcon name={article.icon ?? "clock"} size={14} /> {article.mainCategory}
+            <SiteIcon name={article.icon ?? "clock"} size={14} /> {article.categories[0]}
           </span>
 
           <h1

@@ -23,7 +23,7 @@ export interface LibraryArticle {
   seoDescription: string;
   seoKeywords: string[];
   /** Maya's content taxonomy */
-  mainCategory: string;
+  categories: string[];
   subcategories: string[];
   tags: string[];
   /** Alt text for the main image, ready for whenever a hero image is added */
@@ -63,7 +63,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "ויסות רגשי ילדים",
       "שינה ומתבגרים",
     ],
-    mainCategory: "ויסות רגשי וחוסן",
+    categories: ["ויסות רגשי וחוסן", "התפתחות ילדים, יצירת הרגלים ושגרות"],
     subcategories: ["הרגלים ושגרות", "פחדים וחרדה", "גבולות", "קשר הורה־ילד"],
     tags: [
       "שינה אצל ילדים",
@@ -192,7 +192,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "למידה חברתית",
       "קשר הורה ילד",
     ],
-    mainCategory: "מודלינג וויסות משותף",
+    categories: ["הורות מודעת, טיפוח קשר ויחסים במשפחה"],
     subcategories: ["למידה תצפיתית", "ויסות רגשי משותף", "חמלה עצמית הורית", "תיקון ואחריות הורית"],
     tags: [
       "נוירוני מראה בהורות",
@@ -303,7 +303,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "חמלה הורית",
       "ויסות רגשי",
     ],
-    mainCategory: "קשר הורה־ילד",
+    categories: ["הורות מודעת, טיפוח קשר ויחסים במשפחה"],
     subcategories: ["ויסות רגשי", "התפתחות", "תקשורת במשפחה", "הורות יומיומית"],
     tags: [
       "5 שפות האהבה",
@@ -404,7 +404,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "חמלה הורית",
       "קשר הורה ילד",
     ],
-    mainCategory: "חומר מקצועי",
+    categories: ["התפתחות ילדים, יצירת הרגלים ושגרות", "לקויות למידה וקשב ועיכוב התפתחותי"],
     subcategories: ["ויסות רגשי", "קשר הורה־ילד", "התאמה התפתחותית", "טמפרמנט"],
     tags: [
       "ילדי סחלב",
@@ -506,7 +506,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "שיתוף פעולה עם ילדים",
       "ארגז הכלים ההורי",
     ],
-    mainCategory: "ויסות רגשי וחוסן",
+    categories: ["ויסות רגשי וחוסן", "הורות מודעת, טיפוח קשר ויחסים במשפחה"],
     subcategories: ["גבולות", "כעס אצל ילדים", "חרדה אצל ילדים", "שיתוף פעולה"],
     tags: [
       "החצנת הבעיה",
@@ -609,7 +609,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "ילדים ואוכל",
       "הדרכת הורים ואכילה",
     ],
-    mainCategory: "אכילה והרגלי תזונה",
+    categories: ["התפתחות ילדים, יצירת הרגלים ושגרות"],
     subcategories: ["רגישות חושית", "גבולות", "התאמה התפתחותית", "ויסות רגשי"],
     tags: [
       "בררנות באוכל אצל ילדים",
@@ -714,7 +714,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "ויסות רגשי",
       "מאבקי כוח",
     ],
-    mainCategory: "התפתחות וגמילה",
+    categories: ["התפתחות ילדים, יצירת הרגלים ושגרות"],
     subcategories: ["גמילה משירותים", "בושה וביקורת עצמית", "מאבקי כוח", "ויסות רגשי"],
     tags: [
       "עצירות ילדים",
@@ -813,7 +813,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "תקשורת עם ילדים",
       "הדרכת הורים",
     ],
-    mainCategory: "ארגז הכלים ההורי",
+    categories: ["הורות מודעת, טיפוח קשר ויחסים במשפחה"],
     subcategories: ["תקשורת במשפחה", "ויסות הורי", "גבולות וסמכות", "תהליכי שינוי"],
     tags: [
       "מחויבות הורית",
@@ -967,7 +967,7 @@ export const LIBRARY_ARTICLES: LibraryArticle[] = [
       "ויסות הורי",
       "מודלינג הורי",
     ],
-    mainCategory: "ארגז הכלים ההורי",
+    categories: ["הורות מודעת, טיפוח קשר ויחסים במשפחה"],
     subcategories: [
       "הורות מודעת",
       "יחסים במשפחה",

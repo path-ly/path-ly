@@ -468,7 +468,7 @@ export default function Home() {
                   <span style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", width:"44px", height:"44px", borderRadius:"12px", background:"var(--sage-faint)", color:"var(--sage-dark)", flexShrink:0 }}>
                     <SiteIcon name={a.icon || "book"} size={22} />
                   </span>
-                  <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:600, color:"var(--sage-dark)", background:"var(--sage-faint)", padding:"4px 12px", borderRadius:"var(--radius-pill)" }}>{a.mainCategory}</span>
+                  <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:600, color:"var(--sage-dark)", background:"var(--sage-faint)", padding:"4px 12px", borderRadius:"var(--radius-pill)" }}>{a.categories[0]}</span>
                 </div>
                 <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"20px", fontWeight:600, color:"var(--charcoal)", margin:0, lineHeight:1.4 }}>{a.title}</h3>
                 <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-soft)", lineHeight:1.75, margin:0, display:"-webkit-box", WebkitLineClamp:3, WebkitBoxOrient:"vertical", overflow:"hidden" }}>{a.kicker}</p>
