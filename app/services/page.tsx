@@ -30,20 +30,31 @@ export default function ServicesPage() {
 
             {/* Pricing badge */}
             <div style={{ textAlign:"center", marginBottom:"40px" }}>
-              <div style={{ display:"inline-flex", alignItems:"center", gap:"12px", background:"var(--terra-faint)", border:"1px solid rgba(196,114,122,0.25)", borderRadius:"var(--radius-card)", padding:"18px 32px" }}>
-                <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>₪354</span>
-                <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)" }}>/</span>
-                <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>$115</span>
-                <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", marginRight:"8px" }}>לפגישה</span>
+              <div style={{ display:"flex", flexWrap:"wrap", alignItems:"stretch", justifyContent:"center", gap:"16px" }}>
+                <div style={{ background:"var(--terra-faint)", border:"1px solid rgba(196,114,122,0.25)", borderRadius:"var(--radius-card)", padding:"18px 28px", minWidth:"230px" }}>
+                  <div style={{ display:"flex", alignItems:"baseline", justifyContent:"center", gap:"8px" }}>
+                    <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>₪400</span>
+                    <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)" }}>לפגישה</span>
+                  </div>
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"12.5px", color:"var(--charcoal-muted)", marginTop:"8px", lineHeight:1.6 }}>
+                    מוכר עבור מרבית ביטוחי הבריאות הפרטיים
+                  </p>
+                </div>
+                <div style={{ background:"var(--terra-faint)", border:"1px solid rgba(196,114,122,0.25)", borderRadius:"var(--radius-card)", padding:"18px 28px", minWidth:"230px" }}>
+                  <div style={{ display:"flex", alignItems:"baseline", justifyContent:"center", gap:"8px" }}>
+                    <span style={{ fontFamily:"var(--font-serif)", fontSize:"28px", fontWeight:600, color:"var(--terra-dark)" }}>$130</span>
+                    <span style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)" }}>לפגישה</span>
+                  </div>
+                  <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"12.5px", color:"var(--charcoal-muted)", marginTop:"8px", lineHeight:1.6 }}>
+                    אפשרות לסבסוד ביטוחי לעובדי מדינת ישראל ועובדי אלעל המתגוררים בארה"ב
+                  </p>
+                </div>
               </div>
-              <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginTop:"10px" }}>
+              <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginTop:"14px" }}>
                 מחיר בש״ח לתושבי ישראל · מחיר בדולר לתושבי ארה״ב
               </p>
               <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--charcoal-muted)", marginTop:"6px" }}>
                 פגישת ייעוץ ראשונה — 15 דקות, חינם, ללא התחייבות
-              </p>
-              <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color:"var(--terra-dark)", fontWeight:600, marginTop:"14px" }}>
-                החל מ-1 בספטמבר 2026 מחיר שעת הדרכה יעלה ל-₪400 / $130
               </p>
             </div>
 
@@ -164,7 +175,7 @@ export default function ServicesPage() {
             },
             {
               q:"כמה עולה פגישה?",
-              a:"פגישה בודדת (זום או פרונטלית) עולה ₪354 / $115. סדנה קבוצתית של 12 מפגשים — ₪1,200 / $400 לזוג. פגישת ייעוץ ראשונה (15 דקות) ללא עלות. החל מ-1 בספטמבר 2026 מחיר שעת הדרכה יעלה ל-₪400 / $130.",
+              a:"פגישה בודדת (זום או פרונטלית) עולה ₪400 / $130. סדנה קבוצתית של 12 מפגשים — ₪1,200 / $400 לזוג. פגישת ייעוץ ראשונה (15 דקות) ללא עלות.",
             },
             {
               q:"האם ניתן לקיים תהליך משמעותי גם מרחוק?",

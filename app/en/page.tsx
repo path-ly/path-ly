@@ -709,7 +709,7 @@ export default function EnglishLandingPage() {
                   color: "#9E4F58",
                 }}
               >
-                $115
+                $130
               </span>
               <span style={{ fontSize: "14px", color: "#6B6B64" }}>
                 per session (50 min)
@@ -726,6 +726,17 @@ export default function EnglishLandingPage() {
                 First consultation is free
               </span>
             </div>
+            <p
+              style={{
+                fontSize: "12.5px",
+                color: "#6B6B64",
+                marginTop: "14px",
+                lineHeight: 1.6,
+                direction: "rtl",
+              }}
+            >
+              אפשרות לסבסוד ביטוחי לעובדי מדינת ישראל ועובדי אלעל המתגוררים בארה"ב
+            </p>
           </div>
         </div>
       </section>
