@@ -1,8 +1,9 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import SiteIcon from "@/components/SiteIcon";
 
 const navLinks = [
   { href: "/",         label: "בית" },
@@ -13,6 +14,77 @@ const navLinks = [
   { href: "/library",  label: "הספרייה" },
   { href: "/contact",  label: "צרו קשר" },
 ];
+
+const WA_FREE_CONSULT = "https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99";
+const CALENDLY_FULL_SESSION = "https://calendly.com/maya_palty/50min";
+
+const BOOKING_OPTIONS = [
+  { href: WA_FREE_CONSULT,       icon: "phone",    title: "ייעוץ ראשוני חינם", sub: "15 דקות · בוואטסאפ" },
+  { href: CALENDLY_FULL_SESSION, icon: "calendar", title: "פגישת הדרכה מלאה",  sub: "קביעה ישירה ביומן" },
+];
+
+/* Desktop "קביעת פגישה" button — opens two options:
+   free 15-min consult via WhatsApp, or a full session booked directly in Calendly. */
+function BookingMenu() {
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const btnRef  = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { setOpen(false); btnRef.current?.focus(); }
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <div ref={wrapRef} style={{ position: "relative", marginRight: "10px" }}>
+      <button
+        ref={btnRef}
+        type="button"
+        className="btn-rose"
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-controls="booking-options"
+        onClick={() => setOpen(o => !o)}
+        style={{ padding: "9px 20px", fontSize: "13.5px", gap: "6px" }}
+      >
+        קביעת פגישה
+        <SiteIcon name={open ? "chevron-up" : "chevron-down"} size={14} />
+      </button>
+      {open && (
+        <div id="booking-options" style={{
+          position: "absolute", top: "calc(100% + 8px)", left: 0, width: "260px",
+          background: "var(--paper)", border: "1px solid var(--border)", borderRadius: "16px",
+          boxShadow: "0 12px 32px rgba(45,45,45,0.14)", padding: "8px", zIndex: 10,
+        }}>
+          {BOOKING_OPTIONS.map(o => (
+            <a key={o.href} href={o.href} target="_blank" rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              style={{ display: "flex", alignItems: "flex-start", gap: "12px", padding: "12px 14px", borderRadius: "12px", textDecoration: "none", color: "var(--charcoal)", transition: "background 200ms ease" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--sage-faint)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
+              <span style={{ display: "inline-flex", color: "var(--terra-dark)", marginTop: "2px" }}><SiteIcon name={o.icon} size={18} /></span>
+              <span style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                <span style={{ fontFamily: "var(--font-hebrew)", fontSize: "14.5px", fontWeight: 600 }}>{o.title}</span>
+                <span style={{ fontFamily: "var(--font-hebrew)", fontSize: "12.5px", color: "var(--charcoal-muted)" }}>{o.sub}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [scrolled,  setScrolled]  = useState(false);
@@ -70,9 +142,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose" style={{ marginRight: "10px", padding: "9px 20px", fontSize: "13.5px" }}>
-            קביעת פגישה
-          </a>
+          <BookingMenu />
           <Link href="/en" className="btn-outline" style={{ padding: "9px 18px", fontSize: "13px", letterSpacing: "0.02em" }}>
             For English
           </Link>
@@ -96,10 +166,15 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-rose" onClick={() => setMenuOpen(false)} style={{ marginTop: "20px", display: "inline-flex" }}>
-            קביעת פגישה
-          </a>
-          <Link href="/en" onClick={() => setMenuOpen(false)} className="btn-outline" style={{ marginTop: "10px", marginRight: "10px", display: "inline-flex", fontSize: "14px" }}>
+          <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "10px" }}>
+            <a href={WA_FREE_CONSULT} target="_blank" rel="noopener noreferrer" className="btn-rose" onClick={() => setMenuOpen(false)}>
+              <SiteIcon name="phone" size={16} /> ייעוץ ראשוני חינם · 15 דק׳ בוואטסאפ
+            </a>
+            <a href={CALENDLY_FULL_SESSION} target="_blank" rel="noopener noreferrer" className="btn-outline" onClick={() => setMenuOpen(false)} style={{ fontSize: "14px", padding: "10px 22px" }}>
+              <SiteIcon name="calendar" size={16} /> קביעת פגישת הדרכה מלאה
+            </a>
+          </div>
+          <Link href="/en" onClick={() => setMenuOpen(false)} className="btn-outline" style={{ marginTop: "10px", display: "inline-flex", fontSize: "14px" }}>
             For English
           </Link>
         </div>
