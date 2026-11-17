@@ -255,8 +255,8 @@ export default function ModelPage() {
         <p style={{ fontSize:"17px", color:"rgba(249,247,242,0.82)", marginBottom:"36px", fontFamily:"var(--font-hebrew)" }}>
           פגישת ייעוץ ראשונה — 15 דקות, חינם, ללא התחייבות.
         </p>
-        <a href="https://calendly.com/maya-palty" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ display:"inline-flex", alignItems:"center", gap:"6px" }}>
-          <SiteIcon name="calendar" size={16} /> לקביעת פגישה
+        <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ display:"inline-flex", alignItems:"center", gap:"6px" }}>
+          <SiteIcon name="phone" size={16} /> לשיחת ייעוץ ראשונה בוואטסאפ
         </a>
       </section>
     </>

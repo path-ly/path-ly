@@ -133,7 +133,7 @@ export default function AboutPage() {
               <div style={{ background: "var(--linen)", borderRadius: "14px", padding: "22px 26px", marginBottom: "20px" }}>
                 <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", fontWeight: 700, color: "var(--charcoal)", marginBottom: "12px" }}>בין התפקידים שמילאתי:</p>
                 {[
-                  "פסיכולוגית בכירה ומדריכת הורים בשירותים פסיכולוגים שונים ברחבי הארץ ובמיוחד בדרום ובעוטף עזה",
+                  "פסיכולוגית בכירה ומדריכת הורים בשירותים פסיכולוגיים שונים ברחבי הארץ ובמיוחד בדרום ובעוטף עזה",
                   "ניהול והטמעה של ״מלקות ללמידה״ בשדרות",
                   "פסיכולוגית מערכתית של החינוך החברתי ומערכות הגיל הרך בחלק מקיבוצי העוטף",
                   "רכזת עירונית לתחום חינוך מיוחד וועדות זכאות ואפיון מטעם השירות הפסיכולוגי באילת",
@@ -193,7 +193,7 @@ export default function AboutPage() {
                     background: "var(--sage-faint)", borderRadius: "14px", padding: "18px 20px",
                     border: "1px solid rgba(42,122,110,0.15)", display: "flex", gap: "10px", alignItems: "flex-start",
                   }}>
-                    <span style={{ fontSize: "18px", flexShrink: 0 }}>{icon}</span>
+                    <span style={{ flexShrink: 0, display: "inline-flex", marginTop: "3px", color: "var(--sage-dark)" }}><SiteIcon name={icon} size={18} /></span>
                     <div>
                       <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.7, margin: 0, fontWeight: 600 }}>
                         {text}
@@ -294,7 +294,7 @@ export default function AboutPage() {
               </p>
 
               <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-muted)", lineHeight: 1.85, margin: "0 0 20px" }}>
-                להיות הורה זה אתגר יומיומי מורכב מאוד ולרב מלווה בתחושות קשות של אשמה, פספוס, בלבול או בושה, אבל בכלים פשוטים ניתן לבסס הורות מיטיבה שמדייקת את עצמה ומתפתחת עם הילד וזה התיקון הכי משמעותי שנעשה עבור הנחת שלנו ועבור עתיד ילדנו.
+                להיות הורה זה אתגר יומיומי מורכב מאוד ולרוב מלווה בתחושות קשות של אשמה, פספוס, בלבול או בושה, אבל בכלים פשוטים ניתן לבסס הורות מיטיבה שמדייקת את עצמה ומתפתחת עם הילד וזה התיקון הכי משמעותי שנעשה עבור הנחת שלנו ועבור עתיד ילדינו.
               </p>
 
               <div style={{
@@ -424,8 +424,8 @@ export default function AboutPage() {
         <p style={{ fontSize: "16px", color: "rgba(249,247,242,0.82)", marginBottom: "32px", fontFamily: "var(--font-hebrew)" }}>
           שיחת ייעוץ ראשונה — 15 דקות, חינם, ללא התחייבות.
         </p>
-        <a href="https://calendly.com/maya_palty/50min" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ display: "inline-block" }}>
-          <><SiteIcon name="calendar" size={14} /> לקביעת פגישה</>
+        <a href="https://wa.me/972523930681?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%94%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%99" target="_blank" rel="noopener noreferrer" className="btn-terra" style={{ display: "inline-block" }}>
+          <><SiteIcon name="phone" size={14} /> לשיחת ייעוץ ראשונה בוואטסאפ</>
         </a>
       </section>
     </>
