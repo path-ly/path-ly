@@ -275,6 +275,14 @@ const MANUAL_ITEMS: LibraryItem[] = [
     youtubeId:"nVgtLKxzRGk",
     link:"/library/picky-eating-children", linkLabel:"למאמר: בררנות באוכל",
   },
+  {
+    id:21, type:"video" as ContentType, categories:["הורות מודעת, טיפוח קשר ויחסים במשפחה"],
+    title:"איך לייצר קרבה עם מתבגרים ב-4 שלבים פשוטים", creator:"מאיה פלטי",
+    tag:"מתבגרים", emoji:"video",
+    excerpt:"לזכור את המטרה, להקשיב הקשבה פעילה, לשיים ולתקף רגשות, ולשאול לפני שמציעים עצה — כדי שהמתבגר ימשיך לפנות אליכם.",
+    accentColor:"terra", isMine:true,
+    youtubeId:"u-NbsBlQRZ4",
+  },
 ];
 
 const ARTICLE_ITEMS: LibraryItem[] = LIBRARY_ARTICLES.map((a, idx) => ({
