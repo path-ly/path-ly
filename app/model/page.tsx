@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import SiteIcon, { CircledNumber } from "@/components/SiteIcon";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 import { TOOLS } from "@/lib/tools-data";
+import YouTubeShort from "@/components/YouTubeShort";
 
 function ToolIconEl({ icon, size = 28 }: { icon: string; size?: number }) {
   if (icon === "eye")   return <EyeInEyeIcon size={size} />;
@@ -44,6 +45,10 @@ export default function ModelPage() {
         </p>
         <p style={{ fontSize:"14px", color:"var(--charcoal-muted)", fontFamily:"var(--font-hebrew)", marginBottom:"32px" }}>מאיה פלטי · פסיכולוגית חינוכית מומחית</p>
         <div className="divider-accent-center" />
+        <div style={{ marginTop:"32px" }}>
+          <YouTubeShort id="5-nvf7FqUec" title="ארגז הכלים ההורי: 10 כלים להורות חומלת ומדויקת" maxWidth={300} />
+          <p style={{ fontSize:"13px", color:"var(--charcoal-muted)", fontFamily:"var(--font-hebrew)", margin:"10px 0 0" }}>מאיה מציגה את ארגז הכלים · דקה</p>
+        </div>
       </section>
 
       {/* 10 Tools */}
@@ -53,7 +58,7 @@ export default function ModelPage() {
             לחצו על כל כלי לפירוט מלא, מחקר תומך וקישורים רלוונטיים
           </p>
 
-          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, poem, poemLink, video, videoLabel, videos, research }) => (
+          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, poem, poemLink, video, videoLabel, videos, mayaVideo, research }) => (
             <div key={num} id={`tool-${num}`} style={{ marginBottom:"12px" }}>
               <button
                 onClick={() => setOpenTool(openTool === num ? null : num)}
@@ -147,6 +152,16 @@ export default function ModelPage() {
                       )}
                     </div>
                   </div>
+
+                  {/* Maya's own video */}
+                  {mayaVideo && (
+                    <div style={{ marginBottom:"16px" }}>
+                      <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:600, color:"var(--charcoal)", marginBottom:"10px", display:"flex", alignItems:"center", gap:"6px" }}>
+                        <SiteIcon name="video" size={16} /> סרטון של מאיה: {mayaVideo.title}
+                      </p>
+                      <YouTubeShort id={mayaVideo.id} title={mayaVideo.title} maxWidth={260} />
+                    </div>
+                  )}
 
                   {/* Research + Video */}
                   <div className="grid-research">

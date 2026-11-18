@@ -14,6 +14,8 @@ export interface Tool {
   video: string;
   videoLabel: string;
   videos: { url: string; label: string }[];
+  /** Maya's own video (YouTube id), embedded on the tool card and tool page */
+  mayaVideo?: { id: string; title: string };
   research: string;
   /** SEO-focused fields */
   seoTitle: string;
@@ -190,6 +192,7 @@ export const TOOLS: Tool[] = [
     challenge: "שיתוף פעולה אמיתי דורש ויתור על ׳לנצח׳. להורים שגדלו בסביבה שבה סמכות = ציות, זה עלול להרגיש כמו חולשה. זה לא. זה הבשלה.",
     video: "https://www.youtube.com/watch?v=zuoPZkFcLVs",
     videoLabel: "Ross Greene — Kids Do Well If They Can",
+    mayaVideo: { id: "HRISSk_DHCo", title: "איך מחזיקים גבול בלי מאבק כוח?" },
     videos: [
       { url: "https://vt.tiktok.com/ZSu9K7Mu2/", label: "טיקטוק — משחקיות בהורות" },
       { url: "https://vt.tiktok.com/ZSu9EW4sU/", label: "טיקטוק — הורות סמכותית" },

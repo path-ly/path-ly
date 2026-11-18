@@ -1,6 +1,7 @@
 "use client";
 import { useState, useMemo } from "react";
 import SiteIcon from "@/components/SiteIcon";
+import YouTubeShort from "@/components/YouTubeShort";
 import { LIBRARY_ARTICLES } from "@/lib/library-articles";
 
 const CATEGORIES = [
@@ -28,6 +29,8 @@ interface LibraryItem {
   fullContent?: string;
   link?: string;
   linkLabel?: string;
+  /** Maya's YouTube video — shown as an in-card player */
+  youtubeId?: string;
 }
 
 const MANUAL_ITEMS: LibraryItem[] = [
@@ -253,6 +256,24 @@ const MANUAL_ITEMS: LibraryItem[] = [
     excerpt:"אוסף כל הסרטונים הרלוונטיים ל-10 הכלים בארגז הכלים ההורי — טיקטוק, יוטיוב ועוד.",
     accentColor:"terra", featured:true, isMine:true,
     link:"/model",
+  },
+  {
+    id:19, type:"video" as ContentType, categories:["סמכות, גבולות ויצירת שיתוף פעולה"],
+    title:"איך מחזיקים גבול בלי מאבק כוח?", creator:"מאיה פלטי",
+    tag:"גבולות", emoji:"video",
+    excerpt:"איך מכינים את הילד למעבר, אומרים את הבקשה בטון רגוע וברור, ונותנים בחירה בתוך הגבול — בלי נאום ובלי חמש תזכורות.",
+    accentColor:"terra", isMine:true,
+    youtubeId:"HRISSk_DHCo",
+    link:"/model#tool-07", linkLabel:"לכלי בארגז הכלים",
+  },
+  {
+    id:20, type:"video" as ContentType, categories:["התפתחות ילדים, יצירת הרגלים ושגרות"],
+    title:"איך לעודד הרגלי אכילה בריאים אצל ילדים", creator:"מאיה פלטי",
+    tag:"הרגלי אכילה", emoji:"video",
+    excerpt:"טיפים מעשיים להורים לעידוד אכילה בריאה ומגוונת: ארוחות משפחתיות, הכנסת הילדים למטבח ועוד.",
+    accentColor:"sage", isMine:true,
+    youtubeId:"nVgtLKxzRGk",
+    link:"/library/picky-eating-children", linkLabel:"למאמר: בררנות באוכל",
   },
 ];
 
@@ -665,6 +686,12 @@ function LibraryCard({ item }: { item: LibraryItem }) {
         <h3 style={{ fontFamily:"var(--font-serif)", fontSize:"19px", fontWeight:600, color:"var(--charcoal)", lineHeight:1.25, margin:0 }}>{item.title}</h3>
         <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"13px", color: isSage ? "var(--sage-dark)" : "var(--terra-dark)", fontWeight:600, margin:0 }}>— {item.creator}</p>
         <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", color:"var(--charcoal-muted)", lineHeight:1.75, margin:0, flex:1 }}>{item.excerpt}</p>
+
+        {item.youtubeId && (
+          <div style={{ marginTop:"6px" }}>
+            <YouTubeShort id={item.youtubeId} title={item.title} maxWidth={220} />
+          </div>
+        )}
 
         {/* Expanded content */}
         {expanded && item.fullContent && (

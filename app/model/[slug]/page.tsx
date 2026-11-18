@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { TOOLS, getToolBySlug, getToolsBySlug } from "@/lib/tools-data";
 import SiteIcon from "@/components/SiteIcon";
+import YouTubeShort from "@/components/YouTubeShort";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 
 // Generate static params for all tool slugs
@@ -414,6 +415,16 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                   </a>
                 </p>
               )}
+            </div>
+          )}
+
+          {/* Maya's own video */}
+          {tool.mayaVideo && (
+            <div style={{ background: "#FFFFFF", borderRadius: "16px", padding: "32px", marginBottom: "32px", border: "1px solid var(--border)" }}>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", fontWeight: 700, color: "var(--charcoal)", margin: "0 0 18px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <SiteIcon name="video" size={18} /> סרטון של מאיה: {tool.mayaVideo.title}
+              </p>
+              <YouTubeShort id={tool.mayaVideo.id} title={tool.mayaVideo.title} maxWidth={300} />
             </div>
           )}
 
