@@ -13,7 +13,7 @@ const TOOLS = [
   { num: "04", title: "Modeling", desc: "Kids learn from what we do" },
   { num: "05", title: "Developmental Fit", desc: "See your child at their eye level" },
   { num: "06", title: "Positive Prophecy", desc: "Focus on the good to help it grow" },
-  { num: "07", title: "Cooperation", desc: "From power struggles to shared agreements" },
+  { num: "07", title: "Cooperation", desc: "From power struggles to cooperation" },
   { num: "08", title: "Emotional Resilience", desc: "Growing through crisis, together" },
   { num: "09", title: "Magic Time", desc: "Presence that builds trust and safety" },
   { num: "10", title: "Growth from Strengths", desc: "Recognize and build on what's already there" },

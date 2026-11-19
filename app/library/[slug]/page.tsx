@@ -247,9 +247,8 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
                   lineHeight: 1.9,
                   margin: i === article.intro.length - 1 ? 0 : "0 0 16px",
                 }}
-              >
-                {p}
-              </p>
+                dangerouslySetInnerHTML={{ __html: p }}
+              />
             ))}
           </div>
 
@@ -413,9 +412,7 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
                 >
                   {i + 1}
                 </span>
-                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.8, margin: 0 }}>
-                  {q}
-                </p>
+                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.8, margin: 0 }} dangerouslySetInnerHTML={{ __html: q }} />
               </div>
             ))}
           </div>
@@ -454,9 +451,8 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
                   lineHeight: 1.9,
                   margin: i === article.summary.length - 1 ? 0 : "0 0 14px",
                 }}
-              >
-                {p}
-              </p>
+                dangerouslySetInnerHTML={{ __html: p }}
+              />
             ))}
           </div>
 
@@ -467,7 +463,7 @@ export default async function LibraryArticlePage({ params }: { params: Promise<{
           >
             <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "22px", color: "var(--charcoal)", marginBottom: "16px", fontWeight: 500 }}>מקורות</h2>
             {article.bibliography.map((ref, i) => (
-              <p key={i} style={{ fontFamily: "var(--font-hebrew)", fontSize: "13.5px", color: "var(--charcoal-muted)", lineHeight: 1.8, margin: "0 0 12px", direction: "rtl" }}>{ref}</p>
+              <p key={i} style={{ fontFamily: "var(--font-hebrew)", fontSize: "13.5px", color: "var(--charcoal-muted)", lineHeight: 1.8, margin: "0 0 12px", direction: /[\u0590-\u05FF]/.test(ref) ? "rtl" : "ltr", unicodeBidi: "plaintext" }}>{ref}</p>
             ))}
           </div>
           )}

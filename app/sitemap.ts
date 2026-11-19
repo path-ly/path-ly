@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { TOOLS } from "@/lib/tools-data";
+import { LIBRARY_ARTICLES } from "@/lib/library-articles";
 
 const BASE_URL = "https://www.path-ly.com";
 
@@ -68,5 +69,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...toolPages];
+  const articlePages: MetadataRoute.Sitemap = LIBRARY_ARTICLES.map((article) => ({
+    url: `${BASE_URL}/library/${article.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...toolPages, ...articlePages];
 }

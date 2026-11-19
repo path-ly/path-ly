@@ -6,6 +6,12 @@ import SiteIcon, { CircledNumber } from "@/components/SiteIcon";
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 import { TOOLS } from "@/lib/tools-data";
 import YouTubeShort from "@/components/YouTubeShort";
+import { LIBRARY_ARTICLES } from "@/lib/library-articles";
+
+/** Library article titles by slug (short form: text before the first colon) */
+const ARTICLE_TITLES: Record<string, string> = Object.fromEntries(
+  LIBRARY_ARTICLES.map((a) => [a.slug, a.title.split(":")[0].trim()])
+);
 
 function ToolIconEl({ icon, size = 28 }: { icon: string; size?: number }) {
   if (icon === "eye")   return <EyeInEyeIcon size={size} />;
@@ -58,7 +64,7 @@ export default function ModelPage() {
             לחצו על כל כלי לפירוט מלא, מחקר תומך וקישורים רלוונטיים
           </p>
 
-          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, poem, poemLink, video, videoLabel, videos, mayaVideo, research }) => (
+          {TOOLS.map(({ num, icon, slug, title, accent, short, desc, tips, example, challenge, poem, poemLink, video, videoLabel, videos, mayaVideo, relatedArticles, research }) => (
             <div key={num} id={`tool-${num}`} style={{ marginBottom:"12px" }}>
               <button
                 onClick={() => setOpenTool(openTool === num ? null : num)}
@@ -192,6 +198,22 @@ export default function ModelPage() {
                             style={{ display:"inline-flex", alignItems:"center", gap:"6px", background:"rgba(255,255,255,0.7)", color: accent ? "var(--terra-dark)" : "var(--sage-dark)", padding:"8px 14px", borderRadius:"10px", textDecoration:"none", fontFamily:"var(--font-hebrew)", fontSize:"12px", fontWeight:500, border:`1px solid ${accent ? "rgba(196,114,122,0.2)" : "rgba(42,122,110,0.15)"}`, transition:"all 180ms ease" }}>
                             {v.url.includes("tiktok") ? <SiteIcon name="smartphone" size={12} /> : v.url.includes("youtube") || v.url.includes("youtu.be") ? <SiteIcon name="play" size={12} /> : <SiteIcon name="video" size={12} />} {v.label}
                           </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {/* Related library articles */}
+                  {relatedArticles && relatedArticles.some(s => ARTICLE_TITLES[s]) && (
+                    <div style={{ marginTop:"16px" }}>
+                      <p style={{ fontFamily:"var(--font-hebrew)", fontSize:"14px", fontWeight:600, color:"var(--charcoal)", marginBottom:"10px", display:"flex", alignItems:"center", gap:"6px" }}>
+                        <SiteIcon name="book" size={16} /> לקריאה בספרייה
+                      </p>
+                      <div style={{ display:"flex", flexWrap:"wrap", gap:"8px" }}>
+                        {relatedArticles.filter(s => ARTICLE_TITLES[s]).map(s => (
+                          <Link key={s} href={`/library/${s}`}
+                            style={{ display:"inline-flex", alignItems:"center", gap:"6px", background:"rgba(255,255,255,0.7)", color: accent ? "var(--terra-dark)" : "var(--sage-dark)", padding:"8px 14px", borderRadius:"10px", textDecoration:"none", fontFamily:"var(--font-hebrew)", fontSize:"13px", fontWeight:600, border:"1px solid var(--border)" }}>
+                            <SiteIcon name="book" size={12} /> {ARTICLE_TITLES[s]}
+                          </Link>
                         ))}
                       </div>
                     </div>

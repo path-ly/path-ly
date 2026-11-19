@@ -4,6 +4,12 @@ import Link from "next/link";
 import { TOOLS, getToolBySlug, getToolsBySlug } from "@/lib/tools-data";
 import SiteIcon from "@/components/SiteIcon";
 import YouTubeShort from "@/components/YouTubeShort";
+import { LIBRARY_ARTICLES } from "@/lib/library-articles";
+
+/** Library article titles by slug (short form: text before the first colon) */
+const ARTICLE_TITLES: Record<string, string> = Object.fromEntries(
+  LIBRARY_ARTICLES.map((a) => [a.slug, a.title.split(":")[0].trim()])
+);
 import { EyeInEyeIcon, GrowthRulerIcon, FocusGoodIcon, CooperationIcon, PlantFromRockIcon } from "@/components/ToolIcons";
 
 // Generate static params for all tool slugs
@@ -531,6 +537,22 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               </div>
             )}
           </div>
+
+          {/* Related library articles */}
+          {tool.relatedArticles && tool.relatedArticles.some((s) => ARTICLE_TITLES[s]) && (
+            <div style={{ background: "#FFFFFF", borderRadius: "16px", padding: "28px 32px", marginBottom: "32px", border: "1px solid var(--border)" }}>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", fontWeight: 700, color: "var(--charcoal)", margin: "0 0 14px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <SiteIcon name="book" size={18} /> לקריאה בספרייה
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+                {tool.relatedArticles.filter((s) => ARTICLE_TITLES[s]).map((s) => (
+                  <Link key={s} href={`/library/${s}`} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "var(--sage-faint)", color: "var(--sage-dark)", padding: "10px 16px", borderRadius: "10px", textDecoration: "none", fontFamily: "var(--font-hebrew)", fontSize: "14px", fontWeight: 600, border: "1px solid rgba(42,122,110,0.15)" }}>
+                    <SiteIcon name="book" size={14} /> {ARTICLE_TITLES[s]}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* ── RELATED TOOLS ───────────────────────────────── */}
           {relatedTools.length > 0 && (

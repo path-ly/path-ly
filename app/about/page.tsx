@@ -107,7 +107,65 @@ export default function AboutPage() {
       <section className="sec-std" style={{ background: "var(--paper)" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "20px" }}>
 
-          {/* ── 1. Background ─────────────────────────────────── */}
+          {/* ── 1. Specialties ────────────────────────────────── */}
+          <div style={{
+            background: "white", borderRadius: "var(--radius-card-lg)",
+            border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
+            overflow: "hidden",
+          }}>
+            <div className="about-detail-header" style={{
+              padding: "24px 32px",
+              borderBottom: "1px solid var(--border)",
+              display: "flex", alignItems: "center", gap: "14px",
+            }}>
+              <SiteIcon name="search" size={24} />
+              <h2 style={{
+                fontFamily: "var(--font-serif)", fontSize: "22px",
+                fontWeight: 600, color: "var(--charcoal)", margin: 0,
+              }}>תחומי התמחות</h2>
+            </div>
+            <div className="about-detail-body" style={{ padding: "28px 32px" }}>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
+                עבודתי מתמקדת בתחומים המרכזיים הבאים:
+              </p>
+
+              <div className="grid-2col-sm" style={{ marginBottom: "24px" }}>
+                {[
+                  { icon: "heart", cat: "regulation", text: "קשיי ויסות רגשי והתנהגות", sub: "קשיים בקבלת גבולות וסמכות, התמודדות עם תסכול ודחיית סיפוקים וצורך בשליטה" },
+                  { icon: "brain", cat: "learning", text: "הפרעות קשב ולקויות למידה", sub: "עיכוב שפתי והתפתחותי, דיסלקציה, דיסגרפיה, ADD ו-ADHD" },
+                  { icon: "shield", cat: "regulation", text: "התמודדות עם טראומה, חרדה וחיזוק חוסן", sub: null },
+                  { icon: "clipboard", cat: "learning", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך", sub: null },
+                ].map(({ icon, cat, text, sub }) => (
+                  <Link key={text} href={`/library?cat=${cat}`} className="about-specialty-link" style={{
+                    background: "var(--sage-faint)", borderRadius: "14px", padding: "18px 20px",
+                    border: "1px solid rgba(42,122,110,0.15)", display: "flex", gap: "10px", alignItems: "flex-start",
+                    textDecoration: "none", color: "inherit", transition: "border-color 200ms ease, box-shadow 200ms ease",
+                  }}>
+                    <span style={{ flexShrink: 0, display: "inline-flex", marginTop: "3px", color: "var(--sage-dark)" }}><SiteIcon name={icon} size={18} /></span>
+                    <div>
+                      <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.7, margin: 0, fontWeight: 600 }}>
+                        {text}
+                      </p>
+                      {sub && (
+                        <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12.5px", color: "var(--charcoal-muted)", lineHeight: 1.6, margin: "4px 0 0" }}>
+                          {sub}
+                        </p>
+                      )}
+                      <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12.5px", color: "var(--terra-dark)", fontWeight: 600, margin: "8px 0 0" }}>
+                        לתכנים בספרייה ←
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
+                בנוסף אני עובדת עם משפחות סביב קשיים חברתיים, חרדה, עבודה עם ילדים על הרצף האוטיסטי (בתפקוד גבוה בלבד), והדרכת הורים בגיל הרך (יצירת הרגלים וגבולות, הקניית מיומנויות יומיום והתארגנות, גמילות ופיתוח יכולת להבעה רגשית מותאמת).
+              </p>
+            </div>
+          </div>
+
+          {/* ── 2. Background ─────────────────────────────────── */}
           <div style={{
             background: "white", borderRadius: "var(--radius-card-lg)",
             border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
@@ -133,6 +191,7 @@ export default function AboutPage() {
               <div style={{ background: "var(--linen)", borderRadius: "14px", padding: "22px 26px", marginBottom: "20px" }}>
                 <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "13px", fontWeight: 700, color: "var(--charcoal)", marginBottom: "12px" }}>בין התפקידים שמילאתי:</p>
                 {[
+                  "מ2021 ועד היום מרצה במדרשה הארצית לפסיכולוגיה תחת מכללת לוינסקי בקורס ״דיאגנוסטיקה של הילד והמתבגר״ לפסיכולוגים בהסבה",
                   "פסיכולוגית בכירה ומדריכת הורים בשירותים פסיכולוגיים שונים ברחבי הארץ ובמיוחד בדרום ובעוטף עזה",
                   "ניהול והטמעה של ״מלקות ללמידה״ בשדרות",
                   "פסיכולוגית מערכתית של החינוך החברתי ומערכות הגיל הרך בחלק מקיבוצי העוטף",
@@ -148,69 +207,10 @@ export default function AboutPage() {
                 ))}
               </div>
 
-              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
+              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
                 בנוסף הנחיתי קבוצות הורים ואנשי חינוך, בין היתר במרכז מטיב״ה (מרכז לטיפול בבעיות התנהגות בילדים), במרכז דואט של אוניברסיטת בן גוריון ובהכשרות חוסן לאנשי חינוך בעוטף עזה.
               </p>
 
-              <div style={{ background: "var(--terra-faint)", borderRadius: "12px", padding: "18px 22px", border: "1px solid rgba(196,114,122,0.2)" }}>
-                <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--terra-dark)", lineHeight: 1.8, margin: 0 }}>
-                   כיום אני גם מרצה במדרשה לפסיכולוגיה תחת מכללת לוינסקי בקורס ״פסיכו-דיאגנוסטיקה של הילד והמתבגר״ לפסיכולוגים בהסבה מקצועית.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* ── 2. Specialties ────────────────────────────────── */}
-          <div style={{
-            background: "white", borderRadius: "var(--radius-card-lg)",
-            border: "1px solid var(--border)", boxShadow: "var(--shadow-card)",
-            overflow: "hidden",
-          }}>
-            <div className="about-detail-header" style={{
-              padding: "24px 32px",
-              borderBottom: "1px solid var(--border)",
-              display: "flex", alignItems: "center", gap: "14px",
-            }}>
-              <SiteIcon name="search" size={24} />
-              <h2 style={{
-                fontFamily: "var(--font-serif)", fontSize: "22px",
-                fontWeight: 600, color: "var(--charcoal)", margin: 0,
-              }}>תחומי התמחות</h2>
-            </div>
-            <div className="about-detail-body" style={{ padding: "28px 32px" }}>
-              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: "0 0 20px" }}>
-                עבודתי מתמקדת בתחומים המרכזיים הבאים:
-              </p>
-
-              <div className="grid-2col-sm" style={{ marginBottom: "24px" }}>
-                {[
-                  { icon: "heart", text: "קשיי ויסות רגשי והתנהגות", sub: "קשיים בקבלת גבולות וסמכות, התמודדות עם תסכול ודחיית סיפוקים וצורך בשליטה" },
-                  { icon: "brain", text: "הפרעות קשב ולקויות למידה", sub: "עיכוב שפתי והתפתחותי, דיסלקציה, דיסגרפיה, ADD ו-ADHD" },
-                  { icon: "shield", text: "התמודדות עם טראומה, חרדה וחיזוק חוסן", sub: null },
-                  { icon: "clipboard", text: "אבחון ובניית התערבויות מותאמות במערכות החינוך", sub: null },
-                ].map(({ icon, text, sub }) => (
-                  <div key={text} style={{
-                    background: "var(--sage-faint)", borderRadius: "14px", padding: "18px 20px",
-                    border: "1px solid rgba(42,122,110,0.15)", display: "flex", gap: "10px", alignItems: "flex-start",
-                  }}>
-                    <span style={{ flexShrink: 0, display: "inline-flex", marginTop: "3px", color: "var(--sage-dark)" }}><SiteIcon name={icon} size={18} /></span>
-                    <div>
-                      <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "14px", color: "var(--charcoal-soft)", lineHeight: 1.7, margin: 0, fontWeight: 600 }}>
-                        {text}
-                      </p>
-                      {sub && (
-                        <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "12.5px", color: "var(--charcoal-muted)", lineHeight: 1.6, margin: "4px 0 0" }}>
-                          {sub}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <p style={{ fontFamily: "var(--font-hebrew)", fontSize: "15px", color: "var(--charcoal-soft)", lineHeight: 1.9, margin: 0 }}>
-                בנוסף אני עובדת עם משפחות סביב קשיים חברתיים, חרדה, עבודה עם ילדים על הרצף האוטיסטי (בתפקוד גבוה בלבד), והדרכת הורים בגיל הרך (יצירת הרגלים וגבולות, הקניית מיומנויות יומיום והתארגנות, גמילות ופיתוח יכולת להבעה רגשית מותאמת).
-              </p>
             </div>
           </div>
 

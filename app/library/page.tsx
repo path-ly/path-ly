@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import SiteIcon from "@/components/SiteIcon";
 import YouTubeShort from "@/components/YouTubeShort";
 import { LIBRARY_ARTICLES } from "@/lib/library-articles";
@@ -12,6 +12,15 @@ const CATEGORIES = [
   "לקויות למידה וקשב ועיכוב התפתחותי",
 ] as const;
 type Category = "all" | (typeof CATEGORIES)[number];
+
+/** Short URL keys for linking straight to a filtered library: /library?cat=regulation */
+const CATEGORY_URL_KEYS: Record<string, (typeof CATEGORIES)[number]> = {
+  regulation:  "ויסות רגשי וחוסן",
+  family:      "הורות מודעת, טיפוח קשר ויחסים במשפחה",
+  development: "התפתחות ילדים, יצירת הרגלים ושגרות",
+  boundaries:  "סמכות, גבולות ויצירת שיתוף פעולה",
+  learning:    "לקויות למידה וקשב ועיכוב התפתחותי",
+};
 type ContentType = "song" | "poem" | "article" | "book" | "research" | "video";
 
 interface LibraryItem {
@@ -282,6 +291,7 @@ const MANUAL_ITEMS: LibraryItem[] = [
     excerpt:"לזכור את המטרה, להקשיב הקשבה פעילה, לשיים ולתקף רגשות, ולשאול לפני שמציעים עצה — כדי שהמתבגר ימשיך לפנות אליכם.",
     accentColor:"terra", isMine:true,
     youtubeId:"u-NbsBlQRZ4",
+    link:"/library/adolescent_boundaries_autonomy", linkLabel:"למאמר: גבולות בגיל ההתבגרות",
   },
 ];
 
@@ -293,7 +303,7 @@ const ARTICLE_ITEMS: LibraryItem[] = LIBRARY_ARTICLES.map((a, idx) => ({
   creator: "מאיה פלטי",
   tag: a.categories[0],
   emoji: a.icon ?? "book",
-  excerpt: a.seoDescription,
+  excerpt: a.excerpt ?? a.seoDescription,
   accentColor: idx % 2 === 0 ? "sage" : "terra",
   featured: true,
   isMine: true,
@@ -318,7 +328,7 @@ const TOOL_PREVIEWS: { label: string; slug: string; short: string; desc: string 
   { label: "מודלינג", slug: "modeling", short: "הילדים קוראים אותנו כמו ספר פתוח", desc: "הילדים שלנו קוראים אותנו כמו ספר פתוח, לכן עלינו לשים לב לתוכן של הספר." },
   { label: "התאמה התפתחותית", slug: "developmental-fit", short: "לראות את הילד בגובה העיניים שלו", desc: "ציפיות שמתאימות לגיל ולשלב ההתפתחותי מפחיתות תסכול — גם אצל ההורה וגם אצל הילד." },
   { label: "נבואה חיובית", slug: "positive-prophecy", short: "להתמקד בטוב כדי לעזור לו לגדול", desc: "כשאנחנו מזהים ומחזקים את הטוב — הילד לומד לראות את עצמו דרך העיניים האלה." },
-  { label: "שיתוף פעולה", slug: "cooperation", short: "ממאבק להסכמה משותפת", desc: "במקום מאבקי כוח — דרך שבה שני הצדדים מרגישים שנשמעו ושותפים להחלטה." },
+  { label: "שיתוף פעולה", slug: "cooperation", short: "ממאבק לשיתוף פעולה", desc: "במקום מאבקי כוח — דרך שבה שני הצדדים מרגישים שנשמעו ושותפים להחלטה." },
   { label: "חוסן רגשי", slug: "resilience", short: "היכולת לשוב לצורה לאחר לחץ ולצמוח ממנו", desc: "חוסן הוא לא להיות חזק — אלא לדעת ליפול ולקום, ולגדול מהתהליך." },
   { label: "זמן קסם", slug: "magic-time", short: "זמן משותף שיוצר חיבור אישי", desc: "קשר אינטימי מצריך זמן משותף — רגעים קטנים של נוכחות מלאה שבונים ביטחון." },
   { label: "צמיחה מחוזקות", slug: "growth-from-strengths", short: "להכיר ולהשתמש במה שיש", desc: "כשמזהים את החוזקות של הילד ובונים עליהן — הצמיחה באה מתוך ביטחון ולא מתוך חסך." },
@@ -760,6 +770,12 @@ const TYPE_FILTERS: {value:ContentType|"all"; label:string}[] = [
 // ─── Main Page ─────────────────────────────────────────────────────────────────
 export default function LibraryPage() {
   const [category,   setCategory]   = useState<Category>("all");
+
+  // Deep link: /library?cat=<key> opens the library already filtered (used from the About page)
+  useEffect(() => {
+    const key = new URLSearchParams(window.location.search).get("cat");
+    if (key && CATEGORY_URL_KEYS[key]) setCategory(CATEGORY_URL_KEYS[key]);
+  }, []);
   const [typeFilter, setTypeFilter] = useState<ContentType|"all">("all");
   const [search,     setSearch]     = useState("");
   const [mineOnly,   setMineOnly]   = useState(false);

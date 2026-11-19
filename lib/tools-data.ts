@@ -16,6 +16,8 @@ export interface Tool {
   videos: { url: string; label: string }[];
   /** Maya's own video (YouTube id), embedded on the tool card and tool page */
   mayaVideo?: { id: string; title: string };
+  /** 1–2 library article slugs on the same topic, shown on the toolbox page and the tool page */
+  relatedArticles?: string[];
   research: string;
   /** SEO-focused fields */
   seoTitle: string;
@@ -53,6 +55,7 @@ export const TOOLS: Tool[] = [
     seoDescription: "למדו כיצד חמלה עצמית משפרת את היחסים עם ילדיכם. טיפים מעשיים, דוגמאות מהחיים וביסוס מחקרי מפסיכולוגית חינוכית מומחית.",
     seoKeywords: ["חמלה עצמית להורים", "דיבור פנימי הורי", "ויסות רגשי הורים", "אשמת הורים"],
     relatedTools: ["reflectivity", "modeling"],
+    relatedArticles: ["parental_commitment_persistence", "childtantrums"],
   },
   {
     num: "02", slug: "reflectivity", icon: "eye", title: "רפלקטיביות הורית",
@@ -79,6 +82,7 @@ export const TOOLS: Tool[] = [
     seoDescription: "4 שאלות שישנו את האופן שבו אתם מגיבים לילד. כלי רפלקטיביות הורית מבוסס מחקר מנטליזציה עם דוגמאות יישומיות.",
     seoKeywords: ["רפלקטיביות הורית", "מנטליזציה", "הבנת התנהגות ילדים", "ויסות רגשי"],
     relatedTools: ["self-compassion", "cooperation"],
+    relatedArticles: ["child-not-listening", "orchid-dandelion-children-parenting"],
   },
   {
     num: "03", slug: "playfulness", icon: "dice", title: "משחקיות",
@@ -102,6 +106,7 @@ export const TOOLS: Tool[] = [
     seoDescription: "איך להפוך סירובים של ילדים לשיתוף פעולה דרך משחקיות? טיפים מעשיים להפחתת מאבקי כוח עם ילדים בגיל 3-15.",
     seoKeywords: ["משחקיות בהורות", "מאבקי כוח עם ילדים", "סירוב ילדים", "שיתוף פעולה ילדים"],
     relatedTools: ["cooperation", "magic-time"],
+    relatedArticles: ["externalizing-the-problem-parenting", "child-not-listening"],
   },
   {
     num: "04", slug: "modeling", icon: "footprints", title: "מודלינג הורי",
@@ -125,6 +130,7 @@ export const TOOLS: Tool[] = [
     seoDescription: "ילדים לומדים מהמעשים שלנו, לא מהמילים. כלים מעשיים למודלינג ויסות רגשי ותיקון אחרי טעויות הורות.",
     seoKeywords: ["מודלינג הורי", "דוגמה אישית להורים", "ויסות רגשי", "תיקון אחרי צעקות"],
     relatedTools: ["self-compassion", "resilience"],
+    relatedArticles: ["mirror-neurons-parenting", "screenboundaries"],
   },
   {
     num: "05", slug: "developmental-fit", icon: "ruler", title: "התאמה לשלב התפתחותי",
@@ -151,6 +157,7 @@ export const TOOLS: Tool[] = [
     seoDescription: "ציפיות לא מותאמות לגיל יוצרות תסכול הדדי. למדו להתאים את הדרישות ליכולות הילד בגיל 3-15.",
     seoKeywords: ["התפתחות ילדים לפי גיל", "ציפיות הורים", "התנהגות ילדים לפי גיל", "שלבי התפתחות", "גבולות"],
     relatedTools: ["positive-prophecy", "growth-from-strengths"],
+    relatedArticles: ["learningdisabilitiesexpectations", "adolescent_boundaries_autonomy"],
   },
   {
     num: "06", slug: "positive-prophecy", icon: "focus", title: "נבואה חיובית",
@@ -176,11 +183,12 @@ export const TOOLS: Tool[] = [
     seoDescription: "איך להשתמש בציפיות חיוביות כדי לחזק את הדימוי העצמי של ילדכם. כלי מעשי מבוסס אפקט פיגמליון.",
     seoKeywords: ["חיזוק חיובי לילדים", "דימוי עצמי ילדים", "נבואה שמגשימה את עצמה", "ציפיות חיוביות"],
     relatedTools: ["growth-from-strengths", "developmental-fit"],
+    relatedArticles: ["learningdisabilitiesexpectations", "externalizing-the-problem-parenting"],
   },
   {
-    num: "07", slug: "cooperation", icon: "coop", title: "ממאבק להסכמה משותפת",
+    num: "07", slug: "cooperation", icon: "coop", title: "ממאבק לשיתוף פעולה",
     accent: false,
-    short: "ממאבק להסכמה משותפת",
+    short: "ממאבק לשיתוף פעולה",
     desc: "שיתוף פעולה מחייב תנועה למען מטרה משותפת וברוב המקרים אנחנו אוחזים במטרה אחת בעוד לילד מוטיבציה או רצון אחר לגמרי. על מנת לייצר שיתוף פעולה יש צורך ששני הצדדים יסכמו על המטרה ויחליטו יחד על האסטרטגיה להשגתה. זכרו — חינוך עושים בזמנים של קרבה ורוגע ולא בעת סערה ומאבק — בעיתות האלו אף אחד לא יכול ללמוד.",
     tips: [
       "<strong>מניעה —</strong> 1. הקפידו על הטרמה — ילדים כמו כל בני האדם זקוקים לחוויית שליטה, אך זו נמוכה במיוחד בחייהם. ספרו להם מה עומד לקרות ומה מצופה מהם ואל תניחו מראש שהם יסכימו. עסקו באופן שוטף בהכנה ותיאום ציפיות לקראת מצבים שאתם מזהים כמאתגרים ושאלו את הילד מה יעזור לו להתגבר. 2. בחרו את המאבקים שלכם — האם ברור לכם למה אתם מתעקשים? וודאו שכללי הבית ידועים מראש, עיקביים, בהירים ומנוסחים באופן חיובי (בשעה שבע אוכלים ארוחת ערב, בבית שלנו מדברים בכבוד). 3. שימו לב לסימני מצוקה וקושי לפני שהם מגיעים לשיא והעניקו תשומת לב לאתגרים באופן שוטף ומתוכנן.",
@@ -201,10 +209,11 @@ export const TOOLS: Tool[] = [
       { url: "https://www.youtube.com/watch?v=W5DD9ivH1aE", label: "חוקים וגבולות" },
     ],
     research: "Greene, R.W. (2014) — Collaborative & Proactive Solutions · מחקר מראה כי שיתוף פעולה פרואקטיבי מפחית התנהגויות מאתגרות ומחזק מיומנויות רגשיות וחברתיות.",
-    seoTitle: "ממאבק להסכמה משותפת | כלי #7 מארגז הכלים ההורי — מאיה פלטי",
-    seoDescription: "מניעה, עצירת הסלמה, הפקת לקחים ושינוי עמדה — 4 שלבים להסכמה משותפת עם ילדים במקום מאבקי כוח. כלים מעשיים להורים.",
+    seoTitle: "ממאבק לשיתוף פעולה | כלי #7 מארגז הכלים ההורי — מאיה פלטי",
+    seoDescription: "מניעה, עצירת הסלמה, הפקת לקחים ושינוי עמדה — 4 שלבים לשיתוף פעולה עם ילדים במקום מאבקי כוח. כלים מעשיים להורים.",
     seoKeywords: ["מאבקי כוח עם ילדים", "שיתוף פעולה הורים ילדים", "סמכות הורית", "הסלמה עם ילדים", "גבולות"],
     relatedTools: ["playfulness", "reflectivity"],
+    relatedArticles: ["parenting_boundaries", "childtantrums"],
   },
   {
     num: "08", slug: "resilience", icon: "plant", title: "חוסן רגשי",
@@ -232,6 +241,7 @@ export const TOOLS: Tool[] = [
     seoDescription: "חוסן רגשי אינו היעדר קושי אלא היכולת לצמוח ממנו. כלים להורים לבניית חוסן אצל ילדים בגיל 3-15.",
     seoKeywords: ["חוסן רגשי ילדים", "התמודדות עם כישלון ילדים", "חרדות אצל ילדים", "בניית חוסן", "טראומה"],
     relatedTools: ["modeling", "self-compassion"],
+    relatedArticles: ["posttraumaticgrowthchildren", "parenting_boundaries"],
   },
   {
     num: "09", slug: "magic-time", icon: "hourglass", title: "זמן קסם",
@@ -259,6 +269,7 @@ export const TOOLS: Tool[] = [
     seoDescription: "10 דקות ביום שמשנות הכל. כלי זמן קסם בונה אמון, מפחית התנהגויות קשות ומחזק את הקשר ההורי.",
     seoKeywords: ["זמן איכות עם ילדים", "נוכחות הורית", "בניית אמון עם ילדים", "תשומת לב חיובית"],
     relatedTools: ["playfulness", "positive-prophecy"],
+    relatedArticles: ["five-love-languages-parent-child", "adolescent_boundaries_autonomy"],
   },
   {
     num: "10", slug: "growth-from-strengths", icon: "sparkles", title: "צמיחה מחוזקות",
@@ -284,6 +295,7 @@ export const TOOLS: Tool[] = [
     seoDescription: "פסיכולוגיה חיובית בפעולה: איך למקד בחוזקות הילד במקום לתקן חולשות. כלים מעשיים לצמיחה משפחתית.",
     seoKeywords: ["חוזקות ילדים", "פסיכולוגיה חיובית להורים", "קשיי קשב וריכוז", "חיזוק ילדים", "הפרעות קשב"],
     relatedTools: ["positive-prophecy", "developmental-fit"],
+    relatedArticles: ["posttraumaticgrowthchildren", "learningdisabilitiesexpectations"],
   },
 ];
 

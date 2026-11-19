@@ -13,7 +13,7 @@ const TOOLS = [
   { num:"04", icon:"footprints", title:"מודלינג",            desc:"ילדים לומדים מה שאנחנו עושים",               accent:true  },
   { num:"05", icon:"ruler", title:"התאמה התפתחותית", desc:"לראות את הילד בגובה העיניים שלו",          accent:false },
   { num:"06", icon:"focus", title:"נבואה חיובית",  desc:"להתמקד בטוב כדי לעזור לו לגדול",           accent:true  },
-  { num:"07", icon:"coop",  title:"ממאבק להסכמה",  desc:"ממאבק להסכמה משותפת",                       accent:false },
+  { num:"07", icon:"coop",  title:"ממאבק לשיתוף פעולה",  desc:"ממאבק לשיתוף פעולה",                       accent:false },
   { num:"08", icon:"plant", title:"חוסן רגשי",     desc:"להפוך לימונים ללימונדה",                    accent:true  },
   { num:"09", icon:"hourglass", title:"זמן קסם",            desc:"5-20 דקות ביום — הבסיס לקשר",               accent:false },
   { num:"10", icon:"sparkles", title:"צמיחה מחוזקות",     desc:"להכיר ולהשתמש במה שיש",                    accent:true  },

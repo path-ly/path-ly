@@ -159,7 +159,7 @@ const RESEARCH: ToolResearch[] = [
     ],
   },
   {
-    num: "07", toolTitle: "ממאבק להסכמה משותפת", slug: "cooperation", accent: false,
+    num: "07", toolTitle: "ממאבק לשיתוף פעולה", slug: "cooperation", accent: false,
     studies: [
       {
         author: "Weinblatt, U., & Omer, H. (2008). Nonviolent resistance: A treatment for parents of children with acute behavior problems. Journal of Marital and Family Therapy, 34(1), 75–92.",

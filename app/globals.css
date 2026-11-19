@@ -806,3 +806,10 @@ textarea:focus-visible,
     transform: none;
   }
 }
+
+/* About page: expertise cards link to the matching library filter */
+.about-specialty-link:hover,
+.about-specialty-link:focus-visible {
+  border-color: var(--sage) !important;
+  box-shadow: 0 4px 14px rgba(42,122,110,0.12);
+}
